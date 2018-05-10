@@ -7,6 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0880523F20A2EB180018AE6E /* IquorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880523E20A2EB180018AE6E /* IquorViewController.m */; };
+		0880524920A2EB730018AE6E /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524520A2EB730018AE6E /* FileUtils.m */; };
+		0880524A20A2EB730018AE6E /* AFNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524620A2EB730018AE6E /* AFNetworkTool.m */; };
+		0880524B20A2EB730018AE6E /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524720A2EB730018AE6E /* Dialog.m */; };
+		0880524C20A2EB730018AE6E /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524820A2EB730018AE6E /* UIUtils.m */; };
+		0880525020A2EC100018AE6E /* IquorTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524F20A2EC100018AE6E /* IquorTabBarViewController.m */; };
+		0880525320A2EC400018AE6E /* IquorNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880525220A2EC400018AE6E /* IquorNavigationViewController.m */; };
+		0880525620A2ECC10018AE6E /* ShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880525520A2ECC10018AE6E /* ShopViewController.m */; };
+		0880525920A2ED270018AE6E /* ShopCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880525820A2ED270018AE6E /* ShopCartViewController.m */; };
+		0880525C20A2ED330018AE6E /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880525B20A2ED330018AE6E /* MeViewController.m */; };
+		0880525F20A2ED410018AE6E /* ClassesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880525E20A2ED410018AE6E /* ClassesViewController.m */; };
+		0880526220A2ED4D0018AE6E /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880526120A2ED4D0018AE6E /* JoinViewController.m */; };
+		0880526920A338A70018AE6E /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880526820A338A70018AE6E /* UIColor+Extension.m */; };
+		0880526C20A33B790018AE6E /* UIFont+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880526B20A33B790018AE6E /* UIFont+Extension.m */; };
+		0880527020A33F960018AE6E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880526E20A33F960018AE6E /* LoginViewController.m */; };
+		0880527120A33F960018AE6E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0880526F20A33F960018AE6E /* LoginViewController.xib */; };
+		0880527520A3443D0018AE6E /* FirstRegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880527320A3443D0018AE6E /* FirstRegViewController.m */; };
+		0880527620A3443D0018AE6E /* FirstRegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0880527420A3443D0018AE6E /* FirstRegViewController.xib */; };
+		0880527A20A347710018AE6E /* SecondRegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880527820A347710018AE6E /* SecondRegViewController.m */; };
+		0880527B20A347710018AE6E /* SecondRegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0880527920A347710018AE6E /* SecondRegViewController.xib */; };
+		0880527F20A349D00018AE6E /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880527D20A349D00018AE6E /* ResetPasswordViewController.m */; };
+		0880528020A349D00018AE6E /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0880527E20A349D00018AE6E /* ResetPasswordViewController.xib */; };
+		0880529820A354700018AE6E /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0880529620A354700018AE6E /* ChangePasswordViewController.xib */; };
+		0880529920A354700018AE6E /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880529720A354700018AE6E /* ChangePasswordViewController.m */; };
+		088052A020A354950018AE6E /* NikeNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880529A20A354940018AE6E /* NikeNameViewController.m */; };
+		088052A120A354950018AE6E /* NikeNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0880529D20A354950018AE6E /* NikeNameViewController.xib */; };
+		088052A220A354950018AE6E /* SetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0880529E20A354950018AE6E /* SetViewController.xib */; };
+		088052A320A354950018AE6E /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880529F20A354950018AE6E /* SetViewController.m */; };
+		088052A720A354A40018AE6E /* MeConfigTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 088052A420A354A40018AE6E /* MeConfigTableViewCell.xib */; };
+		088052A820A354A40018AE6E /* MeConfigTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 088052A520A354A40018AE6E /* MeConfigTableViewCell.m */; };
+		088052AB20A356980018AE6E /* MeConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 088052AA20A356980018AE6E /* MeConfigView.m */; };
+		088052AD20A356A90018AE6E /* MeConfigView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 088052AC20A356A90018AE6E /* MeConfigView.xib */; };
+		088052B120A359750018AE6E /* LPPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 088052B020A359750018AE6E /* LPPopup.m */; };
+		088052B420A35A5B0018AE6E /* PDDDataManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 088052B220A35A5B0018AE6E /* PDDDataManger.m */; };
+		088052BA20A35A9C0018AE6E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 088052B920A35A9C0018AE6E /* BaseModel.m */; };
 		08E4642E20A2E7B900E405DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4642D20A2E7B900E405DB /* AppDelegate.m */; };
 		08E4643120A2E7B900E405DB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4643020A2E7B900E405DB /* ViewController.m */; };
 		08E4643420A2E7B900E405DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E4643220A2E7B900E405DB /* Main.storyboard */; };
@@ -15,6 +50,9 @@
 		08E4643C20A2E7B900E405DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4643B20A2E7B900E405DB /* main.m */; };
 		08E4644620A2E7B900E405DB /* IquorShoppingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4644520A2E7B900E405DB /* IquorShoppingTests.m */; };
 		08E4645120A2E7B900E405DB /* IquorShoppingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4645020A2E7B900E405DB /* IquorShoppingUITests.m */; };
+		1A099031B18DA7D1580389EE /* libPods-IquorShopping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B24F8520DB163081C6C3D09 /* libPods-IquorShopping.a */; };
+		55F36C60CFEB8D8FE0A0EA7E /* libPods-IquorShoppingUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F45D40AB9D001EA5225FCD25 /* libPods-IquorShoppingUITests.a */; };
+		FD6F4D6565F63018B62D589D /* libPods-IquorShoppingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 292E4C7C26E5AC99EAB3C6A5 /* libPods-IquorShoppingTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +73,70 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0880523D20A2EB180018AE6E /* IquorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IquorViewController.h; sourceTree = "<group>"; };
+		0880523E20A2EB180018AE6E /* IquorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorViewController.m; sourceTree = "<group>"; };
+		0880524120A2EB730018AE6E /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
+		0880524220A2EB730018AE6E /* AFNetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkTool.h; sourceTree = "<group>"; };
+		0880524320A2EB730018AE6E /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
+		0880524420A2EB730018AE6E /* UIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUtils.h; sourceTree = "<group>"; };
+		0880524520A2EB730018AE6E /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
+		0880524620A2EB730018AE6E /* AFNetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkTool.m; sourceTree = "<group>"; };
+		0880524720A2EB730018AE6E /* Dialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dialog.m; sourceTree = "<group>"; };
+		0880524820A2EB730018AE6E /* UIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUtils.m; sourceTree = "<group>"; };
+		0880524E20A2EC100018AE6E /* IquorTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IquorTabBarViewController.h; sourceTree = "<group>"; };
+		0880524F20A2EC100018AE6E /* IquorTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorTabBarViewController.m; sourceTree = "<group>"; };
+		0880525120A2EC400018AE6E /* IquorNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IquorNavigationViewController.h; sourceTree = "<group>"; };
+		0880525220A2EC400018AE6E /* IquorNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorNavigationViewController.m; sourceTree = "<group>"; };
+		0880525420A2ECC10018AE6E /* ShopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopViewController.h; sourceTree = "<group>"; };
+		0880525520A2ECC10018AE6E /* ShopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopViewController.m; sourceTree = "<group>"; };
+		0880525720A2ED270018AE6E /* ShopCartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopCartViewController.h; sourceTree = "<group>"; };
+		0880525820A2ED270018AE6E /* ShopCartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopCartViewController.m; sourceTree = "<group>"; };
+		0880525A20A2ED330018AE6E /* MeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		0880525B20A2ED330018AE6E /* MeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
+		0880525D20A2ED410018AE6E /* ClassesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassesViewController.h; sourceTree = "<group>"; };
+		0880525E20A2ED410018AE6E /* ClassesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassesViewController.m; sourceTree = "<group>"; };
+		0880526020A2ED4D0018AE6E /* JoinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
+		0880526120A2ED4D0018AE6E /* JoinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JoinViewController.m; sourceTree = "<group>"; };
+		0880526420A2F8AE0018AE6E /* CommonHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
+		0880526520A2F8AE0018AE6E /* HttpConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConstant.h; sourceTree = "<group>"; };
+		0880526720A338A70018AE6E /* UIColor+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		0880526820A338A70018AE6E /* UIColor+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
+		0880526A20A33B790018AE6E /* UIFont+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+Extension.h"; sourceTree = "<group>"; };
+		0880526B20A33B790018AE6E /* UIFont+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Extension.m"; sourceTree = "<group>"; };
+		0880526D20A33F960018AE6E /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		0880526E20A33F960018AE6E /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		0880526F20A33F960018AE6E /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		0880527220A3443D0018AE6E /* FirstRegViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstRegViewController.h; sourceTree = "<group>"; };
+		0880527320A3443D0018AE6E /* FirstRegViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstRegViewController.m; sourceTree = "<group>"; };
+		0880527420A3443D0018AE6E /* FirstRegViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstRegViewController.xib; sourceTree = "<group>"; };
+		0880527720A347710018AE6E /* SecondRegViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondRegViewController.h; sourceTree = "<group>"; };
+		0880527820A347710018AE6E /* SecondRegViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondRegViewController.m; sourceTree = "<group>"; };
+		0880527920A347710018AE6E /* SecondRegViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondRegViewController.xib; sourceTree = "<group>"; };
+		0880527C20A349D00018AE6E /* ResetPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
+		0880527D20A349D00018AE6E /* ResetPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
+		0880527E20A349D00018AE6E /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
+		0880529520A354700018AE6E /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
+		0880529620A354700018AE6E /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
+		0880529720A354700018AE6E /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
+		0880529A20A354940018AE6E /* NikeNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NikeNameViewController.m; sourceTree = "<group>"; };
+		0880529B20A354940018AE6E /* NikeNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NikeNameViewController.h; sourceTree = "<group>"; };
+		0880529C20A354950018AE6E /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
+		0880529D20A354950018AE6E /* NikeNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NikeNameViewController.xib; sourceTree = "<group>"; };
+		0880529E20A354950018AE6E /* SetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetViewController.xib; sourceTree = "<group>"; };
+		0880529F20A354950018AE6E /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
+		088052A420A354A40018AE6E /* MeConfigTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeConfigTableViewCell.xib; sourceTree = "<group>"; };
+		088052A520A354A40018AE6E /* MeConfigTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeConfigTableViewCell.m; sourceTree = "<group>"; };
+		088052A620A354A40018AE6E /* MeConfigTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeConfigTableViewCell.h; sourceTree = "<group>"; };
+		088052A920A356980018AE6E /* MeConfigView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeConfigView.h; sourceTree = "<group>"; };
+		088052AA20A356980018AE6E /* MeConfigView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeConfigView.m; sourceTree = "<group>"; };
+		088052AC20A356A90018AE6E /* MeConfigView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeConfigView.xib; sourceTree = "<group>"; };
+		088052AE20A358820018AE6E /* PrefixHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
+		088052AF20A359740018AE6E /* LPPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPPopup.h; sourceTree = "<group>"; };
+		088052B020A359750018AE6E /* LPPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPPopup.m; sourceTree = "<group>"; };
+		088052B220A35A5B0018AE6E /* PDDDataManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDDataManger.m; sourceTree = "<group>"; };
+		088052B320A35A5B0018AE6E /* PDDDataManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDDataManger.h; sourceTree = "<group>"; };
+		088052B820A35A9B0018AE6E /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		088052B920A35A9C0018AE6E /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		08E4642920A2E7B900E405DB /* IquorShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IquorShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08E4642C20A2E7B900E405DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08E4642D20A2E7B900E405DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +153,15 @@
 		08E4644C20A2E7B900E405DB /* IquorShoppingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IquorShoppingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08E4645020A2E7B900E405DB /* IquorShoppingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorShoppingUITests.m; sourceTree = "<group>"; };
 		08E4645220A2E7B900E405DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13F710C71AAFD98592E9A53D /* Pods-IquorShopping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IquorShopping.release.xcconfig"; path = "Pods/Target Support Files/Pods-IquorShopping/Pods-IquorShopping.release.xcconfig"; sourceTree = "<group>"; };
+		1B24F8520DB163081C6C3D09 /* libPods-IquorShopping.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IquorShopping.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		226CF5847751A43E39E91E00 /* Pods-IquorShoppingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IquorShoppingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IquorShoppingTests/Pods-IquorShoppingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		23C1CD0625CD58003E04992E /* Pods-IquorShoppingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IquorShoppingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IquorShoppingTests/Pods-IquorShoppingTests.release.xcconfig"; sourceTree = "<group>"; };
+		292E4C7C26E5AC99EAB3C6A5 /* libPods-IquorShoppingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IquorShoppingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		47C72D46BF504677539BAE07 /* Pods-IquorShoppingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IquorShoppingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IquorShoppingUITests/Pods-IquorShoppingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7AB5B1FCD64E19A02F91A7E0 /* Pods-IquorShoppingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IquorShoppingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IquorShoppingUITests/Pods-IquorShoppingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AAE3AC935DD5D2270A399438 /* Pods-IquorShopping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IquorShopping.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IquorShopping/Pods-IquorShopping.debug.xcconfig"; sourceTree = "<group>"; };
+		F45D40AB9D001EA5225FCD25 /* libPods-IquorShoppingUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IquorShoppingUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A099031B18DA7D1580389EE /* libPods-IquorShopping.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD6F4D6565F63018B62D589D /* libPods-IquorShoppingTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +185,285 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55F36C60CFEB8D8FE0A0EA7E /* libPods-IquorShoppingUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0880522520A2EAD90018AE6E /* Thirds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Thirds;
+			sourceTree = "<group>";
+		};
+		0880522620A2EAD90018AE6E /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				0880526620A3387D0018AE6E /* Classes */,
+				0880524020A2EB730018AE6E /* Tools */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		0880522720A2EAD90018AE6E /* Bussiness */ = {
+			isa = PBXGroup;
+			children = (
+				0880522820A2EAD90018AE6E /* Join */,
+				0880522C20A2EAD90018AE6E /* Classes */,
+				0880523020A2EAD90018AE6E /* Shop */,
+				0880523420A2EAD90018AE6E /* ShopCart */,
+				0880523820A2EAD90018AE6E /* Me */,
+			);
+			path = Bussiness;
+			sourceTree = "<group>";
+		};
+		0880522820A2EAD90018AE6E /* Join */ = {
+			isa = PBXGroup;
+			children = (
+				0880522920A2EAD90018AE6E /* Controller */,
+				0880522A20A2EAD90018AE6E /* Model */,
+				0880522B20A2EAD90018AE6E /* View */,
+			);
+			path = Join;
+			sourceTree = "<group>";
+		};
+		0880522920A2EAD90018AE6E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0880526020A2ED4D0018AE6E /* JoinViewController.h */,
+				0880526120A2ED4D0018AE6E /* JoinViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0880522A20A2EAD90018AE6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0880522B20A2EAD90018AE6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0880522C20A2EAD90018AE6E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0880522D20A2EAD90018AE6E /* Controller */,
+				0880522E20A2EAD90018AE6E /* Model */,
+				0880522F20A2EAD90018AE6E /* View */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0880522D20A2EAD90018AE6E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0880525D20A2ED410018AE6E /* ClassesViewController.h */,
+				0880525E20A2ED410018AE6E /* ClassesViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0880522E20A2EAD90018AE6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0880522F20A2EAD90018AE6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0880523020A2EAD90018AE6E /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				0880523120A2EAD90018AE6E /* Controller */,
+				0880523220A2EAD90018AE6E /* Model */,
+				0880523320A2EAD90018AE6E /* View */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		0880523120A2EAD90018AE6E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0880525420A2ECC10018AE6E /* ShopViewController.h */,
+				0880525520A2ECC10018AE6E /* ShopViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0880523220A2EAD90018AE6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0880523320A2EAD90018AE6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0880523420A2EAD90018AE6E /* ShopCart */ = {
+			isa = PBXGroup;
+			children = (
+				0880523520A2EAD90018AE6E /* Controller */,
+				0880523620A2EAD90018AE6E /* Model */,
+				0880523720A2EAD90018AE6E /* View */,
+			);
+			path = ShopCart;
+			sourceTree = "<group>";
+		};
+		0880523520A2EAD90018AE6E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0880525720A2ED270018AE6E /* ShopCartViewController.h */,
+				0880525820A2ED270018AE6E /* ShopCartViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0880523620A2EAD90018AE6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0880523720A2EAD90018AE6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0880523820A2EAD90018AE6E /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				0880523920A2EAD90018AE6E /* Controller */,
+				0880523A20A2EAD90018AE6E /* Model */,
+				0880523B20A2EAD90018AE6E /* View */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		0880523920A2EAD90018AE6E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0880525A20A2ED330018AE6E /* MeViewController.h */,
+				0880525B20A2ED330018AE6E /* MeViewController.m */,
+				0880526D20A33F960018AE6E /* LoginViewController.h */,
+				0880526E20A33F960018AE6E /* LoginViewController.m */,
+				0880526F20A33F960018AE6E /* LoginViewController.xib */,
+				0880527220A3443D0018AE6E /* FirstRegViewController.h */,
+				0880527320A3443D0018AE6E /* FirstRegViewController.m */,
+				0880527420A3443D0018AE6E /* FirstRegViewController.xib */,
+				0880527720A347710018AE6E /* SecondRegViewController.h */,
+				0880527820A347710018AE6E /* SecondRegViewController.m */,
+				0880527920A347710018AE6E /* SecondRegViewController.xib */,
+				0880527C20A349D00018AE6E /* ResetPasswordViewController.h */,
+				0880527D20A349D00018AE6E /* ResetPasswordViewController.m */,
+				0880527E20A349D00018AE6E /* ResetPasswordViewController.xib */,
+				0880529520A354700018AE6E /* ChangePasswordViewController.h */,
+				0880529720A354700018AE6E /* ChangePasswordViewController.m */,
+				0880529620A354700018AE6E /* ChangePasswordViewController.xib */,
+				0880529B20A354940018AE6E /* NikeNameViewController.h */,
+				0880529A20A354940018AE6E /* NikeNameViewController.m */,
+				0880529D20A354950018AE6E /* NikeNameViewController.xib */,
+				0880529C20A354950018AE6E /* SetViewController.h */,
+				0880529F20A354950018AE6E /* SetViewController.m */,
+				0880529E20A354950018AE6E /* SetViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0880523A20A2EAD90018AE6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0880523B20A2EAD90018AE6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				088052A620A354A40018AE6E /* MeConfigTableViewCell.h */,
+				088052A520A354A40018AE6E /* MeConfigTableViewCell.m */,
+				088052A420A354A40018AE6E /* MeConfigTableViewCell.xib */,
+				088052A920A356980018AE6E /* MeConfigView.h */,
+				088052AA20A356980018AE6E /* MeConfigView.m */,
+				088052AC20A356A90018AE6E /* MeConfigView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0880523C20A2EAD90018AE6E /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		0880524020A2EB730018AE6E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				088052AF20A359740018AE6E /* LPPopup.h */,
+				088052B020A359750018AE6E /* LPPopup.m */,
+				0880524120A2EB730018AE6E /* Dialog.h */,
+				0880524220A2EB730018AE6E /* AFNetworkTool.h */,
+				0880524320A2EB730018AE6E /* FileUtils.h */,
+				0880524420A2EB730018AE6E /* UIUtils.h */,
+				0880524520A2EB730018AE6E /* FileUtils.m */,
+				0880524620A2EB730018AE6E /* AFNetworkTool.m */,
+				0880524720A2EB730018AE6E /* Dialog.m */,
+				0880524820A2EB730018AE6E /* UIUtils.m */,
+				088052B320A35A5B0018AE6E /* PDDDataManger.h */,
+				088052B220A35A5B0018AE6E /* PDDDataManger.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		0880524D20A2EBF40018AE6E /* Rebase */ = {
+			isa = PBXGroup;
+			children = (
+				0880524E20A2EC100018AE6E /* IquorTabBarViewController.h */,
+				0880524F20A2EC100018AE6E /* IquorTabBarViewController.m */,
+				0880525120A2EC400018AE6E /* IquorNavigationViewController.h */,
+				0880525220A2EC400018AE6E /* IquorNavigationViewController.m */,
+				0880526420A2F8AE0018AE6E /* CommonHeader.h */,
+				0880526520A2F8AE0018AE6E /* HttpConstant.h */,
+				088052B820A35A9B0018AE6E /* BaseModel.h */,
+				088052B920A35A9C0018AE6E /* BaseModel.m */,
+			);
+			path = Rebase;
+			sourceTree = "<group>";
+		};
+		0880526620A3387D0018AE6E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0880526720A338A70018AE6E /* UIColor+Extension.h */,
+				0880526820A338A70018AE6E /* UIColor+Extension.m */,
+				0880526A20A33B790018AE6E /* UIFont+Extension.h */,
+				0880526B20A33B790018AE6E /* UIFont+Extension.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		08E4642020A2E7B900E405DB = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +471,8 @@
 				08E4644420A2E7B900E405DB /* IquorShoppingTests */,
 				08E4644F20A2E7B900E405DB /* IquorShoppingUITests */,
 				08E4642A20A2E7B900E405DB /* Products */,
+				9C425FD98446E2F3A5E0ABAE /* Pods */,
+				134D5D1ED14E4A186BE30363 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,14 +489,22 @@
 		08E4642B20A2E7B900E405DB /* IquorShopping */ = {
 			isa = PBXGroup;
 			children = (
+				0880524D20A2EBF40018AE6E /* Rebase */,
+				0880522720A2EAD90018AE6E /* Bussiness */,
+				0880523C20A2EAD90018AE6E /* Resource */,
+				0880522520A2EAD90018AE6E /* Thirds */,
+				0880522620A2EAD90018AE6E /* Vendor */,
 				08E4642C20A2E7B900E405DB /* AppDelegate.h */,
 				08E4642D20A2E7B900E405DB /* AppDelegate.m */,
 				08E4642F20A2E7B900E405DB /* ViewController.h */,
 				08E4643020A2E7B900E405DB /* ViewController.m */,
+				0880523D20A2EB180018AE6E /* IquorViewController.h */,
+				0880523E20A2EB180018AE6E /* IquorViewController.m */,
 				08E4643220A2E7B900E405DB /* Main.storyboard */,
 				08E4643520A2E7B900E405DB /* Assets.xcassets */,
 				08E4643720A2E7B900E405DB /* LaunchScreen.storyboard */,
 				08E4643A20A2E7B900E405DB /* Info.plist */,
+				088052AE20A358820018AE6E /* PrefixHeader.h */,
 				08E4643B20A2E7B900E405DB /* main.m */,
 			);
 			path = IquorShopping;
@@ -132,6 +528,29 @@
 			path = IquorShoppingUITests;
 			sourceTree = "<group>";
 		};
+		134D5D1ED14E4A186BE30363 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B24F8520DB163081C6C3D09 /* libPods-IquorShopping.a */,
+				292E4C7C26E5AC99EAB3C6A5 /* libPods-IquorShoppingTests.a */,
+				F45D40AB9D001EA5225FCD25 /* libPods-IquorShoppingUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C425FD98446E2F3A5E0ABAE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AAE3AC935DD5D2270A399438 /* Pods-IquorShopping.debug.xcconfig */,
+				13F710C71AAFD98592E9A53D /* Pods-IquorShopping.release.xcconfig */,
+				226CF5847751A43E39E91E00 /* Pods-IquorShoppingTests.debug.xcconfig */,
+				23C1CD0625CD58003E04992E /* Pods-IquorShoppingTests.release.xcconfig */,
+				47C72D46BF504677539BAE07 /* Pods-IquorShoppingUITests.debug.xcconfig */,
+				7AB5B1FCD64E19A02F91A7E0 /* Pods-IquorShoppingUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +558,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08E4645520A2E7B900E405DB /* Build configuration list for PBXNativeTarget "IquorShopping" */;
 			buildPhases = (
+				21A5CF49253CEC3A9910E7BE /* [CP] Check Pods Manifest.lock */,
 				08E4642520A2E7B900E405DB /* Sources */,
 				08E4642620A2E7B900E405DB /* Frameworks */,
 				08E4642720A2E7B900E405DB /* Resources */,
+				40A2B698815DBC681AAC2309 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,6 +577,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08E4645820A2E7B900E405DB /* Build configuration list for PBXNativeTarget "IquorShoppingTests" */;
 			buildPhases = (
+				33934123C87A0C509155D44E /* [CP] Check Pods Manifest.lock */,
 				08E4643D20A2E7B900E405DB /* Sources */,
 				08E4643E20A2E7B900E405DB /* Frameworks */,
 				08E4643F20A2E7B900E405DB /* Resources */,
@@ -174,6 +596,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08E4645B20A2E7B900E405DB /* Build configuration list for PBXNativeTarget "IquorShoppingUITests" */;
 			buildPhases = (
+				5AB4AF5E80E46BC2D8510D4A /* [CP] Check Pods Manifest.lock */,
 				08E4644820A2E7B900E405DB /* Sources */,
 				08E4644920A2E7B900E405DB /* Frameworks */,
 				08E4644A20A2E7B900E405DB /* Resources */,
@@ -235,9 +658,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				088052AD20A356A90018AE6E /* MeConfigView.xib in Resources */,
+				0880527120A33F960018AE6E /* LoginViewController.xib in Resources */,
+				088052A220A354950018AE6E /* SetViewController.xib in Resources */,
+				088052A720A354A40018AE6E /* MeConfigTableViewCell.xib in Resources */,
 				08E4643920A2E7B900E405DB /* LaunchScreen.storyboard in Resources */,
+				0880529820A354700018AE6E /* ChangePasswordViewController.xib in Resources */,
+				088052A120A354950018AE6E /* NikeNameViewController.xib in Resources */,
+				0880528020A349D00018AE6E /* ResetPasswordViewController.xib in Resources */,
+				0880527620A3443D0018AE6E /* FirstRegViewController.xib in Resources */,
 				08E4643620A2E7B900E405DB /* Assets.xcassets in Resources */,
 				08E4643420A2E7B900E405DB /* Main.storyboard in Resources */,
+				0880527B20A347710018AE6E /* SecondRegViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,14 +689,125 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		21A5CF49253CEC3A9910E7BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IquorShopping-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		33934123C87A0C509155D44E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IquorShoppingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40A2B698815DBC681AAC2309 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-IquorShopping/Pods-IquorShopping-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoActionSheet.xib",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowserCell.xib",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowser.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoActionSheet.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoBrowserCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoBrowser.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IquorShopping/Pods-IquorShopping-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5AB4AF5E80E46BC2D8510D4A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IquorShoppingUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		08E4642520A2E7B900E405DB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				088052B120A359750018AE6E /* LPPopup.m in Sources */,
+				0880524920A2EB730018AE6E /* FileUtils.m in Sources */,
 				08E4643120A2E7B900E405DB /* ViewController.m in Sources */,
+				0880525920A2ED270018AE6E /* ShopCartViewController.m in Sources */,
+				0880526920A338A70018AE6E /* UIColor+Extension.m in Sources */,
+				088052AB20A356980018AE6E /* MeConfigView.m in Sources */,
+				088052B420A35A5B0018AE6E /* PDDDataManger.m in Sources */,
 				08E4643C20A2E7B900E405DB /* main.m in Sources */,
+				0880525620A2ECC10018AE6E /* ShopViewController.m in Sources */,
+				0880525320A2EC400018AE6E /* IquorNavigationViewController.m in Sources */,
+				0880527F20A349D00018AE6E /* ResetPasswordViewController.m in Sources */,
+				0880524C20A2EB730018AE6E /* UIUtils.m in Sources */,
+				0880526220A2ED4D0018AE6E /* JoinViewController.m in Sources */,
+				088052A020A354950018AE6E /* NikeNameViewController.m in Sources */,
+				0880527A20A347710018AE6E /* SecondRegViewController.m in Sources */,
+				088052A820A354A40018AE6E /* MeConfigTableViewCell.m in Sources */,
+				0880524A20A2EB730018AE6E /* AFNetworkTool.m in Sources */,
+				088052BA20A35A9C0018AE6E /* BaseModel.m in Sources */,
+				0880526C20A33B790018AE6E /* UIFont+Extension.m in Sources */,
 				08E4642E20A2E7B900E405DB /* AppDelegate.m in Sources */,
+				0880525C20A2ED330018AE6E /* MeViewController.m in Sources */,
+				0880527520A3443D0018AE6E /* FirstRegViewController.m in Sources */,
+				088052A320A354950018AE6E /* SetViewController.m in Sources */,
+				0880524B20A2EB730018AE6E /* Dialog.m in Sources */,
+				0880527020A33F960018AE6E /* LoginViewController.m in Sources */,
+				0880525F20A2ED410018AE6E /* ClassesViewController.m in Sources */,
+				0880529920A354700018AE6E /* ChangePasswordViewController.m in Sources */,
+				0880523F20A2EB180018AE6E /* IquorViewController.m in Sources */,
+				0880525020A2EC100018AE6E /* IquorTabBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,9 +974,11 @@
 		};
 		08E4645620A2E7B900E405DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAE3AC935DD5D2270A399438 /* Pods-IquorShopping.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/IquorShopping/PrefixHeader.h";
 				INFOPLIST_FILE = IquorShopping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -447,9 +992,11 @@
 		};
 		08E4645720A2E7B900E405DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13F710C71AAFD98592E9A53D /* Pods-IquorShopping.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/IquorShopping/PrefixHeader.h";
 				INFOPLIST_FILE = IquorShopping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -463,6 +1010,7 @@
 		};
 		08E4645920A2E7B900E405DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 226CF5847751A43E39E91E00 /* Pods-IquorShoppingTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -481,6 +1029,7 @@
 		};
 		08E4645A20A2E7B900E405DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23C1CD0625CD58003E04992E /* Pods-IquorShoppingTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -499,6 +1048,7 @@
 		};
 		08E4645C20A2E7B900E405DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47C72D46BF504677539BAE07 /* Pods-IquorShoppingUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = IquorShoppingUITests/Info.plist;
@@ -516,6 +1066,7 @@
 		};
 		08E4645D20A2E7B900E405DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AB5B1FCD64E19A02F91A7E0 /* Pods-IquorShoppingUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = IquorShoppingUITests/Info.plist;

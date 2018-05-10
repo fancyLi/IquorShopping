@@ -13,5 +13,8 @@
 @property (strong, nonatomic) UIWindow *window;
 
 
+//cookie过期重新登录
+- (void)cookieExpire;
+
 @end
 

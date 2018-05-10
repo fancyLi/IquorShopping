@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "IquorTabBarViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    [self.window makeKeyAndVisible];
+    self.window.rootViewController = [[IquorTabBarViewController alloc]init];
     return YES;
 }
 
@@ -47,5 +54,9 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+- (void)cookieExpire {
+    
+}
 
 @end
