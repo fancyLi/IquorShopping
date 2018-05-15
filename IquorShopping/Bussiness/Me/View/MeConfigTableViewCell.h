@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MeConfigModel;
 
+@protocol MeConfigTableViewCellDelegate <NSObject>
+- (void)selectedConfigModel:(MeConfigModel *)cm;
+@end
 @interface MeConfigTableViewCell : UITableViewCell
+@property (nonatomic, assign) id<MeConfigTableViewCellDelegate> delegate;
+@property (nonatomic, strong) NSArray<MeConfigModel *> *cellModel;
 
 @end

@@ -25,4 +25,6 @@
 + (UIColor *)c_333Color;
 
 + (UIColor *)c_f6f6Color;
+
++ (UIColor *)c_e8e8Color;
 @end

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeConfigTableViewCell"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="79" id="KGk-i7-Jjw" customClass="MeConfigTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="327" height="79"/>
@@ -21,48 +21,16 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8RM-1G-PkH">
                         <rect key="frame" x="10" y="0.0" width="317" height="1"/>
-                        <color key="backgroundColor" red="0.80000000000000004" green="0.12549019610000001" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="H1O-A1-DdH"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cW5-sZ-OIc" customClass="MeConfigView">
-                        <rect key="frame" x="0.0" y="1" width="82" height="77.5"/>
-                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVd-bn-HbL" customClass="MeConfigView">
-                        <rect key="frame" x="82" y="1" width="81.5" height="77.5"/>
-                        <color key="backgroundColor" red="0.80000000000000004" green="0.0078431372550000003" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZiH-KR-E4T" customClass="MeConfigView">
-                        <rect key="frame" x="163.5" y="1" width="82" height="77.5"/>
-                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WeV-le-mqy" customClass="MeConfigView">
-                        <rect key="frame" x="245.5" y="1" width="81.5" height="77.5"/>
-                        <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="8RM-1G-PkH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="94L-Af-aZ8"/>
-                    <constraint firstAttribute="trailing" secondItem="WeV-le-mqy" secondAttribute="trailing" id="BGx-ZI-snJ"/>
-                    <constraint firstItem="cW5-sZ-OIc" firstAttribute="top" secondItem="8RM-1G-PkH" secondAttribute="bottom" id="Bhd-ns-KTS"/>
-                    <constraint firstItem="WeV-le-mqy" firstAttribute="leading" secondItem="ZiH-KR-E4T" secondAttribute="trailing" id="Cqi-iI-I6j"/>
-                    <constraint firstAttribute="bottom" secondItem="cW5-sZ-OIc" secondAttribute="bottom" id="EF2-2f-4Q3"/>
-                    <constraint firstItem="cW5-sZ-OIc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="EsB-GD-P6Q"/>
-                    <constraint firstItem="KVd-bn-HbL" firstAttribute="top" secondItem="8RM-1G-PkH" secondAttribute="bottom" id="FpI-93-P2J"/>
-                    <constraint firstItem="cW5-sZ-OIc" firstAttribute="width" secondItem="WeV-le-mqy" secondAttribute="width" id="IcH-cm-Dhz"/>
-                    <constraint firstAttribute="bottom" secondItem="WeV-le-mqy" secondAttribute="bottom" id="Pso-fF-Qid"/>
-                    <constraint firstItem="WeV-le-mqy" firstAttribute="top" secondItem="8RM-1G-PkH" secondAttribute="bottom" id="Pyc-6b-CqE"/>
-                    <constraint firstAttribute="bottom" secondItem="ZiH-KR-E4T" secondAttribute="bottom" id="SII-xN-gzr"/>
-                    <constraint firstItem="ZiH-KR-E4T" firstAttribute="top" secondItem="8RM-1G-PkH" secondAttribute="bottom" id="Wbl-xV-fdE"/>
-                    <constraint firstItem="KVd-bn-HbL" firstAttribute="leading" secondItem="cW5-sZ-OIc" secondAttribute="trailing" id="ZhM-Fr-2v0"/>
-                    <constraint firstItem="cW5-sZ-OIc" firstAttribute="width" secondItem="KVd-bn-HbL" secondAttribute="width" id="aXM-Zm-Tyg"/>
                     <constraint firstItem="8RM-1G-PkH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ajo-9C-jT6"/>
                     <constraint firstAttribute="trailing" secondItem="8RM-1G-PkH" secondAttribute="trailing" id="koI-2b-pdd"/>
-                    <constraint firstAttribute="bottom" secondItem="KVd-bn-HbL" secondAttribute="bottom" id="lEm-ea-S08"/>
-                    <constraint firstItem="ZiH-KR-E4T" firstAttribute="leading" secondItem="KVd-bn-HbL" secondAttribute="trailing" id="owc-C4-UWW"/>
-                    <constraint firstItem="cW5-sZ-OIc" firstAttribute="width" secondItem="ZiH-KR-E4T" secondAttribute="width" id="yzm-ge-htL"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>

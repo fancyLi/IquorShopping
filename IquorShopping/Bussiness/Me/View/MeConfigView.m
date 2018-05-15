@@ -7,15 +7,22 @@
 //
 
 #import "MeConfigView.h"
+#import "MeConfigModel.h"
+
+@interface MeConfigView ()
+@end
+
 
 @implementation MeConfigView
+- (void)awakeFromNib {
+    [super awakeFromNib];
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
 }
-*/
+- (void)setConfigModel:(MeConfigModel *)configModel {
+   
+    _configModel = configModel;
+    self.icon.image = [UIImage imageNamed:_configModel.iconName];
+    self.title.text = _configModel.decTitle;
+}
 
 @end

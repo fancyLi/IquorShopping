@@ -7,16 +7,22 @@
 //
 
 #import "MeViewController.h"
-
-@interface MeViewController ()
-
+#import "MeConfigTableViewCell.h"
+#import "MeHeaderTableView.h"
+#import "MeSectionTableView.h"
+#import "MeConfigModel.h"
+@interface MeViewController ()<UITableViewDelegate, UITableViewDataSource, MeConfigTableViewCellDelegate>
+@property (nonatomic, strong) UITableView *meTableview;
+@property (nonatomic, strong) MeHeaderTableView *configView;
+@property (nonatomic, strong) MeConfigModel *configModel;
 @end
 
 @implementation MeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self.view addSubview:self.meTableview];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +30,60 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark UITableViewDataSource & UITableViewDelegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
 }
-*/
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0 || section == 1) {
+        return 1;
+    }else {
+        return 2;
+    }
+}
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MeConfigTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MeConfigTableViewCell class])];
+    cell.delegate = self;
+    cell.cellModel = _configModel.configModels[indexPath.section][indexPath.row];
+    return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    MeSectionTableView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"MeSectionTableView" owner:self options:nil] firstObject];
+    headerView.section = section;
+    return headerView;
+}
+#pragma mark MeConfigTableViewCellDelegate
+- (void)selectedConfigModel:(MeConfigModel *)cm {
+    Class cls = NSClassFromString(cm.className);
+    UIViewController *vc = [[cls alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+#pragma mark set & get
+- (UITableView *)meTableview {
+    if (!_meTableview) {
+        _meTableview = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _meTableview.dataSource = self;
+        _meTableview.delegate = self;
+        _meTableview.rowHeight = 100;
+        _meTableview.sectionFooterHeight = 0.1;
+        _meTableview.sectionHeaderHeight = 50;
+        _meTableview.backgroundColor = [UIColor c_f6f6Color];
+        _meTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [_meTableview registerNib:[UINib nibWithNibName:@"MeConfigTableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([MeConfigTableViewCell class])];
+        _meTableview.tableHeaderView = self.configView;
+        _configModel = [[MeConfigModel alloc]init];
+        
+    }
+    return _meTableview;
+}
+
+- (MeHeaderTableView *)configView {
+    if (!_configView) {
+        _configView = [[[NSBundle mainBundle]loadNibNamed:@"MeHeaderTableView" owner:self options:nil] firstObject];
+    }
+    return _configView;
+}
 @end

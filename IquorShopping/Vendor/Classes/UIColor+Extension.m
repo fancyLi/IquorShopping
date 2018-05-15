@@ -43,7 +43,9 @@
 + (UIColor *)c_f6f6Color {
     return UIColorFromRGB(0xf6f6f6);
 }
-
++ (UIColor *)c_e8e8Color {
+    return UIColorFromRGB(0xe8e8e8);
+}
 
 
 @end
