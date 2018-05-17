@@ -44,7 +44,6 @@
 		0880525920A2ED270018AE6E /* ShopCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880525820A2ED270018AE6E /* ShopCartViewController.m */; };
 		0880525C20A2ED330018AE6E /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880525B20A2ED330018AE6E /* MeViewController.m */; };
 		0880525F20A2ED410018AE6E /* ClassesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880525E20A2ED410018AE6E /* ClassesViewController.m */; };
-		0880526220A2ED4D0018AE6E /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880526120A2ED4D0018AE6E /* JoinViewController.m */; };
 		0880526920A338A70018AE6E /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880526820A338A70018AE6E /* UIColor+Extension.m */; };
 		0880526C20A33B790018AE6E /* UIFont+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880526B20A33B790018AE6E /* UIFont+Extension.m */; };
 		0880527020A33F960018AE6E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880526E20A33F960018AE6E /* LoginViewController.m */; };
@@ -83,6 +82,21 @@
 		088052E920A9E1560018AE6E /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 088052DE20A9E1560018AE6E /* MASConstraint.m */; };
 		088052EA20A9E1560018AE6E /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 088052E020A9E1560018AE6E /* MASViewConstraint.m */; };
 		088052EB20A9E1560018AE6E /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 088052E120A9E1560018AE6E /* MASViewAttribute.m */; };
+		0898C30720AC7F1A00664482 /* JoinsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898C30520AC7F1A00664482 /* JoinsViewController.m */; };
+		0898C30820AC7F1A00664482 /* JoinsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0898C30620AC7F1A00664482 /* JoinsViewController.xib */; };
+		0898C31620ADB57800664482 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898C31420ADB57800664482 /* StartViewController.m */; };
+		0898C31720ADB57800664482 /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0898C31520ADB57800664482 /* StartViewController.xib */; };
+		0898C31B20ADC2ED00664482 /* ShowPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898C31920ADC2ED00664482 /* ShowPictureView.m */; };
+		0898C34320ADD0C000664482 /* ClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898C34120ADD0C000664482 /* ClassCell.m */; };
+		0898C34420ADD0C000664482 /* ClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0898C34220ADD0C000664482 /* ClassCell.xib */; };
+		0898C34720ADD53A00664482 /* NavSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898C34620ADD53A00664482 /* NavSearchBar.m */; };
+		0898C34920ADD54A00664482 /* NavSearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0898C34820ADD54A00664482 /* NavSearchBar.xib */; };
+		0898C34D20ADDA3D00664482 /* SiginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898C34B20ADDA3D00664482 /* SiginViewController.m */; };
+		0898C34E20ADDA3D00664482 /* SiginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0898C34C20ADDA3D00664482 /* SiginViewController.xib */; };
+		0898C35220ADDA5800664482 /* SiginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898C35020ADDA5800664482 /* SiginCell.m */; };
+		0898C35320ADDA5800664482 /* SiginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0898C35120ADDA5800664482 /* SiginCell.xib */; };
+		0898C35620ADDC3C00664482 /* NavSegmentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898C35520ADDC3C00664482 /* NavSegmentBar.m */; };
+		0898C35820ADDC4900664482 /* NavSegmentBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0898C35720ADDC4900664482 /* NavSegmentBar.xib */; };
 		08E4642E20A2E7B900E405DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4642D20A2E7B900E405DB /* AppDelegate.m */; };
 		08E4643120A2E7B900E405DB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4643020A2E7B900E405DB /* ViewController.m */; };
 		08E4643420A2E7B900E405DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E4643220A2E7B900E405DB /* Main.storyboard */; };
@@ -91,6 +105,12 @@
 		08E4643C20A2E7B900E405DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4643B20A2E7B900E405DB /* main.m */; };
 		08E4644620A2E7B900E405DB /* IquorShoppingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4644520A2E7B900E405DB /* IquorShoppingTests.m */; };
 		08E4645120A2E7B900E405DB /* IquorShoppingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4645020A2E7B900E405DB /* IquorShoppingUITests.m */; };
+		08FBE78720AC73F800B507DB /* EvaSucViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FBE78520AC73F800B507DB /* EvaSucViewController.m */; };
+		08FBE78820AC73F800B507DB /* EvaSucViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08FBE78620AC73F800B507DB /* EvaSucViewController.xib */; };
+		08FBE78C20AC75F400B507DB /* BrokerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FBE78A20AC75F400B507DB /* BrokerViewController.m */; };
+		08FBE78D20AC75F400B507DB /* BrokerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08FBE78B20AC75F400B507DB /* BrokerViewController.xib */; };
+		08FBE79120AC778400B507DB /* BrokerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FBE78F20AC778400B507DB /* BrokerCell.m */; };
+		08FBE79220AC778400B507DB /* BrokerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08FBE79020AC778400B507DB /* BrokerCell.xib */; };
 		1A099031B18DA7D1580389EE /* libPods-IquorShopping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B24F8520DB163081C6C3D09 /* libPods-IquorShopping.a */; };
 		55F36C60CFEB8D8FE0A0EA7E /* libPods-IquorShoppingUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F45D40AB9D001EA5225FCD25 /* libPods-IquorShoppingUITests.a */; };
 		FD6F4D6565F63018B62D589D /* libPods-IquorShoppingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 292E4C7C26E5AC99EAB3C6A5 /* libPods-IquorShoppingTests.a */; };
@@ -179,8 +199,6 @@
 		0880525B20A2ED330018AE6E /* MeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		0880525D20A2ED410018AE6E /* ClassesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassesViewController.h; sourceTree = "<group>"; };
 		0880525E20A2ED410018AE6E /* ClassesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassesViewController.m; sourceTree = "<group>"; };
-		0880526020A2ED4D0018AE6E /* JoinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
-		0880526120A2ED4D0018AE6E /* JoinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JoinViewController.m; sourceTree = "<group>"; };
 		0880526420A2F8AE0018AE6E /* CommonHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
 		0880526520A2F8AE0018AE6E /* HttpConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConstant.h; sourceTree = "<group>"; };
 		0880526720A338A70018AE6E /* UIColor+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
@@ -254,6 +272,29 @@
 		088052DF20A9E1560018AE6E /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		088052E020A9E1560018AE6E /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
 		088052E120A9E1560018AE6E /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		0898C30420AC7F1A00664482 /* JoinsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JoinsViewController.h; sourceTree = "<group>"; };
+		0898C30520AC7F1A00664482 /* JoinsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JoinsViewController.m; sourceTree = "<group>"; };
+		0898C30620AC7F1A00664482 /* JoinsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JoinsViewController.xib; sourceTree = "<group>"; };
+		0898C31320ADB57800664482 /* StartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		0898C31420ADB57800664482 /* StartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		0898C31520ADB57800664482 /* StartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
+		0898C31920ADC2ED00664482 /* ShowPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPictureView.m; sourceTree = "<group>"; };
+		0898C31A20ADC2ED00664482 /* ShowPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPictureView.h; sourceTree = "<group>"; };
+		0898C34020ADD0C000664482 /* ClassCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassCell.h; sourceTree = "<group>"; };
+		0898C34120ADD0C000664482 /* ClassCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassCell.m; sourceTree = "<group>"; };
+		0898C34220ADD0C000664482 /* ClassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassCell.xib; sourceTree = "<group>"; };
+		0898C34520ADD53A00664482 /* NavSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavSearchBar.h; sourceTree = "<group>"; };
+		0898C34620ADD53A00664482 /* NavSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavSearchBar.m; sourceTree = "<group>"; };
+		0898C34820ADD54A00664482 /* NavSearchBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavSearchBar.xib; sourceTree = "<group>"; };
+		0898C34A20ADDA3D00664482 /* SiginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SiginViewController.h; sourceTree = "<group>"; };
+		0898C34B20ADDA3D00664482 /* SiginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SiginViewController.m; sourceTree = "<group>"; };
+		0898C34C20ADDA3D00664482 /* SiginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SiginViewController.xib; sourceTree = "<group>"; };
+		0898C34F20ADDA5800664482 /* SiginCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SiginCell.h; sourceTree = "<group>"; };
+		0898C35020ADDA5800664482 /* SiginCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SiginCell.m; sourceTree = "<group>"; };
+		0898C35120ADDA5800664482 /* SiginCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SiginCell.xib; sourceTree = "<group>"; };
+		0898C35420ADDC3C00664482 /* NavSegmentBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavSegmentBar.h; sourceTree = "<group>"; };
+		0898C35520ADDC3C00664482 /* NavSegmentBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavSegmentBar.m; sourceTree = "<group>"; };
+		0898C35720ADDC4900664482 /* NavSegmentBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavSegmentBar.xib; sourceTree = "<group>"; };
 		08E4642920A2E7B900E405DB /* IquorShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IquorShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08E4642C20A2E7B900E405DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08E4642D20A2E7B900E405DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -270,6 +311,15 @@
 		08E4644C20A2E7B900E405DB /* IquorShoppingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IquorShoppingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08E4645020A2E7B900E405DB /* IquorShoppingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorShoppingUITests.m; sourceTree = "<group>"; };
 		08E4645220A2E7B900E405DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08FBE78420AC73F800B507DB /* EvaSucViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaSucViewController.h; sourceTree = "<group>"; };
+		08FBE78520AC73F800B507DB /* EvaSucViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaSucViewController.m; sourceTree = "<group>"; };
+		08FBE78620AC73F800B507DB /* EvaSucViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaSucViewController.xib; sourceTree = "<group>"; };
+		08FBE78920AC75F400B507DB /* BrokerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrokerViewController.h; sourceTree = "<group>"; };
+		08FBE78A20AC75F400B507DB /* BrokerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrokerViewController.m; sourceTree = "<group>"; };
+		08FBE78B20AC75F400B507DB /* BrokerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrokerViewController.xib; sourceTree = "<group>"; };
+		08FBE78E20AC778400B507DB /* BrokerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrokerCell.h; sourceTree = "<group>"; };
+		08FBE78F20AC778400B507DB /* BrokerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrokerCell.m; sourceTree = "<group>"; };
+		08FBE79020AC778400B507DB /* BrokerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrokerCell.xib; sourceTree = "<group>"; };
 		13F710C71AAFD98592E9A53D /* Pods-IquorShopping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IquorShopping.release.xcconfig"; path = "Pods/Target Support Files/Pods-IquorShopping/Pods-IquorShopping.release.xcconfig"; sourceTree = "<group>"; };
 		1B24F8520DB163081C6C3D09 /* libPods-IquorShopping.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IquorShopping.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		226CF5847751A43E39E91E00 /* Pods-IquorShoppingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IquorShoppingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IquorShoppingTests/Pods-IquorShoppingTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -334,6 +384,7 @@
 			children = (
 				0847F19E20AB03D400BEF0F6 /* YSLContainerViewController */,
 				088052C820A9E1560018AE6E /* Masonry */,
+				0898C31820ADC2CB00664482 /* Picture */,
 				0880526620A3387D0018AE6E /* Classes */,
 				0880524020A2EB730018AE6E /* Tools */,
 			);
@@ -365,8 +416,9 @@
 		0880522920A2EAD90018AE6E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0880526020A2ED4D0018AE6E /* JoinViewController.h */,
-				0880526120A2ED4D0018AE6E /* JoinViewController.m */,
+				0898C30420AC7F1A00664482 /* JoinsViewController.h */,
+				0898C30520AC7F1A00664482 /* JoinsViewController.m */,
+				0898C30620AC7F1A00664482 /* JoinsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -400,6 +452,9 @@
 			children = (
 				0880525D20A2ED410018AE6E /* ClassesViewController.h */,
 				0880525E20A2ED410018AE6E /* ClassesViewController.m */,
+				0898C34A20ADDA3D00664482 /* SiginViewController.h */,
+				0898C34B20ADDA3D00664482 /* SiginViewController.m */,
+				0898C34C20ADDA3D00664482 /* SiginViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -414,6 +469,18 @@
 		0880522F20A2EAD90018AE6E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0898C34020ADD0C000664482 /* ClassCell.h */,
+				0898C34120ADD0C000664482 /* ClassCell.m */,
+				0898C34220ADD0C000664482 /* ClassCell.xib */,
+				0898C34F20ADDA5800664482 /* SiginCell.h */,
+				0898C35020ADDA5800664482 /* SiginCell.m */,
+				0898C35120ADDA5800664482 /* SiginCell.xib */,
+				0898C34520ADD53A00664482 /* NavSearchBar.h */,
+				0898C34620ADD53A00664482 /* NavSearchBar.m */,
+				0898C34820ADD54A00664482 /* NavSearchBar.xib */,
+				0898C35420ADDC3C00664482 /* NavSegmentBar.h */,
+				0898C35520ADDC3C00664482 /* NavSegmentBar.m */,
+				0898C35720ADDC4900664482 /* NavSegmentBar.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -536,6 +603,15 @@
 				0847F1E420AB383F00BEF0F6 /* TeamsViewController.m */,
 				0847F1E620AB386E00BEF0F6 /* TeamViewController.h */,
 				0847F1E720AB386E00BEF0F6 /* TeamViewController.m */,
+				08FBE78420AC73F800B507DB /* EvaSucViewController.h */,
+				08FBE78520AC73F800B507DB /* EvaSucViewController.m */,
+				08FBE78620AC73F800B507DB /* EvaSucViewController.xib */,
+				08FBE78920AC75F400B507DB /* BrokerViewController.h */,
+				08FBE78A20AC75F400B507DB /* BrokerViewController.m */,
+				08FBE78B20AC75F400B507DB /* BrokerViewController.xib */,
+				0898C31320ADB57800664482 /* StartViewController.h */,
+				0898C31420ADB57800664482 /* StartViewController.m */,
+				0898C31520ADB57800664482 /* StartViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -585,6 +661,9 @@
 				0847F1E920AB395500BEF0F6 /* TeamCell.h */,
 				0847F1EA20AB395500BEF0F6 /* TeamCell.m */,
 				0847F1EB20AB395500BEF0F6 /* TeamCell.xib */,
+				08FBE78E20AC778400B507DB /* BrokerCell.h */,
+				08FBE78F20AC778400B507DB /* BrokerCell.m */,
+				08FBE79020AC778400B507DB /* BrokerCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -671,6 +750,15 @@
 				088052E120A9E1560018AE6E /* MASViewAttribute.m */,
 			);
 			path = Masonry;
+			sourceTree = "<group>";
+		};
+		0898C31820ADC2CB00664482 /* Picture */ = {
+			isa = PBXGroup;
+			children = (
+				0898C31A20ADC2ED00664482 /* ShowPictureView.h */,
+				0898C31920ADC2ED00664482 /* ShowPictureView.m */,
+			);
+			path = Picture;
 			sourceTree = "<group>";
 		};
 		08E4642020A2E7B900E405DB = {
@@ -868,27 +956,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				088052AD20A356A90018AE6E /* MeConfigView.xib in Resources */,
+				0898C31720ADB57800664482 /* StartViewController.xib in Resources */,
+				08FBE78820AC73F800B507DB /* EvaSucViewController.xib in Resources */,
 				0847F1CD20AB286700BEF0F6 /* CollectedCell.xib in Resources */,
 				0880527120A33F960018AE6E /* LoginViewController.xib in Resources */,
 				0847F1C320AB0C4400BEF0F6 /* IndentBottomCell.xib in Resources */,
 				088052A220A354950018AE6E /* SetViewController.xib in Resources */,
 				088052A720A354A40018AE6E /* MeConfigTableViewCell.xib in Resources */,
+				0898C30820AC7F1A00664482 /* JoinsViewController.xib in Resources */,
+				08FBE78D20AC75F400B507DB /* BrokerViewController.xib in Resources */,
 				08E4643920A2E7B900E405DB /* LaunchScreen.storyboard in Resources */,
 				0880529820A354700018AE6E /* ChangePasswordViewController.xib in Resources */,
 				088052A120A354950018AE6E /* NikeNameViewController.xib in Resources */,
 				0847F1AF20AB070700BEF0F6 /* IndentDetailViewController.xib in Resources */,
+				0898C35820ADDC4900664482 /* NavSegmentBar.xib in Resources */,
+				08FBE79220AC778400B507DB /* BrokerCell.xib in Resources */,
 				0847F1DA20AB307B00BEF0F6 /* MeCollectViewController.xib in Resources */,
 				0847F1B420AB095D00BEF0F6 /* IndentSectionView.xib in Resources */,
+				0898C34E20ADDA3D00664482 /* SiginViewController.xib in Resources */,
+				0898C34920ADD54A00664482 /* NavSearchBar.xib in Resources */,
 				0880528020A349D00018AE6E /* ResetPasswordViewController.xib in Resources */,
 				0847F1B920AB09F100BEF0F6 /* IndentDetailCell.xib in Resources */,
 				0880527620A3443D0018AE6E /* FirstRegViewController.xib in Resources */,
 				08E4643620A2E7B900E405DB /* Assets.xcassets in Resources */,
 				0847F1DF20AB323400BEF0F6 /* DiscountCell.xib in Resources */,
+				0898C35320ADDA5800664482 /* SiginCell.xib in Resources */,
 				08E4643420A2E7B900E405DB /* Main.storyboard in Resources */,
 				088052BF20A9BF420018AE6E /* MeHeaderTableView.xib in Resources */,
 				0847F1C820AB1D6100BEF0F6 /* FooterTableView.xib in Resources */,
 				0880527B20A347710018AE6E /* SecondRegViewController.xib in Resources */,
 				0847F1ED20AB395500BEF0F6 /* TeamCell.xib in Resources */,
+				0898C34420ADD0C000664482 /* ClassCell.xib in Resources */,
 				088052C420A9C4A80018AE6E /* MeSectionTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -999,6 +1097,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0898C34320ADD0C000664482 /* ClassCell.m in Sources */,
 				088052B120A359750018AE6E /* LPPopup.m in Sources */,
 				0847F1A720AB03D400BEF0F6 /* YSLScrollMenuView.m in Sources */,
 				0880524920A2EB730018AE6E /* FileUtils.m in Sources */,
@@ -1014,16 +1113,18 @@
 				0847F1CC20AB286700BEF0F6 /* CollectedCell.m in Sources */,
 				0847F1E520AB383F00BEF0F6 /* TeamsViewController.m in Sources */,
 				0847F1C620AB1D5900BEF0F6 /* FooterTableView.m in Sources */,
+				0898C34D20ADDA3D00664482 /* SiginViewController.m in Sources */,
 				088052B420A35A5B0018AE6E /* PDDDataManger.m in Sources */,
 				08E4643C20A2E7B900E405DB /* main.m in Sources */,
 				0847F1B820AB09F100BEF0F6 /* IndentDetailCell.m in Sources */,
 				0847F1EC20AB395500BEF0F6 /* TeamCell.m in Sources */,
 				0880525620A2ECC10018AE6E /* ShopViewController.m in Sources */,
 				0880525320A2EC400018AE6E /* IquorNavigationViewController.m in Sources */,
+				0898C30720AC7F1A00664482 /* JoinsViewController.m in Sources */,
 				088052E220A9E1560018AE6E /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				0880527F20A349D00018AE6E /* ResetPasswordViewController.m in Sources */,
 				0880524C20A2EB730018AE6E /* UIUtils.m in Sources */,
-				0880526220A2ED4D0018AE6E /* JoinViewController.m in Sources */,
+				08FBE78C20AC75F400B507DB /* BrokerViewController.m in Sources */,
 				088052A020A354950018AE6E /* NikeNameViewController.m in Sources */,
 				0880527A20A347710018AE6E /* SecondRegViewController.m in Sources */,
 				0847F1A620AB03D400BEF0F6 /* LNContainerViewController.m in Sources */,
@@ -1042,7 +1143,10 @@
 				0880527520A3443D0018AE6E /* FirstRegViewController.m in Sources */,
 				088052E420A9E1560018AE6E /* MASCompositeConstraint.m in Sources */,
 				088052EB20A9E1560018AE6E /* MASViewAttribute.m in Sources */,
+				0898C35620ADDC3C00664482 /* NavSegmentBar.m in Sources */,
 				088052A320A354950018AE6E /* SetViewController.m in Sources */,
+				08FBE79120AC778400B507DB /* BrokerCell.m in Sources */,
+				0898C35220ADDA5800664482 /* SiginCell.m in Sources */,
 				0880524B20A2EB730018AE6E /* Dialog.m in Sources */,
 				0847F1A520AB03D400BEF0F6 /* YSLContainerViewController.m in Sources */,
 				0880527020A33F960018AE6E /* LoginViewController.m in Sources */,
@@ -1054,8 +1158,12 @@
 				088052C220A9C49C0018AE6E /* MeSectionTableView.m in Sources */,
 				0847F1AE20AB070700BEF0F6 /* IndentDetailViewController.m in Sources */,
 				0880523F20A2EB180018AE6E /* IquorViewController.m in Sources */,
+				0898C31B20ADC2ED00664482 /* ShowPictureView.m in Sources */,
+				08FBE78720AC73F800B507DB /* EvaSucViewController.m in Sources */,
 				0847F1AA20AB048B00BEF0F6 /* IndentListViewController.m in Sources */,
 				088052E320A9E1560018AE6E /* ViewController+MASAdditions.m in Sources */,
+				0898C31620ADB57800664482 /* StartViewController.m in Sources */,
+				0898C34720ADD53A00664482 /* NavSearchBar.m in Sources */,
 				0847F1DE20AB323400BEF0F6 /* DiscountCell.m in Sources */,
 				0880525020A2EC100018AE6E /* IquorTabBarViewController.m in Sources */,
 			);

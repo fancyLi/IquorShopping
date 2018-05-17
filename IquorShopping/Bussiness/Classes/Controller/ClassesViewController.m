@@ -7,31 +7,63 @@
 //
 
 #import "ClassesViewController.h"
-
-@interface ClassesViewController ()
-
+#import "SiginViewController.h"
+#import "NavSearchBar.h"
+#import "ClassCell.h"
+@interface ClassesViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@property (nonatomic, strong) UICollectionView *classView;
+@property (nonatomic, strong) NavSearchBar *navSearchBar;
 @end
 
 @implementation ClassesViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.view addSubview:self.classView];
+    self.navigationItem.titleView = self.navSearchBar;
 }
 
+#pragma mark UICollectionViewDataSource & UICollectionViewDelegate
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+   return 9;
+}
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ClassCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ClassCell class]) forIndexPath:indexPath];
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.navigationController pushViewController:[SiginViewController new] animated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark set & ger
+- (UICollectionView *)classView {
+    if (!_classView) {
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        CGFloat wh = 120;
+        flowLayout.minimumLineSpacing = 0;
+        flowLayout.minimumInteritemSpacing = (kMainScreenWidth-3*wh)/3;
+        flowLayout.itemSize = CGSizeMake(wh, wh);
+        _classView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+        _classView.backgroundColor = [UIColor whiteColor];
+        [_classView registerNib:[UINib nibWithNibName:@"ClassCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([ClassCell class])];
+        _classView.dataSource = self;
+        _classView.delegate = self;
+    }
+    return _classView;
 }
-*/
+
+- (NavSearchBar *)navSearchBar {
+    if (!_navSearchBar) {
+        _navSearchBar = [[NSBundle mainBundle] loadNibNamed:@"NavSearchBar" owner:self options:nil].firstObject;
+    }
+    return _navSearchBar;
+}
 
 @end

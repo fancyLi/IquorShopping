@@ -9,7 +9,7 @@
 #import "IquorTabBarViewController.h"
 #import "IquorNavigationViewController.h"
 #import "ShopViewController.h"
-#import "JoinViewController.h"
+#import "JoinsViewController.h"
 #import "ClassesViewController.h"
 #import "ShopCartViewController.h"
 #import "MeViewController.h"
@@ -33,7 +33,7 @@
     homeNav.tabBarItem.selectedImage           = [[UIImage imageNamed:@"icon_nav_001"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     homeNav.tabBarItem.image                   = [UIImage imageNamed:@"icon_nav_01"];
     
-    JoinViewController *catagory     = [[JoinViewController alloc] init];
+    JoinsViewController *catagory     = [[JoinsViewController alloc] init];
     IquorNavigationViewController *catagoryNav        = [[IquorNavigationViewController alloc] initWithRootViewController:catagory];
     catagoryNav.tabBarItem.title               = @"加盟";
     catagoryNav.tabBarItem.selectedImage       = [[UIImage imageNamed:@"icon_nav_002"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

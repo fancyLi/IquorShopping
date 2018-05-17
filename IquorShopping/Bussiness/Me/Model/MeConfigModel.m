@@ -11,6 +11,10 @@
 #import "MeCollectViewController.h"
 #import "DiscountViewController.h"
 #import "TeamsViewController.h"
+#import "BrokerViewController.h"
+#import "JoinsViewController.h"
+#import "StartViewController.h"
+
 @implementation MeConfigModel
 
 - (instancetype)initIconName:(NSString *)ic dec:(NSString *)dec cla:(NSString *)cla {
@@ -31,15 +35,15 @@
         ];
         NSArray *ar2 = @[
                          [[MeConfigModel alloc]initIconName:@"icon_my_05" dec:@"我的团队" cla:@"TeamsViewController"],
-                         [[MeConfigModel alloc]initIconName:@"icon_my_06" dec:@"我的佣金" cla:@"S"],
-                         [[MeConfigModel alloc]initIconName:@"icon_my_07" dec:@"我的分红" cla:@"S"],
+                         [[MeConfigModel alloc]initIconName:@"icon_my_06" dec:@"我的佣金" cla:@"BrokerViewController"],
+                         [[MeConfigModel alloc]initIconName:@"icon_my_07" dec:@"我的分红" cla:@"JoinsViewController"],
                          [[MeConfigModel alloc]initIconName:@"" dec:@"" cla:@""]
                          ];
         NSArray *ar3 = @[
                          [[MeConfigModel alloc]initIconName:@"icon_my_08" dec:@"我的余额" cla:@"S"],
                          [[MeConfigModel alloc]initIconName:@"icon_my_09" dec:@"我的优惠券" cla:@"DiscountViewController"],
                          [[MeConfigModel alloc]initIconName:@"icon_my_10" dec:@"我的收藏" cla:@"MeCollectViewController"],
-                         [[MeConfigModel alloc]initIconName:@"icon_my_11" dec:@"我的评价" cla:@"S"]
+                         [[MeConfigModel alloc]initIconName:@"icon_my_11" dec:@"我的评价" cla:@"StartViewController"]
                          ];
         NSArray *ar4 = @[
                          [[MeConfigModel alloc]initIconName:@"icon_my_12" dec:@"关于我们" cla:@"S"],

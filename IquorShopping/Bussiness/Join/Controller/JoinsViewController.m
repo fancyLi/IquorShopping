@@ -1,22 +1,31 @@
 //
-//  JoinViewController.m
+//  JoinsViewController.m
 //  IquorShopping
 //
-//  Created by nanli5 on 2018/5/9.
+//  Created by nanli5 on 2018/5/16.
 //  Copyright © 2018年 Hefei elevation network technology co. LTD. All rights reserved.
 //
 
-#import "JoinViewController.h"
+#import "JoinsViewController.h"
 
-@interface JoinViewController ()
+@interface JoinsViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *icon;
+@property (weak, nonatomic) IBOutlet UILabel *joinMoney;
+@property (weak, nonatomic) IBOutlet UITextView *joinLaw;
 
 @end
 
-@implementation JoinViewController
+@implementation JoinsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"加盟";
+    
+   
+}
+
+
+- (IBAction)startJoin:(UIButton *)sender {
 }
 
 - (void)didReceiveMemoryWarning {

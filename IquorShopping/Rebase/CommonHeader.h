@@ -50,4 +50,12 @@
 #define COLOR_LineGray       UIColorFromRGB(0xe8e8e8)//线条颜色
 #define COLOR_Yellow     UIColorFromRGB(0xFC8E0D)//黄色
 #define COLOR_Red    UIColorFromRGB(0xF13740)//红色
+
+/**
+ 弱引用
+ @param weakSelf
+ @return
+ */
+#define IFlyWeakSelf(weakSelf) __weak __typeof(&*self)weakSelf = self;
+
 #endif /* CommonHeader_h */
