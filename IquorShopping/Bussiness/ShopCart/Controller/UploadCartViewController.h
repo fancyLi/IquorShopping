@@ -1,5 +1,5 @@
 //
-//  ShopCartViewController.h
+//  UploadCartViewController.h
 //  IquorShopping
 //
 //  Created by nanli5 on 2018/5/21.
@@ -8,6 +8,6 @@
 
 #import "IquorViewController.h"
 
-@interface ShopCartViewController : IquorViewController
+@interface UploadCartViewController : IquorViewController
 
 @end

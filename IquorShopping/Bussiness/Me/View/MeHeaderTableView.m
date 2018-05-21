@@ -11,6 +11,7 @@
 @implementation MeHeaderTableView
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     self.layer.borderColor = [UIColor redColor].CGColor;
     self.layer.borderWidth = 1;
 }

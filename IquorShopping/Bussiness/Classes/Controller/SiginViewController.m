@@ -7,6 +7,7 @@
 //
 
 #import "SiginViewController.h"
+#import "GoodsViewController.h"
 #import "NavSegmentBar.h"
 #import "SiginCell.h"
 @interface SiginViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
@@ -41,7 +42,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self.navigationController pushViewController:[SiginViewController new] animated:YES];
+    [self.navigationController pushViewController:[GoodsViewController new] animated:YES];
 }
 #pragma mark set & get
 - (UICollectionView *)classView {

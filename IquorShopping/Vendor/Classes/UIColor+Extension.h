@@ -14,9 +14,13 @@
 
 + (UIColor *)c_cccColor;
 
++ (UIColor *)c_666Color;
+
 + (UIColor *)c_999Color;
 
 + (UIColor *)c_fafaColor;
+
++ (UIColor *)c_f1f1Color;
 
 + (UIColor *)c_7878Color;
 

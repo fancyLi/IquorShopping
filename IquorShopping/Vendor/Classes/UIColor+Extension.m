@@ -23,6 +23,13 @@
 + (UIColor *)c_999Color {
    return UIColorFromRGB(0x999999);
 }
++ (UIColor *)c_666Color {
+    return UIColorFromRGB(0x999999);
+}
+
++ (UIColor *)c_f1f1Color {
+    return UIColorFromRGB(0xf1f1f1);
+}
 
 + (UIColor *)c_fafaColor {
     return UIColorFromRGB(0xfafafa);

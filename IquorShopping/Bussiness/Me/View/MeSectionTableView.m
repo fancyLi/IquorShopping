@@ -30,6 +30,14 @@
         self.titleLabel.text = @"我的服务";
     }
 }
-
+- (void)setLeftTitle:(NSString *)leftTitle {
+    self.titleLabel.text = leftTitle;
+}
+- (void)setRightTitle:(NSString *)rightTitle {
+    self.subtitleLabel.text = rightTitle;
+    self.subtitleLabel.hidden = NO;
+    self.idicateImage.hidden = NO;
+    self.subButton.hidden = NO;
+}
 
 @end

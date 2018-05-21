@@ -88,7 +88,7 @@
 + (NSDateComponents *)dateComponents{
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDate *now;
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSDateComponents *comps;;
     NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit |
     NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
     now = [NSDate date];
@@ -454,10 +454,6 @@
     
   //    error = vImageBoxConvolve_ARGB8888(&outBuffer2, &inBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
     
-    error = vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
-    
-    
-    
     
     
     if (error) {
@@ -516,9 +512,6 @@
     
     CFRelease(inBitmapData);
     
-    
-    
-    CGColorSpaceRelease(colorSpace);
     
     CGImageRelease(imageRef);
     

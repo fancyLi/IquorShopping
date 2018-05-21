@@ -10,5 +10,6 @@
 
 @interface MeSectionTableView : UIView
 @property (nonatomic, assign) NSInteger section;
-
+@property (nonatomic, copy) NSString *leftTitle;
+@property (nonatomic, copy) NSString *rightTitle;
 @end
