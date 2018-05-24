@@ -33,6 +33,19 @@
 		0847F1E820AB386E00BEF0F6 /* TeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F1E720AB386E00BEF0F6 /* TeamViewController.m */; };
 		0847F1EC20AB395500BEF0F6 /* TeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F1EA20AB395500BEF0F6 /* TeamCell.m */; };
 		0847F1ED20AB395500BEF0F6 /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0847F1EB20AB395500BEF0F6 /* TeamCell.xib */; };
+		08676F2820B6E59D00F870B9 /* MeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F2620B6E59D00F870B9 /* MeHeaderCell.m */; };
+		08676F2920B6E59D00F870B9 /* MeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08676F2720B6E59D00F870B9 /* MeHeaderCell.xib */; };
+		08676F2D20B6E65300F870B9 /* MeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F2B20B6E65300F870B9 /* MeInfoViewController.m */; };
+		08676F2E20B6E65300F870B9 /* MeInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08676F2C20B6E65300F870B9 /* MeInfoViewController.xib */; };
+		08676F3120B6EADB00F870B9 /* NSObject+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F3020B6EADB00F870B9 /* NSObject+Util.m */; };
+		08676F3520B6F63300F870B9 /* ShopConfigCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F3320B6F63300F870B9 /* ShopConfigCell.m */; };
+		08676F3620B6F63300F870B9 /* ShopConfigCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08676F3420B6F63300F870B9 /* ShopConfigCell.xib */; };
+		08676F3A20B6F83B00F870B9 /* ShopVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F3820B6F83B00F870B9 /* ShopVideoCell.m */; };
+		08676F3B20B6F83B00F870B9 /* ShopVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08676F3920B6F83B00F870B9 /* ShopVideoCell.xib */; };
+		08676F3F20B6F9F600F870B9 /* ShopHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F3D20B6F9F600F870B9 /* ShopHotCell.m */; };
+		08676F4020B6F9F600F870B9 /* ShopHotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08676F3E20B6F9F600F870B9 /* ShopHotCell.xib */; };
+		08676F4420B6FBB000F870B9 /* ShopNewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F4220B6FBB000F870B9 /* ShopNewCell.m */; };
+		08676F4520B6FBB000F870B9 /* ShopNewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08676F4320B6FBB000F870B9 /* ShopNewCell.xib */; };
 		0880523F20A2EB180018AE6E /* IquorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880523E20A2EB180018AE6E /* IquorViewController.m */; };
 		0880524920A2EB730018AE6E /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524520A2EB730018AE6E /* FileUtils.m */; };
 		0880524A20A2EB730018AE6E /* AFNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524620A2EB730018AE6E /* AFNetworkTool.m */; };
@@ -194,6 +207,26 @@
 		0847F1E920AB395500BEF0F6 /* TeamCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamCell.h; sourceTree = "<group>"; };
 		0847F1EA20AB395500BEF0F6 /* TeamCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamCell.m; sourceTree = "<group>"; };
 		0847F1EB20AB395500BEF0F6 /* TeamCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
+		08676F2520B6E59D00F870B9 /* MeHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeHeaderCell.h; sourceTree = "<group>"; };
+		08676F2620B6E59D00F870B9 /* MeHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeHeaderCell.m; sourceTree = "<group>"; };
+		08676F2720B6E59D00F870B9 /* MeHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHeaderCell.xib; sourceTree = "<group>"; };
+		08676F2A20B6E65300F870B9 /* MeInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeInfoViewController.h; sourceTree = "<group>"; };
+		08676F2B20B6E65300F870B9 /* MeInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeInfoViewController.m; sourceTree = "<group>"; };
+		08676F2C20B6E65300F870B9 /* MeInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeInfoViewController.xib; sourceTree = "<group>"; };
+		08676F2F20B6EADB00F870B9 /* NSObject+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Util.h"; sourceTree = "<group>"; };
+		08676F3020B6EADB00F870B9 /* NSObject+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Util.m"; sourceTree = "<group>"; };
+		08676F3220B6F63300F870B9 /* ShopConfigCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopConfigCell.h; sourceTree = "<group>"; };
+		08676F3320B6F63300F870B9 /* ShopConfigCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopConfigCell.m; sourceTree = "<group>"; };
+		08676F3420B6F63300F870B9 /* ShopConfigCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopConfigCell.xib; sourceTree = "<group>"; };
+		08676F3720B6F83B00F870B9 /* ShopVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopVideoCell.h; sourceTree = "<group>"; };
+		08676F3820B6F83B00F870B9 /* ShopVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopVideoCell.m; sourceTree = "<group>"; };
+		08676F3920B6F83B00F870B9 /* ShopVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopVideoCell.xib; sourceTree = "<group>"; };
+		08676F3C20B6F9F600F870B9 /* ShopHotCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopHotCell.h; sourceTree = "<group>"; };
+		08676F3D20B6F9F600F870B9 /* ShopHotCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopHotCell.m; sourceTree = "<group>"; };
+		08676F3E20B6F9F600F870B9 /* ShopHotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopHotCell.xib; sourceTree = "<group>"; };
+		08676F4120B6FBB000F870B9 /* ShopNewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopNewCell.h; sourceTree = "<group>"; };
+		08676F4220B6FBB000F870B9 /* ShopNewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopNewCell.m; sourceTree = "<group>"; };
+		08676F4320B6FBB000F870B9 /* ShopNewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopNewCell.xib; sourceTree = "<group>"; };
 		0880523D20A2EB180018AE6E /* IquorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IquorViewController.h; sourceTree = "<group>"; };
 		0880523E20A2EB180018AE6E /* IquorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorViewController.m; sourceTree = "<group>"; };
 		0880524120A2EB730018AE6E /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
@@ -573,6 +606,18 @@
 		0880523320A2EAD90018AE6E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				08676F3220B6F63300F870B9 /* ShopConfigCell.h */,
+				08676F3320B6F63300F870B9 /* ShopConfigCell.m */,
+				08676F3420B6F63300F870B9 /* ShopConfigCell.xib */,
+				08676F3720B6F83B00F870B9 /* ShopVideoCell.h */,
+				08676F3820B6F83B00F870B9 /* ShopVideoCell.m */,
+				08676F3920B6F83B00F870B9 /* ShopVideoCell.xib */,
+				08676F3C20B6F9F600F870B9 /* ShopHotCell.h */,
+				08676F3D20B6F9F600F870B9 /* ShopHotCell.m */,
+				08676F3E20B6F9F600F870B9 /* ShopHotCell.xib */,
+				08676F4120B6FBB000F870B9 /* ShopNewCell.h */,
+				08676F4220B6FBB000F870B9 /* ShopNewCell.m */,
+				08676F4320B6FBB000F870B9 /* ShopNewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -637,6 +682,9 @@
 			children = (
 				0880525A20A2ED330018AE6E /* MeViewController.h */,
 				0880525B20A2ED330018AE6E /* MeViewController.m */,
+				08676F2A20B6E65300F870B9 /* MeInfoViewController.h */,
+				08676F2B20B6E65300F870B9 /* MeInfoViewController.m */,
+				08676F2C20B6E65300F870B9 /* MeInfoViewController.xib */,
 				0880526D20A33F960018AE6E /* LoginViewController.h */,
 				0880526E20A33F960018AE6E /* LoginViewController.m */,
 				0880526F20A33F960018AE6E /* LoginViewController.xib */,
@@ -735,6 +783,9 @@
 				08FBE78E20AC778400B507DB /* BrokerCell.h */,
 				08FBE78F20AC778400B507DB /* BrokerCell.m */,
 				08FBE79020AC778400B507DB /* BrokerCell.xib */,
+				08676F2520B6E59D00F870B9 /* MeHeaderCell.h */,
+				08676F2620B6E59D00F870B9 /* MeHeaderCell.m */,
+				08676F2720B6E59D00F870B9 /* MeHeaderCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -787,6 +838,8 @@
 				0880526820A338A70018AE6E /* UIColor+Extension.m */,
 				0880526A20A33B790018AE6E /* UIFont+Extension.h */,
 				0880526B20A33B790018AE6E /* UIFont+Extension.m */,
+				08676F2F20B6EADB00F870B9 /* NSObject+Util.h */,
+				08676F3020B6EADB00F870B9 /* NSObject+Util.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1041,6 +1094,9 @@
 				0898C38A20AF1D2300664482 /* DetailTableHeader.xib in Resources */,
 				08E4643920A2E7B900E405DB /* LaunchScreen.storyboard in Resources */,
 				0898C3C620B2F42500664482 /* ShopCartViewController.xib in Resources */,
+				08676F3B20B6F83B00F870B9 /* ShopVideoCell.xib in Resources */,
+				08676F4520B6FBB000F870B9 /* ShopNewCell.xib in Resources */,
+				08676F3620B6F63300F870B9 /* ShopConfigCell.xib in Resources */,
 				0880529820A354700018AE6E /* ChangePasswordViewController.xib in Resources */,
 				088052A120A354950018AE6E /* NikeNameViewController.xib in Resources */,
 				0847F1AF20AB070700BEF0F6 /* IndentDetailViewController.xib in Resources */,
@@ -1060,12 +1116,15 @@
 				0898C35320ADDA5800664482 /* SiginCell.xib in Resources */,
 				08E4643420A2E7B900E405DB /* Main.storyboard in Resources */,
 				088052BF20A9BF420018AE6E /* MeHeaderTableView.xib in Resources */,
+				08676F2E20B6E65300F870B9 /* MeInfoViewController.xib in Resources */,
 				0847F1C820AB1D6100BEF0F6 /* FooterTableView.xib in Resources */,
 				0880527B20A347710018AE6E /* SecondRegViewController.xib in Resources */,
 				0847F1ED20AB395500BEF0F6 /* TeamCell.xib in Resources */,
+				08676F4020B6F9F600F870B9 /* ShopHotCell.xib in Resources */,
 				0898C34420ADD0C000664482 /* ClassCell.xib in Resources */,
 				0898C3CB20B3005100664482 /* UploadCartViewController.xib in Resources */,
 				088052C420A9C4A80018AE6E /* MeSectionTableView.xib in Resources */,
+				08676F2920B6E59D00F870B9 /* MeHeaderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1191,6 +1250,7 @@
 				088052AB20A356980018AE6E /* MeConfigView.m in Sources */,
 				088052E820A9E1560018AE6E /* View+MASAdditions.m in Sources */,
 				0847F1CC20AB286700BEF0F6 /* CollectedCell.m in Sources */,
+				08676F2D20B6E65300F870B9 /* MeInfoViewController.m in Sources */,
 				0847F1E520AB383F00BEF0F6 /* TeamsViewController.m in Sources */,
 				0847F1C620AB1D5900BEF0F6 /* FooterTableView.m in Sources */,
 				0898C38520AF195F00664482 /* GoodsDetailViewController.m in Sources */,
@@ -1203,8 +1263,10 @@
 				0880525620A2ECC10018AE6E /* ShopViewController.m in Sources */,
 				0880525320A2EC400018AE6E /* IquorNavigationViewController.m in Sources */,
 				0898C3D320B307B300664482 /* UITableViewCell+Layout.m in Sources */,
+				08676F3120B6EADB00F870B9 /* NSObject+Util.m in Sources */,
 				0898C30720AC7F1A00664482 /* JoinsViewController.m in Sources */,
 				088052E220A9E1560018AE6E /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				08676F3520B6F63300F870B9 /* ShopConfigCell.m in Sources */,
 				0880527F20A349D00018AE6E /* ResetPasswordViewController.m in Sources */,
 				0880524C20A2EB730018AE6E /* UIUtils.m in Sources */,
 				08FBE78C20AC75F400B507DB /* BrokerViewController.m in Sources */,
@@ -1212,10 +1274,12 @@
 				0880527A20A347710018AE6E /* SecondRegViewController.m in Sources */,
 				0847F1A620AB03D400BEF0F6 /* LNContainerViewController.m in Sources */,
 				088052A820A354A40018AE6E /* MeConfigTableViewCell.m in Sources */,
+				08676F4420B6FBB000F870B9 /* ShopNewCell.m in Sources */,
 				0847F1B220AB095400BEF0F6 /* IndentSectionView.m in Sources */,
 				0880524A20A2EB730018AE6E /* AFNetworkTool.m in Sources */,
 				088052E720A9E1560018AE6E /* NSArray+MASAdditions.m in Sources */,
 				088052BA20A35A9C0018AE6E /* BaseModel.m in Sources */,
+				08676F3F20B6F9F600F870B9 /* ShopHotCell.m in Sources */,
 				0898C3CA20B3005100664482 /* UploadCartViewController.m in Sources */,
 				0898C39220AF276700664482 /* GoodsViewController.m in Sources */,
 				0898C3C020B2EEEC00664482 /* ShopCartCell.m in Sources */,
@@ -1243,6 +1307,8 @@
 				0880529920A354700018AE6E /* ChangePasswordViewController.m in Sources */,
 				088052C220A9C49C0018AE6E /* MeSectionTableView.m in Sources */,
 				0847F1AE20AB070700BEF0F6 /* IndentDetailViewController.m in Sources */,
+				08676F3A20B6F83B00F870B9 /* ShopVideoCell.m in Sources */,
+				08676F2820B6E59D00F870B9 /* MeHeaderCell.m in Sources */,
 				0880523F20A2EB180018AE6E /* IquorViewController.m in Sources */,
 				0898C31B20ADC2ED00664482 /* ShowPictureView.m in Sources */,
 				08FBE78720AC73F800B507DB /* EvaSucViewController.m in Sources */,

@@ -16,4 +16,5 @@
 #import "Masonry.h"
 #import "AFNetworkTool.h"
 #import "UIColor+Extension.h"
+#import "NSObject+Util.h"
 #endif /* PrefixHeader_h */

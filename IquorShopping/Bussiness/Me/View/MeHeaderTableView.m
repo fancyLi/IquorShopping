@@ -7,7 +7,17 @@
 //
 
 #import "MeHeaderTableView.h"
+#import "MeInfoViewController.h"
+@interface MeHeaderTableView ()
+@property (weak, nonatomic) IBOutlet UIImageView *userHeader;
+@property (weak, nonatomic) IBOutlet UIButton *rightBtn;
+@property (weak, nonatomic) IBOutlet UIButton *startLoginBtn;
+@property (weak, nonatomic) IBOutlet UILabel *nikeName;
+@property (weak, nonatomic) IBOutlet UIButton *joinBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *vipIcon;
+@property (weak, nonatomic) IBOutlet UILabel *vipDes;
 
+@end
 @implementation MeHeaderTableView
 
 - (void)awakeFromNib {
@@ -15,12 +25,13 @@
     self.layer.borderColor = [UIColor redColor].CGColor;
     self.layer.borderWidth = 1;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (IBAction)loginClick:(id)sender {
 }
-*/
+- (IBAction)joinClick:(id)sender {
+}
+- (IBAction)infoClick:(id)sender {
+    [MeHeaderTableView.getCurrentVC.navigationController pushViewController:[MeInfoViewController new] animated:YES];
+}
+
 
 @end

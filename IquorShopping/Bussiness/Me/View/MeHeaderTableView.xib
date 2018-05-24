@@ -30,6 +30,9 @@
                         <constraint firstAttribute="width" constant="18" id="Zu0-gJ-1wf"/>
                     </constraints>
                     <state key="normal" image="icon_17"/>
+                    <connections>
+                        <action selector="infoClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="TK7-0c-oEP"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SP-4u-7I8">
                     <rect key="frame" x="99" y="66" width="80" height="40"/>
@@ -41,6 +44,9 @@
                     <state key="normal" title="登录/注册">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="loginClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="wG9-Sm-iaA"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小猪佩奇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7y-N9-TgM">
                     <rect key="frame" x="99" y="50" width="73.5" height="30"/>
@@ -66,6 +72,9 @@
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="joinClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="rkd-tg-lxX"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9OX-Ut-t1R">
                     <rect key="frame" x="182.5" y="54" width="90" height="21"/>
@@ -114,6 +123,15 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="joinBtn" destination="xSd-KJ-8P7" id="a5V-Rf-q57"/>
+                <outlet property="nikeName" destination="p7y-N9-TgM" id="sOl-eG-kfq"/>
+                <outlet property="rightBtn" destination="B9X-OE-ixi" id="cb0-OA-qm0"/>
+                <outlet property="startLoginBtn" destination="2SP-4u-7I8" id="RBE-y8-ZhM"/>
+                <outlet property="userHeader" destination="aMk-ly-79t" id="Mat-Ea-WTj"/>
+                <outlet property="vipDes" destination="Eyw-bP-YJ2" id="ffA-dG-shR"/>
+                <outlet property="vipIcon" destination="wnk-GS-Mig" id="EeC-8a-fpX"/>
+            </connections>
             <point key="canvasLocation" x="24.5" y="51"/>
         </view>
     </objects>
