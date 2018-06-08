@@ -13,9 +13,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;
 @property (weak, nonatomic) IBOutlet UIButton *startLoginBtn;
 @property (weak, nonatomic) IBOutlet UILabel *nikeName;
-@property (weak, nonatomic) IBOutlet UIButton *joinBtn;
-@property (weak, nonatomic) IBOutlet UIImageView *vipIcon;
 @property (weak, nonatomic) IBOutlet UILabel *vipDes;
+@property (weak, nonatomic) IBOutlet UILabel *agentDes;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightLayout;
+
 
 @end
 @implementation MeHeaderTableView
@@ -26,11 +28,22 @@
     self.layer.borderWidth = 1;
 }
 - (IBAction)loginClick:(id)sender {
+    if (self.clickButtonBlock) {
+        self.clickButtonBlock(KLogin);
+    }
+//    UIButton *btn = (UIButton *)sender;
+//    btn.selected = !btn.selected;
+//    self.heightLayout.constant = btn.selected ? 0 : 60;
 }
 - (IBAction)joinClick:(id)sender {
+    if (self.clickButtonBlock) {
+        self.clickButtonBlock(KJoin);
+    }
 }
 - (IBAction)infoClick:(id)sender {
-    [MeHeaderTableView.getCurrentVC.navigationController pushViewController:[MeInfoViewController new] animated:YES];
+    if (self.clickButtonBlock) {
+        self.clickButtonBlock(KMeInfo);
+    }
 }
 
 

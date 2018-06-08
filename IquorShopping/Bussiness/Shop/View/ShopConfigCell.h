@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^ConfigBlock)(void);
 @interface ShopConfigCell : UITableViewCell
-
+@property (nonatomic, copy) ConfigBlock configBlock;
 @end

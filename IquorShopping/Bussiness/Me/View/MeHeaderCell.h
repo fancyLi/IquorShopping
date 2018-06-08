@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^ChangeAvator)(void);
 @interface MeHeaderCell : UITableViewCell
+@property (nonatomic, copy) ChangeAvator changeAvatorBlock;
 @property (weak, nonatomic) IBOutlet UIButton *headerImg;
 
 @end

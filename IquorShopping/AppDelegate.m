@@ -45,7 +45,7 @@
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status == AFNetworkReachabilityStatusNotReachable) {
-            [Dialog showMessage:@"无网络连接"];
+            [Dialog popTextAnimation:@"无网络连接"];
         }
     }];
     

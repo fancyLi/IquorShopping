@@ -7,6 +7,8 @@
 //
 
 #import "MeViewController.h"
+#import "LoginViewController.h"
+#import "MeInfoViewController.h"
 #import "MeConfigTableViewCell.h"
 #import "MeHeaderTableView.h"
 #import "MeSectionTableView.h"
@@ -22,9 +24,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (@available(iOS 11.0, *)) {
+        self.meTableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+
+
     [self.view addSubview:self.meTableview];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -38,7 +55,7 @@
     if (section == 0 || section == 1) {
         return 1;
     }else {
-        return 2;
+        return 3;
     }
 }
 
@@ -83,6 +100,18 @@
 - (MeHeaderTableView *)configView {
     if (!_configView) {
         _configView = [[[NSBundle mainBundle]loadNibNamed:@"MeHeaderTableView" owner:self options:nil] firstObject];
+        WeakObj(self);
+        _configView.clickButtonBlock = ^(OperateType operate) {
+            if (operate == KLogin) {
+                LoginViewController *loginVC = [[LoginViewController alloc]init];
+                [selfWeak.navigationController pushViewController:loginVC animated:YES];
+            }else if (operate == KJoin) {
+                
+            }else if (operate == KMeInfo) {
+                MeInfoViewController *infoVC = [[MeInfoViewController alloc]init];
+                [selfWeak.navigationController pushViewController:infoVC animated:YES];
+            }
+        };
     }
     return _configView;
 }

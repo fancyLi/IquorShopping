@@ -7,7 +7,6 @@
 //
 
 #import "MeHeaderCell.h"
-
 @implementation MeHeaderCell
 
 - (void)awakeFromNib {
@@ -17,7 +16,9 @@
 }
 
 - (IBAction)headerClick:(UIButton *)sender {
-    
+    if (self.changeAvatorBlock) {
+        self.changeAvatorBlock();
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

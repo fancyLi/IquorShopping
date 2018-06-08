@@ -9,6 +9,7 @@
 #import "NikeNameViewController.h"
 
 @interface NikeNameViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *nikeNameField;
 
 @end
 
@@ -16,9 +17,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self configNikeUI];
+    
 }
-
+- (void)configNikeUI {
+    self.title = @"昵称";
+    self.nikeNameField.text = self.nike;
+    UIButton *saveBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 44)];
+    [saveBtn setTitle:@"保存" forState:UIControlStateNormal];
+    [saveBtn setTitleColor:[UIColor c_333Color] forState:UIControlStateNormal];
+    saveBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [saveBtn addTarget:self action:@selector(saveClick:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:saveBtn];
+    
+}
+- (void)saveClick:(UIButton *)barItem {
+    
+    if ([UIUtils isNullOrEmpty:self.nikeNameField.text]) {
+        [Dialog popTextAnimation:@"请输入昵称"];
+    }else {
+        NSDictionary *param = @{@"nick_name":self.nikeNameField.text
+                                };
+        [AFNetworkTool postJSONWithUrl:update_nikename_url parameters:param success:^(id responseObject) {
+            NSInteger code = [responseObject[@"code"] integerValue];
+            [Dialog popTextAnimation:responseObject[@"mesage"]];
+            if (code == 200) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self.navigationController popViewControllerAnimated:YES];
+                });
+            }else {
+                
+            }
+        } fail:^{
+            
+        }];
+    }
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

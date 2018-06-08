@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ShopVideoCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *videoImage;
 
 @end

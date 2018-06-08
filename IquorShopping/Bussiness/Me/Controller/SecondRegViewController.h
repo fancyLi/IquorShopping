@@ -9,5 +9,6 @@
 #import "IquorViewController.h"
 
 @interface SecondRegViewController : IquorViewController
-
+@property (nonatomic, copy) NSString *tel;
+@property (nonatomic, copy) NSString *code;
 @end

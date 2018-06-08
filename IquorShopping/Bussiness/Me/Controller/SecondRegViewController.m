@@ -9,6 +9,10 @@
 #import "SecondRegViewController.h"
 
 @interface SecondRegViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UITextField *codeFeild;
+@property (weak, nonatomic) IBOutlet UITextField *passField;
+@property (weak, nonatomic) IBOutlet UITextField *sureFeild;
 
 @end
 
@@ -16,9 +20,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
 
+    [self configRegistUI];
+}
+- (void)configRegistUI {
+    self.title = @"完善资料（2/2）";
+}
+- (IBAction)registClick:(UIButton *)sender {
+   
+    
+    NSDictionary *param = @{@"user_name":self.nameField.text,
+                            @"user_tel":self.tel,
+                            @"verification_code":self.code,
+                            @"parent_code":@"",
+                            @"pass_word":self.passField.text,
+                            @"pass_word_repeat":self.sureFeild.text
+                            };
+    [AFNetworkTool postJSONWithUrl:me_registone_url parameters:param success:^(id responseObject) {
+        NSInteger code = [responseObject[@"code"] integerValue];
+        [Dialog popTextAnimation:responseObject[@"message"]];
+        if (code == 200) {
+            
+        }else {
+            
+        }
+    } fail:^{
+        
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

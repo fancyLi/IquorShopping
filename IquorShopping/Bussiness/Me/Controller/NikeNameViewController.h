@@ -9,5 +9,5 @@
 #import "IquorViewController.h"
 
 @interface NikeNameViewController : IquorViewController
-
+@property (nonatomic, copy) NSString *nike;
 @end

@@ -22,6 +22,8 @@
 
 + (UIColor *)c_f1f1Color;
 
++ (UIColor *)c_f5f5Color;
+
 + (UIColor *)c_7878Color;
 
 + (UIColor *)c_cc0Color;

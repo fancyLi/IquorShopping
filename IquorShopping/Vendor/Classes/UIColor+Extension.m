@@ -31,6 +31,10 @@
     return UIColorFromRGB(0xf1f1f1);
 }
 
++ (UIColor *)c_f5f5Color {
+    return UIColorFromRGB(0xf5f5f5);
+}
+
 + (UIColor *)c_fafaColor {
     return UIColorFromRGB(0xfafafa);
 }

@@ -181,4 +181,53 @@
     return folderSize;
 }
 
+#pragma mark  ** 获取单个文件大小
+/* 获取单个文件数据大小*/
++ (long long)fileSizeAtPath:(NSString*)filePath {
+    /* 创建文件管理者对象 */
+    NSFileManager *manager = [NSFileManager defaultManager];
+    /* 判断文件中是否存在该文件 */
+    if ([manager fileExistsAtPath:filePath]) {
+        /* 返回文件大小 */
+        return [[manager attributesOfItemAtPath:filePath error:nil] fileSize];
+    }
+    /* 不存在则返回0 */
+    return 0;
+}
+
++ (float)calculateFolderSizeAtPath:(NSString *)folderPath {
+    /* 创建文件管理者对象 */
+    NSFileManager *manager = [NSFileManager defaultManager];
+    /* 如果没有, 则返回0 */
+    if (![manager fileExistsAtPath:folderPath]) return 0;
+    
+    NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath:folderPath] objectEnumerator];
+    NSString *fileName;
+    long long folderSize = 0;
+    /* 挨个遍历, 判断是否全部遍历 */
+    while ((fileName = [childFilesEnumerator nextObject]) != nil) {
+        NSString *fileAbsolutePath = [folderPath stringByAppendingPathComponent:fileName];
+        /* 逐个计算数据大小 */
+        folderSize += [self fileSizeAtPath:fileAbsolutePath];
+    }
+    /* 转换为字节返回 */
+    return folderSize / (1024.0 * 1024.0);
+}
+
+
+
++ (void)cleanCacheDataWithCachPath:(NSString *)cachPath {
+    /* 获取cachPath缓存文件夹中的数组文件 */
+    NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:cachPath];
+    /* 遍历数组文件, 获取每个路径 */
+    for (NSString *per in files) {
+        NSError *error;
+        /* 拼接路径 */
+        NSString *path = [cachPath stringByAppendingPathComponent:per];
+        /* 判断是否存在该文件路径, 存在就清除 */
+        if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+            [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+        }
+    }
+}
 @end

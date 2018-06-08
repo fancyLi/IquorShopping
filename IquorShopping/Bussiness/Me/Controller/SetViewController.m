@@ -7,8 +7,13 @@
 //
 
 #import "SetViewController.h"
-
+#import "VersionViewController.h"
+#import "FileUtils.h"
 @interface SetViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *cache;
+@property (weak, nonatomic) IBOutlet UILabel *version;
+@property (weak, nonatomic) IBOutlet UIView *cacheClear;
+@property (weak, nonatomic) IBOutlet UIView *versionAbout;
 
 @end
 
@@ -16,7 +21,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self configSetUI];
+    
+}
+- (void)configSetUI {
+    self.title = @"个人设置";
+    self.cache.text = [NSString stringWithFormat:@"%.2fM", [FileUtils calculateFolderSizeAtPath:NSHomeDirectory()]];
+    self.version.text = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    UITapGestureRecognizer *tapClear = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clearCache)];
+    [self.cacheClear addGestureRecognizer:tapClear];
+    
+    UITapGestureRecognizer *tapVersion = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(aboutVersion)];
+    [self.versionAbout addGestureRecognizer:tapVersion];
+}
+
+- (void)clearCache {
+    [FileUtils cleanCacheDataWithCachPath:NSHomeDirectory()];
+    [Dialog popTextAnimation:@"缓存已清除"];
+    self.cache.text = @"0.00M";
+}
+- (void)aboutVersion {
+    VersionViewController *versionVC = [[VersionViewController alloc]init];
+    [self.navigationController pushViewController:versionVC animated:YES];
+}
+- (IBAction)exitClick:(id)sender {
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -103,4 +103,16 @@
  *计算缓存大小
  */
 + (long long) folderSizeAtPath:(NSString*)folderPath;
+
+#pragma mark  ** 获取整个缓存文件下的数据大小
+/**
+ *计算缓存文件大小 1024
+ */
++ (float)calculateFolderSizeAtPath:(NSString*)folderPath;
+
+#pragma mark  ** 清除缓存数据
+/**
+ *清除缓存
+ */
++ (void)cleanCacheDataWithCachPath:(NSString *)cachPath;
 @end

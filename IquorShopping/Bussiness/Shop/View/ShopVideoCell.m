@@ -8,6 +8,8 @@
 
 #import "ShopVideoCell.h"
 
+
+
 @implementation ShopVideoCell
 
 - (void)awakeFromNib {

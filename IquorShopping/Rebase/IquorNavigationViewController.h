@@ -6,8 +6,8 @@
 //  Copyright © 2018年 Hefei elevation network technology co. LTD. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RTRootNavigationController.h"
 
-@interface IquorNavigationViewController : UINavigationController
+@interface IquorNavigationViewController : RTRootNavigationController
 
 @end

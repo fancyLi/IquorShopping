@@ -7,6 +7,7 @@
 //
 
 #import "ShopViewController.h"
+#import "PlayerViewController.h"
 #import "ShopConfigCell.h"
 #import "ShopVideoCell.h"
 #import "ShopHotCell.h"
@@ -20,6 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.shopTableView];
+}
+
+- (void)startPlayer {
+    PlayerViewController *playerVC = [[PlayerViewController alloc]init];
+    playerVC.viderStr = @"";
+    [self presentViewController:playerVC animated:YES completion:nil];
 }
 
 #pragma mark UITableViewDataSource & UITableViewDelegate
@@ -50,6 +57,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         ShopConfigCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopConfigCell class])];
+        cell.configBlock = ^{
+            [self startPlayer];
+        };
         return cell;
     }else if (indexPath.section == 1) {
         ShopVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopVideoCell class])];
@@ -66,7 +76,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    if (indexPath.section == 0) {
+        
+    }else if (indexPath.section == 1) {
+    }
 }
 
 - (void)didReceiveMemoryWarning {

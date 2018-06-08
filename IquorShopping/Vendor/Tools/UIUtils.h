@@ -36,6 +36,7 @@
 #pragma mark - 字符串处理
 //判断字符串是否为空
 + (BOOL)isNullOrEmpty:(NSString*)string;
+
 + (NSString *)emptyString:(NSString *)string;
 //判断手机号
 + (BOOL)checkPhoneNum:(NSString *)ihoneNum;

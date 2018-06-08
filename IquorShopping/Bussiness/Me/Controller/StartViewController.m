@@ -95,7 +95,7 @@
 - (void)chosPhotos {
     
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-        [Dialog showMessage:@"不支持相册选择"];
+        [Dialog popTextAnimation:@"不支持相册选择"];
     }else {
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -113,7 +113,7 @@
 }
 - (void)chosCamera {
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        [Dialog showMessage:@"不支持相机"];
+        [Dialog popTextAnimation:@"不支持相机"];
     }else {
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
