@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ClassInfoModel.h"
 @interface ClassCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet UILabel *name;
+
+- (void)setClassInfo:(ClassInfoModel *)model;
 
 @end

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class BrokerModel;
 @interface BrokerCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *brokerDes;
-@property (weak, nonatomic) IBOutlet UILabel *brokerTime;
-@property (weak, nonatomic) IBOutlet UILabel *brokerMoney;
+
+
+- (void)configBrokerCell:(BrokerModel *)model;
 
 @end

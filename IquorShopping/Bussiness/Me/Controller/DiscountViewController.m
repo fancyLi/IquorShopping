@@ -8,6 +8,7 @@
 
 #import "DiscountViewController.h"
 #import "DiscountCell.h"
+#import "DiscountModel.h"
 @interface DiscountViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *disTable;
@@ -37,7 +38,10 @@
         NSInteger code = [responseObject[@"code"] integerValue];
         [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
-           
+            NSArray *arrs = [NSArray yy_modelArrayWithClass:[DiscountModel class] json:responseObject[@"message"][@"list"]];
+            [selfWeak.couponArrs addObjectsFromArray:arrs];
+            [selfWeak.disTable reloadData];
+            
         }else {
         }
     } fail:^{
@@ -52,7 +56,7 @@
 
 #pragma mark UITableViewDelegate & UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 10;
+    return self.couponArrs.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
@@ -65,6 +69,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DiscountCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([DiscountCell class])];
+    [cell configDiscountCell:self.couponArrs[indexPath.section]];
     return cell;
 }
 

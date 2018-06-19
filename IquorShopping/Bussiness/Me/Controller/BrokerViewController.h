@@ -8,6 +8,10 @@
 
 #import "IquorViewController.h"
 
+typedef NS_ENUM(NSInteger, CapitalType) {
+    KCommision =0,
+    KBonus
+};
 @interface BrokerViewController : IquorViewController
-
+@property (nonatomic, assign) CapitalType capital;
 @end

@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrokerViewController">
             <connections>
                 <outlet property="brokerTableView" destination="eAY-Eg-e6k" id="LaR-2O-S6m"/>
+                <outlet property="captialDes" destination="d7i-Ir-e5r" id="WB7-AF-hnT"/>
                 <outlet property="money" destination="hj1-VF-b1b" id="9RF-gz-8Ie"/>
                 <outlet property="opBtn" destination="Kve-SE-YgN" id="cXi-e3-0ou"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

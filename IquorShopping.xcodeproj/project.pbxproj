@@ -31,6 +31,12 @@
 		080649BF20C9259C003B155F /* MsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 080649BD20C9259C003B155F /* MsgViewController.m */; };
 		080649C020C9259C003B155F /* MsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080649BE20C9259C003B155F /* MsgViewController.xib */; };
 		080649C320CA5D4E003B155F /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 080649C220CA5D4E003B155F /* AddressModel.m */; };
+		080649C620CE0CAB003B155F /* DiscountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 080649C520CE0CAB003B155F /* DiscountModel.m */; };
+		080649C920CE11DD003B155F /* JoinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 080649C820CE11DD003B155F /* JoinModel.m */; };
+		080649CC20CE1983003B155F /* BrokerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 080649CB20CE1983003B155F /* BrokerModel.m */; };
+		080E99A220D929DA00AF09FF /* ClassInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 080E99A120D929DA00AF09FF /* ClassInfoModel.m */; };
+		080E99A520D9347000AF09FF /* GoodsInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 080E99A420D9347000AF09FF /* GoodsInfoModel.m */; };
+		080E99A820D93E0300AF09FF /* HomePageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 080E99A720D93E0300AF09FF /* HomePageModel.m */; };
 		0847F19C20AAFFB900BEF0F6 /* IndentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F19A20AAFFB900BEF0F6 /* IndentViewController.m */; };
 		0847F1A520AB03D400BEF0F6 /* YSLContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F1A020AB03D400BEF0F6 /* YSLContainerViewController.m */; };
 		0847F1A620AB03D400BEF0F6 /* LNContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F1A120AB03D400BEF0F6 /* LNContainerViewController.m */; };
@@ -227,6 +233,18 @@
 		080649BE20C9259C003B155F /* MsgViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MsgViewController.xib; sourceTree = "<group>"; };
 		080649C120CA5D4E003B155F /* AddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
 		080649C220CA5D4E003B155F /* AddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
+		080649C420CE0CAB003B155F /* DiscountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscountModel.h; sourceTree = "<group>"; };
+		080649C520CE0CAB003B155F /* DiscountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscountModel.m; sourceTree = "<group>"; };
+		080649C720CE11DD003B155F /* JoinModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JoinModel.h; sourceTree = "<group>"; };
+		080649C820CE11DD003B155F /* JoinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JoinModel.m; sourceTree = "<group>"; };
+		080649CA20CE1983003B155F /* BrokerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrokerModel.h; sourceTree = "<group>"; };
+		080649CB20CE1983003B155F /* BrokerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrokerModel.m; sourceTree = "<group>"; };
+		080E99A020D929DA00AF09FF /* ClassInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassInfoModel.h; sourceTree = "<group>"; };
+		080E99A120D929DA00AF09FF /* ClassInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassInfoModel.m; sourceTree = "<group>"; };
+		080E99A320D9347000AF09FF /* GoodsInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsInfoModel.h; sourceTree = "<group>"; };
+		080E99A420D9347000AF09FF /* GoodsInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsInfoModel.m; sourceTree = "<group>"; };
+		080E99A620D93E0300AF09FF /* HomePageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageModel.h; sourceTree = "<group>"; };
+		080E99A720D93E0300AF09FF /* HomePageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageModel.m; sourceTree = "<group>"; };
 		0847F19920AAFFB900BEF0F6 /* IndentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndentViewController.h; sourceTree = "<group>"; };
 		0847F19A20AAFFB900BEF0F6 /* IndentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndentViewController.m; sourceTree = "<group>"; };
 		0847F19F20AB03D400BEF0F6 /* YSLScrollMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLScrollMenuView.h; sourceTree = "<group>"; };
@@ -596,6 +614,8 @@
 		0880522A20A2EAD90018AE6E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				080649C720CE11DD003B155F /* JoinModel.h */,
+				080649C820CE11DD003B155F /* JoinModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -638,6 +658,10 @@
 		0880522E20A2EAD90018AE6E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				080E99A020D929DA00AF09FF /* ClassInfoModel.h */,
+				080E99A120D929DA00AF09FF /* ClassInfoModel.m */,
+				080E99A320D9347000AF09FF /* GoodsInfoModel.h */,
+				080E99A420D9347000AF09FF /* GoodsInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -694,6 +718,8 @@
 		0880523220A2EAD90018AE6E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				080E99A620D93E0300AF09FF /* HomePageModel.h */,
+				080E99A720D93E0300AF09FF /* HomePageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -866,6 +892,10 @@
 			children = (
 				088052C520A9C8A10018AE6E /* MeConfigModel.h */,
 				088052C620A9C8A10018AE6E /* MeConfigModel.m */,
+				080649C420CE0CAB003B155F /* DiscountModel.h */,
+				080649C520CE0CAB003B155F /* DiscountModel.m */,
+				080649CA20CE1983003B155F /* BrokerModel.h */,
+				080649CB20CE1983003B155F /* BrokerModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1391,6 +1421,8 @@
 				088052AB20A356980018AE6E /* MeConfigView.m in Sources */,
 				088052E820A9E1560018AE6E /* View+MASAdditions.m in Sources */,
 				0847F1CC20AB286700BEF0F6 /* CollectedCell.m in Sources */,
+				080E99A520D9347000AF09FF /* GoodsInfoModel.m in Sources */,
+				080E99A220D929DA00AF09FF /* ClassInfoModel.m in Sources */,
 				080649B720C90B44003B155F /* VersionViewController.m in Sources */,
 				08676F2D20B6E65300F870B9 /* MeInfoViewController.m in Sources */,
 				0847F1E520AB383F00BEF0F6 /* TeamsViewController.m in Sources */,
@@ -1401,6 +1433,7 @@
 				0806499220C6AA60003B155F /* AddressViewController.m in Sources */,
 				0898C38020AF15DB00664482 /* NavDetailBar.m in Sources */,
 				08E4643C20A2E7B900E405DB /* main.m in Sources */,
+				080E99A820D93E0300AF09FF /* HomePageModel.m in Sources */,
 				0847F1B820AB09F100BEF0F6 /* IndentDetailCell.m in Sources */,
 				0847F1EC20AB395500BEF0F6 /* TeamCell.m in Sources */,
 				0880525620A2ECC10018AE6E /* ShopViewController.m in Sources */,
@@ -1426,7 +1459,9 @@
 				080649AF20C8C7F6003B155F /* AdressListViewController.m in Sources */,
 				080649BB20C91F98003B155F /* PlayerViewController.m in Sources */,
 				08676F3F20B6F9F600F870B9 /* ShopHotCell.m in Sources */,
+				080649C920CE11DD003B155F /* JoinModel.m in Sources */,
 				0898C3CA20B3005100664482 /* UploadCartViewController.m in Sources */,
+				080649C620CE0CAB003B155F /* DiscountModel.m in Sources */,
 				0898C39220AF276700664482 /* GoodsViewController.m in Sources */,
 				0898C3C020B2EEEC00664482 /* ShopCartCell.m in Sources */,
 				0880526C20A33B790018AE6E /* UIFont+Extension.m in Sources */,
@@ -1437,6 +1472,7 @@
 				0847F1E220AB34AE00BEF0F6 /* DiscountViewController.m in Sources */,
 				0847F19C20AAFFB900BEF0F6 /* IndentViewController.m in Sources */,
 				0880527520A3443D0018AE6E /* FirstRegViewController.m in Sources */,
+				080649CC20CE1983003B155F /* BrokerModel.m in Sources */,
 				088052E420A9E1560018AE6E /* MASCompositeConstraint.m in Sources */,
 				088052EB20A9E1560018AE6E /* MASViewAttribute.m in Sources */,
 				0898C35620ADDC3C00664482 /* NavSegmentBar.m in Sources */,

@@ -7,7 +7,12 @@
 //
 
 #import "SiginCell.h"
+@interface SiginCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *icon;
+@property (weak, nonatomic) IBOutlet UILabel *goodsDes;
+@property (weak, nonatomic) IBOutlet UILabel *goodsPrice;
 
+@end
 @implementation SiginCell
 
 - (void)awakeFromNib {
@@ -15,4 +20,9 @@
     // Initialization code
 }
 
+- (void)configGoodsInfo:(GoodsInfoModel *)model {
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:nil];
+    self.goodsDes.text = model.goods_name;
+    self.goodsPrice.text = model.goods_price;
+}
 @end

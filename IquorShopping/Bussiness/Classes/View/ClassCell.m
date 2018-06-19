@@ -20,4 +20,8 @@
    
 }
 
+- (void)setClassInfo:(ClassInfoModel *)model {
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:model.cat_image] placeholderImage:[UIImage imageNamed:@"icon_01"]];
+    self.name.text = model.cat_name;
+}
 @end

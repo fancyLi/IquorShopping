@@ -7,7 +7,7 @@
 //
 
 #import "JoinsViewController.h"
-
+#import "JoinModel.h"
 @interface JoinsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet UILabel *joinMoney;
@@ -20,10 +20,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"加盟";
-    
+    [self requestJoin];
    
 }
 
+- (void)requestJoin {
+    WeakObj(self);
+    [AFNetworkTool postJSONWithUrl:join_Advantage_url parameters:nil success:^(id responseObject) {
+        NSInteger code = [responseObject[@"code"] integerValue];
+        [Dialog popTextAnimation:responseObject[@"message"]];
+        if (code == 200) {
+            JoinModel *joinModel = [JoinModel yy_modelWithJSON:responseObject[@"content"]];
+            selfWeak.joinMoney.text = joinModel.join_money;
+            [selfWeak.icon sd_setImageWithURL:[NSURL URLWithString:joinModel.join_pic] placeholderImage:[UIImage imageNamed:@"icon_35"]];
+            selfWeak.joinLaw.text = joinModel.advantage;
+                        
+        }else {
+        }
+    } fail:^{
+        
+    }];
+}
 
 - (IBAction)startJoin:(UIButton *)sender {
 }

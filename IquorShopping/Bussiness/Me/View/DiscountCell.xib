@@ -93,6 +93,7 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="actionBtn" destination="aVB-Ua-p0k" id="4UL-ZV-so0"/>
+                <outlet property="containerBG" destination="PW3-d2-XTI" id="cYF-gq-EJu"/>
                 <outlet property="des" destination="fIJ-FP-4J7" id="qXM-2j-Fs3"/>
                 <outlet property="price" destination="YGt-TU-U3d" id="0Gq-ZF-Dvr"/>
                 <outlet property="time" destination="mPf-nz-F5M" id="pDW-Nn-G8G"/>

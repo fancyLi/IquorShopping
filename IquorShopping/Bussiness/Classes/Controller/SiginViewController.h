@@ -10,4 +10,10 @@
 
 @interface SiginViewController : IquorViewController
 
+//分类ID
+@property (nonatomic, copy) NSString *cat_id;
+//分类名称
+@property (nonatomic, copy) NSString *cat_name;
+//搜索keywords
+@property (nonatomic, copy) NSString *serContent;
 @end

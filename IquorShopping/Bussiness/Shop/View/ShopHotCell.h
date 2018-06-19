@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GoodsInfoModel.h"
 @interface ShopHotCell : UITableViewCell
+- (void)configHotInfo:(NSArray <GoodsInfoModel *>*)hotGoods;
 
 @end

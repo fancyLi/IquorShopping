@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) UICollectionView *configCollection;
 @property (weak, nonatomic) IBOutlet UICollectionView *configCollectionView;
-
+@property (nonatomic, strong) NSArray *goodsCats;
 @end
 @implementation ShopConfigCell
 
@@ -26,6 +26,10 @@
     self.configCollectionView.dataSource = self;
     self.configCollectionView.delegate = self;
 }
+- (void)configCatInfo:(NSArray<ClassInfoModel *> *)cats {
+    self.goodsCats = [cats copy];
+    [self.configCollectionView reloadData];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
@@ -34,7 +38,7 @@
 
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.bounds.size.width/4.0, self.bounds.size.height/2.0);
+    return CGSizeMake(self.bounds.size.width/3.0, self.bounds.size.height/2.0);
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 0;
@@ -43,10 +47,11 @@
     return 0;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 9;
+    return self.goodsCats.count;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ClassCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ClassCell class]) forIndexPath:indexPath];
+    [cell setClassInfo:self.goodsCats[indexPath.item]];
     return cell;
 }
 

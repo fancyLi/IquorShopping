@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^SegmentSelectedBlock)(NSString *priceSort, NSString *volumeSort);
 @interface NavSegmentBar : UIView
-
+@property (nonatomic, copy) SegmentSelectedBlock segmentSelectedBlock;
 @end

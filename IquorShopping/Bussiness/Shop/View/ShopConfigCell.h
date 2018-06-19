@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ClassInfoModel.h"
 typedef void (^ConfigBlock)(void);
 @interface ShopConfigCell : UITableViewCell
+
 @property (nonatomic, copy) ConfigBlock configBlock;
+- (void)configCatInfo:(NSArray <ClassInfoModel *>*)cats;
 @end

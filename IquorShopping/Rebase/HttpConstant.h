@@ -48,6 +48,18 @@
 //优惠券列表
 #define user_couponList_url                        @"user/couponList"
 
+//加盟
+#define join_Advantage_url                          @"user/joinAdvantage"
+
+//我的佣金
+#define person_Commision_url                       @"user/personCommision"
+//佣金流水
+#define person_CommisionWater_url                       @"user/commisionWater"
+//我的分红
+#define person_bonus_url                       @"user/personBonus"
+//分红流水
+#define bonus_Water_url                       @"user/bonusWater"
+
 //修改密码
 #define me_changePassword_url               @"user/modifyThePassword"
 
@@ -57,6 +69,13 @@
 //提交留言
 #define msg_upload_url                       @"user/onlineMessage"
 
+//====== 商品管理类 =======
+//首页产品
+#define index_homePage                          @"index/homePage"
 
+//产品分类
+#define shop_goodsCatList                       @"shop/goodsCatList"
 
+//产品列表
+#define shop_goodsList                          @"shop/goodsList"
 #endif /* HttpConstant_h */

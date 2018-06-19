@@ -10,7 +10,7 @@
 #import "SiginCell.h"
 @interface ShopNewCell ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *newsCollectionView;
-
+@property (nonatomic, strong) NSArray *goodsNew;
 @end
 @implementation ShopNewCell
 
@@ -18,7 +18,10 @@
     [super awakeFromNib];
     [self configNewsUI];
 }
-
+- (void)configNewInfo:(NSArray<GoodsInfoModel *> *)goodsNew {
+    self.goodsNew = goodsNew;
+    [self.newsCollectionView reloadData];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
@@ -36,10 +39,11 @@
     return 1;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 9;
+    return self.goodsNew.count;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SiginCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SiginCell class]) forIndexPath:indexPath];
+    [cell configGoodsInfo:self.goodsNew[indexPath.item]];
     return cell;
 }
 

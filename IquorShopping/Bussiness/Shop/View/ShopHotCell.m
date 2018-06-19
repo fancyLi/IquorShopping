@@ -11,14 +11,17 @@
 @interface ShopHotCell ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *hotCollectionView;
 @property (weak, nonatomic) IBOutlet UIButton *shosBtn;
-
+@property (nonatomic, strong) NSArray *hotGoods;
 @end
 @implementation ShopHotCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self configHotUI];
-    
+}
+- (void)configHotInfo:(NSArray<GoodsInfoModel *> *)hotGoods {
+    self.hotGoods = [hotGoods copy];
+    [self.hotCollectionView reloadData];
 }
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -31,10 +34,11 @@
     return 0;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 9;
+    return self.hotGoods.count;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SiginCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SiginCell class]) forIndexPath:indexPath];
+    [cell configGoodsInfo:self.hotGoods[indexPath.item]];
     return cell;
 }
 

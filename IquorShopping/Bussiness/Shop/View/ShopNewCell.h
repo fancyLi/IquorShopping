@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GoodsInfoModel.h"
 @interface ShopNewCell : UITableViewCell
-
+- (void)configNewInfo:(NSArray <GoodsInfoModel *>*)goodsNew;
 @end

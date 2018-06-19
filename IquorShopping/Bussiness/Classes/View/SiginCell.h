@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GoodsInfoModel.h"
 @interface SiginCell : UICollectionViewCell
-
+- (void)configGoodsInfo:(GoodsInfoModel *)model;
 @end

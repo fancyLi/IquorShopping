@@ -44,16 +44,35 @@
     }
 }
 - (IBAction)sureClick:(UIButton *)sender {
-    NSDictionary *param = @{@"user_tel":self.telFeild.text,
-                            @"verification_code": self.codeFeild.text,
-                            @"pass_word":self.passFeild.text,
-                            @"pass_word_repeat": self.sureFeild.text
-                            };
-    [AFNetworkTool postJSONWithUrl:me_resetPassword_url parameters:param success:^(id responseObject) {
-        
-    } fail:^{
-        
-    }];
+    if ([UIUtils isNullOrEmpty:self.telFeild.text]) {
+        [Dialog popTextAnimation:@"请输入手机号码"];
+    }else if ([UIUtils isNullOrEmpty:self.codeFeild.text]) {
+        [Dialog popTextAnimation:@"请输入验证码"];
+    }else if ([UIUtils isNullOrEmpty:self.passFeild.text]) {
+        [Dialog popTextAnimation:@"请输入新密码"];
+    }else if ([UIUtils isNullOrEmpty:self.sureFeild.text]) {
+        [Dialog popTextAnimation:@"请输入确认密码"];
+    }else {
+        NSDictionary *param = @{@"user_tel":self.telFeild.text,
+                                @"verification_code": self.codeFeild.text,
+                                @"pass_word":self.passFeild.text,
+                                @"pass_word_repeat": self.sureFeild.text
+                                };
+        [AFNetworkTool postJSONWithUrl:me_resetPassword_url parameters:param success:^(id responseObject) {
+            NSInteger code = [responseObject[@"code"] integerValue];
+            [Dialog popTextAnimation:responseObject[@"message"]];
+            if (code == 200) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self.navigationController popViewControllerAnimated:YES];
+                });
+            }else {
+                
+            }
+        } fail:^{
+            
+        }];
+    }
+    
 }
 
 

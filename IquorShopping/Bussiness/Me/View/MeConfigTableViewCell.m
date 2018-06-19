@@ -21,7 +21,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-  
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self.contentView addSubview:self.mc1];
     [self.contentView addSubview:self.mc2];

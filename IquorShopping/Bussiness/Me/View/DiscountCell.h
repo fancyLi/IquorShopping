@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class DiscountModel;
 @interface DiscountCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *price;
-@property (weak, nonatomic) IBOutlet UILabel *des;
-@property (weak, nonatomic) IBOutlet UILabel *time;
-@property (weak, nonatomic) IBOutlet UIButton *actionBtn;
+
+
+- (void)configDiscountCell:(DiscountModel *)model;
 
 @end

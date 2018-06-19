@@ -32,6 +32,7 @@
 
 
     [self.view addSubview:self.meTableview];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -58,7 +59,9 @@
         return 3;
     }
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MeConfigTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MeConfigTableViewCell class])];
     cell.delegate = self;
@@ -81,7 +84,7 @@
 #pragma mark set & get
 - (UITableView *)meTableview {
     if (!_meTableview) {
-        _meTableview = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _meTableview = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStyleGrouped];
         _meTableview.dataSource = self;
         _meTableview.delegate = self;
         _meTableview.rowHeight = 100;

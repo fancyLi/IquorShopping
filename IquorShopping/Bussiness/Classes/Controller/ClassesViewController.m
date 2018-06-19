@@ -10,9 +10,11 @@
 #import "SiginViewController.h"
 #import "NavSearchBar.h"
 #import "ClassCell.h"
+#import "ClassInfoModel.h"
 @interface ClassesViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *classView;
 @property (nonatomic, strong) NavSearchBar *navSearchBar;
+@property (nonatomic, strong) NSArray *classes;
 @end
 
 @implementation ClassesViewController
@@ -21,20 +23,41 @@
     [super viewDidLoad];
     [self.view addSubview:self.classView];
     self.navigationItem.titleView = self.navSearchBar;
+    [self requestClssInfo];
 }
 
+- (void)requestClssInfo {
+    WeakObj(self);
+    [AFNetworkTool postJSONWithUrl:shop_goodsCatList parameters:nil success:^(id responseObject) {
+        NSInteger code = [responseObject[@"code"] integerValue];
+        [Dialog popTextAnimation:responseObject[@"message"]];
+        if (code == 200) {
+            selfWeak.classes = [NSArray yy_modelArrayWithClass:[ClassInfoModel class] json:responseObject[@"content"][@"list"]];
+            [selfWeak.classView reloadData];
+            
+        }else {
+            
+        }
+    } fail:^{
+        
+    }];
+}
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-   return 9;
+   return self.classes.count;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ClassCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ClassCell class]) forIndexPath:indexPath];
+    [cell setClassInfo:self.classes[indexPath.item]];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [self.navigationController pushViewController:[SiginViewController new] animated:YES];
+    ClassInfoModel *infoModel = self.classes[indexPath.item];
+    SiginViewController *siginVC = [[SiginViewController alloc]init];
+    siginVC.cat_id = infoModel.cat_id;
+    siginVC.cat_name = infoModel.cat_name;
+    [self.navigationController pushViewController:siginVC animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

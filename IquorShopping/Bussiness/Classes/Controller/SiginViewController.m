@@ -10,9 +10,14 @@
 #import "GoodsViewController.h"
 #import "NavSegmentBar.h"
 #import "SiginCell.h"
+#import "GoodsInfoModel.h"
 @interface SiginViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, copy) NSString *priceSort;
+@property (nonatomic, copy) NSString *volumeSort;
 @property (nonatomic, strong) NavSegmentBar *segmentBar;
 @property (nonatomic, strong) UICollectionView *classView;
+@property (nonatomic, strong) NSMutableArray *goods;
 @end
 
 @implementation SiginViewController
@@ -20,12 +25,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"白酒";
+    self.title = self.cat_name;
     self.view.backgroundColor = [UIColor c_f6f6Color];
     [self.view addSubview:self.classView];
     [self.view addSubview:self.segmentBar];
+    self.priceSort = @"1";
+    self.volumeSort = @"1";
+    self.page = 1;
+    [self requertClassInfo];
 }
 
+- (void)requertClassInfo {
+    //代表类型 1.热门推荐2.最新产品3.分类产品4.搜索关键词
+    //商品价格排序 1.升序2.降序
+    //商品价格排序 1.升序2.降序
+    WeakObj(self);
+    NSDictionary *param = @{@"page":@(self.page),
+                            @"type":@"3",
+                            @"goods_price_sort":self.priceSort,
+                            @"sales_volume_sort":self.volumeSort,
+                            @"cat_id":[UIUtils isNullOrEmpty:self.cat_id]?@"":self.cat_id,
+                            @"key_words":[UIUtils isNullOrEmpty:self.serContent]?@"":self.serContent
+                            };
+    [AFNetworkTool postJSONWithUrl:shop_goodsList parameters:param success:^(id responseObject) {
+        [selfWeak.classView.mj_footer endRefreshing];
+        [selfWeak.classView.mj_header endRefreshing];
+        
+        NSInteger code = [responseObject[@"code"] integerValue];
+        [Dialog popTextAnimation:responseObject[@"message"]];
+        if (code == 200) {
+            AllInfo *allInfo = [AllInfo yy_modelWithJSON:responseObject[@"content"]];
+            [selfWeak.goods addObjectsFromArray:allInfo.list];
+            [selfWeak.classView reloadData];
+            
+        }else {
+        }
+    } fail:^{
+        
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -33,10 +71,11 @@
 
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 9;
+    return self.goods.count;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SiginCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SiginCell class]) forIndexPath:indexPath];
+    [cell configGoodsInfo:self.goods[indexPath.item]];
     return cell;
 }
 
@@ -59,15 +98,38 @@
         [_classView registerNib:[UINib nibWithNibName:@"SiginCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([SiginCell class])];
         _classView.dataSource = self;
         _classView.delegate = self;
+        WeakObj(self);
+        _classView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            selfWeak.page = 0;
+            selfWeak.goods = [NSMutableArray array];
+            [selfWeak requertClassInfo];
+        }];
+        _classView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+            [selfWeak requertClassInfo];
+        }];
     }
     return _classView;
 }
 - (NavSegmentBar *)segmentBar {
     if (!_segmentBar) {
+        WeakObj(self);
         _segmentBar = [[NSBundle mainBundle]loadNibNamed:@"NavSegmentBar" owner:self options:nil].firstObject;
+        _segmentBar.segmentSelectedBlock = ^(NSString *priceSort, NSString *volumeSort) {
+            selfWeak.priceSort = priceSort;
+            selfWeak.volumeSort = volumeSort;
+            selfWeak.page = 0;
+            selfWeak.goods = nil;
+            [selfWeak requertClassInfo];
+        };
         
     }
     return _segmentBar;
 }
 
+- (NSMutableArray *)goods {
+    if (!_goods) {
+        _goods = [NSMutableArray arrayWithCapacity:0];
+    }
+    return _goods;
+}
 @end

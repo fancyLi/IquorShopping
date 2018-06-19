@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -60,6 +60,11 @@
                 <constraint firstItem="FbG-aX-BFO" firstAttribute="top" secondItem="ITI-lH-HjQ" secondAttribute="bottom" constant="15" id="xk1-k6-DkG"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <connections>
+                <outlet property="goodsDes" destination="FbG-aX-BFO" id="HPF-hS-zpR"/>
+                <outlet property="goodsPrice" destination="PSd-ug-Z83" id="KS7-NA-DhT"/>
+                <outlet property="icon" destination="ITI-lH-HjQ" id="GM5-ld-dkS"/>
+            </connections>
         </collectionViewCell>
     </objects>
     <resources>

@@ -12,8 +12,10 @@
 #import "ShopVideoCell.h"
 #import "ShopHotCell.h"
 #import "ShopNewCell.h"
+#import "HomePageModel.h"
 @interface ShopViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *shopTableView;
+@property (nonatomic, strong) HomePageModel *homePageModel;
 @end
 
 @implementation ShopViewController
@@ -21,14 +23,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.shopTableView];
+    [self requestHomePage];
 }
 
 - (void)startPlayer {
-    PlayerViewController *playerVC = [[PlayerViewController alloc]init];
-    playerVC.viderStr = @"";
-    [self presentViewController:playerVC animated:YES completion:nil];
+    if ([UIUtils isNullOrEmpty:self.homePageModel.video_url]) {
+        [Dialog popTextAnimation:@"暂无宣传视频"];
+    }else {
+        PlayerViewController *playerVC = [[PlayerViewController alloc]init];
+        playerVC.viderStr = self.homePageModel.video_url;
+        [self presentViewController:playerVC animated:YES completion:nil];
+    }
 }
 
+- (void)requestHomePage {
+    WeakObj(self);
+    [AFNetworkTool postJSONWithUrl:index_homePage parameters:nil success:^(id responseObject) {
+        NSInteger code = [responseObject[@"code"] integerValue];
+        [Dialog popTextAnimation:responseObject[@"message"]];
+        if (code == 200) {
+            selfWeak.homePageModel = [HomePageModel yy_modelWithJSON:responseObject[@"content"]];
+            [selfWeak.shopTableView reloadData];
+            
+        }else {
+            
+        }
+    } fail:^{
+        
+    }];
+}
 #pragma mark UITableViewDataSource & UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 4;
@@ -55,10 +78,12 @@
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    WeakObj(self);
     if (indexPath.section == 0) {
         ShopConfigCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopConfigCell class])];
+        [cell configCatInfo:self.homePageModel.goods_cat_list];
         cell.configBlock = ^{
-            [self startPlayer];
+            [selfWeak startPlayer];
         };
         return cell;
     }else if (indexPath.section == 1) {
@@ -66,9 +91,11 @@
         return cell;
     }else if (indexPath.section == 2) {
         ShopHotCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopHotCell class])];
+        [cell configHotInfo:self.homePageModel.hot_goods];
         return cell;
     }else {
         ShopNewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopNewCell class])];
+        [cell configNewInfo:self.homePageModel.goods_new];
         return cell;
     }
     

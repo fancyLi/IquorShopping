@@ -7,12 +7,23 @@
 //
 
 #import "BrokerCell.h"
-
+#import "BrokerModel.h"
+@interface BrokerCell ()
+@property (weak, nonatomic) IBOutlet UILabel *brokerDes;
+@property (weak, nonatomic) IBOutlet UILabel *brokerTime;
+@property (weak, nonatomic) IBOutlet UILabel *brokerMoney;
+@end
 @implementation BrokerCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+}
+
+- (void)configBrokerCell:(BrokerModel *)model {
+    self.brokerMoney.text = [model.act isEqualToString:@"1"]?@"佣金收入":@"佣金提现";
+    self.brokerDes.text = [NSString stringWithFormat:@"%@￥%@", model.act_symbol, model.money];
+    self.brokerTime.text = @"";
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
