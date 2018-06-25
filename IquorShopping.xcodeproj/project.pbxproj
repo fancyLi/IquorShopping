@@ -37,6 +37,8 @@
 		080E99A220D929DA00AF09FF /* ClassInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 080E99A120D929DA00AF09FF /* ClassInfoModel.m */; };
 		080E99A520D9347000AF09FF /* GoodsInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 080E99A420D9347000AF09FF /* GoodsInfoModel.m */; };
 		080E99A820D93E0300AF09FF /* HomePageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 080E99A720D93E0300AF09FF /* HomePageModel.m */; };
+		080E99AE20DA95C500AF09FF /* UITableView+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 080E99AD20DA95C500AF09FF /* UITableView+Util.m */; };
+		080E99B120DA95EB00AF09FF /* UICollectionView+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 080E99B020DA95EB00AF09FF /* UICollectionView+Util.m */; };
 		0847F19C20AAFFB900BEF0F6 /* IndentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F19A20AAFFB900BEF0F6 /* IndentViewController.m */; };
 		0847F1A520AB03D400BEF0F6 /* YSLContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F1A020AB03D400BEF0F6 /* YSLContainerViewController.m */; };
 		0847F1A620AB03D400BEF0F6 /* LNContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F1A120AB03D400BEF0F6 /* LNContainerViewController.m */; };
@@ -157,6 +159,10 @@
 		0898C3CF20B3010C00664482 /* CartTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898C3CD20B3010C00664482 /* CartTextCell.m */; };
 		0898C3D020B3010C00664482 /* CartTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0898C3CE20B3010C00664482 /* CartTextCell.xib */; };
 		0898C3D320B307B300664482 /* UITableViewCell+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898C3D220B307B300664482 /* UITableViewCell+Layout.m */; };
+		08B866A620E128E700F73677 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B866A520E128E700F73677 /* SearchViewController.m */; };
+		08B866A920E131FB00F73677 /* ShopTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B866A820E131FB00F73677 /* ShopTableHeaderView.m */; };
+		08B866AD20E1331E00F73677 /* BannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B866AB20E1331E00F73677 /* BannerCell.m */; };
+		08B866AE20E1331E00F73677 /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08B866AC20E1331E00F73677 /* BannerCell.xib */; };
 		08E4642E20A2E7B900E405DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4642D20A2E7B900E405DB /* AppDelegate.m */; };
 		08E4643120A2E7B900E405DB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4643020A2E7B900E405DB /* ViewController.m */; };
 		08E4643420A2E7B900E405DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E4643220A2E7B900E405DB /* Main.storyboard */; };
@@ -245,6 +251,10 @@
 		080E99A420D9347000AF09FF /* GoodsInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsInfoModel.m; sourceTree = "<group>"; };
 		080E99A620D93E0300AF09FF /* HomePageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageModel.h; sourceTree = "<group>"; };
 		080E99A720D93E0300AF09FF /* HomePageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageModel.m; sourceTree = "<group>"; };
+		080E99AC20DA95C500AF09FF /* UITableView+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+Util.h"; sourceTree = "<group>"; };
+		080E99AD20DA95C500AF09FF /* UITableView+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Util.m"; sourceTree = "<group>"; };
+		080E99AF20DA95EB00AF09FF /* UICollectionView+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Util.h"; sourceTree = "<group>"; };
+		080E99B020DA95EB00AF09FF /* UICollectionView+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Util.m"; sourceTree = "<group>"; };
 		0847F19920AAFFB900BEF0F6 /* IndentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndentViewController.h; sourceTree = "<group>"; };
 		0847F19A20AAFFB900BEF0F6 /* IndentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndentViewController.m; sourceTree = "<group>"; };
 		0847F19F20AB03D400BEF0F6 /* YSLScrollMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLScrollMenuView.h; sourceTree = "<group>"; };
@@ -453,6 +463,13 @@
 		0898C3CE20B3010C00664482 /* CartTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTextCell.xib; sourceTree = "<group>"; };
 		0898C3D120B307B300664482 /* UITableViewCell+Layout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Layout.h"; sourceTree = "<group>"; };
 		0898C3D220B307B300664482 /* UITableViewCell+Layout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Layout.m"; sourceTree = "<group>"; };
+		08B866A420E128E700F73677 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		08B866A520E128E700F73677 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		08B866A720E131FB00F73677 /* ShopTableHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopTableHeaderView.h; sourceTree = "<group>"; };
+		08B866A820E131FB00F73677 /* ShopTableHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopTableHeaderView.m; sourceTree = "<group>"; };
+		08B866AA20E1331E00F73677 /* BannerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerCell.h; sourceTree = "<group>"; };
+		08B866AB20E1331E00F73677 /* BannerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerCell.m; sourceTree = "<group>"; };
+		08B866AC20E1331E00F73677 /* BannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCell.xib; sourceTree = "<group>"; };
 		08E4642920A2E7B900E405DB /* IquorShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IquorShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08E4642C20A2E7B900E405DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08E4642D20A2E7B900E405DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -645,6 +662,8 @@
 				0898C34A20ADDA3D00664482 /* SiginViewController.h */,
 				0898C34B20ADDA3D00664482 /* SiginViewController.m */,
 				0898C34C20ADDA3D00664482 /* SiginViewController.xib */,
+				08B866A420E128E700F73677 /* SearchViewController.h */,
+				08B866A520E128E700F73677 /* SearchViewController.m */,
 				0898C39020AF276700664482 /* GoodsViewController.h */,
 				0898C39120AF276700664482 /* GoodsViewController.m */,
 				0898C38320AF195F00664482 /* GoodsDetailViewController.h */,
@@ -739,6 +758,11 @@
 				08676F4120B6FBB000F870B9 /* ShopNewCell.h */,
 				08676F4220B6FBB000F870B9 /* ShopNewCell.m */,
 				08676F4320B6FBB000F870B9 /* ShopNewCell.xib */,
+				08B866A720E131FB00F73677 /* ShopTableHeaderView.h */,
+				08B866A820E131FB00F73677 /* ShopTableHeaderView.m */,
+				08B866AA20E1331E00F73677 /* BannerCell.h */,
+				08B866AB20E1331E00F73677 /* BannerCell.m */,
+				08B866AC20E1331E00F73677 /* BannerCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -996,6 +1020,10 @@
 				0880526B20A33B790018AE6E /* UIFont+Extension.m */,
 				08676F2F20B6EADB00F870B9 /* NSObject+Util.h */,
 				08676F3020B6EADB00F870B9 /* NSObject+Util.m */,
+				080E99AC20DA95C500AF09FF /* UITableView+Util.h */,
+				080E99AD20DA95C500AF09FF /* UITableView+Util.m */,
+				080E99AF20DA95EB00AF09FF /* UICollectionView+Util.h */,
+				080E99B020DA95EB00AF09FF /* UICollectionView+Util.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1280,6 +1308,7 @@
 				088052BF20A9BF420018AE6E /* MeHeaderTableView.xib in Resources */,
 				08676F2E20B6E65300F870B9 /* MeInfoViewController.xib in Resources */,
 				080649C020C9259C003B155F /* MsgViewController.xib in Resources */,
+				08B866AE20E1331E00F73677 /* BannerCell.xib in Resources */,
 				0847F1C820AB1D6100BEF0F6 /* FooterTableView.xib in Resources */,
 				0880527B20A347710018AE6E /* SecondRegViewController.xib in Resources */,
 				0847F1ED20AB395500BEF0F6 /* TeamCell.xib in Resources */,
@@ -1422,11 +1451,13 @@
 				088052E820A9E1560018AE6E /* View+MASAdditions.m in Sources */,
 				0847F1CC20AB286700BEF0F6 /* CollectedCell.m in Sources */,
 				080E99A520D9347000AF09FF /* GoodsInfoModel.m in Sources */,
+				080E99AE20DA95C500AF09FF /* UITableView+Util.m in Sources */,
 				080E99A220D929DA00AF09FF /* ClassInfoModel.m in Sources */,
 				080649B720C90B44003B155F /* VersionViewController.m in Sources */,
 				08676F2D20B6E65300F870B9 /* MeInfoViewController.m in Sources */,
 				0847F1E520AB383F00BEF0F6 /* TeamsViewController.m in Sources */,
 				0847F1C620AB1D5900BEF0F6 /* FooterTableView.m in Sources */,
+				08B866AD20E1331E00F73677 /* BannerCell.m in Sources */,
 				0898C38520AF195F00664482 /* GoodsDetailViewController.m in Sources */,
 				0898C34D20ADDA3D00664482 /* SiginViewController.m in Sources */,
 				088052B420A35A5B0018AE6E /* PDDDataManger.m in Sources */,
@@ -1438,6 +1469,7 @@
 				0847F1EC20AB395500BEF0F6 /* TeamCell.m in Sources */,
 				0880525620A2ECC10018AE6E /* ShopViewController.m in Sources */,
 				0880525320A2EC400018AE6E /* IquorNavigationViewController.m in Sources */,
+				08B866A920E131FB00F73677 /* ShopTableHeaderView.m in Sources */,
 				0898C3D320B307B300664482 /* UITableViewCell+Layout.m in Sources */,
 				08676F3120B6EADB00F870B9 /* NSObject+Util.m in Sources */,
 				080649C320CA5D4E003B155F /* AddressModel.m in Sources */,
@@ -1450,6 +1482,7 @@
 				088052A020A354950018AE6E /* NikeNameViewController.m in Sources */,
 				0880527A20A347710018AE6E /* SecondRegViewController.m in Sources */,
 				0847F1A620AB03D400BEF0F6 /* LNContainerViewController.m in Sources */,
+				08B866A620E128E700F73677 /* SearchViewController.m in Sources */,
 				088052A820A354A40018AE6E /* MeConfigTableViewCell.m in Sources */,
 				08676F4420B6FBB000F870B9 /* ShopNewCell.m in Sources */,
 				0847F1B220AB095400BEF0F6 /* IndentSectionView.m in Sources */,
@@ -1460,6 +1493,7 @@
 				080649BB20C91F98003B155F /* PlayerViewController.m in Sources */,
 				08676F3F20B6F9F600F870B9 /* ShopHotCell.m in Sources */,
 				080649C920CE11DD003B155F /* JoinModel.m in Sources */,
+				080E99B120DA95EB00AF09FF /* UICollectionView+Util.m in Sources */,
 				0898C3CA20B3005100664482 /* UploadCartViewController.m in Sources */,
 				080649C620CE0CAB003B155F /* DiscountModel.m in Sources */,
 				0898C39220AF276700664482 /* GoodsViewController.m in Sources */,

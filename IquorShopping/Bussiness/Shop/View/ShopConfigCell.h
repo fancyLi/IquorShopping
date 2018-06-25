@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ClassInfoModel.h"
-typedef void (^ConfigBlock)(void);
+typedef void (^ConfigBlock)(ClassInfoModel *model);
 @interface ShopConfigCell : UITableViewCell
 
 @property (nonatomic, copy) ConfigBlock configBlock;

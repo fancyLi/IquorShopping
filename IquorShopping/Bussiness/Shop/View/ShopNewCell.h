@@ -10,4 +10,6 @@
 #import "GoodsInfoModel.h"
 @interface ShopNewCell : UITableViewCell
 - (void)configNewInfo:(NSArray <GoodsInfoModel *>*)goodsNew;
+- (CGFloat)getCellHeight:(NSArray <GoodsInfoModel *>*)goodsNew;
+
 @end

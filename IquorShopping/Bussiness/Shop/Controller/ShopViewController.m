@@ -8,6 +8,8 @@
 
 #import "ShopViewController.h"
 #import "PlayerViewController.h"
+#import "SiginViewController.h"
+#import "ShopTableHeaderView.h"
 #import "ShopConfigCell.h"
 #import "ShopVideoCell.h"
 #import "ShopHotCell.h"
@@ -15,6 +17,7 @@
 #import "HomePageModel.h"
 @interface ShopViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *shopTableView;
+@property (nonatomic, strong) ShopTableHeaderView *tableHeader;
 @property (nonatomic, strong) HomePageModel *homePageModel;
 @end
 
@@ -22,16 +25,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (@available(iOS 11.0, *)) {
+        self.shopTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+
     [self.view addSubview:self.shopTableView];
+    self.shopTableView.tableHeaderView = self.tableHeader;
     [self requestHomePage];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
 - (void)startPlayer {
-    if ([UIUtils isNullOrEmpty:self.homePageModel.video_url]) {
+    if ([UIUtils isNullOrEmpty:self.homePageModel.video.video_url]) {
         [Dialog popTextAnimation:@"暂无宣传视频"];
     }else {
         PlayerViewController *playerVC = [[PlayerViewController alloc]init];
-        playerVC.viderStr = self.homePageModel.video_url;
+        playerVC.viderStr = self.homePageModel.video.video_url;
         [self presentViewController:playerVC animated:YES completion:nil];
     }
 }
@@ -43,6 +60,7 @@
         [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
             selfWeak.homePageModel = [HomePageModel yy_modelWithJSON:responseObject[@"content"]];
+            selfWeak.tableHeader.banners = selfWeak.homePageModel.banner_list;
             [selfWeak.shopTableView reloadData];
             
         }else {
@@ -74,7 +92,8 @@
     }else if (indexPath.section == 2) {
         return 270;
     }else {
-        return 800;
+        ShopNewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopNewCell class])];
+       return  [cell getCellHeight:self.homePageModel.goods_new];
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,12 +101,16 @@
     if (indexPath.section == 0) {
         ShopConfigCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopConfigCell class])];
         [cell configCatInfo:self.homePageModel.goods_cat_list];
-        cell.configBlock = ^{
-            [selfWeak startPlayer];
+        cell.configBlock = ^(ClassInfoModel *model) {
+            SiginViewController *siginVC = [[SiginViewController alloc]init];
+            siginVC.cat_id = model.cat_id;
+            siginVC.cat_name = model.cat_name;
+            [selfWeak.navigationController pushViewController:siginVC animated:YES];
         };
         return cell;
     }else if (indexPath.section == 1) {
         ShopVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopVideoCell class])];
+        cell.video_img = self.homePageModel.video.video_img;
         return cell;
     }else if (indexPath.section == 2) {
         ShopHotCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopHotCell class])];
@@ -106,6 +129,7 @@
     if (indexPath.section == 0) {
         
     }else if (indexPath.section == 1) {
+         [self startPlayer];
     }
 }
 
@@ -118,7 +142,7 @@
 #pragma mark set & get
 - (UITableView *)shopTableView {
     if (!_shopTableView) {
-        _shopTableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _shopTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight-49) style:UITableViewStyleGrouped];
         _shopTableView.dataSource = self;
         _shopTableView.delegate = self;
         _shopTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -133,5 +157,12 @@
         
     }
     return _shopTableView;
+}
+
+- (ShopTableHeaderView *)tableHeader {
+    if (!_tableHeader) {
+        _tableHeader = [[ShopTableHeaderView alloc]initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 250)];
+    }
+    return _tableHeader;
 }
 @end

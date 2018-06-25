@@ -22,6 +22,13 @@
     self.goodsNew = goodsNew;
     [self.newsCollectionView reloadData];
 }
+- (CGFloat)getCellHeight:(NSArray<GoodsInfoModel *> *)goodsNew {
+    NSInteger r = goodsNew.count/2;
+    if (goodsNew.count && r == 0) {
+        r=1;
+    }
+    return r*350;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
@@ -30,7 +37,7 @@
 
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake((self.bounds.size.width-2)/2.0, 180);
+    return CGSizeMake((self.bounds.size.width-2)/2.0, 350);
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 1;

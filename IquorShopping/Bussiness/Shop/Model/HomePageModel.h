@@ -15,13 +15,18 @@
 @property (nonatomic, copy) NSString *goods_id;
 @end
 
+@interface Video : NSObject
+@property (nonatomic, copy) NSString *video_url;
+@property (nonatomic, copy) NSString *video_img;
+@end
+
 
 @interface HomePageModel : NSObject
 @property (nonatomic, strong) NSArray <Banner*> *banner_list;
 @property (nonatomic, strong) NSArray <ClassInfoModel*> *goods_cat_list;
 @property (nonatomic, strong) NSArray <GoodsInfoModel*> *hot_goods;
 @property (nonatomic, strong) NSArray <GoodsInfoModel*> *goods_new;
-@property (nonatomic, copy) NSString *video_url;
+@property (nonatomic, strong) Video *video;
 @end
 
 

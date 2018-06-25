@@ -1,18 +1,17 @@
 //
-//  SiginViewController.m
+//  SearchViewController.m
 //  IquorShopping
 //
-//  Created by nanli5 on 2018/5/17.
+//  Created by nanli5 on 2018/6/25.
 //  Copyright © 2018年 Hefei elevation network technology co. LTD. All rights reserved.
 //
 
-#import "SiginViewController.h"
-#import "GoodsViewController.h"
 #import "SearchViewController.h"
 #import "NavSegmentBar.h"
 #import "SiginCell.h"
-#import "GoodsInfoModel.h"
-@interface SiginViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+#import "GoodsViewController.h"
+@interface SearchViewController ()<UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, copy) NSString *priceSort;
 @property (nonatomic, copy) NSString *volumeSort;
@@ -21,30 +20,18 @@
 @property (nonatomic, strong) NSMutableArray *goods;
 @end
 
-@implementation SiginViewController
+@implementation SearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.titleView = self.searchBar;
     
-    self.title = self.cat_name;
-    self.view.backgroundColor = [UIColor c_f6f6Color];
-    [self.view addSubview:self.classView];
-    [self.view addSubview:self.segmentBar];
-    
-    UIButton *searchBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
-    [searchBtn setBackgroundImage:[UIImage imageNamed:@"icon_s_02"] forState:UIControlStateNormal];
-    [searchBtn addTarget:self action:@selector(startSearch) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:searchBtn];
-    
-    self.priceSort = @"0";
-    self.volumeSort = @"0";
-    self.page = 1;
-    [self requertClassInfo];
+    [self initConfig];
 }
-- (void)startSearch {
-    SearchViewController *vc = [[SearchViewController alloc]init];
-    vc.cat_id = self.cat_id;
-    [self.navigationController pushViewController:vc animated:YES];
+- (void)initConfig {
+    self.page = 1;
+    self.priceSort = @"";
+    self.volumeSort = @"";
 }
 - (void)requertClassInfo {
     //代表类型 1.热门推荐2.最新产品3.分类产品4.搜索关键词
@@ -52,11 +39,11 @@
     //商品价格排序 1.升序2.降序
     WeakObj(self);
     NSDictionary *param = @{@"page":@(self.page),
-                            @"type":@"3",
+                            @"type":@"4",
                             @"goods_price_sort":self.priceSort,
                             @"sales_volume_sort":self.volumeSort,
-                            @"cat_id":[UIUtils isNullOrEmpty:self.cat_id]?@"":self.cat_id,
-                            @"key_words":[UIUtils isNullOrEmpty:self.serContent]?@"":self.serContent
+                            @"cat_id":self.cat_id,
+                            @"key_words":[UIUtils isNullOrEmpty:self.searchBar.text]?@"":self.searchBar.text
                             };
     [AFNetworkTool postJSONWithUrl:shop_goodsList parameters:param success:^(id responseObject) {
         [selfWeak.classView.mj_footer endRefreshing];
@@ -69,6 +56,8 @@
             AllInfo *allInfo = [AllInfo yy_modelWithJSON:responseObject[@"content"]];
             [selfWeak.goods addObjectsFromArray:allInfo.list];
             [selfWeak.classView reloadData];
+            [self.view addSubview:self.segmentBar];
+            [self.view addSubview:self.classView];
             
         }else {
         }
@@ -81,7 +70,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.goods.count;
@@ -96,7 +84,29 @@
     
     [self.navigationController pushViewController:[GoodsViewController new] animated:YES];
 }
+#pragma mark UISearchBarDelegate
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    self.page = 0;
+    self.goods = [NSMutableArray array];
+    [self requertClassInfo];
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    
+}
 #pragma mark set & get
+- (UISearchBar *)searchBar {
+    if (!_searchBar) {
+        _searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, kMainScreenWidth-30, 30)];
+        _searchBar.delegate = self;
+    }
+    return _searchBar;
+}
 - (UICollectionView *)classView {
     if (!_classView) {
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
@@ -137,12 +147,5 @@
         
     }
     return _segmentBar;
-}
-
-- (NSMutableArray *)goods {
-    if (!_goods) {
-        _goods = [NSMutableArray arrayWithCapacity:0];
-    }
-    return _goods;
 }
 @end

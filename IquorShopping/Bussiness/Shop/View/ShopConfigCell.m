@@ -57,7 +57,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.configBlock) {
-        self.configBlock();
+        self.configBlock(self.goodsCats[indexPath.item]);
     }
 }
 

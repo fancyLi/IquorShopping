@@ -19,6 +19,8 @@
 #import "HttpConstant.h"
 #import "UIColor+Extension.h"
 #import "NSObject+Util.h"
+#import "UITableView+Util.h"
+#import "UICollectionView+Util.h"
 #import "RTRootNavigationController.h"
 #import <YYModel/YYModel.h>
 #import <MJRefresh/MJRefresh.h>

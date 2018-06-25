@@ -8,7 +8,9 @@
 
 #import "ShopVideoCell.h"
 
-
+@interface ShopVideoCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *videoImage;
+@end
 
 @implementation ShopVideoCell
 
@@ -17,6 +19,9 @@
     // Initialization code
 }
 
+- (void)setVideo_img:(NSString *)video_img {
+    [self.videoImage sd_setImageWithURL:[NSURL URLWithString:video_img] placeholderImage:nil];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

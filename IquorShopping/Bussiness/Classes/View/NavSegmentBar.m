@@ -28,24 +28,28 @@
     [super awakeFromNib];
     self.priceSort = @"1";
     self.volumeSort = @"1";
-    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGesClick:)];
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapLeftGesClick:)];
+    UITapGestureRecognizer *rtapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapRightGesClick:)];
     [self.leftContainer addGestureRecognizer:tapGes];
-    [self.rightContainer addGestureRecognizer:tapGes];
+    [self.rightContainer addGestureRecognizer:rtapGes];
     
 }
-
-- (void)tapGesClick:(UITapGestureRecognizer *)tapGes {
-    NSInteger tag = tapGes.view.tag;
-    if (tag == 1000) {
-        self.priceSort = [self.priceSort isEqualToString:@"1"]?@"2":@"1";
-        self.leftIcon.image = [UIImage imageNamed:[self.priceSort isEqualToString:@"1"]?@"icon_13":@"icon_14"];
-    }else {
-        self.volumeSort = [self.volumeSort isEqualToString:@"1"]?@"2":@"1";
-        self.rightIcon.image = [UIImage imageNamed:[self.volumeSort isEqualToString:@"1"]?@"icon_13":@"icon_14"];
-    }
-    WeakObj(self);
+- (void)tapLeftGesClick:(UITapGestureRecognizer *)tapGes {
+    self.volumeSort = @"";
+    self.rightIcon.image = [UIImage imageNamed:@"icon_15"];
+    self.priceSort = [self.priceSort isEqualToString:@"1"]?@"2":@"1";
+    self.leftIcon.image = [UIImage imageNamed:[self.priceSort isEqualToString:@"1"]?@"icon_13":@"icon_14"];
     if (self.segmentSelectedBlock) {
-        self.segmentSelectedBlock(selfWeak.priceSort, selfWeak.volumeSort);
+        self.segmentSelectedBlock(self.priceSort, self.volumeSort);
+    }
+}
+- (void)tapRightGesClick:(UITapGestureRecognizer *)tapGes {
+    self.priceSort = @"";
+    self.leftIcon.image = [UIImage imageNamed:@"icon_15"];
+    self.volumeSort = [self.volumeSort isEqualToString:@"1"]?@"2":@"1";
+    self.rightIcon.image = [UIImage imageNamed:[self.volumeSort isEqualToString:@"1"]?@"icon_13":@"icon_14"];
+    if (self.segmentSelectedBlock) {
+        self.segmentSelectedBlock(self.priceSort, self.volumeSort);
     }
 }
 

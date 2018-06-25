@@ -15,21 +15,24 @@
 }
 @end
 
+@implementation Video
 
+@end
 
 
 
 @implementation HomePageModel
 + (NSDictionary *)modelCustomPropertyMapper {
     return @{@"goods_new"  : @"new_goods",
-             @"video_url": @"walk_into_us.video_url"
+             @"video": @"walk_into_us"
              };
 }
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{@"banner_list" : [Banner class],
              @"goods_cat_list" : [ClassInfoModel class],
              @"hot_goods": [GoodsInfoModel class],
-             @"goods_new": [GoodsInfoModel class]
+             @"goods_new": [GoodsInfoModel class],
+             @"video":[Video class]
              };
 }
 @end

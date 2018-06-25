@@ -25,7 +25,7 @@
                             <color key="textColor" red="0.80000000000000004" green="0.12549019607843137" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_13" translatesAutoresizingMaskIntoConstraints="NO" id="QuJ-s7-st9">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_15" translatesAutoresizingMaskIntoConstraints="NO" id="QuJ-s7-st9">
                             <rect key="frame" x="103" y="16.5" width="12" height="12"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="12" id="1al-E2-poE"/>
@@ -97,7 +97,6 @@
         </view>
     </objects>
     <resources>
-        <image name="icon_13" width="5" height="8"/>
         <image name="icon_15" width="5" height="8"/>
     </resources>
 </document>
