@@ -9,5 +9,7 @@
 #import "DiscountModel.h"
 
 @implementation DiscountModel
-
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"ucid"  : @"cid"};
+}
 @end

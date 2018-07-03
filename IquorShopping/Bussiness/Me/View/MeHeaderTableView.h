@@ -17,4 +17,5 @@ typedef void (^OnClickButton)(OperateType operate);
 
 @interface MeHeaderTableView : UIView
 @property (nonatomic, copy) OnClickButton clickButtonBlock;
+@property (nonatomic, assign) BOOL isfresh;
 @end

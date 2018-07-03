@@ -7,7 +7,7 @@
 //
 
 #import "IquorViewController.h"
-
+#import "GoodsInfoModel.h"
 @interface GoodsViewController : IquorViewController
-
+@property (nonatomic, strong) GoodsInfoModel *goodsInfo;
 @end

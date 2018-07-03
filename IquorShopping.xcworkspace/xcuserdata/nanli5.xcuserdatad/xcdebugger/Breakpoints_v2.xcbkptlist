@@ -83,13 +83,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IquorShopping/Bussiness/Me/Controller/DiscountViewController.m"
-            timestampString = "550376341.529651"
+            filePath = "IquorShopping/Bussiness/Me/Model/IquorUser.m"
+            timestampString = "552318666.556437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "-requestCouponList"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "+shareIquorUser"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

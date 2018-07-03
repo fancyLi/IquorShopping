@@ -20,9 +20,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self requestGoodsInfo];
     [self.view addSubview:self.tableView];
 }
 
+- (void)requestGoodsInfo {
+    WeakObj(self);
+    NSDictionary *param = @{
+                            @"goods_id":self.goodsInfo.goods_id
+                            };
+    [AFNetworkTool postJSONWithUrl:goods_detail_url parameters:param success:^(id responseObject) {
+        
+        
+        NSInteger code = [responseObject[@"code"] integerValue];
+        [Dialog popTextAnimation:responseObject[@"message"]];
+        
+        if (code == 200) {
+            
+            
+        }else {
+        }
+        
+    } fail:^{
+        
+    }];
+}
 #pragma mark UITableViewDataSource & UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;

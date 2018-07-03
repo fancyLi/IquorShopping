@@ -12,6 +12,8 @@
 #import "NavSegmentBar.h"
 #import "SiginCell.h"
 #import "GoodsInfoModel.h"
+#import "GoodsInfoViewController.h"
+
 @interface SiginViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, copy) NSString *priceSort;
@@ -94,7 +96,13 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self.navigationController pushViewController:[GoodsViewController new] animated:YES];
+//    GoodsViewController *vc = [[GoodsViewController alloc]init];
+//    vc.goodsInfo = self.goods[indexPath.item];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    GoodsInfoViewController *vc = [[GoodsInfoViewController alloc]init];
+    vc.goodsInfo = self.goods[indexPath.item];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark set & get
 - (UICollectionView *)classView {

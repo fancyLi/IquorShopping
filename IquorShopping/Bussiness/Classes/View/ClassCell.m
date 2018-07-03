@@ -21,7 +21,11 @@
 }
 
 - (void)setClassInfo:(ClassInfoModel *)model {
-    [self.icon sd_setImageWithURL:[NSURL URLWithString:model.cat_image] placeholderImage:[UIImage imageNamed:@"icon_01"]];
-    self.name.text = model.cat_name;
+    if (model.cat_id.integerValue != 0) {
+        [self.icon sd_setImageWithURL:[NSURL URLWithString:model.cat_image] placeholderImage:[UIImage imageNamed:@"icon_01"]];
+    }else {
+        self.icon.image = [UIImage imageNamed:model.cat_image];
+    }
+        self.name.text = model.cat_name;
 }
 @end

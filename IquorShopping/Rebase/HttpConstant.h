@@ -25,6 +25,7 @@
 //普通登录
 #define me_login_url                  @"user/userLogin"
 
+#define get_user_info_url             @"user/personalData"
 
 //更改昵称
 #define update_nikename_url                 @"user/modifyTheNickname"
@@ -72,6 +73,12 @@
 //====== 商品管理类 =======
 //首页产品
 #define index_homePage                          @"index/homePage"
+
+//首页优惠券
+#define index_aCouponThatCanBeReceived           @"index/aCouponThatCanBeReceived"
+
+//单个商品详情
+#define goods_detail_url                          @"index/goodsInfo"
 
 //产品分类
 #define shop_goodsCatList                       @"shop/goodsCatList"

@@ -163,6 +163,19 @@
 		08B866A920E131FB00F73677 /* ShopTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B866A820E131FB00F73677 /* ShopTableHeaderView.m */; };
 		08B866AD20E1331E00F73677 /* BannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B866AB20E1331E00F73677 /* BannerCell.m */; };
 		08B866AE20E1331E00F73677 /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08B866AC20E1331E00F73677 /* BannerCell.xib */; };
+		08B866C320E8A31200F73677 /* ShopDiscountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B866C220E8A31200F73677 /* ShopDiscountViewController.m */; };
+		08B866C620E8AB3500F73677 /* IquorUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B866C520E8AB3500F73677 /* IquorUser.m */; };
+		08B8671A20EB71AF00F73677 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B8670D20EB71AF00F73677 /* WMPageController.m */; };
+		08B8671B20EB71AF00F73677 /* UIViewController+WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B8670E20EB71AF00F73677 /* UIViewController+WMPageController.m */; };
+		08B8671C20EB71AF00F73677 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B8671420EB71AF00F73677 /* WMMenuItem.m */; };
+		08B8671D20EB71AF00F73677 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B8671520EB71AF00F73677 /* WMScrollView.m */; };
+		08B8671E20EB71AF00F73677 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B8671620EB71AF00F73677 /* WMMenuView.m */; };
+		08B8671F20EB71AF00F73677 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B8671720EB71AF00F73677 /* WMProgressView.m */; };
+		08B8672220EB8D2400F73677 /* GoodsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B8672120EB8D2400F73677 /* GoodsInfoViewController.m */; };
+		08B8672620EB9C6F00F73677 /* MeCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B8672420EB9C6F00F73677 /* MeCollectionReusableView.m */; };
+		08B8672720EB9C6F00F73677 /* MeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08B8672520EB9C6F00F73677 /* MeCollectionReusableView.xib */; };
+		08B8672B20EBA08C00F73677 /* MePageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B8672920EBA08C00F73677 /* MePageCollectionViewCell.m */; };
+		08B8672C20EBA08C00F73677 /* MePageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08B8672A20EBA08C00F73677 /* MePageCollectionViewCell.xib */; };
 		08E4642E20A2E7B900E405DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4642D20A2E7B900E405DB /* AppDelegate.m */; };
 		08E4643120A2E7B900E405DB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E4643020A2E7B900E405DB /* ViewController.m */; };
 		08E4643420A2E7B900E405DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E4643220A2E7B900E405DB /* Main.storyboard */; };
@@ -470,6 +483,30 @@
 		08B866AA20E1331E00F73677 /* BannerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerCell.h; sourceTree = "<group>"; };
 		08B866AB20E1331E00F73677 /* BannerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerCell.m; sourceTree = "<group>"; };
 		08B866AC20E1331E00F73677 /* BannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCell.xib; sourceTree = "<group>"; };
+		08B866C120E8A31200F73677 /* ShopDiscountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopDiscountViewController.h; sourceTree = "<group>"; };
+		08B866C220E8A31200F73677 /* ShopDiscountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopDiscountViewController.m; sourceTree = "<group>"; };
+		08B866C420E8AB3500F73677 /* IquorUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IquorUser.h; sourceTree = "<group>"; };
+		08B866C520E8AB3500F73677 /* IquorUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorUser.m; sourceTree = "<group>"; };
+		08B8670D20EB71AF00F73677 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
+		08B8670E20EB71AF00F73677 /* UIViewController+WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WMPageController.m"; sourceTree = "<group>"; };
+		08B8671020EB71AF00F73677 /* WMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMScrollView.h; sourceTree = "<group>"; };
+		08B8671120EB71AF00F73677 /* WMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuItem.h; sourceTree = "<group>"; };
+		08B8671220EB71AF00F73677 /* WMMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuView.h; sourceTree = "<group>"; };
+		08B8671320EB71AF00F73677 /* WMProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMProgressView.h; sourceTree = "<group>"; };
+		08B8671420EB71AF00F73677 /* WMMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuItem.m; sourceTree = "<group>"; };
+		08B8671520EB71AF00F73677 /* WMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMScrollView.m; sourceTree = "<group>"; };
+		08B8671620EB71AF00F73677 /* WMMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuView.m; sourceTree = "<group>"; };
+		08B8671720EB71AF00F73677 /* WMProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMProgressView.m; sourceTree = "<group>"; };
+		08B8671820EB71AF00F73677 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
+		08B8671920EB71AF00F73677 /* UIViewController+WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WMPageController.h"; sourceTree = "<group>"; };
+		08B8672020EB8D2400F73677 /* GoodsInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsInfoViewController.h; sourceTree = "<group>"; };
+		08B8672120EB8D2400F73677 /* GoodsInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsInfoViewController.m; sourceTree = "<group>"; };
+		08B8672320EB9C6F00F73677 /* MeCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeCollectionReusableView.h; sourceTree = "<group>"; };
+		08B8672420EB9C6F00F73677 /* MeCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeCollectionReusableView.m; sourceTree = "<group>"; };
+		08B8672520EB9C6F00F73677 /* MeCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeCollectionReusableView.xib; sourceTree = "<group>"; };
+		08B8672820EBA08C00F73677 /* MePageCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MePageCollectionViewCell.h; sourceTree = "<group>"; };
+		08B8672920EBA08C00F73677 /* MePageCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MePageCollectionViewCell.m; sourceTree = "<group>"; };
+		08B8672A20EBA08C00F73677 /* MePageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MePageCollectionViewCell.xib; sourceTree = "<group>"; };
 		08E4642920A2E7B900E405DB /* IquorShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IquorShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08E4642C20A2E7B900E405DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08E4642D20A2E7B900E405DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -586,6 +623,7 @@
 		0880522620A2EAD90018AE6E /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				08B8670C20EB71AF00F73677 /* WMPageController */,
 				0806497E20C5755B003B155F /* RTRootNavigationController */,
 				0847F19E20AB03D400BEF0F6 /* YSLContainerViewController */,
 				088052C820A9E1560018AE6E /* Masonry */,
@@ -668,6 +706,8 @@
 				0898C39120AF276700664482 /* GoodsViewController.m */,
 				0898C38320AF195F00664482 /* GoodsDetailViewController.h */,
 				0898C38420AF195F00664482 /* GoodsDetailViewController.m */,
+				08B8672020EB8D2400F73677 /* GoodsInfoViewController.h */,
+				08B8672120EB8D2400F73677 /* GoodsInfoViewController.m */,
 				0898C39320AF2F9000664482 /* AssessViewController.h */,
 				0898C39420AF2F9000664482 /* AssessViewController.m */,
 			);
@@ -730,6 +770,8 @@
 				0880525520A2ECC10018AE6E /* ShopViewController.m */,
 				080649B920C91F98003B155F /* PlayerViewController.h */,
 				080649BA20C91F98003B155F /* PlayerViewController.m */,
+				08B866C120E8A31200F73677 /* ShopDiscountViewController.h */,
+				08B866C220E8A31200F73677 /* ShopDiscountViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -920,6 +962,8 @@
 				080649C520CE0CAB003B155F /* DiscountModel.m */,
 				080649CA20CE1983003B155F /* BrokerModel.h */,
 				080649CB20CE1983003B155F /* BrokerModel.m */,
+				08B866C420E8AB3500F73677 /* IquorUser.h */,
+				08B866C520E8AB3500F73677 /* IquorUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -966,6 +1010,12 @@
 				08676F2520B6E59D00F870B9 /* MeHeaderCell.h */,
 				08676F2620B6E59D00F870B9 /* MeHeaderCell.m */,
 				08676F2720B6E59D00F870B9 /* MeHeaderCell.xib */,
+				08B8672320EB9C6F00F73677 /* MeCollectionReusableView.h */,
+				08B8672420EB9C6F00F73677 /* MeCollectionReusableView.m */,
+				08B8672520EB9C6F00F73677 /* MeCollectionReusableView.xib */,
+				08B8672820EBA08C00F73677 /* MePageCollectionViewCell.h */,
+				08B8672920EBA08C00F73677 /* MePageCollectionViewCell.m */,
+				08B8672A20EBA08C00F73677 /* MePageCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1067,6 +1117,33 @@
 				0898C31920ADC2ED00664482 /* ShowPictureView.m */,
 			);
 			path = Picture;
+			sourceTree = "<group>";
+		};
+		08B8670C20EB71AF00F73677 /* WMPageController */ = {
+			isa = PBXGroup;
+			children = (
+				08B8670D20EB71AF00F73677 /* WMPageController.m */,
+				08B8670E20EB71AF00F73677 /* UIViewController+WMPageController.m */,
+				08B8670F20EB71AF00F73677 /* WMMenuView */,
+				08B8671820EB71AF00F73677 /* WMPageController.h */,
+				08B8671920EB71AF00F73677 /* UIViewController+WMPageController.h */,
+			);
+			path = WMPageController;
+			sourceTree = "<group>";
+		};
+		08B8670F20EB71AF00F73677 /* WMMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				08B8671020EB71AF00F73677 /* WMScrollView.h */,
+				08B8671120EB71AF00F73677 /* WMMenuItem.h */,
+				08B8671220EB71AF00F73677 /* WMMenuView.h */,
+				08B8671320EB71AF00F73677 /* WMProgressView.h */,
+				08B8671420EB71AF00F73677 /* WMMenuItem.m */,
+				08B8671520EB71AF00F73677 /* WMScrollView.m */,
+				08B8671620EB71AF00F73677 /* WMMenuView.m */,
+				08B8671720EB71AF00F73677 /* WMProgressView.m */,
+			);
+			path = WMMenuView;
 			sourceTree = "<group>";
 		};
 		08E4642020A2E7B900E405DB = {
@@ -1270,6 +1347,7 @@
 				0898C31720ADB57800664482 /* StartViewController.xib in Resources */,
 				08FBE78820AC73F800B507DB /* EvaSucViewController.xib in Resources */,
 				0847F1CD20AB286700BEF0F6 /* CollectedCell.xib in Resources */,
+				08B8672C20EBA08C00F73677 /* MePageCollectionViewCell.xib in Resources */,
 				0880527120A33F960018AE6E /* LoginViewController.xib in Resources */,
 				0847F1C320AB0C4400BEF0F6 /* IndentBottomCell.xib in Resources */,
 				088052A220A354950018AE6E /* SetViewController.xib in Resources */,
@@ -1311,6 +1389,7 @@
 				08B866AE20E1331E00F73677 /* BannerCell.xib in Resources */,
 				0847F1C820AB1D6100BEF0F6 /* FooterTableView.xib in Resources */,
 				0880527B20A347710018AE6E /* SecondRegViewController.xib in Resources */,
+				08B8672720EB9C6F00F73677 /* MeCollectionReusableView.xib in Resources */,
 				0847F1ED20AB395500BEF0F6 /* TeamCell.xib in Resources */,
 				08676F4020B6F9F600F870B9 /* ShopHotCell.xib in Resources */,
 				0806498820C5755C003B155F /* .gitkeep in Resources */,
@@ -1435,12 +1514,17 @@
 				080649A520C7F740003B155F /* AreaModel.m in Sources */,
 				0880524920A2EB730018AE6E /* FileUtils.m in Sources */,
 				0847F1E820AB386E00BEF0F6 /* TeamViewController.m in Sources */,
+				08B8672620EB9C6F00F73677 /* MeCollectionReusableView.m in Sources */,
+				08B8671B20EB71AF00F73677 /* UIViewController+WMPageController.m in Sources */,
 				0847F1D920AB307B00BEF0F6 /* MeCollectViewController.m in Sources */,
 				080649BF20C9259C003B155F /* MsgViewController.m in Sources */,
 				08E4643120A2E7B900E405DB /* ViewController.m in Sources */,
 				088052C720A9C8A10018AE6E /* MeConfigModel.m in Sources */,
 				088052E520A9E1560018AE6E /* MASConstraintMaker.m in Sources */,
 				0898C38820AF1D1A00664482 /* DetailTableHeader.m in Sources */,
+				08B8671C20EB71AF00F73677 /* WMMenuItem.m in Sources */,
+				08B866C620E8AB3500F73677 /* IquorUser.m in Sources */,
+				08B866C320E8A31200F73677 /* ShopDiscountViewController.m in Sources */,
 				0880526920A338A70018AE6E /* UIColor+Extension.m in Sources */,
 				0806499720C6ABCF003B155F /* AddressCell.m in Sources */,
 				080649A820C7F74F003B155F /* CityModel.m in Sources */,
@@ -1450,6 +1534,7 @@
 				088052AB20A356980018AE6E /* MeConfigView.m in Sources */,
 				088052E820A9E1560018AE6E /* View+MASAdditions.m in Sources */,
 				0847F1CC20AB286700BEF0F6 /* CollectedCell.m in Sources */,
+				08B8672B20EBA08C00F73677 /* MePageCollectionViewCell.m in Sources */,
 				080E99A520D9347000AF09FF /* GoodsInfoModel.m in Sources */,
 				080E99AE20DA95C500AF09FF /* UITableView+Util.m in Sources */,
 				080E99A220D929DA00AF09FF /* ClassInfoModel.m in Sources */,
@@ -1487,6 +1572,7 @@
 				08676F4420B6FBB000F870B9 /* ShopNewCell.m in Sources */,
 				0847F1B220AB095400BEF0F6 /* IndentSectionView.m in Sources */,
 				0880524A20A2EB730018AE6E /* AFNetworkTool.m in Sources */,
+				08B8671A20EB71AF00F73677 /* WMPageController.m in Sources */,
 				088052E720A9E1560018AE6E /* NSArray+MASAdditions.m in Sources */,
 				088052BA20A35A9C0018AE6E /* BaseModel.m in Sources */,
 				080649AF20C8C7F6003B155F /* AdressListViewController.m in Sources */,
@@ -1498,6 +1584,7 @@
 				080649C620CE0CAB003B155F /* DiscountModel.m in Sources */,
 				0898C39220AF276700664482 /* GoodsViewController.m in Sources */,
 				0898C3C020B2EEEC00664482 /* ShopCartCell.m in Sources */,
+				08B8671D20EB71AF00F73677 /* WMScrollView.m in Sources */,
 				0880526C20A33B790018AE6E /* UIFont+Extension.m in Sources */,
 				088052E920A9E1560018AE6E /* MASConstraint.m in Sources */,
 				08E4642E20A2E7B900E405DB /* AppDelegate.m in Sources */,
@@ -1509,10 +1596,12 @@
 				080649CC20CE1983003B155F /* BrokerModel.m in Sources */,
 				088052E420A9E1560018AE6E /* MASCompositeConstraint.m in Sources */,
 				088052EB20A9E1560018AE6E /* MASViewAttribute.m in Sources */,
+				08B8671F20EB71AF00F73677 /* WMProgressView.m in Sources */,
 				0898C35620ADDC3C00664482 /* NavSegmentBar.m in Sources */,
 				088052A320A354950018AE6E /* SetViewController.m in Sources */,
 				0806498920C5755C003B155F /* RTRootNavigationController.m in Sources */,
 				08FBE79120AC778400B507DB /* BrokerCell.m in Sources */,
+				08B8672220EB8D2400F73677 /* GoodsInfoViewController.m in Sources */,
 				0898C35220ADDA5800664482 /* SiginCell.m in Sources */,
 				0880524B20A2EB730018AE6E /* Dialog.m in Sources */,
 				0847F1A520AB03D400BEF0F6 /* YSLContainerViewController.m in Sources */,
@@ -1524,6 +1613,7 @@
 				088052E620A9E1560018AE6E /* MASLayoutConstraint.m in Sources */,
 				0880529920A354700018AE6E /* ChangePasswordViewController.m in Sources */,
 				088052C220A9C49C0018AE6E /* MeSectionTableView.m in Sources */,
+				08B8671E20EB71AF00F73677 /* WMMenuView.m in Sources */,
 				0847F1AE20AB070700BEF0F6 /* IndentDetailViewController.m in Sources */,
 				08676F3A20B6F83B00F870B9 /* ShopVideoCell.m in Sources */,
 				08676F2820B6E59D00F870B9 /* MeHeaderCell.m in Sources */,

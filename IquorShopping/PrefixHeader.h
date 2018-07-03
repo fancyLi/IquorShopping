@@ -25,4 +25,5 @@
 #import <YYModel/YYModel.h>
 #import <MJRefresh/MJRefresh.h>
 #import <UIImageView+WebCache.h>
+#import "IquorUser.h"
 #endif /* PrefixHeader_h */

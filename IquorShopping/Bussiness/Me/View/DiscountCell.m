@@ -37,6 +37,13 @@
     self.des.text = model.act_name;
     self.time.text = [NSString stringWithFormat:@"%@-%@", @"", @""];
 }
+
+- (void)configPreviewCell:(DiscountModel *)model {
+    [self.actionBtn setTitle:@"领取" forState:UIControlStateNormal];
+    self.price.text = model.money;
+    self.des.text = model.act_name;
+    self.time.text = [NSString stringWithFormat:@"%@-%@", @"", @""];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

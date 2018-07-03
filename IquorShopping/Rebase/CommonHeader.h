@@ -30,6 +30,14 @@
 //设备屏幕高度
 #define kMainScreenHeight kMainScreenFrameRect.size.height
 
+// 获取状态栏高度, iPhone X不是20了
+#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kNavBarHeight 44.0
+// iPhone X安全区的原因，UITabBar 高度由49pt变成了83pt，
+#define kTabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49)
+#define kTopHeight (kStatusBarHeight + kNavBarHeight)
+#define kTabBottom ([[UIApplication sharedApplication] statusBarFrame].size.height>20?34:0)
+
 #define ImageWithName(name)\
 [UIImage imageNamed:name]
 #define UIColorFromRGB(rgbValue) \

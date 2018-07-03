@@ -7,6 +7,7 @@
 //
 
 #import "ShopViewController.h"
+#import "ShopDiscountViewController.h"
 #import "PlayerViewController.h"
 #import "SiginViewController.h"
 #import "ShopTableHeaderView.h"
@@ -102,10 +103,20 @@
         ShopConfigCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopConfigCell class])];
         [cell configCatInfo:self.homePageModel.goods_cat_list];
         cell.configBlock = ^(ClassInfoModel *model) {
-            SiginViewController *siginVC = [[SiginViewController alloc]init];
-            siginVC.cat_id = model.cat_id;
-            siginVC.cat_name = model.cat_name;
-            [selfWeak.navigationController pushViewController:siginVC animated:YES];
+            if (model.cat_id.integerValue != 0) {
+                SiginViewController *siginVC = [[SiginViewController alloc]init];
+                siginVC.cat_id = model.cat_id;
+                siginVC.cat_name = model.cat_name;
+                [selfWeak.navigationController pushViewController:siginVC animated:YES];
+            }else {
+                if ([model.cat_name isEqualToString:@"领券"]) {
+                    ShopDiscountViewController *vc = [[ShopDiscountViewController alloc]init];
+                    [selfWeak.navigationController pushViewController:vc animated:YES];
+                }else {
+                    self.tabBarController.selectedIndex = 2;
+                }
+            }
+            
         };
         return cell;
     }else if (indexPath.section == 1) {

@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) UICollectionView *configCollection;
 @property (weak, nonatomic) IBOutlet UICollectionView *configCollectionView;
-@property (nonatomic, strong) NSArray *goodsCats;
+@property (nonatomic, strong) NSMutableArray *goodsCats;
 @end
 @implementation ShopConfigCell
 
@@ -27,8 +27,22 @@
     self.configCollectionView.delegate = self;
 }
 - (void)configCatInfo:(NSArray<ClassInfoModel *> *)cats {
-    self.goodsCats = [cats copy];
-    [self.configCollectionView reloadData];
+    if (cats) {
+        ClassInfoModel *info = [[ClassInfoModel alloc]init];
+        info.cat_id = @"0";
+        info.cat_name = @"领券";
+        info.cat_image = @"icon_09 ";
+        ClassInfoModel *info2 = [[ClassInfoModel alloc]init];
+        info2.cat_id = @"0";
+        info2.cat_name = @"全部分类";
+        info2.cat_image = @"icon_10";
+        
+        self.goodsCats = [cats mutableCopy];
+        [self.goodsCats addObject:info];
+        [self.goodsCats addObject:info2];
+        [self.configCollectionView reloadData];
+    }
+    
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -38,7 +52,7 @@
 
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.bounds.size.width/3.0, self.bounds.size.height/2.0);
+    return CGSizeMake(self.bounds.size.width/4.0, self.bounds.size.height/2.0);
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 0;

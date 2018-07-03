@@ -27,6 +27,16 @@
     self.layer.borderColor = [UIColor redColor].CGColor;
     self.layer.borderWidth = 1;
 }
+
+- (void)setIsfresh:(BOOL)isfresh {
+    _isfresh = isfresh;
+    IquorUser *user = [IquorUser shareIquorUser];
+    if (user.user_code) {
+        self.nikeName.text = user.user_name;
+        [self.userHeader sd_setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:[UIImage imageNamed:@"icon_head_01"]];
+        
+    }
+}
 - (IBAction)loginClick:(id)sender {
     if (self.clickButtonBlock) {
         self.clickButtonBlock(KLogin);

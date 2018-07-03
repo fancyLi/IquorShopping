@@ -13,10 +13,13 @@
 #import "MeHeaderTableView.h"
 #import "MeSectionTableView.h"
 #import "MeConfigModel.h"
-@interface MeViewController ()<UITableViewDelegate, UITableViewDataSource, MeConfigTableViewCellDelegate>
-@property (nonatomic, strong) UITableView *meTableview;
+#import "MeCollectionReusableView.h"
+#import "MePageCollectionViewCell.h"
+@interface MeViewController ()< UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 @property (nonatomic, strong) MeHeaderTableView *configView;
 @property (nonatomic, strong) MeConfigModel *configModel;
+
+@property (nonatomic, strong) UICollectionView *collectionView;
 @end
 
 @implementation MeViewController
@@ -25,13 +28,23 @@
     [super viewDidLoad];
     
     if (@available(iOS 11.0, *)) {
-        self.meTableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
 
 
-    [self.view addSubview:self.meTableview];
+    [self.view addSubview:self.configView];
+    [self.view addSubview:self.collectionView];
+    [self.configView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self.view);
+        make.height.equalTo(@200);
+    }];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.configView.mas_bottom);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-kTabBarHeight);
+    }];
 
 }
 
@@ -48,57 +61,42 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark UITableViewDataSource & UITableViewDelegate
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+#pragma mark UICollectionViewDelegateFlowLayout & UICollectionViewDataSource
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(kMainScreenWidth, 50);
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0 || section == 1) {
-        return 1;
-    }else {
-        return 3;
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if (kind == UICollectionElementKindSectionHeader) {
+        MeCollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass([MeCollectionReusableView class]) forIndexPath:indexPath];
+        return view;
     }
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MeConfigTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MeConfigTableViewCell class])];
-    cell.delegate = self;
-    cell.cellModel = _configModel.configModels[indexPath.section][indexPath.row];
-    return cell;
+    return nil;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    MeSectionTableView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"MeSectionTableView" owner:self options:nil] firstObject];
-    headerView.section = section;
-    return headerView;
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return _configModel.configModels.count;
 }
-#pragma mark MeConfigTableViewCellDelegate
-- (void)selectedConfigModel:(MeConfigModel *)cm {
-    Class cls = NSClassFromString(cm.className);
-    UIViewController *vc = [[cls alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-    
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    NSArray *arrs = _configModel.configModels[section];
+    return arrs.count;
 }
-#pragma mark set & get
-- (UITableView *)meTableview {
-    if (!_meTableview) {
-        _meTableview = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStyleGrouped];
-        _meTableview.dataSource = self;
-        _meTableview.delegate = self;
-        _meTableview.rowHeight = 100;
-        _meTableview.sectionFooterHeight = 0.1;
-        _meTableview.sectionHeaderHeight = 50;
-        _meTableview.backgroundColor = [UIColor c_f6f6Color];
-        _meTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [_meTableview registerNib:[UINib nibWithNibName:@"MeConfigTableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([MeConfigTableViewCell class])];
-        _meTableview.tableHeaderView = self.configView;
-        _configModel = [[MeConfigModel alloc]init];
-        
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    MePageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([MePageCollectionViewCell class]) forIndexPath:indexPath];
+    cell.cellModel = _configModel.configModels[indexPath.section][indexPath.item];
+    return cell;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    MeConfigModel *cm = _configModel.configModels[indexPath.section][indexPath.item];
+    if (![UIUtils isNullOrEmpty:cm.className]) {
+        Class cls = NSClassFromString(cm.className);
+        UIViewController *vc = [[cls alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    return _meTableview;
 }
+
+#pragma mark set & get
+
 
 - (MeHeaderTableView *)configView {
     if (!_configView) {
@@ -117,5 +115,24 @@
         };
     }
     return _configView;
+}
+
+- (UICollectionView *)collectionView {
+    if (!_collectionView) {
+        _configModel = [[MeConfigModel alloc]init];
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+        flowLayout.minimumLineSpacing = 0;
+        flowLayout.minimumInteritemSpacing = 0;
+        flowLayout.itemSize = CGSizeMake(kMainScreenWidth/4, 100);
+        
+        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        _collectionView.backgroundColor = [UIColor c_f5f5Color];
+        _collectionView.dataSource = self;
+        _collectionView.delegate = self;
+        _collectionView.showsVerticalScrollIndicator = NO;
+        [_collectionView registerNib:[UINib nibWithNibName:@"MePageCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([MePageCollectionViewCell class])];
+        [_collectionView registerNib:[UINib nibWithNibName:@"MeCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([MeCollectionReusableView class])];
+    }
+    return _collectionView;
 }
 @end

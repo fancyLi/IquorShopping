@@ -23,15 +23,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self requestGoodsInfo];
     [self goodsConfigUI];
    
 }
 
 - (void)goodsConfigUI {
     self.navigationItem.titleView = self.navBar;
-     [self.view addSubview:self.srcContainer];
+    [self.view addSubview:self.srcContainer];
 }
 
+- (void)requestGoodsInfo {
+    WeakObj(self);
+    NSDictionary *param = @{
+                            @"goods_id":self.goodsInfo.goods_id
+                            };
+    [AFNetworkTool postJSONWithUrl:goods_detail_url parameters:param success:^(id responseObject) {
+        
+        
+        NSInteger code = [responseObject[@"code"] integerValue];
+        [Dialog popTextAnimation:responseObject[@"message"]];
+        
+        if (code == 200) {
+            
+            
+        }else {
+        }
+    
+    } fail:^{
+        
+    }];
+}
 #pragma mark UIScrollViewDelegate
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{

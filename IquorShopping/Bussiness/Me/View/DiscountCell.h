@@ -13,4 +13,5 @@
 
 - (void)configDiscountCell:(DiscountModel *)model;
 
+- (void)configPreviewCell:(DiscountModel *)model;
 @end
