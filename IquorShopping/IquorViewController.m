@@ -17,7 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    if (@available(iOS 11.0, *)) {
+        [UITableView appearance].contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor c_333Color], NSFontAttributeName: [UIFont systemFontOfSize:17]}];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];

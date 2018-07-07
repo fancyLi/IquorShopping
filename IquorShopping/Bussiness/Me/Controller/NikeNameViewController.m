@@ -40,7 +40,7 @@
                                 };
         [AFNetworkTool postJSONWithUrl:update_nikename_url parameters:param success:^(id responseObject) {
             NSInteger code = [responseObject[@"code"] integerValue];
-            [Dialog popTextAnimation:responseObject[@"mesage"]];
+            [Dialog popTextAnimation:responseObject[@"message"]];
             if (code == 200) {
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [self.navigationController popViewControllerAnimated:YES];

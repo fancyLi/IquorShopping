@@ -9,7 +9,7 @@
 #import "SearchViewController.h"
 #import "NavSegmentBar.h"
 #import "SiginCell.h"
-#import "GoodsViewController.h"
+#import "GoodsInfoViewController.h"
 @interface SearchViewController ()<UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, assign) NSInteger page;
@@ -82,7 +82,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self.navigationController pushViewController:[GoodsViewController new] animated:YES];
+    [self.navigationController pushViewController:[GoodsInfoViewController new] animated:YES];
 }
 #pragma mark UISearchBarDelegate
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {

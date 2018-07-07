@@ -12,6 +12,9 @@
 + (NSDictionary *)modelCustomPropertyMapper {
     return @{@"goods_new"  : @"new"};
 }
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"comment":[CommentModel class]};
+}
 @end
 
 
@@ -21,6 +24,7 @@
     return @{@"list" : [GoodsInfoModel class]
              };
 }
+
 @end
 
 @implementation PageInfo

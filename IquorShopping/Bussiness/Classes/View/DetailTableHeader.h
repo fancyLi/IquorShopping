@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GoodsInfoModel.h"
 @interface DetailTableHeader : UIView
-
+@property (nonatomic, strong) GoodsInfoModel *goodsInfo;
 @end

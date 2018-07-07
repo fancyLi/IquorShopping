@@ -18,4 +18,5 @@
 
 + (instancetype)shareIquorUser;
 
+- (void)configDict:(NSDictionary *)dict;
 @end

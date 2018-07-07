@@ -9,7 +9,6 @@
 #import "MeViewController.h"
 #import "LoginViewController.h"
 #import "MeInfoViewController.h"
-#import "MeConfigTableViewCell.h"
 #import "MeHeaderTableView.h"
 #import "MeSectionTableView.h"
 #import "MeConfigModel.h"
@@ -51,6 +50,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    self.configView.isfresh = YES;
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];

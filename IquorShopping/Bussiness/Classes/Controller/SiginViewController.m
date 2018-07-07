@@ -7,7 +7,7 @@
 //
 
 #import "SiginViewController.h"
-#import "GoodsViewController.h"
+#import "GoodsInfoViewController.h"
 #import "SearchViewController.h"
 #import "NavSegmentBar.h"
 #import "SiginCell.h"
@@ -95,10 +95,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-//    GoodsViewController *vc = [[GoodsViewController alloc]init];
-//    vc.goodsInfo = self.goods[indexPath.item];
-//    [self.navigationController pushViewController:vc animated:YES];
+
     
     GoodsInfoViewController *vc = [[GoodsInfoViewController alloc]init];
     vc.goodsInfo = self.goods[indexPath.item];

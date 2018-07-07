@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -48,6 +48,13 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cie-T2-pzS">
                         <rect key="frame" x="5" y="46" width="310" height="218.5"/>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player_icon" translatesAutoresizingMaskIntoConstraints="NO" id="v3j-Yw-1yV">
+                        <rect key="frame" x="135" y="130" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="LrC-M3-0gh"/>
+                            <constraint firstAttribute="height" constant="50" id="Uah-AS-kwR"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="4cW-Oc-0nA" firstAttribute="leading" secondItem="0kC-R4-Y6S" secondAttribute="trailing" constant="6" id="0mh-Vr-42h"/>
@@ -62,10 +69,17 @@
                     <constraint firstItem="vxu-Dv-E7a" firstAttribute="leading" secondItem="4cW-Oc-0nA" secondAttribute="trailing" constant="6" id="tRL-k6-qVW"/>
                 </constraints>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="v3j-Yw-1yV" firstAttribute="centerY" secondItem="aW0-zy-SZf" secondAttribute="centerY" constant="20" id="7mf-L6-ntY"/>
+                <constraint firstItem="v3j-Yw-1yV" firstAttribute="centerX" secondItem="aW0-zy-SZf" secondAttribute="centerX" id="G4Q-tf-R02"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="videoImage" destination="cie-T2-pzS" id="mvy-H1-oG0"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="player_icon" width="32" height="32"/>
+    </resources>
 </document>

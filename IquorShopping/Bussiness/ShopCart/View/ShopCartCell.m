@@ -7,6 +7,7 @@
 //
 
 #import "ShopCartCell.h"
+#import "UIControl+IquorArea.h"
 @interface ShopCartCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *shopIcon;
 @property (weak, nonatomic) IBOutlet UILabel *shopName;
@@ -25,20 +26,32 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.viewContainer.layer.borderColor = [UIColor c_999Color].CGColor;
-    self.viewContainer.layer.borderWidth = 1;
-    self.viewContainer.layer.cornerRadius = 3;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+//    self.viewContainer.layer.borderColor = [UIColor c_999Color].CGColor;
+//    self.viewContainer.layer.borderWidth = 1;
+//    self.viewContainer.layer.cornerRadius = 3;
+    [self.reduceBtn setEnlargeEdgeWithTop:10 right:0 bottom:10 left:10];
+    [self.addBtn setEnlargeEdgeWithTop:10 right:10 bottom:10 left:0];
     
 }
 - (IBAction)chosNum:(id)sender {
-    NSInteger num = [self.nums.text integerValue];
-    if (num > 1) {
-        self.nums.text = [NSString stringWithFormat:@"%ld", num-1];
+    int num = self.nums.text.intValue;
+    num--;
+    self.nums.text = [NSString stringWithFormat:@"%i", num];
+    if (num <= 1) {
+        self.reduceBtn.enabled = NO;
+        [self.reduceBtn setBackgroundColor:[UIColor c_fbfbfbColor]];
     }
 }
 - (IBAction)chos2Num:(id)sender {
-    NSInteger num = [self.nums.text integerValue];
-    self.nums.text = [NSString stringWithFormat:@"%ld", num+1];
+    int num = self.nums.text.intValue;
+    num++;
+    if (num>1) {
+        self.reduceBtn.enabled = YES;
+        [self.reduceBtn setBackgroundColor:[UIColor c_f5f5f5Color]];
+    }
+    self.nums.text = [NSString stringWithFormat:@"%i", num];
+    
 }
 
 - (void)setRefreshLayout:(BOOL)refreshLayout {

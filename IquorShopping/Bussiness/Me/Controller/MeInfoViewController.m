@@ -8,10 +8,13 @@
 #import "MeInfoViewController.h"
 #import "NikeNameViewController.h"
 #import "ImageViewController.h"
+#import "MeInfoTableViewCell.h"
 #import "MeHeaderCell.h"
 @interface MeInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *infoTableview;
 @property (nonatomic, strong) NSArray *leftTitles;
+@property (nonatomic, strong) NSArray *rightTitles;
+@property (nonatomic, strong) IquorUser *user;
 
 @end
 
@@ -19,13 +22,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.user = [IquorUser shareIquorUser];
     [self configInfoUI];
 }
 
 - (void)configInfoUI {
     self.title = @"个人资料";
     [self.infoTableview registerNib:[UINib nibWithNibName:@"MeHeaderCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([MeHeaderCell class])];
-    [self.infoTableview registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    [self.infoTableview registerNib:[UINib nibWithNibName:@"MeInfoTableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([MeInfoTableViewCell class])];
     self.infoTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.infoTableview.estimatedSectionHeaderHeight = 5;
     self.infoTableview.estimatedSectionFooterHeight = 0;
@@ -35,7 +39,23 @@
     
 }
 - (void)uploadUserAvator:(UIImage *)image {
-    
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.6);
+    NSString *dataStr = [imageData base64EncodedStringWithOptions:0];
+    NSDictionary *param = @{@"avatar":dataStr
+                            };
+    [AFNetworkTool postImageWithUrl:update_userAvatar_url params:param picImage:image success:^(id responseObject) {
+        NSInteger code = [responseObject[@"code"] integerValue];
+        [Dialog popTextAnimation:responseObject[@"message"]];
+        if (code == 200) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+        }else {
+            
+        }
+    } fail:^{
+        
+    }];
 }
 #pragma mark UITableViewDataSource & UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -60,19 +80,26 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         MeHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MeHeaderCell class])];
         cell.textLabel.text = self.leftTitles[indexPath.section][indexPath.row];
-        WeakObj(self);
-        WeakObj(cell);
+        @weakify(self);
+        @weakify(cell);
         cell.changeAvatorBlock = ^{
+            @strongify(self);
+            @strongify(cell);
             [[ImageViewController shareImageVC] choosePhotoOrCamera];
             [ImageViewController shareImageVC].imageChooseBlock = ^(UIImage *image) {
-                [cellWeak.headerImg setImage:image forState:UIControlStateNormal];
-                [selfWeak uploadUserAvator:image];
+                [cell.headerImg setImage:image forState:UIControlStateNormal];
+                [self uploadUserAvator:image];
             };
         };
         return cell;
     }else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
-        cell.textLabel.text = self.leftTitles[indexPath.section][indexPath.row];
+        MeInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MeInfoTableViewCell class])];
+        if (indexPath.section == 0 && indexPath.row == 1) {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.rightTltle.textColor = [UIColor c_333Color];
+        }
+        cell.leftTitle.text = self.leftTitles[indexPath.section][indexPath.row];
+        cell.rightTltle.text = self.rightTitles[indexPath.section][indexPath.row];
         return cell;
     }
     
@@ -82,6 +109,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0 && indexPath.row == 1) {
         NikeNameViewController *nikeVC = [[NikeNameViewController alloc]init];
+        nikeVC.nike = self.user.nick_name;
         [self.navigationController pushViewController:nikeVC animated:YES];
     }
 }
@@ -102,5 +130,14 @@
     return _leftTitles;
 }
 
+- (NSArray *)rightTitles {
+    if (!_rightTitles) {
+        _rightTitles = @[
+                         @[@"", self.user.nick_name, self.user.user_name, self.user.user_tel],
+                         @[self.user.user_code]
+                         ];
+    }
+    return _rightTitles;
+}
 
 @end

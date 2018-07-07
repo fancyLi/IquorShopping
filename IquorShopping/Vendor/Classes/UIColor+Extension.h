@@ -33,4 +33,11 @@
 + (UIColor *)c_f6f6Color;
 
 + (UIColor *)c_e8e8Color;
+
+//加减按钮
++ (UIColor *)c_fbfbfbColor;
+
++ (UIColor *)c_f5f5f5Color;
+//星星
++ (UIColor *)c_fa7231Color;
 @end

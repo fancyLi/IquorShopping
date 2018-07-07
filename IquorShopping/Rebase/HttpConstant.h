@@ -78,7 +78,10 @@
 #define index_aCouponThatCanBeReceived           @"index/aCouponThatCanBeReceived"
 
 //单个商品详情
-#define goods_detail_url                          @"index/goodsInfo"
+#define goods_detail_url                          @"shop/goodsInfo"
+
+//单个商品收藏
+#define shop_addOrDelGoodsCollection                @"shop/addOrDelGoodsCollection"
 
 //产品分类
 #define shop_goodsCatList                       @"shop/goodsCatList"

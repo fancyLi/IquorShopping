@@ -78,6 +78,27 @@
 		08676F4020B6F9F600F870B9 /* ShopHotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08676F3E20B6F9F600F870B9 /* ShopHotCell.xib */; };
 		08676F4420B6FBB000F870B9 /* ShopNewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F4220B6FBB000F870B9 /* ShopNewCell.m */; };
 		08676F4520B6FBB000F870B9 /* ShopNewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08676F4320B6FBB000F870B9 /* ShopNewCell.xib */; };
+		086AF78420F07D70002A0385 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF78320F07D70002A0385 /* CommentModel.m */; };
+		086AF78720F0815F002A0385 /* DetailTableFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF78620F0815F002A0385 /* DetailTableFooter.m */; };
+		086AF78A20F088FA002A0385 /* DetailPageFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF78920F088FA002A0385 /* DetailPageFooter.m */; };
+		086AF78C20F08906002A0385 /* DetailPageFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086AF78B20F08906002A0385 /* DetailPageFooter.xib */; };
+		086AF78F20F08B08002A0385 /* IquorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF78E20F08B08002A0385 /* IquorButton.m */; };
+		086AF79320F08D79002A0385 /* AddGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF79120F08D79002A0385 /* AddGoodsViewController.m */; };
+		086AF79420F08D79002A0385 /* AddGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086AF79220F08D79002A0385 /* AddGoodsViewController.xib */; };
+		086AF79720F09268002A0385 /* UIControl+IquorArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF79620F09268002A0385 /* UIControl+IquorArea.m */; };
+		086AF79B20F0AAA1002A0385 /* MeInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF79920F0AAA1002A0385 /* MeInfoTableViewCell.m */; };
+		086AF79C20F0AAA1002A0385 /* MeInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086AF79A20F0AAA1002A0385 /* MeInfoTableViewCell.xib */; };
+		086AF7AD20F0B7B0002A0385 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7A120F0B7B0002A0385 /* SDCycleScrollView.m */; };
+		086AF7AE20F0B7B0002A0385 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7A220F0B7B0002A0385 /* UIView+SDExtension.m */; };
+		086AF7AF20F0B7B0002A0385 /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7A320F0B7B0002A0385 /* SDCollectionViewCell.m */; };
+		086AF7B020F0B7B0002A0385 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7A620F0B7B0002A0385 /* TADotView.m */; };
+		086AF7B120F0B7B0002A0385 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7A720F0B7B0002A0385 /* TAPageControl.m */; };
+		086AF7B220F0B7B0002A0385 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7A820F0B7B0002A0385 /* TAAnimatedDotView.m */; };
+		086AF7B320F0B7B0002A0385 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7A920F0B7B0002A0385 /* TAAbstractDotView.m */; };
+		086AF7BD20F0C465002A0385 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7B720F0C465002A0385 /* UITableView+FDTemplateLayoutCell.m */; };
+		086AF7BE20F0C465002A0385 /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7B920F0C465002A0385 /* UITableView+FDKeyedHeightCache.m */; };
+		086AF7BF20F0C465002A0385 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7BA20F0C465002A0385 /* UITableView+FDTemplateLayoutCellDebug.m */; };
+		086AF7C020F0C465002A0385 /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7BB20F0C465002A0385 /* UITableView+FDIndexPathHeightCache.m */; };
 		0880523F20A2EB180018AE6E /* IquorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880523E20A2EB180018AE6E /* IquorViewController.m */; };
 		0880524920A2EB730018AE6E /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524520A2EB730018AE6E /* FileUtils.m */; };
 		0880524A20A2EB730018AE6E /* AFNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524620A2EB730018AE6E /* AFNetworkTool.m */; };
@@ -104,10 +125,6 @@
 		088052A120A354950018AE6E /* NikeNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0880529D20A354950018AE6E /* NikeNameViewController.xib */; };
 		088052A220A354950018AE6E /* SetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0880529E20A354950018AE6E /* SetViewController.xib */; };
 		088052A320A354950018AE6E /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880529F20A354950018AE6E /* SetViewController.m */; };
-		088052A720A354A40018AE6E /* MeConfigTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 088052A420A354A40018AE6E /* MeConfigTableViewCell.xib */; };
-		088052A820A354A40018AE6E /* MeConfigTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 088052A520A354A40018AE6E /* MeConfigTableViewCell.m */; };
-		088052AB20A356980018AE6E /* MeConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 088052AA20A356980018AE6E /* MeConfigView.m */; };
-		088052AD20A356A90018AE6E /* MeConfigView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 088052AC20A356A90018AE6E /* MeConfigView.xib */; };
 		088052B120A359750018AE6E /* LPPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 088052B020A359750018AE6E /* LPPopup.m */; };
 		088052B420A35A5B0018AE6E /* PDDDataManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 088052B220A35A5B0018AE6E /* PDDDataManger.m */; };
 		088052BA20A35A9C0018AE6E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 088052B920A35A9C0018AE6E /* BaseModel.m */; };
@@ -148,7 +165,6 @@
 		0898C38A20AF1D2300664482 /* DetailTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0898C38920AF1D2300664482 /* DetailTableHeader.xib */; };
 		0898C38E20AF226F00664482 /* AssessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898C38C20AF226F00664482 /* AssessCell.m */; };
 		0898C38F20AF226F00664482 /* AssessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0898C38D20AF226F00664482 /* AssessCell.xib */; };
-		0898C39220AF276700664482 /* GoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898C39120AF276700664482 /* GoodsViewController.m */; };
 		0898C39520AF2F9000664482 /* AssessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898C39420AF2F9000664482 /* AssessViewController.m */; };
 		0898C3C020B2EEEC00664482 /* ShopCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898C3BE20B2EEEC00664482 /* ShopCartCell.m */; };
 		0898C3C120B2EEEC00664482 /* ShopCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0898C3BF20B2EEEC00664482 /* ShopCartCell.xib */; };
@@ -331,6 +347,45 @@
 		08676F4120B6FBB000F870B9 /* ShopNewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopNewCell.h; sourceTree = "<group>"; };
 		08676F4220B6FBB000F870B9 /* ShopNewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopNewCell.m; sourceTree = "<group>"; };
 		08676F4320B6FBB000F870B9 /* ShopNewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopNewCell.xib; sourceTree = "<group>"; };
+		086AF78220F07D6F002A0385 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
+		086AF78320F07D70002A0385 /* CommentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
+		086AF78520F0815F002A0385 /* DetailTableFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailTableFooter.h; sourceTree = "<group>"; };
+		086AF78620F0815F002A0385 /* DetailTableFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailTableFooter.m; sourceTree = "<group>"; };
+		086AF78820F088FA002A0385 /* DetailPageFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailPageFooter.h; sourceTree = "<group>"; };
+		086AF78920F088FA002A0385 /* DetailPageFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailPageFooter.m; sourceTree = "<group>"; };
+		086AF78B20F08906002A0385 /* DetailPageFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPageFooter.xib; sourceTree = "<group>"; };
+		086AF78D20F08B08002A0385 /* IquorButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IquorButton.h; sourceTree = "<group>"; };
+		086AF78E20F08B08002A0385 /* IquorButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorButton.m; sourceTree = "<group>"; };
+		086AF79020F08D79002A0385 /* AddGoodsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddGoodsViewController.h; sourceTree = "<group>"; };
+		086AF79120F08D79002A0385 /* AddGoodsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddGoodsViewController.m; sourceTree = "<group>"; };
+		086AF79220F08D79002A0385 /* AddGoodsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddGoodsViewController.xib; sourceTree = "<group>"; };
+		086AF79520F09267002A0385 /* UIControl+IquorArea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+IquorArea.h"; sourceTree = "<group>"; };
+		086AF79620F09268002A0385 /* UIControl+IquorArea.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+IquorArea.m"; sourceTree = "<group>"; };
+		086AF79820F0AAA1002A0385 /* MeInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeInfoTableViewCell.h; sourceTree = "<group>"; };
+		086AF79920F0AAA1002A0385 /* MeInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeInfoTableViewCell.m; sourceTree = "<group>"; };
+		086AF79A20F0AAA1002A0385 /* MeInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeInfoTableViewCell.xib; sourceTree = "<group>"; };
+		086AF79E20F0B7B0002A0385 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		086AF79F20F0B7B0002A0385 /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
+		086AF7A020F0B7B0002A0385 /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
+		086AF7A120F0B7B0002A0385 /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
+		086AF7A220F0B7B0002A0385 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		086AF7A320F0B7B0002A0385 /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
+		086AF7A520F0B7B0002A0385 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		086AF7A620F0B7B0002A0385 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		086AF7A720F0B7B0002A0385 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		086AF7A820F0B7B0002A0385 /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		086AF7A920F0B7B0002A0385 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		086AF7AA20F0B7B0002A0385 /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		086AF7AB20F0B7B0002A0385 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		086AF7AC20F0B7B0002A0385 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		086AF7B520F0C465002A0385 /* UITableView+FDKeyedHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDKeyedHeightCache.h"; sourceTree = "<group>"; };
+		086AF7B620F0C465002A0385 /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
+		086AF7B720F0C465002A0385 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
+		086AF7B820F0C465002A0385 /* UITableView+FDIndexPathHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDIndexPathHeightCache.h"; sourceTree = "<group>"; };
+		086AF7B920F0C465002A0385 /* UITableView+FDKeyedHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDKeyedHeightCache.m"; sourceTree = "<group>"; };
+		086AF7BA20F0C465002A0385 /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
+		086AF7BB20F0C465002A0385 /* UITableView+FDIndexPathHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDIndexPathHeightCache.m"; sourceTree = "<group>"; };
+		086AF7BC20F0C465002A0385 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
 		0880523D20A2EB180018AE6E /* IquorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IquorViewController.h; sourceTree = "<group>"; };
 		0880523E20A2EB180018AE6E /* IquorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorViewController.m; sourceTree = "<group>"; };
 		0880524120A2EB730018AE6E /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
@@ -378,12 +433,6 @@
 		0880529D20A354950018AE6E /* NikeNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NikeNameViewController.xib; sourceTree = "<group>"; };
 		0880529E20A354950018AE6E /* SetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetViewController.xib; sourceTree = "<group>"; };
 		0880529F20A354950018AE6E /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
-		088052A420A354A40018AE6E /* MeConfigTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeConfigTableViewCell.xib; sourceTree = "<group>"; };
-		088052A520A354A40018AE6E /* MeConfigTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeConfigTableViewCell.m; sourceTree = "<group>"; };
-		088052A620A354A40018AE6E /* MeConfigTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeConfigTableViewCell.h; sourceTree = "<group>"; };
-		088052A920A356980018AE6E /* MeConfigView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeConfigView.h; sourceTree = "<group>"; };
-		088052AA20A356980018AE6E /* MeConfigView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeConfigView.m; sourceTree = "<group>"; };
-		088052AC20A356A90018AE6E /* MeConfigView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeConfigView.xib; sourceTree = "<group>"; };
 		088052AE20A358820018AE6E /* PrefixHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
 		088052AF20A359740018AE6E /* LPPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPPopup.h; sourceTree = "<group>"; };
 		088052B020A359750018AE6E /* LPPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPPopup.m; sourceTree = "<group>"; };
@@ -458,8 +507,6 @@
 		0898C38B20AF226F00664482 /* AssessCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssessCell.h; sourceTree = "<group>"; };
 		0898C38C20AF226F00664482 /* AssessCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssessCell.m; sourceTree = "<group>"; };
 		0898C38D20AF226F00664482 /* AssessCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssessCell.xib; sourceTree = "<group>"; };
-		0898C39020AF276700664482 /* GoodsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsViewController.h; sourceTree = "<group>"; };
-		0898C39120AF276700664482 /* GoodsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsViewController.m; sourceTree = "<group>"; };
 		0898C39320AF2F9000664482 /* AssessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssessViewController.h; sourceTree = "<group>"; };
 		0898C39420AF2F9000664482 /* AssessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssessViewController.m; sourceTree = "<group>"; };
 		0898C3BD20B2EEEC00664482 /* ShopCartCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopCartCell.h; sourceTree = "<group>"; };
@@ -613,6 +660,50 @@
 			path = YSLContainerViewController;
 			sourceTree = "<group>";
 		};
+		086AF79D20F0B7B0002A0385 /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				086AF79E20F0B7B0002A0385 /* UIView+SDExtension.h */,
+				086AF79F20F0B7B0002A0385 /* SDCycleScrollView.h */,
+				086AF7A020F0B7B0002A0385 /* SDCollectionViewCell.h */,
+				086AF7A120F0B7B0002A0385 /* SDCycleScrollView.m */,
+				086AF7A220F0B7B0002A0385 /* UIView+SDExtension.m */,
+				086AF7A320F0B7B0002A0385 /* SDCollectionViewCell.m */,
+				086AF7A420F0B7B0002A0385 /* PageControl */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		086AF7A420F0B7B0002A0385 /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				086AF7A520F0B7B0002A0385 /* TAAbstractDotView.h */,
+				086AF7A620F0B7B0002A0385 /* TADotView.m */,
+				086AF7A720F0B7B0002A0385 /* TAPageControl.m */,
+				086AF7A820F0B7B0002A0385 /* TAAnimatedDotView.m */,
+				086AF7A920F0B7B0002A0385 /* TAAbstractDotView.m */,
+				086AF7AA20F0B7B0002A0385 /* TADotView.h */,
+				086AF7AB20F0B7B0002A0385 /* TAAnimatedDotView.h */,
+				086AF7AC20F0B7B0002A0385 /* TAPageControl.h */,
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
+		086AF7B420F0C465002A0385 /* FD */ = {
+			isa = PBXGroup;
+			children = (
+				086AF7B520F0C465002A0385 /* UITableView+FDKeyedHeightCache.h */,
+				086AF7B620F0C465002A0385 /* UITableView+FDTemplateLayoutCellDebug.h */,
+				086AF7B720F0C465002A0385 /* UITableView+FDTemplateLayoutCell.m */,
+				086AF7B820F0C465002A0385 /* UITableView+FDIndexPathHeightCache.h */,
+				086AF7B920F0C465002A0385 /* UITableView+FDKeyedHeightCache.m */,
+				086AF7BA20F0C465002A0385 /* UITableView+FDTemplateLayoutCellDebug.m */,
+				086AF7BB20F0C465002A0385 /* UITableView+FDIndexPathHeightCache.m */,
+				086AF7BC20F0C465002A0385 /* UITableView+FDTemplateLayoutCell.h */,
+			);
+			path = FD;
+			sourceTree = "<group>";
+		};
 		0880522520A2EAD90018AE6E /* Thirds */ = {
 			isa = PBXGroup;
 			children = (
@@ -623,6 +714,8 @@
 		0880522620A2EAD90018AE6E /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				086AF7B420F0C465002A0385 /* FD */,
+				086AF79D20F0B7B0002A0385 /* SDCycleScrollView */,
 				08B8670C20EB71AF00F73677 /* WMPageController */,
 				0806497E20C5755B003B155F /* RTRootNavigationController */,
 				0847F19E20AB03D400BEF0F6 /* YSLContainerViewController */,
@@ -702,10 +795,11 @@
 				0898C34C20ADDA3D00664482 /* SiginViewController.xib */,
 				08B866A420E128E700F73677 /* SearchViewController.h */,
 				08B866A520E128E700F73677 /* SearchViewController.m */,
-				0898C39020AF276700664482 /* GoodsViewController.h */,
-				0898C39120AF276700664482 /* GoodsViewController.m */,
 				0898C38320AF195F00664482 /* GoodsDetailViewController.h */,
 				0898C38420AF195F00664482 /* GoodsDetailViewController.m */,
+				086AF79020F08D79002A0385 /* AddGoodsViewController.h */,
+				086AF79120F08D79002A0385 /* AddGoodsViewController.m */,
+				086AF79220F08D79002A0385 /* AddGoodsViewController.xib */,
 				08B8672020EB8D2400F73677 /* GoodsInfoViewController.h */,
 				08B8672120EB8D2400F73677 /* GoodsInfoViewController.m */,
 				0898C39320AF2F9000664482 /* AssessViewController.h */,
@@ -721,6 +815,8 @@
 				080E99A120D929DA00AF09FF /* ClassInfoModel.m */,
 				080E99A320D9347000AF09FF /* GoodsInfoModel.h */,
 				080E99A420D9347000AF09FF /* GoodsInfoModel.m */,
+				086AF78220F07D6F002A0385 /* CommentModel.h */,
+				086AF78320F07D70002A0385 /* CommentModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -749,6 +845,11 @@
 				0898C38B20AF226F00664482 /* AssessCell.h */,
 				0898C38C20AF226F00664482 /* AssessCell.m */,
 				0898C38D20AF226F00664482 /* AssessCell.xib */,
+				086AF78520F0815F002A0385 /* DetailTableFooter.h */,
+				086AF78620F0815F002A0385 /* DetailTableFooter.m */,
+				086AF78820F088FA002A0385 /* DetailPageFooter.h */,
+				086AF78920F088FA002A0385 /* DetailPageFooter.m */,
+				086AF78B20F08906002A0385 /* DetailPageFooter.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -971,12 +1072,6 @@
 		0880523B20A2EAD90018AE6E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				088052A620A354A40018AE6E /* MeConfigTableViewCell.h */,
-				088052A520A354A40018AE6E /* MeConfigTableViewCell.m */,
-				088052A420A354A40018AE6E /* MeConfigTableViewCell.xib */,
-				088052A920A356980018AE6E /* MeConfigView.h */,
-				088052AA20A356980018AE6E /* MeConfigView.m */,
-				088052AC20A356A90018AE6E /* MeConfigView.xib */,
 				088052BB20A9BF360018AE6E /* MeHeaderTableView.h */,
 				088052BC20A9BF360018AE6E /* MeHeaderTableView.m */,
 				088052BE20A9BF420018AE6E /* MeHeaderTableView.xib */,
@@ -1010,6 +1105,9 @@
 				08676F2520B6E59D00F870B9 /* MeHeaderCell.h */,
 				08676F2620B6E59D00F870B9 /* MeHeaderCell.m */,
 				08676F2720B6E59D00F870B9 /* MeHeaderCell.xib */,
+				086AF79820F0AAA1002A0385 /* MeInfoTableViewCell.h */,
+				086AF79920F0AAA1002A0385 /* MeInfoTableViewCell.m */,
+				086AF79A20F0AAA1002A0385 /* MeInfoTableViewCell.xib */,
 				08B8672320EB9C6F00F73677 /* MeCollectionReusableView.h */,
 				08B8672420EB9C6F00F73677 /* MeCollectionReusableView.m */,
 				08B8672520EB9C6F00F73677 /* MeCollectionReusableView.xib */,
@@ -1074,6 +1172,10 @@
 				080E99AD20DA95C500AF09FF /* UITableView+Util.m */,
 				080E99AF20DA95EB00AF09FF /* UICollectionView+Util.h */,
 				080E99B020DA95EB00AF09FF /* UICollectionView+Util.m */,
+				086AF79520F09267002A0385 /* UIControl+IquorArea.h */,
+				086AF79620F09268002A0385 /* UIControl+IquorArea.m */,
+				086AF78D20F08B08002A0385 /* IquorButton.h */,
+				086AF78E20F08B08002A0385 /* IquorButton.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1343,7 +1445,6 @@
 				0806499320C6AA60003B155F /* AddressViewController.xib in Resources */,
 				0898C38220AF15E700664482 /* NavDetailBar.xib in Resources */,
 				0898C38F20AF226F00664482 /* AssessCell.xib in Resources */,
-				088052AD20A356A90018AE6E /* MeConfigView.xib in Resources */,
 				0898C31720ADB57800664482 /* StartViewController.xib in Resources */,
 				08FBE78820AC73F800B507DB /* EvaSucViewController.xib in Resources */,
 				0847F1CD20AB286700BEF0F6 /* CollectedCell.xib in Resources */,
@@ -1351,12 +1452,12 @@
 				0880527120A33F960018AE6E /* LoginViewController.xib in Resources */,
 				0847F1C320AB0C4400BEF0F6 /* IndentBottomCell.xib in Resources */,
 				088052A220A354950018AE6E /* SetViewController.xib in Resources */,
-				088052A720A354A40018AE6E /* MeConfigTableViewCell.xib in Resources */,
 				0898C30820AC7F1A00664482 /* JoinsViewController.xib in Resources */,
 				08FBE78D20AC75F400B507DB /* BrokerViewController.xib in Resources */,
 				0898C38A20AF1D2300664482 /* DetailTableHeader.xib in Resources */,
 				080649B020C8C7F6003B155F /* AdressListViewController.xib in Resources */,
 				08E4643920A2E7B900E405DB /* LaunchScreen.storyboard in Resources */,
+				086AF79C20F0AAA1002A0385 /* MeInfoTableViewCell.xib in Resources */,
 				0898C3C620B2F42500664482 /* ShopCartViewController.xib in Resources */,
 				0806499820C6ABCF003B155F /* AddressCell.xib in Resources */,
 				0806498A20C5755C003B155F /* .gitkeep in Resources */,
@@ -1367,6 +1468,7 @@
 				088052A120A354950018AE6E /* NikeNameViewController.xib in Resources */,
 				0847F1AF20AB070700BEF0F6 /* IndentDetailViewController.xib in Resources */,
 				0898C35820ADDC4900664482 /* NavSegmentBar.xib in Resources */,
+				086AF79420F08D79002A0385 /* AddGoodsViewController.xib in Resources */,
 				08FBE79220AC778400B507DB /* BrokerCell.xib in Resources */,
 				0847F1DA20AB307B00BEF0F6 /* MeCollectViewController.xib in Resources */,
 				0847F1B420AB095D00BEF0F6 /* IndentSectionView.xib in Resources */,
@@ -1374,6 +1476,7 @@
 				0898C34E20ADDA3D00664482 /* SiginViewController.xib in Resources */,
 				0898C3D020B3010C00664482 /* CartTextCell.xib in Resources */,
 				0898C34920ADD54A00664482 /* NavSearchBar.xib in Resources */,
+				086AF78C20F08906002A0385 /* DetailPageFooter.xib in Resources */,
 				0880528020A349D00018AE6E /* ResetPasswordViewController.xib in Resources */,
 				0847F1B920AB09F100BEF0F6 /* IndentDetailCell.xib in Resources */,
 				0880527620A3443D0018AE6E /* FirstRegViewController.xib in Resources */,
@@ -1530,16 +1633,19 @@
 				080649A820C7F74F003B155F /* CityModel.m in Sources */,
 				0898C3CF20B3010C00664482 /* CartTextCell.m in Sources */,
 				080649B320C8D7DA003B155F /* ImageViewController.m in Sources */,
+				086AF79320F08D79002A0385 /* AddGoodsViewController.m in Sources */,
 				080649A120C7F418003B155F /* AreaChoseViewController.m in Sources */,
-				088052AB20A356980018AE6E /* MeConfigView.m in Sources */,
 				088052E820A9E1560018AE6E /* View+MASAdditions.m in Sources */,
 				0847F1CC20AB286700BEF0F6 /* CollectedCell.m in Sources */,
 				08B8672B20EBA08C00F73677 /* MePageCollectionViewCell.m in Sources */,
 				080E99A520D9347000AF09FF /* GoodsInfoModel.m in Sources */,
 				080E99AE20DA95C500AF09FF /* UITableView+Util.m in Sources */,
+				086AF7B220F0B7B0002A0385 /* TAAnimatedDotView.m in Sources */,
 				080E99A220D929DA00AF09FF /* ClassInfoModel.m in Sources */,
 				080649B720C90B44003B155F /* VersionViewController.m in Sources */,
 				08676F2D20B6E65300F870B9 /* MeInfoViewController.m in Sources */,
+				086AF7AE20F0B7B0002A0385 /* UIView+SDExtension.m in Sources */,
+				086AF7BF20F0C465002A0385 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				0847F1E520AB383F00BEF0F6 /* TeamsViewController.m in Sources */,
 				0847F1C620AB1D5900BEF0F6 /* FooterTableView.m in Sources */,
 				08B866AD20E1331E00F73677 /* BannerCell.m in Sources */,
@@ -1561,6 +1667,7 @@
 				0898C30720AC7F1A00664482 /* JoinsViewController.m in Sources */,
 				088052E220A9E1560018AE6E /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				08676F3520B6F63300F870B9 /* ShopConfigCell.m in Sources */,
+				086AF7BE20F0C465002A0385 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				0880527F20A349D00018AE6E /* ResetPasswordViewController.m in Sources */,
 				0880524C20A2EB730018AE6E /* UIUtils.m in Sources */,
 				08FBE78C20AC75F400B507DB /* BrokerViewController.m in Sources */,
@@ -1568,44 +1675,53 @@
 				0880527A20A347710018AE6E /* SecondRegViewController.m in Sources */,
 				0847F1A620AB03D400BEF0F6 /* LNContainerViewController.m in Sources */,
 				08B866A620E128E700F73677 /* SearchViewController.m in Sources */,
-				088052A820A354A40018AE6E /* MeConfigTableViewCell.m in Sources */,
 				08676F4420B6FBB000F870B9 /* ShopNewCell.m in Sources */,
+				086AF78720F0815F002A0385 /* DetailTableFooter.m in Sources */,
 				0847F1B220AB095400BEF0F6 /* IndentSectionView.m in Sources */,
 				0880524A20A2EB730018AE6E /* AFNetworkTool.m in Sources */,
 				08B8671A20EB71AF00F73677 /* WMPageController.m in Sources */,
 				088052E720A9E1560018AE6E /* NSArray+MASAdditions.m in Sources */,
 				088052BA20A35A9C0018AE6E /* BaseModel.m in Sources */,
 				080649AF20C8C7F6003B155F /* AdressListViewController.m in Sources */,
+				086AF7B120F0B7B0002A0385 /* TAPageControl.m in Sources */,
 				080649BB20C91F98003B155F /* PlayerViewController.m in Sources */,
+				086AF7C020F0C465002A0385 /* UITableView+FDIndexPathHeightCache.m in Sources */,
+				086AF79720F09268002A0385 /* UIControl+IquorArea.m in Sources */,
 				08676F3F20B6F9F600F870B9 /* ShopHotCell.m in Sources */,
 				080649C920CE11DD003B155F /* JoinModel.m in Sources */,
 				080E99B120DA95EB00AF09FF /* UICollectionView+Util.m in Sources */,
 				0898C3CA20B3005100664482 /* UploadCartViewController.m in Sources */,
 				080649C620CE0CAB003B155F /* DiscountModel.m in Sources */,
-				0898C39220AF276700664482 /* GoodsViewController.m in Sources */,
 				0898C3C020B2EEEC00664482 /* ShopCartCell.m in Sources */,
 				08B8671D20EB71AF00F73677 /* WMScrollView.m in Sources */,
+				086AF78F20F08B08002A0385 /* IquorButton.m in Sources */,
 				0880526C20A33B790018AE6E /* UIFont+Extension.m in Sources */,
 				088052E920A9E1560018AE6E /* MASConstraint.m in Sources */,
 				08E4642E20A2E7B900E405DB /* AppDelegate.m in Sources */,
+				086AF78A20F088FA002A0385 /* DetailPageFooter.m in Sources */,
+				086AF7B020F0B7B0002A0385 /* TADotView.m in Sources */,
 				0847F1C220AB0C4400BEF0F6 /* IndentBottomCell.m in Sources */,
 				0880525C20A2ED330018AE6E /* MeViewController.m in Sources */,
 				0847F1E220AB34AE00BEF0F6 /* DiscountViewController.m in Sources */,
 				0847F19C20AAFFB900BEF0F6 /* IndentViewController.m in Sources */,
 				0880527520A3443D0018AE6E /* FirstRegViewController.m in Sources */,
 				080649CC20CE1983003B155F /* BrokerModel.m in Sources */,
+				086AF78420F07D70002A0385 /* CommentModel.m in Sources */,
 				088052E420A9E1560018AE6E /* MASCompositeConstraint.m in Sources */,
 				088052EB20A9E1560018AE6E /* MASViewAttribute.m in Sources */,
 				08B8671F20EB71AF00F73677 /* WMProgressView.m in Sources */,
 				0898C35620ADDC3C00664482 /* NavSegmentBar.m in Sources */,
 				088052A320A354950018AE6E /* SetViewController.m in Sources */,
+				086AF7BD20F0C465002A0385 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				0806498920C5755C003B155F /* RTRootNavigationController.m in Sources */,
 				08FBE79120AC778400B507DB /* BrokerCell.m in Sources */,
 				08B8672220EB8D2400F73677 /* GoodsInfoViewController.m in Sources */,
 				0898C35220ADDA5800664482 /* SiginCell.m in Sources */,
+				086AF7AD20F0B7B0002A0385 /* SDCycleScrollView.m in Sources */,
 				0880524B20A2EB730018AE6E /* Dialog.m in Sources */,
 				0847F1A520AB03D400BEF0F6 /* YSLContainerViewController.m in Sources */,
 				0880527020A33F960018AE6E /* LoginViewController.m in Sources */,
+				086AF7AF20F0B7B0002A0385 /* SDCollectionViewCell.m in Sources */,
 				080649AB20C807B8003B155F /* ChoseAreaModel.m in Sources */,
 				0880525F20A2ED410018AE6E /* ClassesViewController.m in Sources */,
 				088052EA20A9E1560018AE6E /* MASViewConstraint.m in Sources */,
@@ -1616,7 +1732,9 @@
 				08B8671E20EB71AF00F73677 /* WMMenuView.m in Sources */,
 				0847F1AE20AB070700BEF0F6 /* IndentDetailViewController.m in Sources */,
 				08676F3A20B6F83B00F870B9 /* ShopVideoCell.m in Sources */,
+				086AF79B20F0AAA1002A0385 /* MeInfoTableViewCell.m in Sources */,
 				08676F2820B6E59D00F870B9 /* MeHeaderCell.m in Sources */,
+				086AF7B320F0B7B0002A0385 /* TAAbstractDotView.m in Sources */,
 				0880523F20A2EB180018AE6E /* IquorViewController.m in Sources */,
 				0898C31B20ADC2ED00664482 /* ShowPictureView.m in Sources */,
 				08FBE78720AC73F800B507DB /* EvaSucViewController.m in Sources */,

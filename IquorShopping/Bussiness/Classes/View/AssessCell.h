@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CommentModel.h"
 @interface AssessCell : UITableViewCell
-
+- (void)configCell:(CommentModel *)model;
 @end

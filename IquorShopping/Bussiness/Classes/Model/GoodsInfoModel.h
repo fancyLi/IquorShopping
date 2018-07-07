@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CommentModel.h"
 
 @interface GoodsInfoModel : NSObject
 @property (nonatomic, copy) NSString *goods_id;
@@ -27,6 +28,13 @@
 @property (nonatomic, copy) NSString *tag_id;
 @property (nonatomic, copy) NSString *goods_detail;
 @property (nonatomic, copy) NSString *goods_new;
+@property (nonatomic, strong) NSArray *goods_pics;
+@property (nonatomic, strong) NSArray *tag_list;
+@property (nonatomic, strong) NSArray <CommentModel *>*comment;
+@property (nonatomic, copy) NSString *cat_name;
+@property (nonatomic, copy) NSString *attr_name;
+@property (nonatomic, copy) NSString *isCollect;
+
 @end
 
 //分类信息

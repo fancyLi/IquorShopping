@@ -22,4 +22,12 @@ static IquorUser *_user;
     });
     return _user;
 }
+
+- (void)configDict:(NSDictionary *)dict {
+    self.avatar = dict[@"avatar"];
+    self.user_name = dict[@"user_name"];
+    self.user_tel = dict[@"user_tel"];
+    self.nick_name = dict[@"nick_name"];
+    self.user_code = dict[@"user_code"];
+}
 @end

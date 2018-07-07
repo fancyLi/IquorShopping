@@ -13,6 +13,8 @@
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.headerImg.layer.cornerRadius = 30;
+    self.headerImg.imageRect = self.headerImg.bounds;
 }
 
 - (IBAction)headerClick:(UIButton *)sender {
