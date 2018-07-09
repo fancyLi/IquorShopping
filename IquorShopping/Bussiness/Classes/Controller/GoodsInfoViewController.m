@@ -101,6 +101,7 @@
 - (AssessViewController *)assessVC {
     if (!_assessVC) {
         _assessVC = [[AssessViewController alloc]init];
+        _assessVC.goods_id = self.goodsInfo.goods_id;
     }
     return _assessVC;
 }

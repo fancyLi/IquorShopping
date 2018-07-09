@@ -83,9 +83,33 @@
 //单个商品收藏
 #define shop_addOrDelGoodsCollection                @"shop/addOrDelGoodsCollection"
 
+//我的收藏
+#define user_goodsCollection                        @"user/goodsCollection"
+
+//取消收藏
+#define user_delGoodsCollection                      @"user/delGoodsCollection"
+
+//我的评价
+#define user_goodsEvaluate                          @"user/goodsEvaluate"
+
 //产品分类
 #define shop_goodsCatList                       @"shop/goodsCatList"
 
 //产品列表
 #define shop_goodsList                          @"shop/goodsList"
+
+//单个商品评价
+#define shop_goodsComment                       @"shop/goodsComment"
+
+//加入购物车
+#define shop_addToCart                          @"shop/addToCart"
+
+//购物车列表
+#define shop_shoppingCart                       @"shop/shoppingCart"
+
+//购物车列表加减
+#define shop_changeCartGoodsNum                 @"shop/changeCartGoodsNum"
+
+//关于我们
+#define user_aboutUs                            @"user/aboutUs"
 #endif /* HttpConstant_h */

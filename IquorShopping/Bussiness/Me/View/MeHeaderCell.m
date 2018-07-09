@@ -13,11 +13,13 @@
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.headerImg.layer.cornerRadius = 30;
-    self.headerImg.imageRect = self.headerImg.bounds;
+    self.avatar.layer.cornerRadius = 30;
+    self.avatar.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerClick)];
+    [self.avatar addGestureRecognizer:tapGes];
 }
 
-- (IBAction)headerClick:(UIButton *)sender {
+- (void)headerClick {
     if (self.changeAvatorBlock) {
         self.changeAvatorBlock();
     }

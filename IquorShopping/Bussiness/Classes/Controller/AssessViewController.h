@@ -9,5 +9,5 @@
 #import "IquorViewController.h"
 
 @interface AssessViewController : IquorViewController
-
+@property (nonatomic, copy) NSString *goods_id;
 @end

@@ -8,6 +8,14 @@
 
 #import "CollectedCell.h"
 
+@interface CollectedCell ()
+@property (weak, nonatomic) IBOutlet UIButton *chosBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *icon;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *des;
+@property (weak, nonatomic) IBOutlet UILabel *price;
+@end
+
 @implementation CollectedCell
 
 - (void)awakeFromNib {
@@ -16,6 +24,19 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
+- (void)setCollect:(CollectModel *)collect {
+    _collect = collect;
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:collect.goods_image] placeholderImage:nil];
+    self.name.text = _collect.goods_name;
+    self.des.text = [NSString stringWithFormat:@"规格：%@", _collect.attribute_value];
+    self.price.text = [NSString stringWithFormat:@"￥%@", _collect.goods_price];
+}
+- (IBAction)choseOperate:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (self.choseCollectBlock) {
+        self.choseCollectBlock(sender.selected);
+    }
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

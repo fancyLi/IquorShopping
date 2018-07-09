@@ -55,14 +55,15 @@
 }
 
 - (void)requestHomePage {
-    WeakObj(self);
+    @weakify(self);
     [AFNetworkTool postJSONWithUrl:index_homePage parameters:nil success:^(id responseObject) {
+        @strongify(self);
         NSInteger code = [responseObject[@"code"] integerValue];
         [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
-            selfWeak.homePageModel = [HomePageModel yy_modelWithJSON:responseObject[@"content"]];
-            selfWeak.tableHeader.banners = selfWeak.homePageModel.banner_list;
-            [selfWeak.shopTableView reloadData];
+            self.homePageModel = [HomePageModel yy_modelWithJSON:responseObject[@"content"]];
+            self.tableHeader.banners = self.homePageModel.banner_list;
+            [self.shopTableView reloadData];
             
         }else {
             

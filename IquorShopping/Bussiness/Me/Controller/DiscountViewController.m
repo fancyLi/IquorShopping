@@ -11,8 +11,8 @@
 #import "DiscountModel.h"
 @interface DiscountViewController ()<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) UITableView *disTable;
-@property (nonatomic, strong) NSMutableArray *couponArrs;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *arr;
 @property (nonatomic, assign) NSInteger page;
 @end
 
@@ -20,29 +20,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configDiscountUI];
+    self.page = 1;
+    self.title = @"我的优惠券";
+    [self.view addSubview:self.tableView];
     [self requestCouponList];
 }
-- (void)configDiscountUI {
-    self.title = @"我的优惠券";
-    self.page = 0;
-    [self.view addSubview:self.disTable];
-}
+
 - (void)requestCouponList {
-    NSDictionary *param = @{@"page":@"1"};
-    WeakObj(self);
+    NSDictionary *param = @{@"page":@(self.page)};
+    @weakify(self);
     [AFNetworkTool postJSONWithUrl:user_couponList_url parameters:param success:^(id responseObject) {
-        [selfWeak.disTable.mj_footer endRefreshing];
-        [selfWeak.disTable.mj_header endRefreshing];
+        @strongify(self);
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView.mj_header endRefreshing];
         
         NSInteger code = [responseObject[@"code"] integerValue];
         [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
-            NSArray *arrs = [NSArray yy_modelArrayWithClass:[DiscountModel class] json:responseObject[@"message"][@"list"]];
-            [selfWeak.couponArrs addObjectsFromArray:arrs];
-            [selfWeak.disTable reloadData];
+            NSArray *arrs = [NSArray yy_modelArrayWithClass:[DiscountModel class] json:responseObject[@"content"][@"list"]];
+            if (arrs.count) {
+                [self.arr addObjectsFromArray:arrs];
+                [self.tableView reloadData];
+            }else {
+                [Dialog popTextAnimation:@"没有下一页了"];
+            }
+            [self.tableView setTableBgViewWithCount:self.arr.count img:@"icon_none_02" msg:@"空空如也"];
             
         }else {
+            
         }
     } fail:^{
         
@@ -56,7 +61,7 @@
 
 #pragma mark UITableViewDelegate & UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.couponArrs.count;
+    return self.arr.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
@@ -69,31 +74,39 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DiscountCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([DiscountCell class])];
-    [cell configDiscountCell:self.couponArrs[indexPath.section]];
+    [cell configDiscountCell:self.arr[indexPath.section]];
     return cell;
 }
 
-- (UITableView *)disTable {
-    if (!_disTable) {
-        _disTable = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-        [_disTable registerNib:[UINib nibWithNibName:@"DiscountCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([DiscountCell class])];
-        _disTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _disTable.delegate = self;
-        _disTable.dataSource = self;
-        _disTable.rowHeight = 70;
-        _disTable.estimatedSectionHeaderHeight = 0;
-        _disTable.estimatedSectionFooterHeight = 0;
-        WeakObj(self);
-        _disTable.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            selfWeak.page = 0;
-            self.couponArrs = [NSMutableArray array];
-            [selfWeak requestCouponList];
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        [_tableView registerNib:[UINib nibWithNibName:@"DiscountCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([DiscountCell class])];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.rowHeight = 70;
+        _tableView.estimatedSectionHeaderHeight = 0;
+        _tableView.estimatedSectionFooterHeight = 0;
+        @weakify(self);
+        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            @strongify(self);
+            self.page = 1;
+            self.arr = nil;
+            [self requestCouponList];
         }];
-        _disTable.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-            [selfWeak requestCouponList];
+        _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+            @strongify(self);
+            [self requestCouponList];
         }];
     }
-    return _disTable;
+    return _tableView;
 }
 
+- (NSMutableArray *)arr {
+    if (!_arr) {
+        _arr = [NSMutableArray array];
+    }
+    return _arr;
+}
 @end

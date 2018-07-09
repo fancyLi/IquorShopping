@@ -47,6 +47,26 @@
 }
 
 - (IBAction)startBuy:(id)sender {
+    @weakify(self);
+    if (self.isCart) {
+        NSDictionary *param = @{
+                                @"goods_id":self.goodsInfo.goods_id,
+                                @"goods_num": self.num.text
+                                };
+        //事件类型(1.取消收藏2.新增收藏)
+        [AFNetworkTool postJSONWithUrl:shop_addToCart parameters:param success:^(id responseObject) {
+            @strongify(self);
+            NSInteger code = [responseObject[@"code"] integerValue];
+            [Dialog popTextAnimation:responseObject[@"message"]];
+            if (code == 200) {
+                [self closePageVC];
+            }
+        } fail:^{
+            
+        }];
+    }else {
+        //立即购买
+    }
     
 }
 

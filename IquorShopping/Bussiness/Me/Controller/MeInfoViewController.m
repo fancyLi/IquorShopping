@@ -39,23 +39,25 @@
     
 }
 - (void)uploadUserAvator:(UIImage *)image {
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.6);
-    NSString *dataStr = [imageData base64EncodedStringWithOptions:0];
-    NSDictionary *param = @{@"avatar":dataStr
-                            };
-    [AFNetworkTool postImageWithUrl:update_userAvatar_url params:param picImage:image success:^(id responseObject) {
-        NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
-        if (code == 200) {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.navigationController popViewControllerAnimated:YES];
-            });
-        }else {
-            
-        }
-    } fail:^{
+  
+//    NSDictionary *param = @{@"type":@"avatar"};
+
+    [AFNetworkTool requestWithUrl:update_userAvatar_url params:nil picImageArray:@[image] fileName:@"avatar" success:^(id responseObject) {
         
+        NSInteger status = [responseObject[@"status"] integerValue];
+        if (status == 200) {
+           
+        }else {
+            NSString *message = responseObject[@"message"];
+            [Dialog showInfoWithStatus:message];
+        }
+        
+        
+        
+    } fail:^{
+        [Dialog showErrorWithStatus:@"上传失败"];
     }];
+
 }
 #pragma mark UITableViewDataSource & UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -87,7 +89,7 @@
             @strongify(cell);
             [[ImageViewController shareImageVC] choosePhotoOrCamera];
             [ImageViewController shareImageVC].imageChooseBlock = ^(UIImage *image) {
-                [cell.headerImg setImage:image forState:UIControlStateNormal];
+                cell.avatar.image = image;
                 [self uploadUserAvator:image];
             };
         };

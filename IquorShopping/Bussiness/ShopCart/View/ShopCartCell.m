@@ -34,6 +34,19 @@
     [self.addBtn setEnlargeEdgeWithTop:10 right:10 bottom:10 left:0];
     
 }
+
+- (void)setCart:(CartModel *)cart {
+    _cart = cart;
+    [self.shopIcon sd_setImageWithURL:[NSURL URLWithString:_cart.goods_image] placeholderImage:nil];
+    self.shopName.text = _cart.goods_name;
+    self.shopStan.text = [NSString stringWithFormat:@"规格：%@", _cart.attribute_value];
+    self.shopPrice.text = [NSString stringWithFormat:@"￥%@", _cart.goods_price];
+    self.nums.text = _cart.goods_num;
+    if (self.nums.text.intValue > 1) {
+        self.reduceBtn.enabled = YES;
+    }
+}
+
 - (IBAction)chosNum:(id)sender {
     int num = self.nums.text.intValue;
     num--;

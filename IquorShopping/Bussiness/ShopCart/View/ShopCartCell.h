@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CartModel.h"
 @interface ShopCartCell : UITableViewCell
 @property (nonatomic, assign) BOOL refreshLayout;
+@property (nonatomic, strong) CartModel *cart;
 @end

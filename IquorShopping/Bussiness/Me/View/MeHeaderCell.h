@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "IquorButton.h"
 typedef void (^ChangeAvator)(void);
 @interface MeHeaderCell : UITableViewCell
 @property (nonatomic, copy) ChangeAvator changeAvatorBlock;
-@property (weak, nonatomic) IBOutlet IquorButton *headerImg;
+@property (weak, nonatomic) IBOutlet UIImageView *avatar;
 
 @end

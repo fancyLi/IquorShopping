@@ -19,22 +19,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IquorShopping/Vendor/Tools/AFNetworkTool.m"
-            timestampString = "552654430.582177"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "489"
-            endingLineNumber = "489"
-            landmarkName = "+postJSONWithUrl:parameters:success:fail:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "IquorShopping/Bussiness/Me/Controller/FirstRegViewController.m"
             timestampString = "550056194.032408"
             startingColumnNumber = "9223372036854775807"
@@ -51,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IquorShopping/Bussiness/Me/Controller/ChangePasswordViewController.m"
-            timestampString = "550056194.032497"
+            filePath = "IquorShopping/Bussiness/Me/Controller/SecondRegViewController.m"
+            timestampString = "550139326.295597"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "-saveClick:"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "-registClick:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -67,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IquorShopping/Bussiness/Me/Controller/SecondRegViewController.m"
-            timestampString = "550139326.295597"
+            filePath = "IquorShopping/Bussiness/Classes/Controller/AssessViewController.m"
+            timestampString = "552836893.04082"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "-registClick:"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "-assessTable"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

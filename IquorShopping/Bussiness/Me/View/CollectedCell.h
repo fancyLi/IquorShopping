@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CollectModel.h"
+typedef void (^ChoseCollectBlock)(BOOL sel);
 @interface CollectedCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIButton *chosBtn;
-@property (weak, nonatomic) IBOutlet UIImageView *icon;
-@property (weak, nonatomic) IBOutlet UILabel *name;
-@property (weak, nonatomic) IBOutlet UILabel *des;
-@property (weak, nonatomic) IBOutlet UILabel *price;
+
+@property (nonatomic, strong) CollectModel *collect;
+@property (nonatomic, copy) ChoseCollectBlock choseCollectBlock;
 
 @end

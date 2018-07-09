@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,26 +19,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rP-tk-jzK" customClass="IquorButton">
-                        <rect key="frame" x="234" y="0.0" width="60" height="60"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_head_04" translatesAutoresizingMaskIntoConstraints="NO" id="ZQr-VF-Tmr">
+                        <rect key="frame" x="250" y="-0.5" width="60" height="60.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="9g8-u3-Ptq"/>
-                            <constraint firstAttribute="width" constant="60" id="JP0-Xf-jgz"/>
+                            <constraint firstAttribute="height" constant="60" id="4BF-1w-KcB"/>
+                            <constraint firstAttribute="width" constant="60" id="mqU-Mg-RFw"/>
                         </constraints>
-                        <state key="normal" image="icon_head_04"/>
-                        <connections>
-                            <action selector="headerClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1T1-Up-zHO"/>
-                        </connections>
-                    </button>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="1rP-tk-jzK" secondAttribute="trailing" constant="10" id="dyI-7A-qLG"/>
-                    <constraint firstItem="1rP-tk-jzK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="jyi-6h-1xR"/>
+                    <constraint firstItem="ZQr-VF-Tmr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1KA-LI-iBB"/>
+                    <constraint firstAttribute="trailing" secondItem="ZQr-VF-Tmr" secondAttribute="trailing" constant="10" id="cWa-mA-044"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
-                <outlet property="headerImg" destination="1rP-tk-jzK" id="uTP-7a-H4G"/>
+                <outlet property="avatar" destination="ZQr-VF-Tmr" id="937-0T-Sm8"/>
             </connections>
         </tableViewCell>
     </objects>

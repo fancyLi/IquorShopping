@@ -42,6 +42,8 @@
     self.collection.collectionViewLayout = flowLayout;
     self.collection.dataSource = self;
     self.collection.delegate = self;
+    self.collection.showsVerticalScrollIndicator = NO;
+    self.collection.scrollEnabled = NO;
     [self.collection registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
 }
 - (void)configCell:(CommentModel *)model {
@@ -72,7 +74,7 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:cell.bounds];
-    [imageView sd_setImageWithURL:self.imgs[indexPath.item] placeholderImage:[UIImage imageNamed:@""]];
+    [imageView sd_setImageWithURL:self.imgs[indexPath.item] placeholderImage:[UIImage imageNamed:@"default_icon"]];
     [cell.contentView addSubview:imageView];
     return cell;
 }

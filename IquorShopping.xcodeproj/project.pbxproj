@@ -99,6 +99,14 @@
 		086AF7BE20F0C465002A0385 /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7B920F0C465002A0385 /* UITableView+FDKeyedHeightCache.m */; };
 		086AF7BF20F0C465002A0385 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7BA20F0C465002A0385 /* UITableView+FDTemplateLayoutCellDebug.m */; };
 		086AF7C020F0C465002A0385 /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7BB20F0C465002A0385 /* UITableView+FDIndexPathHeightCache.m */; };
+		086AF7C920F38089002A0385 /* CartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7C820F38089002A0385 /* CartModel.m */; };
+		086AF7CC20F386A8002A0385 /* CollectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7CB20F386A8002A0385 /* CollectModel.m */; };
+		086AF7D020F38CE5002A0385 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7CE20F38CE5002A0385 /* CommentViewController.m */; };
+		086AF7D120F38CE5002A0385 /* CommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086AF7CF20F38CE5002A0385 /* CommentViewController.xib */; };
+		086AF7D520F38E4B002A0385 /* MeCommenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7D320F38E4B002A0385 /* MeCommenCell.m */; };
+		086AF7D620F38E4B002A0385 /* MeCommenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086AF7D420F38E4B002A0385 /* MeCommenCell.xib */; };
+		086AF7D920F38EB5002A0385 /* MeCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7D820F38EB5002A0385 /* MeCommentModel.m */; };
+		086AF7DC20F39D5F002A0385 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7DB20F39D5F002A0385 /* AboutViewController.m */; };
 		0880523F20A2EB180018AE6E /* IquorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880523E20A2EB180018AE6E /* IquorViewController.m */; };
 		0880524920A2EB730018AE6E /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524520A2EB730018AE6E /* FileUtils.m */; };
 		0880524A20A2EB730018AE6E /* AFNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524620A2EB730018AE6E /* AFNetworkTool.m */; };
@@ -386,6 +394,20 @@
 		086AF7BA20F0C465002A0385 /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
 		086AF7BB20F0C465002A0385 /* UITableView+FDIndexPathHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDIndexPathHeightCache.m"; sourceTree = "<group>"; };
 		086AF7BC20F0C465002A0385 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		086AF7C720F38089002A0385 /* CartModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CartModel.h; sourceTree = "<group>"; };
+		086AF7C820F38089002A0385 /* CartModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CartModel.m; sourceTree = "<group>"; };
+		086AF7CA20F386A8002A0385 /* CollectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectModel.h; sourceTree = "<group>"; };
+		086AF7CB20F386A8002A0385 /* CollectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectModel.m; sourceTree = "<group>"; };
+		086AF7CD20F38CE5002A0385 /* CommentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
+		086AF7CE20F38CE5002A0385 /* CommentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
+		086AF7CF20F38CE5002A0385 /* CommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentViewController.xib; sourceTree = "<group>"; };
+		086AF7D220F38E4B002A0385 /* MeCommenCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeCommenCell.h; sourceTree = "<group>"; };
+		086AF7D320F38E4B002A0385 /* MeCommenCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeCommenCell.m; sourceTree = "<group>"; };
+		086AF7D420F38E4B002A0385 /* MeCommenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeCommenCell.xib; sourceTree = "<group>"; };
+		086AF7D720F38EB5002A0385 /* MeCommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeCommentModel.h; sourceTree = "<group>"; };
+		086AF7D820F38EB5002A0385 /* MeCommentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeCommentModel.m; sourceTree = "<group>"; };
+		086AF7DA20F39D5F002A0385 /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		086AF7DB20F39D5F002A0385 /* AboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		0880523D20A2EB180018AE6E /* IquorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IquorViewController.h; sourceTree = "<group>"; };
 		0880523E20A2EB180018AE6E /* IquorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorViewController.m; sourceTree = "<group>"; };
 		0880524120A2EB730018AE6E /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
@@ -953,6 +975,8 @@
 				080649AA20C807B8003B155F /* ChoseAreaModel.m */,
 				080649C120CA5D4E003B155F /* AddressModel.h */,
 				080649C220CA5D4E003B155F /* AddressModel.m */,
+				086AF7C720F38089002A0385 /* CartModel.h */,
+				086AF7C820F38089002A0385 /* CartModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1030,6 +1054,9 @@
 				0847F1D620AB307B00BEF0F6 /* MeCollectViewController.h */,
 				0847F1D720AB307B00BEF0F6 /* MeCollectViewController.m */,
 				0847F1D820AB307B00BEF0F6 /* MeCollectViewController.xib */,
+				086AF7CD20F38CE5002A0385 /* CommentViewController.h */,
+				086AF7CE20F38CE5002A0385 /* CommentViewController.m */,
+				086AF7CF20F38CE5002A0385 /* CommentViewController.xib */,
 				0847F1E020AB34AE00BEF0F6 /* DiscountViewController.h */,
 				0847F1E120AB34AE00BEF0F6 /* DiscountViewController.m */,
 				0847F1E320AB383F00BEF0F6 /* TeamsViewController.h */,
@@ -1050,6 +1077,8 @@
 				080649BE20C9259C003B155F /* MsgViewController.xib */,
 				080649B120C8D7DA003B155F /* ImageViewController.h */,
 				080649B220C8D7DA003B155F /* ImageViewController.m */,
+				086AF7DA20F39D5F002A0385 /* AboutViewController.h */,
+				086AF7DB20F39D5F002A0385 /* AboutViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1065,6 +1094,10 @@
 				080649CB20CE1983003B155F /* BrokerModel.m */,
 				08B866C420E8AB3500F73677 /* IquorUser.h */,
 				08B866C520E8AB3500F73677 /* IquorUser.m */,
+				086AF7CA20F386A8002A0385 /* CollectModel.h */,
+				086AF7CB20F386A8002A0385 /* CollectModel.m */,
+				086AF7D720F38EB5002A0385 /* MeCommentModel.h */,
+				086AF7D820F38EB5002A0385 /* MeCommentModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1114,6 +1147,9 @@
 				08B8672820EBA08C00F73677 /* MePageCollectionViewCell.h */,
 				08B8672920EBA08C00F73677 /* MePageCollectionViewCell.m */,
 				08B8672A20EBA08C00F73677 /* MePageCollectionViewCell.xib */,
+				086AF7D220F38E4B002A0385 /* MeCommenCell.h */,
+				086AF7D320F38E4B002A0385 /* MeCommenCell.m */,
+				086AF7D420F38E4B002A0385 /* MeCommenCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1454,6 +1490,7 @@
 				088052A220A354950018AE6E /* SetViewController.xib in Resources */,
 				0898C30820AC7F1A00664482 /* JoinsViewController.xib in Resources */,
 				08FBE78D20AC75F400B507DB /* BrokerViewController.xib in Resources */,
+				086AF7D120F38CE5002A0385 /* CommentViewController.xib in Resources */,
 				0898C38A20AF1D2300664482 /* DetailTableHeader.xib in Resources */,
 				080649B020C8C7F6003B155F /* AdressListViewController.xib in Resources */,
 				08E4643920A2E7B900E405DB /* LaunchScreen.storyboard in Resources */,
@@ -1485,6 +1522,7 @@
 				0847F1DF20AB323400BEF0F6 /* DiscountCell.xib in Resources */,
 				0806499D20C6ABE9003B155F /* AddressInfoCell.xib in Resources */,
 				0898C35320ADDA5800664482 /* SiginCell.xib in Resources */,
+				086AF7D620F38E4B002A0385 /* MeCommenCell.xib in Resources */,
 				08E4643420A2E7B900E405DB /* Main.storyboard in Resources */,
 				088052BF20A9BF420018AE6E /* MeHeaderTableView.xib in Resources */,
 				08676F2E20B6E65300F870B9 /* MeInfoViewController.xib in Resources */,
@@ -1614,7 +1652,9 @@
 				0898C34320ADD0C000664482 /* ClassCell.m in Sources */,
 				088052B120A359750018AE6E /* LPPopup.m in Sources */,
 				0847F1A720AB03D400BEF0F6 /* YSLScrollMenuView.m in Sources */,
+				086AF7D920F38EB5002A0385 /* MeCommentModel.m in Sources */,
 				080649A520C7F740003B155F /* AreaModel.m in Sources */,
+				086AF7C920F38089002A0385 /* CartModel.m in Sources */,
 				0880524920A2EB730018AE6E /* FileUtils.m in Sources */,
 				0847F1E820AB386E00BEF0F6 /* TeamViewController.m in Sources */,
 				08B8672620EB9C6F00F73677 /* MeCollectionReusableView.m in Sources */,
@@ -1654,6 +1694,7 @@
 				088052B420A35A5B0018AE6E /* PDDDataManger.m in Sources */,
 				0806499220C6AA60003B155F /* AddressViewController.m in Sources */,
 				0898C38020AF15DB00664482 /* NavDetailBar.m in Sources */,
+				086AF7D020F38CE5002A0385 /* CommentViewController.m in Sources */,
 				08E4643C20A2E7B900E405DB /* main.m in Sources */,
 				080E99A820D93E0300AF09FF /* HomePageModel.m in Sources */,
 				0847F1B820AB09F100BEF0F6 /* IndentDetailCell.m in Sources */,
@@ -1665,8 +1706,10 @@
 				08676F3120B6EADB00F870B9 /* NSObject+Util.m in Sources */,
 				080649C320CA5D4E003B155F /* AddressModel.m in Sources */,
 				0898C30720AC7F1A00664482 /* JoinsViewController.m in Sources */,
+				086AF7CC20F386A8002A0385 /* CollectModel.m in Sources */,
 				088052E220A9E1560018AE6E /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				08676F3520B6F63300F870B9 /* ShopConfigCell.m in Sources */,
+				086AF7D520F38E4B002A0385 /* MeCommenCell.m in Sources */,
 				086AF7BE20F0C465002A0385 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				0880527F20A349D00018AE6E /* ResetPasswordViewController.m in Sources */,
 				0880524C20A2EB730018AE6E /* UIUtils.m in Sources */,
@@ -1695,6 +1738,7 @@
 				0898C3C020B2EEEC00664482 /* ShopCartCell.m in Sources */,
 				08B8671D20EB71AF00F73677 /* WMScrollView.m in Sources */,
 				086AF78F20F08B08002A0385 /* IquorButton.m in Sources */,
+				086AF7DC20F39D5F002A0385 /* AboutViewController.m in Sources */,
 				0880526C20A33B790018AE6E /* UIFont+Extension.m in Sources */,
 				088052E920A9E1560018AE6E /* MASConstraint.m in Sources */,
 				08E4642E20A2E7B900E405DB /* AppDelegate.m in Sources */,

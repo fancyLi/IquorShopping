@@ -21,7 +21,7 @@
     [super viewDidLoad];
     self.title = @"在线留言";
     self.msgContent.delegate = self;
-    UIButton *saveBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 44)];
+    UIButton *saveBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 44)];
     [saveBtn setTitle:@"提交" forState:UIControlStateNormal];
     [saveBtn setTitleColor:[UIColor c_333Color] forState:UIControlStateNormal];
     saveBtn.titleLabel.font = [UIFont systemFontOfSize:16];

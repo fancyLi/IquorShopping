@@ -12,11 +12,6 @@ typedef void (^JCBannerViewBlock)(NSDictionary *data);
 
 @interface ShopTableHeaderView : UIView
 @property (nonatomic, copy) NSArray<Banner *> *banners;
-
-@property (nonatomic, strong) UIImage *placeholderImage;
-@property (nonatomic, assign) BOOL hideTitleLabel; //default YES
-@property (nonatomic, assign) NSInteger autoPlayingInterval; //default 0
-
 @property (nonatomic, copy) JCBannerViewBlock seletedBlock;
-- (void)reloadData;
+
 @end

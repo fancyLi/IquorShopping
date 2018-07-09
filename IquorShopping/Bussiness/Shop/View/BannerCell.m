@@ -14,8 +14,7 @@
 @implementation BannerCell
 
 - (void)configCell:(Banner *)banner {
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@", @"http://chengchuan.ahaiba.com.cn/index.php",banner.banner];
-    [self.bannerImage sd_setImageWithURL:[NSURL URLWithString:urlStr]];
+    [self.bannerImage sd_setImageWithURL:[NSURL URLWithString:banner.banner]];
 }
 - (void)awakeFromNib {
     [super awakeFromNib];

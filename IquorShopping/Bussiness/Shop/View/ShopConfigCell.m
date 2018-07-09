@@ -25,6 +25,7 @@
     [self.configCollectionView registerNib:[UINib nibWithNibName:@"ClassCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([ClassCell class])];
     self.configCollectionView.dataSource = self;
     self.configCollectionView.delegate = self;
+    self.configCollectionView.scrollEnabled = NO;
 }
 - (void)configCatInfo:(NSArray<ClassInfoModel *> *)cats {
     if (cats) {
