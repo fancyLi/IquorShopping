@@ -107,6 +107,8 @@
 		086AF7D620F38E4B002A0385 /* MeCommenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086AF7D420F38E4B002A0385 /* MeCommenCell.xib */; };
 		086AF7D920F38EB5002A0385 /* MeCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7D820F38EB5002A0385 /* MeCommentModel.m */; };
 		086AF7DC20F39D5F002A0385 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7DB20F39D5F002A0385 /* AboutViewController.m */; };
+		086AF8D320F62ADB002A0385 /* AsscessCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF8D120F62ADB002A0385 /* AsscessCollectionCell.m */; };
+		086AF8D420F62ADB002A0385 /* AsscessCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086AF8D220F62ADB002A0385 /* AsscessCollectionCell.xib */; };
 		0880523F20A2EB180018AE6E /* IquorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880523E20A2EB180018AE6E /* IquorViewController.m */; };
 		0880524920A2EB730018AE6E /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524520A2EB730018AE6E /* FileUtils.m */; };
 		0880524A20A2EB730018AE6E /* AFNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524620A2EB730018AE6E /* AFNetworkTool.m */; };
@@ -408,6 +410,9 @@
 		086AF7D820F38EB5002A0385 /* MeCommentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeCommentModel.m; sourceTree = "<group>"; };
 		086AF7DA20F39D5F002A0385 /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		086AF7DB20F39D5F002A0385 /* AboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		086AF8D020F62ADB002A0385 /* AsscessCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsscessCollectionCell.h; sourceTree = "<group>"; };
+		086AF8D120F62ADB002A0385 /* AsscessCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsscessCollectionCell.m; sourceTree = "<group>"; };
+		086AF8D220F62ADB002A0385 /* AsscessCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsscessCollectionCell.xib; sourceTree = "<group>"; };
 		0880523D20A2EB180018AE6E /* IquorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IquorViewController.h; sourceTree = "<group>"; };
 		0880523E20A2EB180018AE6E /* IquorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorViewController.m; sourceTree = "<group>"; };
 		0880524120A2EB730018AE6E /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
@@ -872,6 +877,9 @@
 				086AF78820F088FA002A0385 /* DetailPageFooter.h */,
 				086AF78920F088FA002A0385 /* DetailPageFooter.m */,
 				086AF78B20F08906002A0385 /* DetailPageFooter.xib */,
+				086AF8D020F62ADB002A0385 /* AsscessCollectionCell.h */,
+				086AF8D120F62ADB002A0385 /* AsscessCollectionCell.m */,
+				086AF8D220F62ADB002A0385 /* AsscessCollectionCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1491,6 +1499,7 @@
 				0898C30820AC7F1A00664482 /* JoinsViewController.xib in Resources */,
 				08FBE78D20AC75F400B507DB /* BrokerViewController.xib in Resources */,
 				086AF7D120F38CE5002A0385 /* CommentViewController.xib in Resources */,
+				086AF8D420F62ADB002A0385 /* AsscessCollectionCell.xib in Resources */,
 				0898C38A20AF1D2300664482 /* DetailTableHeader.xib in Resources */,
 				080649B020C8C7F6003B155F /* AdressListViewController.xib in Resources */,
 				08E4643920A2E7B900E405DB /* LaunchScreen.storyboard in Resources */,
@@ -1778,6 +1787,7 @@
 				08676F3A20B6F83B00F870B9 /* ShopVideoCell.m in Sources */,
 				086AF79B20F0AAA1002A0385 /* MeInfoTableViewCell.m in Sources */,
 				08676F2820B6E59D00F870B9 /* MeHeaderCell.m in Sources */,
+				086AF8D320F62ADB002A0385 /* AsscessCollectionCell.m in Sources */,
 				086AF7B320F0B7B0002A0385 /* TAAbstractDotView.m in Sources */,
 				0880523F20A2EB180018AE6E /* IquorViewController.m in Sources */,
 				0898C31B20ADC2ED00664482 /* ShowPictureView.m in Sources */,

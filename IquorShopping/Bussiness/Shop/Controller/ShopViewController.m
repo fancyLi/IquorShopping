@@ -10,6 +10,7 @@
 #import "ShopDiscountViewController.h"
 #import "PlayerViewController.h"
 #import "SiginViewController.h"
+#import "GoodsInfoViewController.h"
 #import "ShopTableHeaderView.h"
 #import "ShopConfigCell.h"
 #import "ShopVideoCell.h"
@@ -127,10 +128,38 @@
     }else if (indexPath.section == 2) {
         ShopHotCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopHotCell class])];
         [cell configHotInfo:self.homePageModel.hot_goods];
+        @weakify(self);
+        cell.operatorHotCellBlock = ^(GoodsInfoModel *model) {
+            @strongify(self);
+            GoodsInfoViewController *vc = [[GoodsInfoViewController alloc]init];
+            vc.goods_id = model.goods_id;
+            [self.navigationController pushViewController:vc animated:YES];
+        };
+        cell.operatorHotLookBlock = ^{
+            @strongify(self);
+            SiginViewController *vc = [[SiginViewController alloc]init];
+            vc.type = @"1";
+            vc.title = @"热门推荐";
+            [self.navigationController pushViewController:vc animated:YES];
+        };
         return cell;
     }else {
         ShopNewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopNewCell class])];
         [cell configNewInfo:self.homePageModel.goods_new];
+        @weakify(self);
+        cell.operatorHotCellBlock = ^(GoodsInfoModel *model) {
+            @strongify(self);
+            GoodsInfoViewController *vc = [[GoodsInfoViewController alloc]init];
+            vc.goods_id = model.goods_id;
+            [self.navigationController pushViewController:vc animated:YES];
+        };
+        cell.operatorHotLookBlock = ^{
+            @strongify(self);
+            SiginViewController *vc = [[SiginViewController alloc]init];
+            vc.type = @"2";
+            vc.title = @"最新产品";
+            [self.navigationController pushViewController:vc animated:YES];
+        };
         return cell;
     }
     

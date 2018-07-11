@@ -94,14 +94,14 @@
 - (GoodsDetailViewController *)detailVC {
     if (!_detailVC) {
         _detailVC = [[GoodsDetailViewController alloc]init];
-        _detailVC.goodsInfo = self.goodsInfo;
+        _detailVC.goods_id = self.goods_id;
     }
     return _detailVC;
 }
 - (AssessViewController *)assessVC {
     if (!_assessVC) {
         _assessVC = [[AssessViewController alloc]init];
-        _assessVC.goods_id = self.goodsInfo.goods_id;
+        _assessVC.goods_id = self.goods_id;
     }
     return _assessVC;
 }

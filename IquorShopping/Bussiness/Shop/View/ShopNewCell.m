@@ -18,6 +18,11 @@
     [super awakeFromNib];
     [self configNewsUI];
 }
+- (IBAction)buttonClick:(UIButton *)sender {
+    if (self.operatorHotLookBlock) {
+        self.operatorHotLookBlock();
+    }
+}
 - (void)configNewInfo:(NSArray<GoodsInfoModel *> *)goodsNew {
     self.goodsNew = goodsNew;
     [self.newsCollectionView reloadData];
@@ -27,7 +32,7 @@
     if (goodsNew.count && r == 0) {
         r=1;
     }
-    return r*350;
+    return r*280+48;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -37,7 +42,7 @@
 
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake((self.bounds.size.width-2)/2.0, 350);
+    return CGSizeMake((self.bounds.size.width-2)/2.0, 280);
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 1;
@@ -55,7 +60,10 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    GoodsInfoModel *model = self.goodsNew[indexPath.item];
+    if (self.operatorHotCellBlock) {
+        self.operatorHotCellBlock(model);
+    }
 }
 - (void)configNewsUI {
     

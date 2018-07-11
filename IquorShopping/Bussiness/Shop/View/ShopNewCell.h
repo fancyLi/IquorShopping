@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "GoodsInfoModel.h"
+
+typedef void (^OperatorHotCellBlock)(GoodsInfoModel *model);
+typedef void (^OperatorHotLookBlock)(void);
+
 @interface ShopNewCell : UITableViewCell
+
+@property (nonatomic, copy) OperatorHotCellBlock operatorHotCellBlock;
+@property (nonatomic, copy) OperatorHotLookBlock operatorHotLookBlock;
 - (void)configNewInfo:(NSArray <GoodsInfoModel *>*)goodsNew;
 - (CGFloat)getCellHeight:(NSArray <GoodsInfoModel *>*)goodsNew;
 

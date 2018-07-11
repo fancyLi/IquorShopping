@@ -28,7 +28,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = self.cat_name;
     self.view.backgroundColor = [UIColor c_f6f6Color];
     [self.view addSubview:self.classView];
     [self.view addSubview:self.segmentBar];
@@ -54,7 +53,7 @@
     //商品价格排序 1.升序2.降序
     WeakObj(self);
     NSDictionary *param = @{@"page":@(self.page),
-                            @"type":@"3",
+                            @"type":[UIUtils isNullOrEmpty:self.type]?@"":self.type,
                             @"goods_price_sort":self.priceSort,
                             @"sales_volume_sort":self.volumeSort,
                             @"cat_id":[UIUtils isNullOrEmpty:self.cat_id]?@"":self.cat_id,
@@ -98,7 +97,8 @@
 
     
     GoodsInfoViewController *vc = [[GoodsInfoViewController alloc]init];
-    vc.goodsInfo = self.goods[indexPath.item];
+    GoodsInfoModel *model = self.goods[indexPath.item];
+    vc.goods_id = model.goods_id;
     [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark set & get

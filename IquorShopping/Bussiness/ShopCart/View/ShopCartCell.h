@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "CartModel.h"
+
+typedef void (^ChoseCollectBlock)(BOOL sel);
+typedef void (^OperatorCartNumBlock)(NSString *op, NSString *num);
 @interface ShopCartCell : UITableViewCell
+@property (nonatomic, copy) OperatorCartNumBlock operatorCartNumBlock;
+@property (nonatomic, copy) ChoseCollectBlock choseCollectBlock;
 @property (nonatomic, assign) BOOL refreshLayout;
 @property (nonatomic, strong) CartModel *cart;
 @end

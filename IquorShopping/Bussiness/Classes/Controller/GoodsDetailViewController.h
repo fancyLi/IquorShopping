@@ -9,5 +9,5 @@
 #import "IquorViewController.h"
 #import "GoodsInfoModel.h"
 @interface GoodsDetailViewController : IquorViewController
-@property (nonatomic, strong) GoodsInfoModel *goodsInfo;
+@property (nonatomic, copy) NSString *goods_id;
 @end

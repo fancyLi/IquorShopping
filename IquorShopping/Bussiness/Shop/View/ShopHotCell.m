@@ -43,7 +43,10 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    GoodsInfoModel *model = self.hotGoods[indexPath.item];
+    if (self.operatorHotCellBlock) {
+        self.operatorHotCellBlock(model);
+    }
 }
 - (void)configHotUI {
     
@@ -52,6 +55,9 @@
     self.hotCollectionView.delegate = self;
 }
 - (IBAction)chosClick:(UIButton *)sender {
+    if (self.operatorHotLookBlock) {
+        self.operatorHotLookBlock();
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

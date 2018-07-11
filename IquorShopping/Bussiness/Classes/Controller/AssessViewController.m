@@ -83,7 +83,7 @@
     if (!_assessTable) {
         _assessTable = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
         [_assessTable registerNib:[UINib nibWithNibName:@"AssessCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([AssessCell class])];
-        _assessTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+//        _assessTable.separatorStyle = UITableViewCellSeparatorStyleNone;
         _assessTable.dataSource = self;
         _assessTable.delegate = self;
         _assessTable.tableFooterView = [UIView new];

@@ -77,6 +77,9 @@
 //首页优惠券
 #define index_aCouponThatCanBeReceived           @"index/aCouponThatCanBeReceived"
 
+//首页优惠券
+#define index_receiveCoupon           @"index/receiveCoupon"
+
 //单个商品详情
 #define goods_detail_url                          @"shop/goodsInfo"
 
@@ -109,6 +112,9 @@
 
 //购物车列表加减
 #define shop_changeCartGoodsNum                 @"shop/changeCartGoodsNum"
+
+//删除购物车
+#define shop_delCartGoods                       @"shop/delCartGoods"
 
 //关于我们
 #define user_aboutUs                            @"user/aboutUs"

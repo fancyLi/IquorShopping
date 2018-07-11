@@ -27,6 +27,10 @@
                             <constraint firstAttribute="width" constant="18" id="kDn-Rt-4BK"/>
                         </constraints>
                         <state key="normal" image="icon_normal_01"/>
+                        <state key="selected" image="icon_normal_02"/>
+                        <connections>
+                            <action selector="choseButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hkW-lK-itW"/>
+                        </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_04 " translatesAutoresizingMaskIntoConstraints="NO" id="t9p-Iw-CJi">
                         <rect key="frame" x="43" y="13" width="80" height="80"/>
@@ -81,13 +85,6 @@
                             <action selector="chos2Num:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pq1-Tc-XSy"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1N-AX-r25">
-                        <rect key="frame" x="252" y="68.5" width="30" height="26"/>
-                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nez-Lh-94i">
                         <rect key="frame" x="219" y="71" width="96" height="21"/>
                         <constraints>
@@ -97,26 +94,33 @@
                         <color key="textColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jT5-dg-3lI">
+                        <rect key="frame" x="252" y="68" width="30" height="27"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Tnc-Wf-uzt" firstAttribute="centerY" secondItem="Ybf-vp-kRy" secondAttribute="centerY" id="09s-qp-V3Q"/>
                     <constraint firstItem="YOi-Ww-ZDG" firstAttribute="leading" secondItem="ry1-8h-P94" secondAttribute="leading" id="0zM-Qs-4xm"/>
+                    <constraint firstItem="Ird-9a-a3a" firstAttribute="leading" secondItem="jT5-dg-3lI" secondAttribute="trailing" constant="1" id="1HI-ZV-r2N"/>
+                    <constraint firstItem="jT5-dg-3lI" firstAttribute="centerY" secondItem="Nez-Lh-94i" secondAttribute="centerY" id="3Fq-RD-rNv"/>
                     <constraint firstItem="ry1-8h-P94" firstAttribute="height" secondItem="Ybf-vp-kRy" secondAttribute="height" id="5vh-nO-YrC"/>
                     <constraint firstItem="Tnc-Wf-uzt" firstAttribute="leading" secondItem="Ybf-vp-kRy" secondAttribute="trailing" constant="5" id="6Fw-Sh-SkA"/>
                     <constraint firstItem="Nez-Lh-94i" firstAttribute="leading" secondItem="Ybf-vp-kRy" secondAttribute="trailing" constant="5" id="6m5-zi-ks1"/>
                     <constraint firstItem="Ird-9a-a3a" firstAttribute="height" secondItem="Tnc-Wf-uzt" secondAttribute="height" constant="-2" id="99k-ua-ZXi"/>
-                    <constraint firstItem="zOy-1B-tcd" firstAttribute="width" secondItem="I1N-AX-r25" secondAttribute="width" id="FRJ-zA-Hey"/>
                     <constraint firstItem="Ybf-vp-kRy" firstAttribute="bottom" secondItem="t9p-Iw-CJi" secondAttribute="bottom" id="Fkx-ZQ-zF6"/>
                     <constraint firstItem="t9p-Iw-CJi" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Fwn-d2-jCF"/>
                     <constraint firstAttribute="trailing" secondItem="YOi-Ww-ZDG" secondAttribute="trailing" constant="5" id="Fwu-8g-7Vb"/>
                     <constraint firstAttribute="trailing" secondItem="Tnc-Wf-uzt" secondAttribute="trailing" constant="5" id="IQM-dY-U3g"/>
-                    <constraint firstItem="I1N-AX-r25" firstAttribute="centerY" secondItem="Tnc-Wf-uzt" secondAttribute="centerY" id="IjY-V4-LKH"/>
-                    <constraint firstItem="I1N-AX-r25" firstAttribute="height" secondItem="Tnc-Wf-uzt" secondAttribute="height" constant="-2" id="KCq-qE-n2z"/>
                     <constraint firstItem="zOy-1B-tcd" firstAttribute="height" secondItem="Tnc-Wf-uzt" secondAttribute="height" constant="-2" id="Kfv-4O-RGc"/>
                     <constraint firstItem="ry1-8h-P94" firstAttribute="top" secondItem="t9p-Iw-CJi" secondAttribute="top" id="M6s-hJ-Eg0"/>
                     <constraint firstAttribute="trailing" secondItem="Ird-9a-a3a" secondAttribute="trailing" constant="7" id="O5n-aQ-TyX"/>
                     <constraint firstItem="ry1-8h-P94" firstAttribute="leading" secondItem="t9p-Iw-CJi" secondAttribute="trailing" constant="5" id="O6S-zX-4G9"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ry1-8h-P94" secondAttribute="trailing" constant="5" id="QCj-gf-SXJ"/>
+                    <constraint firstItem="jT5-dg-3lI" firstAttribute="height" secondItem="Nez-Lh-94i" secondAttribute="height" constant="6" id="Uvv-G0-ay5"/>
                     <constraint firstItem="glx-Ud-3i0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Wcj-4V-2Qy"/>
                     <constraint firstItem="Ybf-vp-kRy" firstAttribute="leading" secondItem="t9p-Iw-CJi" secondAttribute="trailing" constant="5" id="Wcz-m5-d2v"/>
                     <constraint firstItem="t9p-Iw-CJi" firstAttribute="leading" secondItem="glx-Ud-3i0" secondAttribute="trailing" constant="15" id="X3Y-Oa-kRl"/>
@@ -127,10 +131,9 @@
                     <constraint firstItem="Ird-9a-a3a" firstAttribute="centerY" secondItem="Tnc-Wf-uzt" secondAttribute="centerY" id="pzT-O7-iNw"/>
                     <constraint firstItem="ry1-8h-P94" firstAttribute="height" secondItem="YOi-Ww-ZDG" secondAttribute="height" id="q87-M9-gMu"/>
                     <constraint firstItem="YOi-Ww-ZDG" firstAttribute="top" secondItem="ry1-8h-P94" secondAttribute="bottom" constant="2" id="qU9-Mj-Jc0"/>
-                    <constraint firstItem="Ird-9a-a3a" firstAttribute="leading" secondItem="I1N-AX-r25" secondAttribute="trailing" constant="1" id="rZ9-x2-6Ha"/>
                     <constraint firstAttribute="trailing" secondItem="Nez-Lh-94i" secondAttribute="trailing" constant="5" id="rw9-Zd-IwP"/>
                     <constraint firstItem="Ybf-vp-kRy" firstAttribute="top" secondItem="YOi-Ww-ZDG" secondAttribute="bottom" constant="5" id="s7g-kD-J4l"/>
-                    <constraint firstItem="I1N-AX-r25" firstAttribute="leading" secondItem="zOy-1B-tcd" secondAttribute="trailing" constant="1" id="sB2-Ue-HcU"/>
+                    <constraint firstItem="jT5-dg-3lI" firstAttribute="leading" secondItem="zOy-1B-tcd" secondAttribute="trailing" constant="1" id="ud1-3T-J7s"/>
                     <constraint firstItem="zOy-1B-tcd" firstAttribute="width" secondItem="Ird-9a-a3a" secondAttribute="width" id="z5Q-aY-Z7n"/>
                 </constraints>
             </tableViewCellContentView>
@@ -138,13 +141,13 @@
             <connections>
                 <outlet property="addBtn" destination="Ird-9a-a3a" id="TAd-Ly-Ftq"/>
                 <outlet property="leftLayout" destination="Wcj-4V-2Qy" id="zat-gT-FpT"/>
-                <outlet property="nums" destination="I1N-AX-r25" id="6aO-8E-qfG"/>
                 <outlet property="reduceBtn" destination="zOy-1B-tcd" id="s6w-tR-KqE"/>
                 <outlet property="rightLayout" destination="X3Y-Oa-kRl" id="YxY-CX-bag"/>
                 <outlet property="shopIcon" destination="t9p-Iw-CJi" id="Azu-cC-6Nr"/>
                 <outlet property="shopName" destination="ry1-8h-P94" id="kYW-fy-ouF"/>
                 <outlet property="shopPrice" destination="Ybf-vp-kRy" id="wza-a4-tgv"/>
                 <outlet property="shopStan" destination="YOi-Ww-ZDG" id="acm-wJ-vIj"/>
+                <outlet property="textf" destination="jT5-dg-3lI" id="H3V-lp-Llq"/>
                 <outlet property="viewContainer" destination="Tnc-Wf-uzt" id="wit-hH-5Fj"/>
                 <outlet property="withLayout" destination="kDn-Rt-4BK" id="Pgc-jf-Inm"/>
             </connections>
@@ -154,5 +157,6 @@
     <resources>
         <image name="icon_04 " width="35" height="35"/>
         <image name="icon_normal_01" width="18" height="18"/>
+        <image name="icon_normal_02" width="18" height="18"/>
     </resources>
 </document>

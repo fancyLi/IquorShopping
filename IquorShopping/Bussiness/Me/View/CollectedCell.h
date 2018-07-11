@@ -11,6 +11,7 @@
 typedef void (^ChoseCollectBlock)(BOOL sel);
 @interface CollectedCell : UITableViewCell
 
+@property (nonatomic, assign) BOOL isEdit;
 @property (nonatomic, strong) CollectModel *collect;
 @property (nonatomic, copy) ChoseCollectBlock choseCollectBlock;
 

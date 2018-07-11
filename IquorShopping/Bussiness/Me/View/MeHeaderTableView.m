@@ -28,6 +28,8 @@
     [super awakeFromNib];
     self.layer.borderColor = [UIColor redColor].CGColor;
     self.layer.borderWidth = 1;
+    self.userHeader.layer.cornerRadius = 32;
+    self.userHeader.clipsToBounds = YES;
     [self.meInfoBtn setEnlargeEdge:20];
     
 }

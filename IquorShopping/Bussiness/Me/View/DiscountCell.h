@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+
+typedef void (^OperatorButtonBlock)(void);
 @class DiscountModel;
 @interface DiscountCell : UITableViewCell
 
+@property (nonatomic, copy) OperatorButtonBlock operatorButtonBlock;
 
 - (void)configDiscountCell:(DiscountModel *)model;
 

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface CartModel : NSObject
-@property (nonatomic, copy) NSString *car_id;
+@property (nonatomic, copy) NSString *cart_id;
 @property (nonatomic, copy) NSString *goods_num;
 @property (nonatomic, copy) NSString *goods_id;
 @property (nonatomic, copy) NSString *goods_name;

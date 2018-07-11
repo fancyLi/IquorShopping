@@ -16,4 +16,6 @@
 @property (nonatomic, copy) NSString *cat_name;
 //搜索keywords
 @property (nonatomic, copy) NSString *serContent;
+
+@property (nonatomic, copy) NSString *type;
 @end

@@ -10,5 +10,5 @@
 #import "GoodsInfoModel.h"
 
 @interface GoodsInfoViewController : WMPageController
-@property (nonatomic, strong) GoodsInfoModel *goodsInfo;
+@property (nonatomic, copy) NSString *goods_id;
 @end

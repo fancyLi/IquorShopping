@@ -34,6 +34,8 @@
 
 + (UIColor *)c_e8e8Color;
 
++ (UIColor *)c_fb8a35Color;
+
 //加减按钮
 + (UIColor *)c_fbfbfbColor;
 

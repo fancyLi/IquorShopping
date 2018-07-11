@@ -8,7 +8,7 @@
 
 #import "ShopCartCell.h"
 #import "UIControl+IquorArea.h"
-@interface ShopCartCell ()
+@interface ShopCartCell ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *shopIcon;
 @property (weak, nonatomic) IBOutlet UILabel *shopName;
 @property (weak, nonatomic) IBOutlet UILabel *shopStan;
@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *withLayout;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftLayout;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightLayout;
+@property (weak, nonatomic) IBOutlet UITextField *textf;
 
 @end
 @implementation ShopCartCell
@@ -27,6 +28,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.textf.delegate = self;
+    self.textf.keyboardType = UIKeyboardTypeNumberPad;
 //    self.viewContainer.layer.borderColor = [UIColor c_999Color].CGColor;
 //    self.viewContainer.layer.borderWidth = 1;
 //    self.viewContainer.layer.cornerRadius = 3;
@@ -41,30 +44,41 @@
     self.shopName.text = _cart.goods_name;
     self.shopStan.text = [NSString stringWithFormat:@"规格：%@", _cart.attribute_value];
     self.shopPrice.text = [NSString stringWithFormat:@"￥%@", _cart.goods_price];
-    self.nums.text = _cart.goods_num;
-    if (self.nums.text.intValue > 1) {
+    self.textf.text = _cart.goods_num;
+    if (self.textf.text.intValue > 1) {
         self.reduceBtn.enabled = YES;
+    }
+}
+- (IBAction)choseButton:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (self.choseCollectBlock) {
+        self.choseCollectBlock(sender.selected);
     }
 }
 
 - (IBAction)chosNum:(id)sender {
-    int num = self.nums.text.intValue;
+    int num = self.textf.text.intValue;
     num--;
-    self.nums.text = [NSString stringWithFormat:@"%i", num];
+    self.textf.text = [NSString stringWithFormat:@"%i", num];
     if (num <= 1) {
         self.reduceBtn.enabled = NO;
         [self.reduceBtn setBackgroundColor:[UIColor c_fbfbfbColor]];
     }
+    if (self.operatorCartNumBlock) {
+        self.operatorCartNumBlock(@"2", @"");
+    }
 }
 - (IBAction)chos2Num:(id)sender {
-    int num = self.nums.text.intValue;
+    int num = self.textf.text.intValue;
     num++;
     if (num>1) {
         self.reduceBtn.enabled = YES;
         [self.reduceBtn setBackgroundColor:[UIColor c_f5f5f5Color]];
     }
-    self.nums.text = [NSString stringWithFormat:@"%i", num];
-    
+    self.textf.text = [NSString stringWithFormat:@"%i", num];
+    if (self.operatorCartNumBlock) {
+        self.operatorCartNumBlock(@"1", @"");
+    }
 }
 
 - (void)setRefreshLayout:(BOOL)refreshLayout {
@@ -77,6 +91,13 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (self.operatorCartNumBlock) {
+        self.operatorCartNumBlock(@"3", textField.text);
+    }
+    return YES;
 }
 
 @end

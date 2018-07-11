@@ -7,7 +7,7 @@
 //
 
 #import "AssessCell.h"
-
+#import "AsscessCollectionCell.h"
 @interface AssessCell ()<UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet UILabel *name;
@@ -37,14 +37,14 @@
 - (void)defaultConfig {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
     flowLayout.minimumLineSpacing = 0;
-    flowLayout.minimumInteritemSpacing = (kMainScreenWidth-70*3)/2.0;
-    flowLayout.itemSize = CGSizeMake(70, 70);
+    flowLayout.minimumInteritemSpacing = (kMainScreenWidth-80*3)/4.0;
+    flowLayout.itemSize = CGSizeMake(80, 80);
     self.collection.collectionViewLayout = flowLayout;
     self.collection.dataSource = self;
     self.collection.delegate = self;
     self.collection.showsVerticalScrollIndicator = NO;
     self.collection.scrollEnabled = NO;
-    [self.collection registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
+    [self.collection registerClass:[AsscessCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([AsscessCollectionCell class])];
 }
 - (void)configCell:(CommentModel *)model {
     if (![UIUtils isNullOrEmpty:model.avatar]) {
@@ -60,7 +60,7 @@
     if (model.images.count) {
         self.imgs = model.images;
         [self.collection reloadData];
-        self.collectionHeightLayout.constant = 70;
+        self.collectionHeightLayout.constant = 80;
     }else {
         self.collectionHeightLayout.constant = 0;
     }
@@ -72,10 +72,9 @@
     return self.imgs.count;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:cell.bounds];
-    [imageView sd_setImageWithURL:self.imgs[indexPath.item] placeholderImage:[UIImage imageNamed:@"default_icon"]];
-    [cell.contentView addSubview:imageView];
+    AsscessCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([AsscessCollectionCell class]) forIndexPath:indexPath];
+    [cell.imageView sd_setImageWithURL:self.imgs[indexPath.item] placeholderImage:[UIImage imageNamed:@"default_icon"]];
+
     return cell;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

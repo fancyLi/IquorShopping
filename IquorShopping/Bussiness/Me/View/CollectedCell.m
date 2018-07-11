@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *des;
 @property (weak, nonatomic) IBOutlet UILabel *price;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *chosBtnLeadLayoutConstraint;
 @end
 
 @implementation CollectedCell
@@ -21,9 +22,17 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.chosBtnLeadLayoutConstraint.constant = -18;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
-
+- (void)setIsEdit:(BOOL)isEdit {
+    _isEdit = isEdit;
+    if (_isEdit) {
+        self.chosBtnLeadLayoutConstraint.constant = 5;
+    }else {
+        self.chosBtnLeadLayoutConstraint.constant = -18;
+    }
+}
 - (void)setCollect:(CollectModel *)collect {
     _collect = collect;
     [self.icon sd_setImageWithURL:[NSURL URLWithString:collect.goods_image] placeholderImage:nil];

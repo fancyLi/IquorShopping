@@ -47,7 +47,7 @@
 - (void)requestGoodsInfo {
     @weakify(self);
     NSDictionary *param = @{
-                            @"goods_id":self.goodsInfo.goods_id
+                            @"goods_id":self.goods_id
                             };
     [AFNetworkTool postJSONWithUrl:goods_detail_url parameters:param success:^(id responseObject) {
         
@@ -74,7 +74,7 @@
 - (void)collectGooods {
     self.isCollected = [self.isCollected isEqualToString:@"1"]?@"2":@"1";
     NSDictionary *param = @{
-                            @"goods_id":self.goodsInfo.goods_id,
+                            @"goods_id":self.goods_id,
                             @"collect_type": self.isCollected
                             };
     //事件类型(1.取消收藏2.新增收藏)
