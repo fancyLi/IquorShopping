@@ -56,10 +56,25 @@
 #define person_Commision_url                       @"user/personCommision"
 //佣金流水
 #define person_CommisionWater_url                       @"user/commisionWater"
+
+//佣金提现
+#define user_commisionPutForward                       @"user/commisionPutForward"
+
 //我的分红
 #define person_bonus_url                       @"user/personBonus"
 //分红流水
 #define bonus_Water_url                       @"user/bonusWater"
+
+//余额
+#define user_userBalance                   @"user/userBalance"
+
+//余额流水
+#define user_balanceWater                   @"user/balanceWater"
+//分红提现
+#define user_bonusPutForward                    @"user/bonusPutForward"
+
+//余额提现
+#define user_balancePutForward              @"user/balancePutForward"
 
 //修改密码
 #define me_changePassword_url               @"user/modifyThePassword"

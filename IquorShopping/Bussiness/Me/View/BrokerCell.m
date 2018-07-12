@@ -23,9 +23,20 @@
 - (void)configBrokerCell:(BrokerModel *)model {
     self.brokerMoney.text = [model.act isEqualToString:@"1"]?@"佣金收入":@"佣金提现";
     self.brokerDes.text = [NSString stringWithFormat:@"%@￥%@", model.act_symbol, model.money];
-    self.brokerTime.text = @"";
+    self.brokerTime.text = model.addtime;
 }
 
+- (void)configBonusCell:(BrokerModel *)model {
+    self.brokerMoney.text = [model.act isEqualToString:@"1"]?@"分红收入":@"分红提现";
+    self.brokerDes.text = [NSString stringWithFormat:@"%@￥%@", model.act_symbol, model.money];
+    self.brokerTime.text = model.addtime;
+}
+
+- (void)confiBlanceCell:(BrokerModel *)model {
+    self.brokerMoney.text = model.act_name;
+    self.brokerDes.text = [NSString stringWithFormat:@"%@￥%@", model.act_symbol, model.money];
+    self.brokerTime.text = model.addtime;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

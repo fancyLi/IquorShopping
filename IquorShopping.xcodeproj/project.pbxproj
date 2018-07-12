@@ -109,6 +109,12 @@
 		086AF7DC20F39D5F002A0385 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7DB20F39D5F002A0385 /* AboutViewController.m */; };
 		086AF8D320F62ADB002A0385 /* AsscessCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF8D120F62ADB002A0385 /* AsscessCollectionCell.m */; };
 		086AF8D420F62ADB002A0385 /* AsscessCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086AF8D220F62ADB002A0385 /* AsscessCollectionCell.xib */; };
+		086AF8DB20F79B02002A0385 /* BaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF8D920F79B02002A0385 /* BaoViewController.m */; };
+		086AF8DC20F79B02002A0385 /* BaoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086AF8DA20F79B02002A0385 /* BaoViewController.xib */; };
+		086AF8E020F7A185002A0385 /* StartBaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF8DE20F7A185002A0385 /* StartBaoViewController.m */; };
+		086AF8E120F7A185002A0385 /* StartBaoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086AF8DF20F7A185002A0385 /* StartBaoViewController.xib */; };
+		086AF8E520F7A4E8002A0385 /* BaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF8E320F7A4E8002A0385 /* BaoTableViewCell.m */; };
+		086AF8E620F7A4E8002A0385 /* BaoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086AF8E420F7A4E8002A0385 /* BaoTableViewCell.xib */; };
 		0880523F20A2EB180018AE6E /* IquorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880523E20A2EB180018AE6E /* IquorViewController.m */; };
 		0880524920A2EB730018AE6E /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524520A2EB730018AE6E /* FileUtils.m */; };
 		0880524A20A2EB730018AE6E /* AFNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524620A2EB730018AE6E /* AFNetworkTool.m */; };
@@ -413,6 +419,15 @@
 		086AF8D020F62ADB002A0385 /* AsscessCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsscessCollectionCell.h; sourceTree = "<group>"; };
 		086AF8D120F62ADB002A0385 /* AsscessCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsscessCollectionCell.m; sourceTree = "<group>"; };
 		086AF8D220F62ADB002A0385 /* AsscessCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsscessCollectionCell.xib; sourceTree = "<group>"; };
+		086AF8D820F79B02002A0385 /* BaoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaoViewController.h; sourceTree = "<group>"; };
+		086AF8D920F79B02002A0385 /* BaoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaoViewController.m; sourceTree = "<group>"; };
+		086AF8DA20F79B02002A0385 /* BaoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaoViewController.xib; sourceTree = "<group>"; };
+		086AF8DD20F7A185002A0385 /* StartBaoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartBaoViewController.h; sourceTree = "<group>"; };
+		086AF8DE20F7A185002A0385 /* StartBaoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartBaoViewController.m; sourceTree = "<group>"; };
+		086AF8DF20F7A185002A0385 /* StartBaoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartBaoViewController.xib; sourceTree = "<group>"; };
+		086AF8E220F7A4E8002A0385 /* BaoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaoTableViewCell.h; sourceTree = "<group>"; };
+		086AF8E320F7A4E8002A0385 /* BaoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaoTableViewCell.m; sourceTree = "<group>"; };
+		086AF8E420F7A4E8002A0385 /* BaoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaoTableViewCell.xib; sourceTree = "<group>"; };
 		0880523D20A2EB180018AE6E /* IquorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IquorViewController.h; sourceTree = "<group>"; };
 		0880523E20A2EB180018AE6E /* IquorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorViewController.m; sourceTree = "<group>"; };
 		0880524120A2EB730018AE6E /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
@@ -1077,6 +1092,12 @@
 				08FBE78920AC75F400B507DB /* BrokerViewController.h */,
 				08FBE78A20AC75F400B507DB /* BrokerViewController.m */,
 				08FBE78B20AC75F400B507DB /* BrokerViewController.xib */,
+				086AF8D820F79B02002A0385 /* BaoViewController.h */,
+				086AF8D920F79B02002A0385 /* BaoViewController.m */,
+				086AF8DA20F79B02002A0385 /* BaoViewController.xib */,
+				086AF8DD20F7A185002A0385 /* StartBaoViewController.h */,
+				086AF8DE20F7A185002A0385 /* StartBaoViewController.m */,
+				086AF8DF20F7A185002A0385 /* StartBaoViewController.xib */,
 				0898C31320ADB57800664482 /* StartViewController.h */,
 				0898C31420ADB57800664482 /* StartViewController.m */,
 				0898C31520ADB57800664482 /* StartViewController.xib */,
@@ -1158,6 +1179,9 @@
 				086AF7D220F38E4B002A0385 /* MeCommenCell.h */,
 				086AF7D320F38E4B002A0385 /* MeCommenCell.m */,
 				086AF7D420F38E4B002A0385 /* MeCommenCell.xib */,
+				086AF8E220F7A4E8002A0385 /* BaoTableViewCell.h */,
+				086AF8E320F7A4E8002A0385 /* BaoTableViewCell.m */,
+				086AF8E420F7A4E8002A0385 /* BaoTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1495,8 +1519,10 @@
 				08B8672C20EBA08C00F73677 /* MePageCollectionViewCell.xib in Resources */,
 				0880527120A33F960018AE6E /* LoginViewController.xib in Resources */,
 				0847F1C320AB0C4400BEF0F6 /* IndentBottomCell.xib in Resources */,
+				086AF8E620F7A4E8002A0385 /* BaoTableViewCell.xib in Resources */,
 				088052A220A354950018AE6E /* SetViewController.xib in Resources */,
 				0898C30820AC7F1A00664482 /* JoinsViewController.xib in Resources */,
+				086AF8DC20F79B02002A0385 /* BaoViewController.xib in Resources */,
 				08FBE78D20AC75F400B507DB /* BrokerViewController.xib in Resources */,
 				086AF7D120F38CE5002A0385 /* CommentViewController.xib in Resources */,
 				086AF8D420F62ADB002A0385 /* AsscessCollectionCell.xib in Resources */,
@@ -1527,6 +1553,7 @@
 				0847F1B920AB09F100BEF0F6 /* IndentDetailCell.xib in Resources */,
 				0880527620A3443D0018AE6E /* FirstRegViewController.xib in Resources */,
 				08E4643620A2E7B900E405DB /* Assets.xcassets in Resources */,
+				086AF8E120F7A185002A0385 /* StartBaoViewController.xib in Resources */,
 				080649B820C90B44003B155F /* VersionViewController.xib in Resources */,
 				0847F1DF20AB323400BEF0F6 /* DiscountCell.xib in Resources */,
 				0806499D20C6ABE9003B155F /* AddressInfoCell.xib in Resources */,
@@ -1704,12 +1731,14 @@
 				0806499220C6AA60003B155F /* AddressViewController.m in Sources */,
 				0898C38020AF15DB00664482 /* NavDetailBar.m in Sources */,
 				086AF7D020F38CE5002A0385 /* CommentViewController.m in Sources */,
+				086AF8DB20F79B02002A0385 /* BaoViewController.m in Sources */,
 				08E4643C20A2E7B900E405DB /* main.m in Sources */,
 				080E99A820D93E0300AF09FF /* HomePageModel.m in Sources */,
 				0847F1B820AB09F100BEF0F6 /* IndentDetailCell.m in Sources */,
 				0847F1EC20AB395500BEF0F6 /* TeamCell.m in Sources */,
 				0880525620A2ECC10018AE6E /* ShopViewController.m in Sources */,
 				0880525320A2EC400018AE6E /* IquorNavigationViewController.m in Sources */,
+				086AF8E520F7A4E8002A0385 /* BaoTableViewCell.m in Sources */,
 				08B866A920E131FB00F73677 /* ShopTableHeaderView.m in Sources */,
 				0898C3D320B307B300664482 /* UITableViewCell+Layout.m in Sources */,
 				08676F3120B6EADB00F870B9 /* NSObject+Util.m in Sources */,
@@ -1735,6 +1764,7 @@
 				088052E720A9E1560018AE6E /* NSArray+MASAdditions.m in Sources */,
 				088052BA20A35A9C0018AE6E /* BaseModel.m in Sources */,
 				080649AF20C8C7F6003B155F /* AdressListViewController.m in Sources */,
+				086AF8E020F7A185002A0385 /* StartBaoViewController.m in Sources */,
 				086AF7B120F0B7B0002A0385 /* TAPageControl.m in Sources */,
 				080649BB20C91F98003B155F /* PlayerViewController.m in Sources */,
 				086AF7C020F0C465002A0385 /* UITableView+FDIndexPathHeightCache.m in Sources */,

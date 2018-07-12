@@ -91,6 +91,7 @@
     if (![UIUtils isNullOrEmpty:cm.className]) {
         Class cls = NSClassFromString(cm.className);
         UIViewController *vc = [[cls alloc]init];
+        vc.title = cm.decTitle;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

@@ -13,4 +13,8 @@
 
 - (void)configBrokerCell:(BrokerModel *)model;
 
+- (void)configBonusCell:(BrokerModel *)model;
+
+- (void)confiBlanceCell:(BrokerModel *)model;
+
 @end

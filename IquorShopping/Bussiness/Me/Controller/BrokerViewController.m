@@ -26,40 +26,70 @@
     
     [self configUI];
     [self requestCommision];
+    self.page = 1;
     [self requestCommisionWater];
+}
+- (IBAction)startDepost:(UIButton *)sender {
+    [self depostBalance];
+}
+
+- (BOOL)judegCommision {
+    return [self.title isEqualToString:@"我的佣金"];
+}
+
+- (void)depostBalance {
+    @weakify(self);
+    NSDictionary *param = @{@"money":self.money.text};
+    NSString *url = [self judegCommision]?user_commisionPutForward:user_bonusPutForward;
+    [AFNetworkTool postJSONWithUrl:url parameters:param success:^(id responseObject) {
+        @strongify(self);
+        NSInteger code = [responseObject[@"code"] integerValue];
+        [Dialog popTextAnimation:responseObject[@"message"]];
+        if (code == 200) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } fail:^{
+        
+    }];
 }
 
 - (void)requestCommision {
-    WeakObj(self);
-    NSString *url = self.capital == KCommision?person_Commision_url:person_bonus_url;
+    @weakify(self);
+    NSString *url = [self judegCommision]?person_Commision_url:person_bonus_url;
     [AFNetworkTool postJSONWithUrl:url parameters:nil success:^(id responseObject) {
+        @strongify(self);
         NSInteger code = [responseObject[@"code"] integerValue];
         if (code == 200) {
-            if (self.capital == KCommision) {
-                selfWeak.money.text = responseObject[@"content"][@"commision"];
-            }{
-                 selfWeak.money.text = responseObject[@"content"][@"bonus"];
+            if ([self judegCommision]) {
+                self.money.text = responseObject[@"content"][@"commision"];
+            }else{
+                 self.money.text = responseObject[@"content"][@"bonus"];
             }
-        }else {
         }
     } fail:^{
         
     }];
 }
 - (void)requestCommisionWater {
-    NSDictionary *param = @{@"page":@"1"};
-    WeakObj(self);
-    NSString *url = self.capital == KCommision?person_CommisionWater_url:bonus_Water_url;
+    NSDictionary *param = @{@"page":@(self.page)};
+    @weakify(self);
+    NSString *url = [self judegCommision]?person_CommisionWater_url:bonus_Water_url;
     [AFNetworkTool postJSONWithUrl:url parameters:param success:^(id responseObject) {
-        [selfWeak.brokerTableView.mj_footer endRefreshing];
-        [selfWeak.brokerTableView.mj_header endRefreshing];
+        @strongify(self);
+        [self.brokerTableView.mj_footer endRefreshing];
+        [self.brokerTableView.mj_header endRefreshing];
         
         NSInteger code = [responseObject[@"code"] integerValue];
         [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
-            NSArray *arrs = [NSArray yy_modelArrayWithClass:[BrokerModel class] json:responseObject[@"message"][@"list"]];
-            [selfWeak.brokeArrs addObjectsFromArray:arrs];
-            [selfWeak.brokerTableView reloadData];
+            NSArray *arrs = [NSArray yy_modelArrayWithClass:[BrokerModel class] json:responseObject[@"content"][@"list"]];
+            if (arrs.count) {
+                [self.brokeArrs addObjectsFromArray:arrs];
+                [self.brokerTableView reloadData];
+            }else {
+                [Dialog popTextAnimation:@"没有下一页了"];
+            }
+            
             
         }else {
         }
@@ -74,11 +104,9 @@
 
 
 - (void)configUI {
-    if (self.capital == KCommision) {
-        self.title = @"我的佣金";
+    if ([self judegCommision]) {
         self.captialDes.text = @"当前佣金(元)";
     }else {
-        self.title = @"我的分红";
         self.captialDes.text = @"当前分红(元)";
     }
     [self.brokerTableView registerNib:[UINib nibWithNibName:@"BrokerCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([BrokerCell class])];
@@ -90,14 +118,17 @@
     self.opBtn.layer.borderColor = [UIColor c_cc0Color].CGColor;
     self.opBtn.layer.borderWidth = 1;
     self.opBtn.layer.cornerRadius = 5;
-    WeakObj(self);
+    @weakify(self);
     self.brokerTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        selfWeak.page = 0;
-        self.brokeArrs = [NSMutableArray array];
-        [selfWeak requestCommisionWater];
+        @strongify(self);
+        self.page = 1;
+        self.brokeArrs = nil;
+        [self requestCommisionWater];
     }];
     self.brokerTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [selfWeak requestCommisionWater];
+        @strongify(self);
+        self.page++;
+        [self requestCommisionWater];
     }];
 }
 
@@ -107,7 +138,19 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BrokerCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BrokerCell class])];
-    [cell configBrokerCell:self.brokeArrs[indexPath.row]];
+    if ([self judegCommision]) {
+        [cell configBrokerCell:self.brokeArrs[indexPath.row]];
+    }else {
+        [cell configBonusCell:self.brokeArrs[indexPath.row]];
+    }
+    
     return cell;
+}
+
+- (NSMutableArray *)brokeArrs {
+    if (!_brokeArrs) {
+        _brokeArrs = [NSMutableArray array];
+    }
+    return _brokeArrs;
 }
 @end
