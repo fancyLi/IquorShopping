@@ -65,6 +65,17 @@
 		0847F1E820AB386E00BEF0F6 /* TeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F1E720AB386E00BEF0F6 /* TeamViewController.m */; };
 		0847F1EC20AB395500BEF0F6 /* TeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F1EA20AB395500BEF0F6 /* TeamCell.m */; };
 		0847F1ED20AB395500BEF0F6 /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0847F1EB20AB395500BEF0F6 /* TeamCell.xib */; };
+		0848C17420F8246600A9963E /* UIImage+IquorImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C17320F8246600A9963E /* UIImage+IquorImage.m */; };
+		0848C17D20F8C63F00A9963E /* BaoCouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C17B20F8C63F00A9963E /* BaoCouViewController.m */; };
+		0848C17E20F8C63F00A9963E /* BaoCouViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0848C17C20F8C63F00A9963E /* BaoCouViewController.xib */; };
+		0848C18220F8CA3900A9963E /* BankNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C18020F8CA3900A9963E /* BankNewViewController.m */; };
+		0848C18320F8CA3900A9963E /* BankNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0848C18120F8CA3900A9963E /* BankNewViewController.xib */; };
+		0848C18620F8CD4000A9963E /* BankInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C18520F8CD4000A9963E /* BankInfoViewController.m */; };
+		0848C18920F8CD5F00A9963E /* BankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C18820F8CD5F00A9963E /* BankModel.m */; };
+		0848C18C20F8D93A00A9963E /* BlanceBeforeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C18B20F8D93A00A9963E /* BlanceBeforeModel.m */; };
+		0848C18F20F8E1DE00A9963E /* BankUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C18E20F8E1DE00A9963E /* BankUserViewController.m */; };
+		0848C19320F8E2A900A9963E /* BankUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C19120F8E2A900A9963E /* BankUserCell.m */; };
+		0848C19420F8E2A900A9963E /* BankUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0848C19220F8E2A900A9963E /* BankUserCell.xib */; };
 		08676F2820B6E59D00F870B9 /* MeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F2620B6E59D00F870B9 /* MeHeaderCell.m */; };
 		08676F2920B6E59D00F870B9 /* MeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08676F2720B6E59D00F870B9 /* MeHeaderCell.xib */; };
 		08676F2D20B6E65300F870B9 /* MeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F2B20B6E65300F870B9 /* MeInfoViewController.m */; };
@@ -343,6 +354,25 @@
 		0847F1E920AB395500BEF0F6 /* TeamCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamCell.h; sourceTree = "<group>"; };
 		0847F1EA20AB395500BEF0F6 /* TeamCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamCell.m; sourceTree = "<group>"; };
 		0847F1EB20AB395500BEF0F6 /* TeamCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
+		0848C17220F8246600A9963E /* UIImage+IquorImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+IquorImage.h"; sourceTree = "<group>"; };
+		0848C17320F8246600A9963E /* UIImage+IquorImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IquorImage.m"; sourceTree = "<group>"; };
+		0848C17A20F8C63F00A9963E /* BaoCouViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaoCouViewController.h; sourceTree = "<group>"; };
+		0848C17B20F8C63F00A9963E /* BaoCouViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaoCouViewController.m; sourceTree = "<group>"; };
+		0848C17C20F8C63F00A9963E /* BaoCouViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaoCouViewController.xib; sourceTree = "<group>"; };
+		0848C17F20F8CA3900A9963E /* BankNewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankNewViewController.h; sourceTree = "<group>"; };
+		0848C18020F8CA3900A9963E /* BankNewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankNewViewController.m; sourceTree = "<group>"; };
+		0848C18120F8CA3900A9963E /* BankNewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BankNewViewController.xib; sourceTree = "<group>"; };
+		0848C18420F8CD4000A9963E /* BankInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankInfoViewController.h; sourceTree = "<group>"; };
+		0848C18520F8CD4000A9963E /* BankInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankInfoViewController.m; sourceTree = "<group>"; };
+		0848C18720F8CD5F00A9963E /* BankModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankModel.h; sourceTree = "<group>"; };
+		0848C18820F8CD5F00A9963E /* BankModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankModel.m; sourceTree = "<group>"; };
+		0848C18A20F8D93A00A9963E /* BlanceBeforeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlanceBeforeModel.h; sourceTree = "<group>"; };
+		0848C18B20F8D93A00A9963E /* BlanceBeforeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlanceBeforeModel.m; sourceTree = "<group>"; };
+		0848C18D20F8E1DE00A9963E /* BankUserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankUserViewController.h; sourceTree = "<group>"; };
+		0848C18E20F8E1DE00A9963E /* BankUserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankUserViewController.m; sourceTree = "<group>"; };
+		0848C19020F8E2A900A9963E /* BankUserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankUserCell.h; sourceTree = "<group>"; };
+		0848C19120F8E2A900A9963E /* BankUserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankUserCell.m; sourceTree = "<group>"; };
+		0848C19220F8E2A900A9963E /* BankUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BankUserCell.xib; sourceTree = "<group>"; };
 		08676F2520B6E59D00F870B9 /* MeHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeHeaderCell.h; sourceTree = "<group>"; };
 		08676F2620B6E59D00F870B9 /* MeHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeHeaderCell.m; sourceTree = "<group>"; };
 		08676F2720B6E59D00F870B9 /* MeHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHeaderCell.xib; sourceTree = "<group>"; };
@@ -1108,6 +1138,16 @@
 				080649B220C8D7DA003B155F /* ImageViewController.m */,
 				086AF7DA20F39D5F002A0385 /* AboutViewController.h */,
 				086AF7DB20F39D5F002A0385 /* AboutViewController.m */,
+				0848C17A20F8C63F00A9963E /* BaoCouViewController.h */,
+				0848C17B20F8C63F00A9963E /* BaoCouViewController.m */,
+				0848C17C20F8C63F00A9963E /* BaoCouViewController.xib */,
+				0848C17F20F8CA3900A9963E /* BankNewViewController.h */,
+				0848C18020F8CA3900A9963E /* BankNewViewController.m */,
+				0848C18120F8CA3900A9963E /* BankNewViewController.xib */,
+				0848C18420F8CD4000A9963E /* BankInfoViewController.h */,
+				0848C18520F8CD4000A9963E /* BankInfoViewController.m */,
+				0848C18D20F8E1DE00A9963E /* BankUserViewController.h */,
+				0848C18E20F8E1DE00A9963E /* BankUserViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1127,6 +1167,10 @@
 				086AF7CB20F386A8002A0385 /* CollectModel.m */,
 				086AF7D720F38EB5002A0385 /* MeCommentModel.h */,
 				086AF7D820F38EB5002A0385 /* MeCommentModel.m */,
+				0848C18720F8CD5F00A9963E /* BankModel.h */,
+				0848C18820F8CD5F00A9963E /* BankModel.m */,
+				0848C18A20F8D93A00A9963E /* BlanceBeforeModel.h */,
+				0848C18B20F8D93A00A9963E /* BlanceBeforeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1182,6 +1226,9 @@
 				086AF8E220F7A4E8002A0385 /* BaoTableViewCell.h */,
 				086AF8E320F7A4E8002A0385 /* BaoTableViewCell.m */,
 				086AF8E420F7A4E8002A0385 /* BaoTableViewCell.xib */,
+				0848C19020F8E2A900A9963E /* BankUserCell.h */,
+				0848C19120F8E2A900A9963E /* BankUserCell.m */,
+				0848C19220F8E2A900A9963E /* BankUserCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1244,6 +1291,8 @@
 				086AF79620F09268002A0385 /* UIControl+IquorArea.m */,
 				086AF78D20F08B08002A0385 /* IquorButton.h */,
 				086AF78E20F08B08002A0385 /* IquorButton.m */,
+				0848C17220F8246600A9963E /* UIImage+IquorImage.h */,
+				0848C17320F8246600A9963E /* UIImage+IquorImage.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1519,6 +1568,7 @@
 				08B8672C20EBA08C00F73677 /* MePageCollectionViewCell.xib in Resources */,
 				0880527120A33F960018AE6E /* LoginViewController.xib in Resources */,
 				0847F1C320AB0C4400BEF0F6 /* IndentBottomCell.xib in Resources */,
+				0848C17E20F8C63F00A9963E /* BaoCouViewController.xib in Resources */,
 				086AF8E620F7A4E8002A0385 /* BaoTableViewCell.xib in Resources */,
 				088052A220A354950018AE6E /* SetViewController.xib in Resources */,
 				0898C30820AC7F1A00664482 /* JoinsViewController.xib in Resources */,
@@ -1549,6 +1599,7 @@
 				0898C3D020B3010C00664482 /* CartTextCell.xib in Resources */,
 				0898C34920ADD54A00664482 /* NavSearchBar.xib in Resources */,
 				086AF78C20F08906002A0385 /* DetailPageFooter.xib in Resources */,
+				0848C19420F8E2A900A9963E /* BankUserCell.xib in Resources */,
 				0880528020A349D00018AE6E /* ResetPasswordViewController.xib in Resources */,
 				0847F1B920AB09F100BEF0F6 /* IndentDetailCell.xib in Resources */,
 				0880527620A3443D0018AE6E /* FirstRegViewController.xib in Resources */,
@@ -1561,6 +1612,7 @@
 				086AF7D620F38E4B002A0385 /* MeCommenCell.xib in Resources */,
 				08E4643420A2E7B900E405DB /* Main.storyboard in Resources */,
 				088052BF20A9BF420018AE6E /* MeHeaderTableView.xib in Resources */,
+				0848C18320F8CA3900A9963E /* BankNewViewController.xib in Resources */,
 				08676F2E20B6E65300F870B9 /* MeInfoViewController.xib in Resources */,
 				080649C020C9259C003B155F /* MsgViewController.xib in Resources */,
 				08B866AE20E1331E00F73677 /* BannerCell.xib in Resources */,
@@ -1700,6 +1752,7 @@
 				08E4643120A2E7B900E405DB /* ViewController.m in Sources */,
 				088052C720A9C8A10018AE6E /* MeConfigModel.m in Sources */,
 				088052E520A9E1560018AE6E /* MASConstraintMaker.m in Sources */,
+				0848C19320F8E2A900A9963E /* BankUserCell.m in Sources */,
 				0898C38820AF1D1A00664482 /* DetailTableHeader.m in Sources */,
 				08B8671C20EB71AF00F73677 /* WMMenuItem.m in Sources */,
 				08B866C620E8AB3500F73677 /* IquorUser.m in Sources */,
@@ -1734,6 +1787,7 @@
 				086AF8DB20F79B02002A0385 /* BaoViewController.m in Sources */,
 				08E4643C20A2E7B900E405DB /* main.m in Sources */,
 				080E99A820D93E0300AF09FF /* HomePageModel.m in Sources */,
+				0848C17420F8246600A9963E /* UIImage+IquorImage.m in Sources */,
 				0847F1B820AB09F100BEF0F6 /* IndentDetailCell.m in Sources */,
 				0847F1EC20AB395500BEF0F6 /* TeamCell.m in Sources */,
 				0880525620A2ECC10018AE6E /* ShopViewController.m in Sources */,
@@ -1744,6 +1798,7 @@
 				08676F3120B6EADB00F870B9 /* NSObject+Util.m in Sources */,
 				080649C320CA5D4E003B155F /* AddressModel.m in Sources */,
 				0898C30720AC7F1A00664482 /* JoinsViewController.m in Sources */,
+				0848C18920F8CD5F00A9963E /* BankModel.m in Sources */,
 				086AF7CC20F386A8002A0385 /* CollectModel.m in Sources */,
 				088052E220A9E1560018AE6E /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				08676F3520B6F63300F870B9 /* ShopConfigCell.m in Sources */,
@@ -1755,6 +1810,7 @@
 				088052A020A354950018AE6E /* NikeNameViewController.m in Sources */,
 				0880527A20A347710018AE6E /* SecondRegViewController.m in Sources */,
 				0847F1A620AB03D400BEF0F6 /* LNContainerViewController.m in Sources */,
+				0848C18220F8CA3900A9963E /* BankNewViewController.m in Sources */,
 				08B866A620E128E700F73677 /* SearchViewController.m in Sources */,
 				08676F4420B6FBB000F870B9 /* ShopNewCell.m in Sources */,
 				086AF78720F0815F002A0385 /* DetailTableFooter.m in Sources */,
@@ -1766,6 +1822,7 @@
 				080649AF20C8C7F6003B155F /* AdressListViewController.m in Sources */,
 				086AF8E020F7A185002A0385 /* StartBaoViewController.m in Sources */,
 				086AF7B120F0B7B0002A0385 /* TAPageControl.m in Sources */,
+				0848C18C20F8D93A00A9963E /* BlanceBeforeModel.m in Sources */,
 				080649BB20C91F98003B155F /* PlayerViewController.m in Sources */,
 				086AF7C020F0C465002A0385 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				086AF79720F09268002A0385 /* UIControl+IquorArea.m in Sources */,
@@ -1826,12 +1883,15 @@
 				0806499C20C6ABE9003B155F /* AddressInfoCell.m in Sources */,
 				0898C38E20AF226F00664482 /* AssessCell.m in Sources */,
 				0898C3C520B2F42500664482 /* ShopCartViewController.m in Sources */,
+				0848C18F20F8E1DE00A9963E /* BankUserViewController.m in Sources */,
 				0806498720C5755C003B155F /* UIViewController+RTRootNavigationController.m in Sources */,
 				088052E320A9E1560018AE6E /* ViewController+MASAdditions.m in Sources */,
+				0848C18620F8CD4000A9963E /* BankInfoViewController.m in Sources */,
 				0898C31620ADB57800664482 /* StartViewController.m in Sources */,
 				0898C34720ADD53A00664482 /* NavSearchBar.m in Sources */,
 				0847F1DE20AB323400BEF0F6 /* DiscountCell.m in Sources */,
 				0880525020A2EC100018AE6E /* IquorTabBarViewController.m in Sources */,
+				0848C17D20F8C63F00A9963E /* BaoCouViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2001,8 +2061,9 @@
 			baseConfigurationReference = AAE3AC935DD5D2270A399438 /* Pods-IquorShopping.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 92V366UDRT;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IquorShopping/PrefixHeader.h";
 				INFOPLIST_FILE = IquorShopping/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2010,10 +2071,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.elevation.IquorShopping;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iflytek.ahzwfu.gov;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "3165978a-15bc-478d-920e-e665afcf2e05";
+				PROVISIONING_PROFILE_SPECIFIER = AHZWFU_DEV;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2022,6 +2084,7 @@
 			baseConfigurationReference = 13F710C71AAFD98592E9A53D /* Pods-IquorShopping.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IquorShopping/PrefixHeader.h";
@@ -2031,10 +2094,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.elevation.IquorShopping;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iflytek.ahzwfu.gov;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

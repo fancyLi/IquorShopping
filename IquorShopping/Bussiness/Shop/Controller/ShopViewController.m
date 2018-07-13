@@ -39,11 +39,14 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+ 
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 }
 - (void)startPlayer {
     if ([UIUtils isNullOrEmpty:self.homePageModel.video.video_url]) {
@@ -60,7 +63,6 @@
     [AFNetworkTool postJSONWithUrl:index_homePage parameters:nil success:^(id responseObject) {
         @strongify(self);
         NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
             self.homePageModel = [HomePageModel yy_modelWithJSON:responseObject[@"content"]];
             self.tableHeader.banners = self.homePageModel.banner_list;

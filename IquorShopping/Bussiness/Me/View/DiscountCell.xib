@@ -37,13 +37,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-02.01-2018-03.31" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPf-nz-F5M">
-                        <rect key="frame" x="122" y="55.5" width="125" height="18.5"/>
+                        <rect key="frame" x="122" y="55.5" width="125" height="8.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVB-Ua-p0k">
-                        <rect key="frame" x="239" y="50" width="55" height="30"/>
+                        <rect key="frame" x="239" y="45" width="55" height="30"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="7rE-Kt-6YL"/>
@@ -67,7 +67,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="mPf-nz-F5M" firstAttribute="top" secondItem="fIJ-FP-4J7" secondAttribute="bottom" constant="10" id="5KY-4o-kaT"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="mPf-nz-F5M" secondAttribute="bottom" constant="-5" id="9Jn-r4-qUW"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="mPf-nz-F5M" secondAttribute="bottom" constant="5" id="9Jn-r4-qUW"/>
                     <constraint firstItem="fIJ-FP-4J7" firstAttribute="leading" secondItem="PCF-c0-f9t" secondAttribute="trailing" constant="80" id="AtU-Qr-6aj"/>
                     <constraint firstItem="PW3-d2-XTI" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="BrJ-5B-oe5"/>
                     <constraint firstItem="fIJ-FP-4J7" firstAttribute="baseline" secondItem="YGt-TU-U3d" secondAttribute="firstBaseline" id="GJF-Mc-15j"/>

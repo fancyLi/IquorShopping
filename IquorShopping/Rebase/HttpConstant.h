@@ -73,6 +73,9 @@
 //分红提现
 #define user_bonusPutForward                    @"user/bonusPutForward"
 
+//提现前获取信息
+#define user_theBalanceIsBefore             @"user/theBalanceIsBefore"
+
 //余额提现
 #define user_balancePutForward              @"user/balancePutForward"
 
@@ -130,6 +133,17 @@
 
 //删除购物车
 #define shop_delCartGoods                       @"shop/delCartGoods"
+
+//新增支付宝
+#define user_addOrEditAliPayAccount             @"user/addOrEditAliPayAccount"
+
+//获取银行卡信息
+#define user_getAListOfBanks                    @"user/getAListOfBanks"
+
+//获取用户银行开列表
+#define user_userBankAccountList                @"user/userBankAccountList"
+//新增银行卡
+#define user_addBankAccount                     @"user/addBankAccount"
 
 //关于我们
 #define user_aboutUs                            @"user/aboutUs"

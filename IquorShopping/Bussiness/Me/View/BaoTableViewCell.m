@@ -8,7 +8,7 @@
 
 #import "BaoTableViewCell.h"
 @interface BaoTableViewCell ()
-@property (weak, nonatomic) IBOutlet UIButton *operatorBtn;
+
 
 
 @end
@@ -20,6 +20,9 @@
 }
 - (IBAction)operatorClick:(UIButton *)sender {
     sender.selected = !sender.selected;
+    if (self.operatorBaoCellBlock) {
+        self.operatorBaoCellBlock(sender.selected, self);
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

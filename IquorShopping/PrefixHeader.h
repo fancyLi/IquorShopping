@@ -17,6 +17,7 @@
 #import "Masonry.h"
 #import "AFNetworkTool.h"
 #import "HttpConstant.h"
+#import "UIImage+IquorImage.h"
 #import "UIColor+Extension.h"
 #import "NSObject+Util.h"
 #import "UITableView+Util.h"

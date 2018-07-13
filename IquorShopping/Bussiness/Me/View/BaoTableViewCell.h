@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class BaoTableViewCell;
+typedef void (^OperatorBaoCellBlock)(BOOL sel, BaoTableViewCell *cell);
 @interface BaoTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *operatorBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *count;
+@property (nonatomic, copy) OperatorBaoCellBlock operatorBaoCellBlock;
 @end
