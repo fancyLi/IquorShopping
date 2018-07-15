@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,9 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IndentDetailViewController">
             <connections>
+                <outlet property="addAdree" destination="1Jv-cq-Vxa" id="rmt-Ph-FtX"/>
                 <outlet property="address" destination="N1I-Oa-iDP" id="zqp-kh-m5t"/>
+                <outlet property="addressCon" destination="3jG-0b-f2o" id="6g3-Nh-z7D"/>
                 <outlet property="detailTable" destination="xZP-lp-LhC" id="P90-os-ttM"/>
                 <outlet property="leftBtn" destination="NgJ-01-2Yv" id="j1c-rA-ieq"/>
+                <outlet property="leftIcon" destination="KLe-QH-DyM" id="Ild-rO-Xbx"/>
                 <outlet property="nameConnect" destination="wto-CZ-iGE" id="GsG-hf-oUc"/>
                 <outlet property="rightBtn" destination="NGQ-oX-uh3" id="p5m-HU-pPC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -42,18 +45,33 @@
                                 <constraint firstAttribute="height" constant="2" id="GcW-Lp-xQd"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张大伟    15301239876" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wto-CZ-iGE">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wto-CZ-iGE">
                             <rect key="frame" x="30" y="20" width="340" height="26.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安徽省合肥市蜀山区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1I-Oa-iDP">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1I-Oa-iDP">
                             <rect key="frame" x="30" y="51.5" width="340" height="26.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Jv-cq-Vxa">
+                            <rect key="frame" x="30" y="35" width="120" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="0fm-hx-Uph"/>
+                                <constraint firstAttribute="width" constant="120" id="R9i-j3-kbi"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="添加收货地址" image="icon_25">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="addNewAdress:" destination="-1" eventType="touchUpInside" id="0bn-0K-CKq"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -65,8 +83,10 @@
                         <constraint firstAttribute="bottom" secondItem="aLy-Uu-rHd" secondAttribute="bottom" id="S8m-S1-ZNb"/>
                         <constraint firstItem="aLy-Uu-rHd" firstAttribute="top" secondItem="N1I-Oa-iDP" secondAttribute="bottom" constant="20" id="U4I-Q6-96G"/>
                         <constraint firstAttribute="height" constant="100" id="Xw7-c5-hke"/>
+                        <constraint firstItem="1Jv-cq-Vxa" firstAttribute="leading" secondItem="KLe-QH-DyM" secondAttribute="trailing" constant="5" id="bE1-wO-2yy"/>
                         <constraint firstItem="KLe-QH-DyM" firstAttribute="centerY" secondItem="3jG-0b-f2o" secondAttribute="centerY" id="bFn-9h-zWn"/>
                         <constraint firstItem="KLe-QH-DyM" firstAttribute="leading" secondItem="3jG-0b-f2o" secondAttribute="leading" constant="5" id="fDO-pR-3rB"/>
+                        <constraint firstItem="1Jv-cq-Vxa" firstAttribute="centerY" secondItem="3jG-0b-f2o" secondAttribute="centerY" id="gni-uf-hko"/>
                         <constraint firstItem="N1I-Oa-iDP" firstAttribute="height" secondItem="wto-CZ-iGE" secondAttribute="height" id="hD4-RM-BCR"/>
                         <constraint firstItem="N1I-Oa-iDP" firstAttribute="top" secondItem="wto-CZ-iGE" secondAttribute="bottom" constant="5" id="hsL-3d-jjr"/>
                         <constraint firstItem="wto-CZ-iGE" firstAttribute="top" secondItem="3jG-0b-f2o" secondAttribute="top" constant="20" id="nlR-gY-Wv7"/>
@@ -142,6 +162,7 @@
         </view>
     </objects>
     <resources>
+        <image name="icon_25" width="18" height="18"/>
         <image name="icon_26" width="18" height="24"/>
     </resources>
 </document>

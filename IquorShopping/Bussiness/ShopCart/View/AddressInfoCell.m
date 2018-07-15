@@ -15,6 +15,11 @@
      self.selectionStyle = UITableViewCellSelectionStyleNone;
     // Initialization code
 }
+- (IBAction)clickButton:(id)sender {
+    if (self.operatorAddressBlock) {
+        self.operatorAddressBlock();
+    }
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

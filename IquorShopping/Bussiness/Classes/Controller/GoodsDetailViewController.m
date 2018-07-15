@@ -9,6 +9,7 @@
 #import "GoodsDetailViewController.h"
 #import "AddGoodsViewController.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "IndentDetailViewController.h"
 #import "DetailTableHeader.h"
 #import "DetailTableFooter.h"
 #import "DetailPageFooter.h"
@@ -98,6 +99,14 @@
     AddGoodsViewController *vc = [[AddGoodsViewController alloc]init];
     vc.goodsInfo = self.goodsDetail;
     vc.isCart = self.isCart;
+    @weakify(self);
+    vc.operatorBuyBlock = ^{
+        @strongify(self);
+        //立即购买
+        IndentDetailViewController *vc = [[IndentDetailViewController alloc]init];
+        vc.goods_id = self.goods_id;
+        [self.navigationController pushViewController:vc animated:YES];
+    };
     if ([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0) {
         vc.modalPresentationStyle=UIModalPresentationOverCurrentContext;
     }else{

@@ -11,6 +11,7 @@
 #import "ChoseAreaModel.h"
 #import "AddressInfoCell.h"
 #import "CityModel.h"
+#import "AddressModel.h"
 
 @interface AddressViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
@@ -23,22 +24,50 @@
 @property (nonatomic, strong) NSArray *areaArrs;
 @property (nonatomic, strong) NSMutableArray<UITextField *> *inputs;
 @property (nonatomic, strong) ChoseAreaModel *choseArea;
+@property (nonatomic, strong) AddressModel *adress;
 @end
 
 @implementation AddressViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([self judgeEdit]) {
+        [self requestEditInfo];
+    }
     [self configInfoUI];
     // Do any additional setup after loading the view from its nib.
 }
+
+- (BOOL)judgeEdit {
+    return ![UIUtils isNullOrEmpty:self.aid];
+}
 - (void)configInfoUI {
-    self.title = [UIUtils isNullOrEmpty:self.aid]?@"新增收货地址":@"编辑收货地址";
+    self.title = [self judgeEdit]?@"新增收货地址":@"编辑收货地址";
     self.inputs = [NSMutableArray arrayWithCapacity:0];
     self.infoTableView.dataSource = self;
     self.infoTableView.delegate = self;
     self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.infoTableView registerNib:[UINib nibWithNibName:@"AddressInfoCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([AddressInfoCell class])];
+}
+
+- (void)requestEditInfo {
+    NSDictionary *param = @{@"aid": self.aid};
+    @weakify(self);
+    [AFNetworkTool postJSONWithUrl:user_addressInfo parameters:param success:^(id responseObject) {
+        @strongify(self);
+        NSInteger code = [responseObject[@"code"] integerValue];
+        if (code == 200) {
+            self.adress = [AddressModel yy_modelWithDictionary:responseObject[@"content"][@"address_info"]];
+            self.choseArea = [[ChoseAreaModel alloc]init];
+            self.choseArea.provinceId = self.adress.province;
+            self.choseArea.cityId = self.adress.city;
+            self.choseArea.districtId = self.adress.district;
+            self.choseArea.areaStr  = self.adress.contact_addr;
+            [self.infoTableView reloadData];
+        }
+    } fail:^{
+        
+    }];
 }
 - (IBAction)saveClick:(UIButton *)sender {
     
@@ -51,29 +80,38 @@
     }else if ([UIUtils isNullOrEmpty:self.inputs[3].text]) {
         [Dialog popTextAnimation:@"请填写详细地址"];
     }else {
-        WeakObj(self);
-        NSDictionary *param = @{@"contact_name":self.inputs[0].text,
-                                @"contact_tel":self.inputs[1].text,
-                                @"province":self.choseArea.provinceId,
-                                @"city":self.choseArea.cityId,
-                                @"district":self.choseArea.districtId,
-                                @"contact_addr":self.inputs[3].text,
-                                @"default": _isDefault ? @"2":@"1"
-                                };
-        if (![UIUtils isNullOrEmpty:self.aid]) {
-            NSMutableDictionary *param2 = [param mutableCopy];
-            [param2 setObject:self.aid forKey:@"aid"];
-            param = [param2 copy];
+        @weakify(self);
+        NSDictionary *param;
+        if ([self judgeEdit]) {
+            param = @{@"contact_name":self.inputs[0].text,
+                      @"contact_tel":self.inputs[1].text,
+                      @"province":self.choseArea.provinceId,
+                      @"city":self.choseArea.cityId,
+                      @"district":self.choseArea.districtId,
+                      @"contact_addr":self.inputs[3].text,
+                      @"default": _isDefault ? @"2":@"1",
+                      @"aid":self.aid
+                      };
+        }else {
+          param = @{@"contact_name":self.inputs[0].text,
+                    @"contact_tel":self.inputs[1].text,
+                    @"province":self.choseArea.provinceId,
+                    @"city":self.choseArea.cityId,
+                    @"district":self.choseArea.districtId,
+                    @"contact_addr":self.inputs[3].text,
+                    @"default": _isDefault ? @"2":@"1"
+                    };
         }
         
-        
-        NSString *url = [UIUtils isNullOrEmpty:self.aid] ? save_address_url : user_editAddr_url;
+       
+        NSString *url = [self judgeEdit] ?user_editAddr_url:save_address_url;
         [AFNetworkTool postJSONWithUrl:url parameters:param success:^(id responseObject) {
+            @strongify(self);
             NSInteger code = [responseObject[@"code"] integerValue];
             [Dialog popTextAnimation:responseObject[@"message"]];
             if (code == 200) {
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [selfWeak.navigationController popViewControllerAnimated:YES];
+                    [self.navigationController popViewControllerAnimated:YES];
                 });
             }else {
             }
@@ -88,16 +126,21 @@
     _isDefault = sender.selected;
 }
 - (void)showAreaPage:(NSArray *)areaArrs {
-    WeakObj(self);
+    @weakify(self);
     AreaChoseViewController *areaPage = [[AreaChoseViewController alloc]init];
     areaPage.areaArrs = areaArrs;
     
     areaPage.selectedAreaBlock = ^(ChoseAreaModel *choseArea) {
-        UITextField *tf = selfWeak.inputs[2];
+        @strongify(self);
+        UITextField *tf = self.inputs[2];
         tf.text = choseArea.areaStr;
-        selfWeak.choseArea = choseArea;
+        self.choseArea = choseArea;
     };
-   
+    if ([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0) {
+        areaPage.modalPresentationStyle=UIModalPresentationOverCurrentContext;
+    }else{
+        areaPage.modalPresentationStyle=UIModalPresentationCurrentContext;
+    }
     [self presentViewController:areaPage animated:YES completion:nil];
     
 }
@@ -129,9 +172,27 @@
     if (indexPath.row != self.leftArrs.count-1) {
         AddressInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AddressInfoCell class])];
         cell.leftTitel.text = self.leftArrs[indexPath.row];
-        cell.inputField.placeholder = self.placeholderArrs[indexPath.row];
+        if ([self judgeEdit]) {
+            if (indexPath.row == 0) {
+                cell.inputField.text = self.adress.contact_name;
+            }else if (indexPath.row == 1) {
+                cell.inputField.text = self.adress.contact_tel;
+            }else if (indexPath.row == 2) {
+                cell.inputField.text = [NSString stringWithFormat:@"%@%@%@",self.adress.province_name, self.adress.city_name, self.adress.district_name];
+            }else if (indexPath.row == 3) {
+                cell.inputField.text = self.adress.contact_addr;
+            }
+        }else {
+            cell.inputField.placeholder = self.placeholderArrs[indexPath.row];
+        }
         if (indexPath.row == 2) {
             cell.inputField.enabled = NO;
+            cell.button.hidden = NO;
+            @weakify(self);
+            cell.operatorAddressBlock = ^{
+                @strongify(self);
+                [self requestAddress];
+            };
         }
         [self.inputs addObject:cell.inputField];
         return cell;
@@ -151,6 +212,9 @@
         [setBtn addTarget:self action:@selector(clickDefaultAddress:) forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:topLine];
         [cell.contentView addSubview:setBtn];
+        if ([self judgeEdit] && [self.adress.defaultStatus isEqualToString:@"2"]) {
+            setBtn.selected = YES;
+        }
        
         return cell;
     }

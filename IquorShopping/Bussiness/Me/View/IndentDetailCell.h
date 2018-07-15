@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "OrderModel.h"
 @interface IndentDetailCell : UITableViewCell
-
+@property (nonatomic, strong) OrderGoods *order;
 @end

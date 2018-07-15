@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,18 +22,44 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="vEZ-2o-S6x">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="602"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emH-cA-4fy">
+                    <rect key="frame" x="0.0" y="622" width="375" height="45"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlg-ms-9NP">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                            <state key="normal" title="+新增收货地址">
+                                <color key="titleColor" red="0.80000000000000004" green="0.0078431372549019607" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="addNewAddress:" destination="-1" eventType="touchUpInside" id="ExE-ox-RIa"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="927-Ld-rsN"/>
+                        <constraint firstItem="rlg-ms-9NP" firstAttribute="top" secondItem="emH-cA-4fy" secondAttribute="top" id="Mlb-aI-1F7"/>
+                        <constraint firstAttribute="bottom" secondItem="rlg-ms-9NP" secondAttribute="bottom" id="P81-CV-nxb"/>
+                        <constraint firstItem="rlg-ms-9NP" firstAttribute="leading" secondItem="emH-cA-4fy" secondAttribute="leading" id="Z6E-NM-FGW"/>
+                        <constraint firstAttribute="trailing" secondItem="rlg-ms-9NP" secondAttribute="trailing" id="vcb-BN-5sS"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="vEZ-2o-S6x" secondAttribute="trailing" id="A5e-tk-gGA"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="vEZ-2o-S6x" secondAttribute="bottom" id="D7D-fw-aIT"/>
+                <constraint firstItem="emH-cA-4fy" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="APR-bh-S72"/>
+                <constraint firstAttribute="bottom" secondItem="emH-cA-4fy" secondAttribute="bottom" id="R2H-6F-qzg"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="emH-cA-4fy" secondAttribute="trailing" id="aOK-bK-gLs"/>
                 <constraint firstItem="vEZ-2o-S6x" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="p3g-8K-zoC"/>
+                <constraint firstItem="emH-cA-4fy" firstAttribute="top" secondItem="vEZ-2o-S6x" secondAttribute="bottom" id="yMQ-Lo-IDr"/>
                 <constraint firstItem="vEZ-2o-S6x" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="yXK-lo-VDS"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="32.5" y="89.5"/>
         </view>
     </objects>
 </document>

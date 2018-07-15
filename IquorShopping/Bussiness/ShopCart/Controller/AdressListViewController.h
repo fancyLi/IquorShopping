@@ -7,7 +7,8 @@
 //
 
 #import "IquorViewController.h"
-
+#import "AddressModel.h"
+typedef void (^OpretorAddressBlock)(AddressModel *model);
 @interface AdressListViewController : IquorViewController
-
+@property (nonatomic, copy) OpretorAddressBlock opretorAddressBlock;
 @end

@@ -76,6 +76,9 @@
 		0848C18F20F8E1DE00A9963E /* BankUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C18E20F8E1DE00A9963E /* BankUserViewController.m */; };
 		0848C19320F8E2A900A9963E /* BankUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C19120F8E2A900A9963E /* BankUserCell.m */; };
 		0848C19420F8E2A900A9963E /* BankUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0848C19220F8E2A900A9963E /* BankUserCell.xib */; };
+		0848C19720FB7A6500A9963E /* OrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C19620FB7A6500A9963E /* OrderModel.m */; };
+		0848C19A20FB8A7200A9963E /* PayKindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C19920FB8A7200A9963E /* PayKindViewController.m */; };
+		0848C19D20FB8BE000A9963E /* OrderPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C19C20FB8BE000A9963E /* OrderPay.m */; };
 		08676F2820B6E59D00F870B9 /* MeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F2620B6E59D00F870B9 /* MeHeaderCell.m */; };
 		08676F2920B6E59D00F870B9 /* MeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08676F2720B6E59D00F870B9 /* MeHeaderCell.xib */; };
 		08676F2D20B6E65300F870B9 /* MeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F2B20B6E65300F870B9 /* MeInfoViewController.m */; };
@@ -373,6 +376,12 @@
 		0848C19020F8E2A900A9963E /* BankUserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankUserCell.h; sourceTree = "<group>"; };
 		0848C19120F8E2A900A9963E /* BankUserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankUserCell.m; sourceTree = "<group>"; };
 		0848C19220F8E2A900A9963E /* BankUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BankUserCell.xib; sourceTree = "<group>"; };
+		0848C19520FB7A6500A9963E /* OrderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderModel.h; sourceTree = "<group>"; };
+		0848C19620FB7A6500A9963E /* OrderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderModel.m; sourceTree = "<group>"; };
+		0848C19820FB8A7200A9963E /* PayKindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayKindViewController.h; sourceTree = "<group>"; };
+		0848C19920FB8A7200A9963E /* PayKindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayKindViewController.m; sourceTree = "<group>"; };
+		0848C19B20FB8BE000A9963E /* OrderPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderPay.h; sourceTree = "<group>"; };
+		0848C19C20FB8BE000A9963E /* OrderPay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderPay.m; sourceTree = "<group>"; };
 		08676F2520B6E59D00F870B9 /* MeHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeHeaderCell.h; sourceTree = "<group>"; };
 		08676F2620B6E59D00F870B9 /* MeHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeHeaderCell.m; sourceTree = "<group>"; };
 		08676F2720B6E59D00F870B9 /* MeHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHeaderCell.xib; sourceTree = "<group>"; };
@@ -876,6 +885,8 @@
 				08B8672120EB8D2400F73677 /* GoodsInfoViewController.m */,
 				0898C39320AF2F9000664482 /* AssessViewController.h */,
 				0898C39420AF2F9000664482 /* AssessViewController.m */,
+				0848C19820FB8A7200A9963E /* PayKindViewController.h */,
+				0848C19920FB8A7200A9963E /* PayKindViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -889,6 +900,10 @@
 				080E99A420D9347000AF09FF /* GoodsInfoModel.m */,
 				086AF78220F07D6F002A0385 /* CommentModel.h */,
 				086AF78320F07D70002A0385 /* CommentModel.m */,
+				0848C19520FB7A6500A9963E /* OrderModel.h */,
+				0848C19620FB7A6500A9963E /* OrderModel.m */,
+				0848C19B20FB8BE000A9963E /* OrderPay.h */,
+				0848C19C20FB8BE000A9963E /* OrderPay.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1751,6 +1766,7 @@
 				080649BF20C9259C003B155F /* MsgViewController.m in Sources */,
 				08E4643120A2E7B900E405DB /* ViewController.m in Sources */,
 				088052C720A9C8A10018AE6E /* MeConfigModel.m in Sources */,
+				0848C19D20FB8BE000A9963E /* OrderPay.m in Sources */,
 				088052E520A9E1560018AE6E /* MASConstraintMaker.m in Sources */,
 				0848C19320F8E2A900A9963E /* BankUserCell.m in Sources */,
 				0898C38820AF1D1A00664482 /* DetailTableHeader.m in Sources */,
@@ -1761,6 +1777,7 @@
 				0806499720C6ABCF003B155F /* AddressCell.m in Sources */,
 				080649A820C7F74F003B155F /* CityModel.m in Sources */,
 				0898C3CF20B3010C00664482 /* CartTextCell.m in Sources */,
+				0848C19A20FB8A7200A9963E /* PayKindViewController.m in Sources */,
 				080649B320C8D7DA003B155F /* ImageViewController.m in Sources */,
 				086AF79320F08D79002A0385 /* AddGoodsViewController.m in Sources */,
 				080649A120C7F418003B155F /* AreaChoseViewController.m in Sources */,
@@ -1839,6 +1856,7 @@
 				088052E920A9E1560018AE6E /* MASConstraint.m in Sources */,
 				08E4642E20A2E7B900E405DB /* AppDelegate.m in Sources */,
 				086AF78A20F088FA002A0385 /* DetailPageFooter.m in Sources */,
+				0848C19720FB7A6500A9963E /* OrderModel.m in Sources */,
 				086AF7B020F0B7B0002A0385 /* TADotView.m in Sources */,
 				0847F1C220AB0C4400BEF0F6 /* IndentBottomCell.m in Sources */,
 				0880525C20A2ED330018AE6E /* MeViewController.m in Sources */,

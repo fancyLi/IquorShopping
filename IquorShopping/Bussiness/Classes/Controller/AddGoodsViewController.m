@@ -65,7 +65,12 @@
             
         }];
     }else {
-        //立即购买
+        [self dismissViewControllerAnimated:YES completion:^{
+            if (self.operatorBuyBlock) {
+                self.operatorBuyBlock();
+            }
+        }];
+        
     }
     
 }

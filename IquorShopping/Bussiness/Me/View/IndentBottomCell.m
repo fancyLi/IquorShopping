@@ -9,12 +9,10 @@
 #import "IndentBottomCell.h"
 
 @interface IndentBottomCell ()
-@property (weak, nonatomic) IBOutlet UILabel *ddbh;
-@property (weak, nonatomic) IBOutlet UILabel *wldh;
-@property (weak, nonatomic) IBOutlet UILabel *xdsj;
-@property (weak, nonatomic) IBOutlet UILabel *zffs;
-@property (weak, nonatomic) IBOutlet UILabel *yhq;
-@property (weak, nonatomic) IBOutlet UILabel *yyhj;
+@property (weak, nonatomic) IBOutlet UITextField *textview;
+@property (weak, nonatomic) IBOutlet UILabel *goodsPrice;
+@property (weak, nonatomic) IBOutlet UILabel *dicountPrice;
+@property (weak, nonatomic) IBOutlet UILabel *vipPrice;
 
 @end
 
@@ -24,6 +22,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.textview.layer.borderColor = [UIColor c_999Color].CGColor;
+    self.textview.layer.borderWidth = 1;
     // Initialization code
 }
 

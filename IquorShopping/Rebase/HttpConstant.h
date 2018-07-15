@@ -9,7 +9,7 @@
 #ifndef HttpConstant_h
 #define HttpConstant_h
 
-#define HostUrl                     @"http://chengchuan.ahaiba.com.cn/"
+#define HostUrl                     @"http://www.zuixiaoyaojiuye.com/"
 #define BaseURL                 [NSString stringWithFormat:@"%@index.php/",HostUrl]
 
 
@@ -45,7 +45,10 @@
 
 //获取地址列表
 #define user_addrList_url                       @"user/addrList"
-
+//修改地址
+#define user_addressInfo                        @"user/addressInfo"
+//删除地址
+#define user_addrDelete                         @"user/addrDelete"
 //优惠券列表
 #define user_couponList_url                        @"user/couponList"
 
@@ -137,6 +140,11 @@
 //新增支付宝
 #define user_addOrEditAliPayAccount             @"user/addOrEditAliPayAccount"
 
+//订单详情
+#define order_beforeSubOrder                    @"order/beforeSubOrder"
+//提交订单
+#define pay_requestPayment                      @"pay/requestPayment"
+
 //获取银行卡信息
 #define user_getAListOfBanks                    @"user/getAListOfBanks"
 
@@ -144,6 +152,9 @@
 #define user_userBankAccountList                @"user/userBankAccountList"
 //新增银行卡
 #define user_addBankAccount                     @"user/addBankAccount"
+
+//获取支付方式
+#define index_paymentType                       @"index/paymentType"
 
 //关于我们
 #define user_aboutUs                            @"user/aboutUs"

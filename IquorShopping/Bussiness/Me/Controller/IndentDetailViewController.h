@@ -9,5 +9,5 @@
 #import "IquorViewController.h"
 
 @interface IndentDetailViewController : IquorViewController
-
+@property (nonatomic, copy) NSString *goods_id;
 @end

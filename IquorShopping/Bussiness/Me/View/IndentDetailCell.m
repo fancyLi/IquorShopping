@@ -23,7 +23,14 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     // Initialization code
 }
-
+- (void)setOrder:(OrderGoods *)order {
+    _order = order;
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:_order.goods_image]];
+    self.name.text = _order.goods_name;
+    self.des.text = [NSString stringWithFormat:@"规格%@", _order.attribute_value];
+    self.price.text = [NSString stringWithFormat:@"￥%@", _order.goods_price];
+    self.nums.text = [NSString stringWithFormat:@"x%@", _order.goods_num];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

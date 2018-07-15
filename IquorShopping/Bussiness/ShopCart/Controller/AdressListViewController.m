@@ -8,7 +8,6 @@
 
 #import "AdressListViewController.h"
 #import "AddressViewController.h"
-#import "AddressModel.h"
 #import "AddressCell.h"
 @interface AdressListViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *adressTableview;
@@ -38,14 +37,33 @@
 
 - (void)requestAddressData {
  
-    WeakObj(self);
+    @weakify(self);
     [AFNetworkTool postJSONWithUrl:user_addrList_url parameters:nil success:^(id responseObject) {
+        @strongify(self);
+        NSInteger code = [responseObject[@"code"] integerValue];
+        if (code == 200) {
+            self.addressArrs = [NSArray yy_modelArrayWithClass:[AddressModel class] json:responseObject[@"content"]];
+            [self.adressTableview reloadData];
+        }else {
+        }
+    } fail:^{
+        
+    }];
+}
+- (IBAction)addNewAddress:(id)sender {
+    AddressViewController *addressVC = [[AddressViewController alloc]init];
+    [self.navigationController pushViewController:addressVC animated:YES];
+}
+
+- (void)cancelAddress:(NSString *)str {
+    NSDictionary *param = @{@"aid": str};
+    @weakify(self);
+    [AFNetworkTool postJSONWithUrl:user_addrDelete parameters:param success:^(id responseObject) {
+        @strongify(self);
         NSInteger code = [responseObject[@"code"] integerValue];
         [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
-            selfWeak.addressArrs = [NSArray yy_modelArrayWithClass:[AddressModel class] json:responseObject[@"content"]];
-            [selfWeak.adressTableview reloadData];
-        }else {
+            [self requestAddressData];
         }
     } fail:^{
         
@@ -69,12 +87,15 @@
     AddressCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AddressCell class])];
     AddressModel *model = self.addressArrs[indexPath.section];
     [cell configModel:model];
-    WeakObj(self);
+    @weakify(self);
     cell.operateAddressBlock = ^(AddressOperate operate) {
+        @strongify(self);
         if (operate == KEditCurrent) {
             AddressViewController *addressVC = [[AddressViewController alloc]init];
             addressVC.aid = model.aid;
-            [selfWeak.navigationController pushViewController:addressVC animated:YES];
+            [self.navigationController pushViewController:addressVC animated:YES];
+        }else {
+            [self cancelAddress:model.aid];
         }
     };
     return cell;
@@ -83,7 +104,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    if (self.opretorAddressBlock) {
+        self.opretorAddressBlock(self.addressArrs[indexPath.section]);
+    }
 }
 
 

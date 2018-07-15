@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^OperatorAddressBlock)(void);
 @interface AddressInfoCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *leftTitel;
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
+@property (weak, nonatomic) IBOutlet UIButton *button;
+@property (nonatomic, copy) OperatorAddressBlock operatorAddressBlock;
 
 @end
