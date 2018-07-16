@@ -10,6 +10,7 @@
 #import "ShopCartCell.h"
 #import "UploadCartViewController.h"
 #import "CartModel.h"
+#import "IndentDetailViewController.h"
 @interface ShopCartViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
     BOOL _isEdit;
@@ -22,7 +23,7 @@
 @property (nonatomic, strong) NSMutableArray *arrs;
 @property (nonatomic, assign) NSInteger page;
 @property (weak, nonatomic) IBOutlet UIView *footView;
-@property (nonatomic, strong) NSMutableArray *cartIds;
+@property (nonatomic, strong) NSMutableArray<CartModel*> *carts;
 @property (nonatomic, strong) NSMutableIndexSet *indexSets;
 @end
 
@@ -98,8 +99,12 @@
 }
 
 - (void)deleteCart {
-    if (self.cartIds.count) {
-        NSString *str = [self.cartIds componentsJoinedByString:@","];
+    if (self.carts.count) {
+        NSString *str = @"";
+        for (CartModel *cart in self.carts) {
+            str = [NSString stringWithFormat:@"%@,%@", str, cart.cart_id];
+        }
+        
         NSDictionary *param = @{@"cart_ids":str};
             @weakify(self);
         [AFNetworkTool postJSONWithUrl:shop_delCartGoods parameters:param success:^(id responseObject) {
@@ -139,8 +144,16 @@
 }
 
 - (void)startOrder {
-    UploadCartViewController *uploadVC = [[UploadCartViewController alloc]init];
-    [self.navigationController pushViewController:uploadVC animated:YES];
+//    UploadCartViewController *uploadVC = [[UploadCartViewController alloc]init];
+    NSString *str = @"";
+    IndentDetailViewController *vc = [[IndentDetailViewController alloc]init];
+    for (CartModel *cart in self.carts) {
+        str = [NSString stringWithFormat:@"%@,%@#%@", str, cart.goods_id, cart.goods_num];
+    }
+   
+    vc.goods_ids_nums = [str substringFromIndex:1];
+    vc.pay_scene = @"4";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)startEdit:(UIBarButtonItem *)item {
     if ([item.title isEqualToString:@"编辑"]) {
@@ -191,17 +204,17 @@
     cell.choseCollectBlock = ^(BOOL sel) {
         @strongify(self);
         if (sel) {
-            [self.cartIds addObject:cart.cart_id];
+            [self.carts addObject:cart];
             [self.indexSets addIndexes:[NSIndexSet indexSetWithIndex:indexPath.section]];
         }else {
-            if ([self.cartIds containsObject:cart.cart_id]) {
-                [self.cartIds removeObject:cart.cart_id];
+            if ([self.carts containsObject:cart]) {
+                [self.carts removeObject:cart];
             }
             [self.indexSets removeIndexes:[NSIndexSet indexSetWithIndex:indexPath.section]];
         }
-        self.chosNums.text = [NSString stringWithFormat:@"已选(%lu)", (unsigned long)self.cartIds.count];
+        self.chosNums.text = [NSString stringWithFormat:@"已选(%lu)", (unsigned long)self.carts.count];
         
-        if (self.cartIds.count) {
+        if (self.carts.count) {
             [self.chosBtn setImage:[UIImage imageNamed:@"icon_normal_02"] forState:UIControlStateNormal];
         }else {
             [self.chosBtn setImage:[UIImage imageNamed:@"icon_normal_01"] forState:UIControlStateNormal];
@@ -225,12 +238,13 @@
     return _arrs;
 }
 
-- (NSMutableArray *)cartIds {
-    if (!_cartIds) {
-        _cartIds = [NSMutableArray array];
+- (NSMutableArray<CartModel *> *)carts {
+    if (!_carts) {
+        _carts = [NSMutableArray array];
     }
-    return _cartIds;
+    return _carts;
 }
+
 
 - (NSMutableIndexSet *)indexSets {
     if (!_indexSets) {

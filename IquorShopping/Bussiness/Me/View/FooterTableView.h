@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^OperatorBlock)(BOOL isLeft);
 @interface FooterTableView : UIView
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
+@property (nonatomic, copy) OperatorBlock operatorBlock;
 
 @end

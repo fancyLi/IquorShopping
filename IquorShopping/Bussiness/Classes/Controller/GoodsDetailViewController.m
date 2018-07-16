@@ -100,13 +100,15 @@
     vc.goodsInfo = self.goodsDetail;
     vc.isCart = self.isCart;
     @weakify(self);
-    vc.operatorBuyBlock = ^{
+    vc.operatorBuyBlock = ^(NSString *goods_id, NSString *goods_num) {
         @strongify(self);
         //立即购买
         IndentDetailViewController *vc = [[IndentDetailViewController alloc]init];
-        vc.goods_id = self.goods_id;
+        vc.goods_ids_nums = [NSString stringWithFormat:@"%@#%@", goods_id, goods_num];
+        vc.pay_scene = @"4";
         [self.navigationController pushViewController:vc animated:YES];
     };
+   
     if ([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0) {
         vc.modalPresentationStyle=UIModalPresentationOverCurrentContext;
     }else{

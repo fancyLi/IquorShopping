@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "OrderModel.h"
+#import "IndentModel.h"
 @interface IndentDetailCell : UITableViewCell
 @property (nonatomic, strong) OrderGoods *order;
+@property (nonatomic, strong) IndentGoods *indent;
 @end
+

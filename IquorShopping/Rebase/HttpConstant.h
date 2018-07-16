@@ -98,6 +98,9 @@
 //首页优惠券
 #define index_aCouponThatCanBeReceived           @"index/aCouponThatCanBeReceived"
 
+//订单优惠券
+#define order_getOrderCoupon                     @"order/getOrderCoupon"
+
 //首页优惠券
 #define index_receiveCoupon           @"index/receiveCoupon"
 
@@ -115,6 +118,12 @@
 
 //我的评价
 #define user_goodsEvaluate                          @"user/goodsEvaluate"
+
+//我的订单
+#define user_userOrderList                          @"user/userOrderList"
+
+//订单处理
+#define user_userOrderDeal                          @"user/userOrderDeal"
 
 //产品分类
 #define shop_goodsCatList                       @"shop/goodsCatList"

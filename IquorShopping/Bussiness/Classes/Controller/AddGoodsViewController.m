@@ -67,7 +67,7 @@
     }else {
         [self dismissViewControllerAnimated:YES completion:^{
             if (self.operatorBuyBlock) {
-                self.operatorBuyBlock();
+                self.operatorBuyBlock(self.goodsInfo.goods_id, self.num.text);
             }
         }];
         

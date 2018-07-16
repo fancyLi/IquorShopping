@@ -9,10 +9,7 @@
 #import "IndentBottomCell.h"
 
 @interface IndentBottomCell ()
-@property (weak, nonatomic) IBOutlet UITextField *textview;
-@property (weak, nonatomic) IBOutlet UILabel *goodsPrice;
-@property (weak, nonatomic) IBOutlet UILabel *dicountPrice;
-@property (weak, nonatomic) IBOutlet UILabel *vipPrice;
+
 
 @end
 

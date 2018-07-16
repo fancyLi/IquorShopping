@@ -9,5 +9,5 @@
 #import "IquorViewController.h"
 
 @interface IndentListViewController : IquorViewController
-
+@property (nonatomic, copy) NSString *order_type;
 @end

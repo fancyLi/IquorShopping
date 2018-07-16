@@ -21,8 +21,9 @@
 @implementation PayKindViewController
 
 - (void)viewDidLoad {
-    self.title = @"选择付款方式";
     [super viewDidLoad];
+    self.title = @"选择付款方式";
+    self.view.backgroundColor = [UIColor c_f6f6Color];
     [self requestPay];
     [self.view addSubview:self.tableview];
     [self.view addSubview:self.sureBtn];
@@ -31,8 +32,10 @@
         make.top.left.right.equalTo(self.view);
     }];
     [self.sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view).offset(20);
+        make.left.equalTo(self.view).offset(20);
+        make.bottom.right.equalTo(self.view).offset(-20);
         make.top.equalTo(self.tableview.mas_bottom);
+        make.height.equalTo(@45);
     }];
     // Do any additional setup after loading the view.
 }
@@ -43,6 +46,7 @@
     }else {
         [Dialog popTextAnimation:@"请选择付款方式"];
     }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)requestPay {
     @weakify(self);
@@ -65,6 +69,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BaoTableViewCell class])];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     OrderPay *pay = self.arr[indexPath.row];
     [cell.icon sd_setImageWithURL:[NSURL URLWithString:pay.pic]];
     cell.name.text = pay.type_name;
@@ -95,6 +100,8 @@
         _tableview = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableview.dataSource = self;
         _tableview.delegate = self;
+        _tableview.rowHeight = 45;
+        _tableview.backgroundColor = [UIColor c_f6f6Color];
         _tableview.tableFooterView = [UIView new];
         [_tableview registerNib:[UINib nibWithNibName:@"BaoTableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([BaoTableViewCell class])];
     }

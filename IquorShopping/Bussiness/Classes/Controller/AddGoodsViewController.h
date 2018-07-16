@@ -9,7 +9,7 @@
 #import "IquorViewController.h"
 #import "GoodsInfoModel.h"
 
-typedef void (^OperatorBuyBlock)(void);
+typedef void (^OperatorBuyBlock)(NSString *goods_id, NSString *goods_num);
 @interface AddGoodsViewController : IquorViewController
 @property (nonatomic, strong) GoodsInfoModel *goodsInfo;
 @property (nonatomic, assign) BOOL isCart;

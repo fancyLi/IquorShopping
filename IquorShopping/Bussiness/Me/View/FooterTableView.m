@@ -19,12 +19,16 @@
     
     self.rightBtn.layer.cornerRadius = 5;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (IBAction)leftClick:(UIButton *)sender {
+    if (self.operatorBlock) {
+        self.operatorBlock(YES);
+    }
 }
-*/
+- (IBAction)rightClick:(UIButton *)sender {
+    if (self.operatorBlock) {
+        self.operatorBlock(NO);
+    }
+}
+
 
 @end

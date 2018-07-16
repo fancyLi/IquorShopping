@@ -13,9 +13,13 @@
 #import "OrderModel.h"
 #import "PayKindViewController.h"
 #import "AdressListViewController.h"
+#import "OrderDisViewController.h"
+#import "OrderResult.h"
+#import "endOrderViewController.h"
 @interface IndentDetailViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *nameConnect;
 @property (weak, nonatomic) IBOutlet UILabel *address;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UITableView *detailTable;
 @property (weak, nonatomic) IBOutlet UILabel *yzf;
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
@@ -28,6 +32,11 @@
 @property (nonatomic, copy) NSString *payType;
 @property (weak, nonatomic) IBOutlet UIView *addressCon;
 
+@property (nonatomic, strong) OrderResult *endOrder;
+@property (nonatomic, copy) NSString *order_amount;
+@property (nonatomic, copy) NSString *discount_money;
+@property (nonatomic, copy) NSString *order_total;
+@property (nonatomic, copy) NSString *goods_num;
 @end
 
 @implementation IndentDetailViewController
@@ -43,7 +52,9 @@
     
 }
 
-- (void)showAdress {
+- (void)configOrder {
+    self.detailTable.hidden = NO;
+    self.bottomView.hidden = NO;
     if (self.order.addr.aid) {
         self.addAdree.hidden = YES;
         self.nameConnect.hidden = NO;
@@ -58,6 +69,40 @@
         self.address.hidden = YES;
         self.leftIcon.hidden = YES;
     }
+    //订单总额
+    CGFloat num = 0.00;
+    int all_num = 0;
+    for (OrderGoods *order in self.order.goods_list) {
+        int goods_num = order.goods_num.intValue;
+        all_num += goods_num;
+        CGFloat goods_price = order.goods_price.floatValue;
+        num += goods_num*goods_price;
+        
+    }
+    self.goods_num = [NSString stringWithFormat:@"%i", all_num];
+    self.order_amount = [NSString stringWithFormat:@"%.2f", num];
+    
+    IndentBottomCell *cell = [self.detailTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+    cell.goodsPrice.text = [NSString stringWithFormat:@"￥%.2f",num];
+    
+    //折扣
+    if (self.order.is_discount.intValue == 1) {
+        self.discount_money = [NSString stringWithFormat:@"%.2f", self.order.discount.floatValue/10];
+        cell.vipPrice.text = [NSString stringWithFormat:@"-￥%.2f", self.order.discount.floatValue/10];
+    }else {
+        self.discount_money = @"0.00";
+    }
+    if (self.order.coupon.count) {
+        Coupon *coupon = self.order.coupon.firstObject;
+        self.ucid = coupon.ucid;
+        cell.dicountPrice.text = [NSString stringWithFormat:@"-￥%@", coupon.money];
+    }else {
+        self.ucid = @"";
+    }
+    
+    CGFloat order_total = num-self.discount_money.floatValue-cell.dicountPrice.text.floatValue;
+    self.order_total = [NSString stringWithFormat:@"%.2f", order_total];
+    self.yzf.text = [NSString stringWithFormat:@"应支付：￥%.2f", order_total];
 }
 
 - (void)configUI {
@@ -93,35 +138,48 @@
 }
 - (void)requestOrder {
     @weakify(self);
-    NSDictionary *param = @{@"goods_ids":@"1", @"addr_id":[UIUtils isNullOrEmpty:self.addr_id]?@"":self.addr_id, @"ucid":[UIUtils isNullOrEmpty:self.ucid]?@"":self.ucid};
+    NSDictionary *param = @{@"goods_ids_nums":self.goods_ids_nums, @"addr_id":[UIUtils isNullOrEmpty:self.addr_id]?@"":self.addr_id, @"ucid":[UIUtils isNullOrEmpty:self.ucid]?@"":self.ucid};
     [AFNetworkTool postJSONWithUrl:order_beforeSubOrder parameters:param success:^(id responseObject) {
         @strongify(self);
         NSInteger code = [responseObject[@"code"] integerValue];
         if (code == 200) {
             self.order = [OrderModel yy_modelWithDictionary:responseObject[@"content"]];
-            [self showAdress];
+            [self configOrder];
             [self.detailTable reloadData];
         }
+    } fail:^{
+        
+    }];
+}
+- (IBAction)submitOrder:(UIButton *)sender {
+    IndentBottomCell *cell = [self.detailTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+    @weakify(self);
+    NSDictionary *param = @{@"pay_type":@"3",
+                            @"pay_scene":self.pay_scene,
+                            @"order_type":@"1",
+                            @"addr_id":self.order.addr.aid,
+                            @"goods_ids_nums":self.goods_ids_nums,
+                            @"goods_num":self.goods_num,
+                            @"ucid":self.ucid,
+                            @"discount_money":self.discount_money,
+                            @"order_total":self.order_total,
+                            @"message":cell.textview.text};
+    [AFNetworkTool postJSONWithUrl:pay_requestPayment parameters:param success:^(id responseObject) {
+        @strongify(self);
+        NSInteger code = [responseObject[@"code"] integerValue];
+        [Dialog popTextAnimation:responseObject[@"message"]];
+        endOrderViewController *vc = [[endOrderViewController alloc]init];
+        if (code == 200) {
+            vc.endOrder = [OrderResult yy_modelWithDictionary:responseObject[@"content"]];
+        }
+        vc.order = self.order;
+        [self.navigationController pushViewController:vc animated:YES];
     } fail:^{
         
     }];
 }
 
-- (void)submitOrder {
-    @weakify(self);
-    NSDictionary *param = @{@"pay_type":@"1", @"pay_scene":@"", @"addr_id":@"", @"goods_ids":@"",@"cart_ids":@"", @"goods_num":@"", @"ucid":@"", @"discount_money":@"", @"order_total":@""};
-    [AFNetworkTool postJSONWithUrl:pay_requestPayment parameters:param success:^(id responseObject) {
-        @strongify(self);
-        NSInteger code = [responseObject[@"code"] integerValue];
-        if (code == 200) {
-            self.order = [OrderModel yy_modelWithDictionary:responseObject[@"content"]];
-            [self showAdress];
-            [self.detailTable reloadData];
-        }
-    } fail:^{
-        
-    }];
-}
+
 #pragma mark
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
@@ -164,6 +222,7 @@
         return cell;
     }else if (indexPath.section == 1) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         if (indexPath.row == 0) {
             cell.textLabel.text = @"支付方式";
         }else {
@@ -172,6 +231,7 @@
         return cell;
     }else {
         IndentBottomCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([IndentBottomCell class])];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
 }
@@ -189,7 +249,13 @@
         };
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 1) {
-        
+        OrderDisViewController *vc = [[OrderDisViewController alloc]init];
+        vc.order_amount = self.order_amount;
+        vc.operatorOrderBlock = ^(DiscountModel *discount) {
+            self.ucid = discount.ucid;
+            [self requestOrder];
+        };
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 @end
