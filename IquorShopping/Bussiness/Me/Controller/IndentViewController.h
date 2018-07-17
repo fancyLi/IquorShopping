@@ -9,5 +9,5 @@
 #import "IquorViewController.h"
 
 @interface IndentViewController : IquorViewController
-
+@property (nonatomic, assign) int curIndex;
 @end

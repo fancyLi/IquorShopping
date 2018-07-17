@@ -115,7 +115,6 @@
 		08676F4420B6FBB000F870B9 /* ShopNewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F4220B6FBB000F870B9 /* ShopNewCell.m */; };
 		08676F4520B6FBB000F870B9 /* ShopNewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08676F4320B6FBB000F870B9 /* ShopNewCell.xib */; };
 		086AF78420F07D70002A0385 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF78320F07D70002A0385 /* CommentModel.m */; };
-		086AF78720F0815F002A0385 /* DetailTableFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF78620F0815F002A0385 /* DetailTableFooter.m */; };
 		086AF78A20F088FA002A0385 /* DetailPageFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF78920F088FA002A0385 /* DetailPageFooter.m */; };
 		086AF78C20F08906002A0385 /* DetailPageFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086AF78B20F08906002A0385 /* DetailPageFooter.xib */; };
 		086AF78F20F08B08002A0385 /* IquorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF78E20F08B08002A0385 /* IquorButton.m */; };
@@ -461,8 +460,6 @@
 		08676F4320B6FBB000F870B9 /* ShopNewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopNewCell.xib; sourceTree = "<group>"; };
 		086AF78220F07D6F002A0385 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		086AF78320F07D70002A0385 /* CommentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
-		086AF78520F0815F002A0385 /* DetailTableFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailTableFooter.h; sourceTree = "<group>"; };
-		086AF78620F0815F002A0385 /* DetailTableFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailTableFooter.m; sourceTree = "<group>"; };
 		086AF78820F088FA002A0385 /* DetailPageFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailPageFooter.h; sourceTree = "<group>"; };
 		086AF78920F088FA002A0385 /* DetailPageFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailPageFooter.m; sourceTree = "<group>"; };
 		086AF78B20F08906002A0385 /* DetailPageFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPageFooter.xib; sourceTree = "<group>"; };
@@ -999,8 +996,6 @@
 				0898C38B20AF226F00664482 /* AssessCell.h */,
 				0898C38C20AF226F00664482 /* AssessCell.m */,
 				0898C38D20AF226F00664482 /* AssessCell.xib */,
-				086AF78520F0815F002A0385 /* DetailTableFooter.h */,
-				086AF78620F0815F002A0385 /* DetailTableFooter.m */,
 				086AF78820F088FA002A0385 /* DetailPageFooter.h */,
 				086AF78920F088FA002A0385 /* DetailPageFooter.m */,
 				086AF78B20F08906002A0385 /* DetailPageFooter.xib */,
@@ -1939,7 +1934,6 @@
 				0848C18220F8CA3900A9963E /* BankNewViewController.m in Sources */,
 				08B866A620E128E700F73677 /* SearchViewController.m in Sources */,
 				08676F4420B6FBB000F870B9 /* ShopNewCell.m in Sources */,
-				086AF78720F0815F002A0385 /* DetailTableFooter.m in Sources */,
 				0847F1B220AB095400BEF0F6 /* IndentSectionView.m in Sources */,
 				0880524A20A2EB730018AE6E /* AFNetworkTool.m in Sources */,
 				08B8671A20EB71AF00F73677 /* WMPageController.m in Sources */,

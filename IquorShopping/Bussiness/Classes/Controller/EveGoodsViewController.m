@@ -9,9 +9,12 @@
 #import "EveGoodsViewController.h"
 #import "IndentModel.h"
 #import "EveGoodsTableCell.h"
+#import "EveGoodsView.h"
 @interface EveGoodsViewController ()<UITableViewDataSource, UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (nonatomic, strong) IndentModel *indent;
+@property (nonatomic, assign) NSInteger curEve;
 
 @end
 
@@ -20,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"评价";
+    self.curEve = -1;
     [self requestOrderInfo];
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
@@ -47,8 +51,22 @@
     return 5;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == self.curEve) {
+        return 350;
+    }
     return 0.1;
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (self.curEve == section) {
+        EveGoodsView *eveGoodsView = [[NSBundle mainBundle] loadNibNamed:@"EveGoodsView" owner:self options:nil].firstObject;
+        eveGoodsView.goods_id = self.indent.goods_list[section].goods_id;
+        eveGoodsView.order_id = self.indent.order_info.order_id;
+        return eveGoodsView;
+    }
+    return nil;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.indent.goods_list.count;
 }
@@ -58,12 +76,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     EveGoodsTableCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([EveGoodsTableCell class])];
     [cell configCell:self.indent.goods_list[indexPath.section] orderInfo:self.indent.order_info];
+    @weakify(self);
+    cell.operatorCellBlock = ^{
+        @strongify(self);
+        self.curEve = indexPath.section;
+        [self.tableview reloadData];
+    };
     return cell;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 

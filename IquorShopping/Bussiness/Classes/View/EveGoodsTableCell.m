@@ -37,11 +37,12 @@
         self.operator.enabled = NO;
     }
 }
-- (void)setIndentGoods:(IndentGoods *)indentGoods {
-    
-}
+
 
 - (IBAction)startEve:(UIButton *)sender {
+    if (self.operatorCellBlock) {
+        self.operatorCellBlock();
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

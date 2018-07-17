@@ -22,7 +22,7 @@
 
 - (void)setCellModel:(MeConfigModel *)cellModel {
     self.icon.image = [UIImage imageNamed:cellModel.iconName];
-    self.title.text = cellModel.decTitle;
+    self.title.text = cellModel.dec;
 }
 
 @end

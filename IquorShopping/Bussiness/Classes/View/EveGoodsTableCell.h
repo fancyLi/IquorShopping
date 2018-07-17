@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "IndentModel.h"
+typedef void (^OperatorCellBlock)(void);
 @interface EveGoodsTableCell : UITableViewCell
-
+@property (nonatomic, copy) OperatorCellBlock operatorCellBlock;
 - (void)configCell:(IndentGoods *)indentGoods orderInfo:(OrderInfo *)order;
 
 @end

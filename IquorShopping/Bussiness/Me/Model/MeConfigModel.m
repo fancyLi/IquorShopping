@@ -21,7 +21,7 @@
     self = [super init];
     if (self) {
         self.iconName = ic;
-        self.decTitle = dec;
+        self.dec = dec;
         self.className = cla;
     }
     return self;

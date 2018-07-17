@@ -10,7 +10,7 @@
 
 @interface MeConfigModel : NSObject
 @property (nonatomic, copy) NSString *iconName;
-@property (nonatomic, copy) NSString *decTitle;
+@property (nonatomic, copy) NSString *dec;
 @property (nonatomic, copy) NSString *className;
 
 @property (nonatomic, strong) NSArray *configModels;

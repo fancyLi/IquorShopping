@@ -12,6 +12,11 @@
 
 @end
 @implementation MeCollectionReusableView
+- (IBAction)buttonClick:(id)sender {
+    if (self.operatorCellBlock) {
+        self.operatorCellBlock();
+    }
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

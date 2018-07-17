@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="MeCollectionReusableView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
@@ -39,6 +39,9 @@
                     <state key="normal" title="查看全部订单">
                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="tq4-l8-QLx"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dg8-1m-vnO">
                     <rect key="frame" x="5" y="49" width="315" height="1"/>
@@ -63,6 +66,10 @@
                 <constraint firstItem="9Gg-ye-v9C" firstAttribute="trailing" secondItem="DtN-6I-O8Z" secondAttribute="trailing" constant="5" id="yHW-PB-B5Q"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="9Gg-ye-v9C"/>
+            <connections>
+                <outlet property="button" destination="iV4-8Z-CBz" id="513-Cr-IkH"/>
+                <outlet property="indicate" destination="DtN-6I-O8Z" id="tgY-pA-gjg"/>
+            </connections>
             <point key="canvasLocation" x="45" y="104"/>
         </collectionReusableView>
     </objects>

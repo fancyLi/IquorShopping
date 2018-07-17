@@ -142,6 +142,12 @@
 //单个商品评价
 #define shop_goodsComment                       @"shop/goodsComment"
 
+//商品评价上传图片
+#define user_uploadCommentFile                  @"user/uploadCommentFile"
+
+//商品评价-提交
+#define user_addGoodsComment                    @"user/addGoodsComment"
+
 //加入购物车
 #define shop_addToCart                          @"shop/addToCart"
 

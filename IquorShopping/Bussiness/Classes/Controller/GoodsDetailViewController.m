@@ -11,7 +11,6 @@
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "IndentDetailViewController.h"
 #import "DetailTableHeader.h"
-#import "DetailTableFooter.h"
 #import "DetailPageFooter.h"
 #import "MeSectionTableView.h"
 #import "GoodsInfoModel.h"
@@ -20,7 +19,6 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) DetailTableHeader *tableHead;
-@property (nonatomic, strong) DetailTableFooter *tableFooter;
 @property (nonatomic, strong) DetailPageFooter *pageFooter;
 @property (nonatomic, strong) GoodsInfoModel *goodsDetail;
 @property (nonatomic, strong) UIWebView *webview;
@@ -54,9 +52,7 @@
     [AFNetworkTool postJSONWithUrl:goods_detail_url parameters:param success:^(id responseObject) {
         
         @strongify(self);
-        NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
-        
+        NSInteger code = [responseObject[@"code"] integerValue];        
         if (code == 200) {
             GoodsInfoModel *model = [GoodsInfoModel yy_modelWithDictionary:responseObject[@"content"]];
             self.tableHead.goodsInfo = model;
@@ -228,19 +224,6 @@
     return _tableHead;
 }
 
-- (DetailTableFooter *)tableFooter {
-    if (!_tableFooter) {
-        _tableFooter = [[DetailTableFooter alloc]initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 200)];
-        @weakify(self);
-        _tableFooter.footerBlock = ^(CGFloat height) {
-            @strongify(self);
-            [self.tableView beginUpdates];
-            [self.tableView setTableFooterView:self->_tableFooter];
-            [self.tableView endUpdates];
-        };
-    }
-    return _tableFooter;
-}
 
 - (UIWebView *)webview {
     if (!_webview) {

@@ -21,7 +21,7 @@
     [super viewDidLoad];
    
     self.title = @"我的订单";
-    
+    self.pageController.selectIndex = self.curIndex;
     [self.view addSubview:self.pageController.view];
     [self addChildViewController:self.pageController];
 }

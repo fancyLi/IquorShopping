@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^OperatorCellBlock)(void);
 @interface MeCollectionReusableView : UICollectionReusableView
-
+@property (nonatomic, copy) OperatorCellBlock operatorCellBlock;
+@property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet UIImageView *indicate;
 
 @end
 

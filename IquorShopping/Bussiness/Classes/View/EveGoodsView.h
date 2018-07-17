@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EveGoodsView : UIView
-
+@property (nonatomic, copy) NSString *order_id;
+@property (nonatomic, copy) NSString *goods_id;
 @end

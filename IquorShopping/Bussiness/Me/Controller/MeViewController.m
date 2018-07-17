@@ -14,6 +14,7 @@
 #import "MeConfigModel.h"
 #import "MeCollectionReusableView.h"
 #import "MePageCollectionViewCell.h"
+#import "IndentViewController.h"
 @interface MeViewController ()< UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 @property (nonatomic, strong) MeHeaderTableView *configView;
 @property (nonatomic, strong) MeConfigModel *configModel;
@@ -95,6 +96,16 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if (kind == UICollectionElementKindSectionHeader) {
         MeCollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass([MeCollectionReusableView class]) forIndexPath:indexPath];
+        if (indexPath.section == 0) {
+            view.button.hidden = NO;
+            view.indicate.hidden = NO;
+            @weakify(self);
+            view.operatorCellBlock = ^{
+                @strongify(self);
+                IndentViewController *vc = [[IndentViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            };
+        }
         return view;
     }
     return nil;
@@ -122,8 +133,23 @@
         }else {
             Class cls = NSClassFromString(cm.className);
             UIViewController *vc = [[cls alloc]init];
-            vc.title = cm.decTitle;
-            [self.navigationController pushViewController:vc animated:YES];
+            if ([vc isKindOfClass:[IndentViewController class]]) {
+                IndentViewController *indentVC = (IndentViewController*)vc;
+                if ([cm.dec isEqualToString:@"待付款"]) {
+                    indentVC.curIndex = 1;
+                }else if ([cm.dec isEqualToString:@"待发货"]) {
+                    indentVC.curIndex = 2;
+                }else if ([cm.dec isEqualToString:@"待收货"]) {
+                    indentVC.curIndex = 3;
+                }else if ([cm.dec isEqualToString:@"待评价"]) {
+                    indentVC.curIndex = 4;
+                }
+                indentVC.title = cm.dec;
+                [self.navigationController pushViewController:indentVC animated:YES];
+            }else {
+                vc.title = cm.dec;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
         }
         
     }

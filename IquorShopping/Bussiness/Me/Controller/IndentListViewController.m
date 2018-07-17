@@ -74,7 +74,7 @@
             }else {
                 [Dialog popTextAnimation:@"没有下一页了"];
             }
-            
+            [self.indentTable setTableBgViewWithCount:self.arrs.count img:@"icon_none_02" msg:@"还没有订单哦"];
             
         }else {
         }
@@ -174,8 +174,8 @@
         };
     }else if (indent.act.intValue>4) {
         [footView.leftBtn setTitle:@"删除订单" forState:UIControlStateNormal];
-        [footView.rightBtn setTitle:@"评价" forState:UIControlStateNormal];
-        footView.rightBtn.backgroundColor = [UIColor c_f6f6Color];
+        [footView.rightBtn setTitle:@"已评价" forState:UIControlStateNormal];
+        footView.rightBtn.backgroundColor = UIColorFromRGB(0xC7C7C7);
         footView.rightBtn.enabled = NO;
         footView.operatorBlock = ^(BOOL isLeft) {
             @strongify(self);

@@ -25,7 +25,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor whiteColor];
+//        self.backgroundColor = [UIColor whiteColor];
         _isURL = YES;
         kPicWH = ([UIScreen mainScreen].bounds.size.width-50)/4;
         kPicSpace = 10;
