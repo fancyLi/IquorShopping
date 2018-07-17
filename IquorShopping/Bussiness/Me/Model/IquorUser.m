@@ -29,5 +29,9 @@ static IquorUser *_user;
     self.user_tel = dict[@"user_tel"];
     self.nick_name = dict[@"nick_name"];
     self.user_code = dict[@"user_code"];
+    self.user_name = dict[@"uid"];
+    self.nick_name = dict[@"level"];
+    self.user_code = dict[@"level_name"];
+    self.user_code = dict[@"service_number"];
 }
 @end

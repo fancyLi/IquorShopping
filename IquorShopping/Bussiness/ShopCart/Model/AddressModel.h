@@ -23,4 +23,6 @@
 @property (nonatomic, copy) NSString *province;
 @property (nonatomic, copy) NSString *province_name;
 @property (nonatomic, copy) NSString *uid;
+@property (nonatomic, copy) NSString *order_id;
+@property (nonatomic, copy) NSString *addr_id;
 @end

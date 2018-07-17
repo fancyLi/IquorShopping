@@ -9,7 +9,12 @@
 #import "MeHeaderTableView.h"
 #import "MeInfoViewController.h"
 #import "UIControl+IquorArea.h"
-@interface MeHeaderTableView ()
+#import "MeCollectionCell.h"
+#import "VIPLevelViewController.h"
+@interface MeHeaderTableView ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+{
+    NSInteger cor;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *userHeader;
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;
 @property (weak, nonatomic) IBOutlet UIButton *startLoginBtn;
@@ -19,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightLayout;
 @property (weak, nonatomic) IBOutlet UIButton *meInfoBtn;
+@property (nonatomic, strong) NSMutableArray *arrs;
 
 
 @end
@@ -31,21 +37,52 @@
     self.userHeader.layer.cornerRadius = 32;
     self.userHeader.clipsToBounds = YES;
     [self.meInfoBtn setEnlargeEdge:20];
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    flowLayout.minimumLineSpacing = 20;
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.sectionInset = UIEdgeInsetsMake(0, 20, 0, 0);
+    flowLayout.itemSize = CGSizeMake(kMainScreenWidth-80, 60);
+    self.collectionView.collectionViewLayout = flowLayout;
+    [self.collectionView registerNib:[UINib nibWithNibName:@"MeCollectionCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([MeCollectionCell class])];
     
 }
-
+- (NSString *)getVIPLever:(NSInteger)lever {
+    return [NSString stringWithFormat:@"%ld级会员", (long)lever];
+}
 - (void)setIsfresh:(BOOL)isfresh {
     _isfresh = isfresh;
     IquorUser *user = [IquorUser shareIquorUser];
     if (user.user_tel) {
         self.startLoginBtn.hidden = YES;
+        self.vipDes.hidden = NO;
+        self.nikeName.hidden = NO;
+        self.agentDes.hidden = NO;
         self.nikeName.text = user.nick_name;
         [self.userHeader sd_setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:[UIImage imageNamed:@"icon_head_01"]];
+        self.vipDes.text = [NSString stringWithFormat:@"会员级别：%@", [self getVIPLever:user.level.integerValue]];
+        self.agentDes.text = user.level_name;
         
     }else {
-        self.nikeName.hidden = YES;
         self.startLoginBtn.hidden = NO;
+        self.nikeName.hidden = YES;
+        self.vipDes.hidden = YES;
+        self.agentDes.hidden = YES;
     }
+   
+    if (user.level.intValue <= 3) {
+        cor = 2;
+        self.collectionView.hidden = NO;
+    }else if (user.level.intValue == 4) {
+        cor = 1;
+        self.collectionView.hidden = NO;
+    }else {
+        cor = 0;
+        self.collectionView.hidden = YES;
+    }
+    [self.collectionView reloadData];
 }
 - (IBAction)loginClick:(id)sender {
     if (self.clickButtonBlock) {
@@ -70,5 +107,39 @@
     }
 }
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return cor;
+}
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    MeCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([MeCollectionCell class]) forIndexPath:indexPath];
+    if (indexPath.item == 0) {
+        cell.title.text = @"加入会员  福利多多";
+        cell.subTitle.text = @"不同会员等级享受不等的商品折扣";
+        cell.container.backgroundColor = UIColorFromRGB(0xcbcbcb);
+        
+        cell.operatorCellBlock = ^{
+            VIPLevelViewController *vc = [[VIPLevelViewController alloc]init];
+            [NSObject.getCurrentVC.navigationController pushViewController:vc animated:YES];
+        };
+        
+    }else {
+        cell.title.text = @"成为经销商";
+        cell.subTitle.text = @"成为经销商";
+        [cell.operatorBtn setTitle:@"立即加盟" forState:UIControlStateNormal];
+        cell.container.backgroundColor = UIColorFromRGB(0xd39b66);
+        cell.operatorCellBlock = ^{
+            NSObject.getCurrentVC.tabBarController.selectedIndex = 1;
+            
+        };
+    }
+    return cell;
+}
+
+- (NSMutableArray *)arrs {
+    if (!_arrs) {
+        _arrs = [NSMutableArray array];
+    }
+    return _arrs;
+}
 
 @end

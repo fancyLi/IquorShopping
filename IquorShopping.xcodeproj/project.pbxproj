@@ -88,6 +88,19 @@
 		0848C1D520FCF6F000A9963E /* IndentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C1D420FCF6F000A9963E /* IndentModel.m */; };
 		0848C1D820FCFA5000A9963E /* HeaderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C1D720FCFA5000A9963E /* HeaderTableView.m */; };
 		0848C1DA20FCFA5B00A9963E /* HeaderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0848C1D920FCFA5B00A9963E /* HeaderTableView.xib */; };
+		0848C1E720FE0B9400A9963E /* MeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C1E520FE0B9400A9963E /* MeCollectionCell.m */; };
+		0848C1E820FE0B9400A9963E /* MeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0848C1E620FE0B9400A9963E /* MeCollectionCell.xib */; };
+		0848C1EB20FE16A400A9963E /* UserVIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C1EA20FE16A400A9963E /* UserVIP.m */; };
+		0848C1F220FE17AD00A9963E /* VIPLevelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C1F020FE17AD00A9963E /* VIPLevelCell.m */; };
+		0848C1F320FE17AD00A9963E /* VIPLevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0848C1F120FE17AD00A9963E /* VIPLevelCell.xib */; };
+		0848C1F720FE192800A9963E /* VIPLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C1F520FE192800A9963E /* VIPLevelViewController.m */; };
+		0848C1F820FE192800A9963E /* VIPLevelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0848C1F620FE192800A9963E /* VIPLevelViewController.xib */; };
+		0848C1FC20FE38D000A9963E /* EveGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C1FA20FE38D000A9963E /* EveGoodsViewController.m */; };
+		0848C1FD20FE38D000A9963E /* EveGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0848C1FB20FE38D000A9963E /* EveGoodsViewController.xib */; };
+		0848C20420FE3CE100A9963E /* EveGoodsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C20220FE3CE100A9963E /* EveGoodsTableCell.m */; };
+		0848C20520FE3CE100A9963E /* EveGoodsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0848C20320FE3CE100A9963E /* EveGoodsTableCell.xib */; };
+		0848C20820FE439A00A9963E /* EveGoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C20720FE439A00A9963E /* EveGoodsView.m */; };
+		0848C20A20FE43B600A9963E /* EveGoodsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0848C20920FE43B600A9963E /* EveGoodsView.xib */; };
 		08676F2820B6E59D00F870B9 /* MeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F2620B6E59D00F870B9 /* MeHeaderCell.m */; };
 		08676F2920B6E59D00F870B9 /* MeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08676F2720B6E59D00F870B9 /* MeHeaderCell.xib */; };
 		08676F2D20B6E65300F870B9 /* MeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F2B20B6E65300F870B9 /* MeInfoViewController.m */; };
@@ -406,6 +419,26 @@
 		0848C1D620FCFA5000A9963E /* HeaderTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderTableView.h; sourceTree = "<group>"; };
 		0848C1D720FCFA5000A9963E /* HeaderTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderTableView.m; sourceTree = "<group>"; };
 		0848C1D920FCFA5B00A9963E /* HeaderTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableView.xib; sourceTree = "<group>"; };
+		0848C1E420FE0B9400A9963E /* MeCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeCollectionCell.h; sourceTree = "<group>"; };
+		0848C1E520FE0B9400A9963E /* MeCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeCollectionCell.m; sourceTree = "<group>"; };
+		0848C1E620FE0B9400A9963E /* MeCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeCollectionCell.xib; sourceTree = "<group>"; };
+		0848C1E920FE16A400A9963E /* UserVIP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserVIP.h; sourceTree = "<group>"; };
+		0848C1EA20FE16A400A9963E /* UserVIP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserVIP.m; sourceTree = "<group>"; };
+		0848C1EF20FE17AD00A9963E /* VIPLevelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VIPLevelCell.h; sourceTree = "<group>"; };
+		0848C1F020FE17AD00A9963E /* VIPLevelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VIPLevelCell.m; sourceTree = "<group>"; };
+		0848C1F120FE17AD00A9963E /* VIPLevelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VIPLevelCell.xib; sourceTree = "<group>"; };
+		0848C1F420FE192800A9963E /* VIPLevelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VIPLevelViewController.h; sourceTree = "<group>"; };
+		0848C1F520FE192800A9963E /* VIPLevelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VIPLevelViewController.m; sourceTree = "<group>"; };
+		0848C1F620FE192800A9963E /* VIPLevelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VIPLevelViewController.xib; sourceTree = "<group>"; };
+		0848C1F920FE38D000A9963E /* EveGoodsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EveGoodsViewController.h; sourceTree = "<group>"; };
+		0848C1FA20FE38D000A9963E /* EveGoodsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EveGoodsViewController.m; sourceTree = "<group>"; };
+		0848C1FB20FE38D000A9963E /* EveGoodsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EveGoodsViewController.xib; sourceTree = "<group>"; };
+		0848C20120FE3CE100A9963E /* EveGoodsTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EveGoodsTableCell.h; sourceTree = "<group>"; };
+		0848C20220FE3CE100A9963E /* EveGoodsTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EveGoodsTableCell.m; sourceTree = "<group>"; };
+		0848C20320FE3CE100A9963E /* EveGoodsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EveGoodsTableCell.xib; sourceTree = "<group>"; };
+		0848C20620FE439A00A9963E /* EveGoodsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EveGoodsView.h; sourceTree = "<group>"; };
+		0848C20720FE439A00A9963E /* EveGoodsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EveGoodsView.m; sourceTree = "<group>"; };
+		0848C20920FE43B600A9963E /* EveGoodsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EveGoodsView.xib; sourceTree = "<group>"; };
 		08676F2520B6E59D00F870B9 /* MeHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeHeaderCell.h; sourceTree = "<group>"; };
 		08676F2620B6E59D00F870B9 /* MeHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeHeaderCell.m; sourceTree = "<group>"; };
 		08676F2720B6E59D00F870B9 /* MeHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHeaderCell.xib; sourceTree = "<group>"; };
@@ -916,6 +949,9 @@
 				0848C1C920FCD6B600A9963E /* endOrderViewController.h */,
 				0848C1CA20FCD6B600A9963E /* endOrderViewController.m */,
 				0848C1CB20FCD6B600A9963E /* endOrderViewController.xib */,
+				0848C1F920FE38D000A9963E /* EveGoodsViewController.h */,
+				0848C1FA20FE38D000A9963E /* EveGoodsViewController.m */,
+				0848C1FB20FE38D000A9963E /* EveGoodsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -974,6 +1010,12 @@
 				0848C1CE20FCE92300A9963E /* OrderDisCell.h */,
 				0848C1CF20FCE92300A9963E /* OrderDisCell.m */,
 				0848C1D020FCE92300A9963E /* OrderDisCell.xib */,
+				0848C20120FE3CE100A9963E /* EveGoodsTableCell.h */,
+				0848C20220FE3CE100A9963E /* EveGoodsTableCell.m */,
+				0848C20320FE3CE100A9963E /* EveGoodsTableCell.xib */,
+				0848C20620FE439A00A9963E /* EveGoodsView.h */,
+				0848C20720FE439A00A9963E /* EveGoodsView.m */,
+				0848C20920FE43B600A9963E /* EveGoodsView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1197,6 +1239,9 @@
 				0848C18520F8CD4000A9963E /* BankInfoViewController.m */,
 				0848C18D20F8E1DE00A9963E /* BankUserViewController.h */,
 				0848C18E20F8E1DE00A9963E /* BankUserViewController.m */,
+				0848C1F420FE192800A9963E /* VIPLevelViewController.h */,
+				0848C1F520FE192800A9963E /* VIPLevelViewController.m */,
+				0848C1F620FE192800A9963E /* VIPLevelViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1222,6 +1267,8 @@
 				0848C18B20F8D93A00A9963E /* BlanceBeforeModel.m */,
 				0848C1D320FCF6F000A9963E /* IndentModel.h */,
 				0848C1D420FCF6F000A9963E /* IndentModel.m */,
+				0848C1E920FE16A400A9963E /* UserVIP.h */,
+				0848C1EA20FE16A400A9963E /* UserVIP.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1231,6 +1278,9 @@
 			children = (
 				088052BB20A9BF360018AE6E /* MeHeaderTableView.h */,
 				088052BC20A9BF360018AE6E /* MeHeaderTableView.m */,
+				0848C1E420FE0B9400A9963E /* MeCollectionCell.h */,
+				0848C1E520FE0B9400A9963E /* MeCollectionCell.m */,
+				0848C1E620FE0B9400A9963E /* MeCollectionCell.xib */,
 				088052BE20A9BF420018AE6E /* MeHeaderTableView.xib */,
 				088052C020A9C49C0018AE6E /* MeSectionTableView.h */,
 				088052C120A9C49C0018AE6E /* MeSectionTableView.m */,
@@ -1283,6 +1333,9 @@
 				0848C19020F8E2A900A9963E /* BankUserCell.h */,
 				0848C19120F8E2A900A9963E /* BankUserCell.m */,
 				0848C19220F8E2A900A9963E /* BankUserCell.xib */,
+				0848C1EF20FE17AD00A9963E /* VIPLevelCell.h */,
+				0848C1F020FE17AD00A9963E /* VIPLevelCell.m */,
+				0848C1F120FE17AD00A9963E /* VIPLevelCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1615,7 +1668,9 @@
 			files = (
 				0806499320C6AA60003B155F /* AddressViewController.xib in Resources */,
 				0898C38220AF15E700664482 /* NavDetailBar.xib in Resources */,
+				0848C20520FE3CE100A9963E /* EveGoodsTableCell.xib in Resources */,
 				0898C38F20AF226F00664482 /* AssessCell.xib in Resources */,
+				0848C1F820FE192800A9963E /* VIPLevelViewController.xib in Resources */,
 				0898C31720ADB57800664482 /* StartViewController.xib in Resources */,
 				0848C1CD20FCD6B600A9963E /* endOrderViewController.xib in Resources */,
 				08FBE78820AC73F800B507DB /* EvaSucViewController.xib in Resources */,
@@ -1624,6 +1679,7 @@
 				0880527120A33F960018AE6E /* LoginViewController.xib in Resources */,
 				0847F1C320AB0C4400BEF0F6 /* IndentBottomCell.xib in Resources */,
 				0848C17E20F8C63F00A9963E /* BaoCouViewController.xib in Resources */,
+				0848C1E820FE0B9400A9963E /* MeCollectionCell.xib in Resources */,
 				086AF8E620F7A4E8002A0385 /* BaoTableViewCell.xib in Resources */,
 				088052A220A354950018AE6E /* SetViewController.xib in Resources */,
 				0898C30820AC7F1A00664482 /* JoinsViewController.xib in Resources */,
@@ -1632,6 +1688,7 @@
 				086AF7D120F38CE5002A0385 /* CommentViewController.xib in Resources */,
 				0848C1DA20FCFA5B00A9963E /* HeaderTableView.xib in Resources */,
 				086AF8D420F62ADB002A0385 /* AsscessCollectionCell.xib in Resources */,
+				0848C1FD20FE38D000A9963E /* EveGoodsViewController.xib in Resources */,
 				0898C38A20AF1D2300664482 /* DetailTableHeader.xib in Resources */,
 				080649B020C8C7F6003B155F /* AdressListViewController.xib in Resources */,
 				08E4643920A2E7B900E405DB /* LaunchScreen.storyboard in Resources */,
@@ -1656,6 +1713,7 @@
 				0898C3D020B3010C00664482 /* CartTextCell.xib in Resources */,
 				0898C34920ADD54A00664482 /* NavSearchBar.xib in Resources */,
 				086AF78C20F08906002A0385 /* DetailPageFooter.xib in Resources */,
+				0848C1F320FE17AD00A9963E /* VIPLevelCell.xib in Resources */,
 				0848C19420F8E2A900A9963E /* BankUserCell.xib in Resources */,
 				0880528020A349D00018AE6E /* ResetPasswordViewController.xib in Resources */,
 				0847F1B920AB09F100BEF0F6 /* IndentDetailCell.xib in Resources */,
@@ -1683,6 +1741,7 @@
 				0898C3CB20B3005100664482 /* UploadCartViewController.xib in Resources */,
 				088052C420A9C4A80018AE6E /* MeSectionTableView.xib in Resources */,
 				080649A220C7F418003B155F /* AreaChoseViewController.xib in Resources */,
+				0848C20A20FE43B600A9963E /* EveGoodsView.xib in Resources */,
 				08676F2920B6E59D00F870B9 /* MeHeaderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1803,6 +1862,7 @@
 				080649A520C7F740003B155F /* AreaModel.m in Sources */,
 				086AF7C920F38089002A0385 /* CartModel.m in Sources */,
 				0880524920A2EB730018AE6E /* FileUtils.m in Sources */,
+				0848C1F220FE17AD00A9963E /* VIPLevelCell.m in Sources */,
 				0847F1E820AB386E00BEF0F6 /* TeamViewController.m in Sources */,
 				08B8672620EB9C6F00F73677 /* MeCollectionReusableView.m in Sources */,
 				08B8671B20EB71AF00F73677 /* UIViewController+WMPageController.m in Sources */,
@@ -1812,9 +1872,11 @@
 				088052C720A9C8A10018AE6E /* MeConfigModel.m in Sources */,
 				0848C19D20FB8BE000A9963E /* OrderPay.m in Sources */,
 				0848C1D820FCFA5000A9963E /* HeaderTableView.m in Sources */,
+				0848C20820FE439A00A9963E /* EveGoodsView.m in Sources */,
 				088052E520A9E1560018AE6E /* MASConstraintMaker.m in Sources */,
 				0848C19320F8E2A900A9963E /* BankUserCell.m in Sources */,
 				0898C38820AF1D1A00664482 /* DetailTableHeader.m in Sources */,
+				0848C1EB20FE16A400A9963E /* UserVIP.m in Sources */,
 				08B8671C20EB71AF00F73677 /* WMMenuItem.m in Sources */,
 				08B866C620E8AB3500F73677 /* IquorUser.m in Sources */,
 				0848C1C820FCBFCB00A9963E /* OrderDisViewController.m in Sources */,
@@ -1864,6 +1926,7 @@
 				0848C18920F8CD5F00A9963E /* BankModel.m in Sources */,
 				086AF7CC20F386A8002A0385 /* CollectModel.m in Sources */,
 				088052E220A9E1560018AE6E /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				0848C1E720FE0B9400A9963E /* MeCollectionCell.m in Sources */,
 				08676F3520B6F63300F870B9 /* ShopConfigCell.m in Sources */,
 				086AF7D520F38E4B002A0385 /* MeCommenCell.m in Sources */,
 				086AF7BE20F0C465002A0385 /* UITableView+FDKeyedHeightCache.m in Sources */,
@@ -1901,11 +1964,13 @@
 				0880526C20A33B790018AE6E /* UIFont+Extension.m in Sources */,
 				088052E920A9E1560018AE6E /* MASConstraint.m in Sources */,
 				08E4642E20A2E7B900E405DB /* AppDelegate.m in Sources */,
+				0848C1F720FE192800A9963E /* VIPLevelViewController.m in Sources */,
 				086AF78A20F088FA002A0385 /* DetailPageFooter.m in Sources */,
 				0848C19720FB7A6500A9963E /* OrderModel.m in Sources */,
 				086AF7B020F0B7B0002A0385 /* TADotView.m in Sources */,
 				0847F1C220AB0C4400BEF0F6 /* IndentBottomCell.m in Sources */,
 				0880525C20A2ED330018AE6E /* MeViewController.m in Sources */,
+				0848C20420FE3CE100A9963E /* EveGoodsTableCell.m in Sources */,
 				0847F1E220AB34AE00BEF0F6 /* DiscountViewController.m in Sources */,
 				0847F19C20AAFFB900BEF0F6 /* IndentViewController.m in Sources */,
 				0880527520A3443D0018AE6E /* FirstRegViewController.m in Sources */,
@@ -1949,6 +2014,7 @@
 				0806499C20C6ABE9003B155F /* AddressInfoCell.m in Sources */,
 				0898C38E20AF226F00664482 /* AssessCell.m in Sources */,
 				0898C3C520B2F42500664482 /* ShopCartViewController.m in Sources */,
+				0848C1FC20FE38D000A9963E /* EveGoodsViewController.m in Sources */,
 				0848C18F20F8E1DE00A9963E /* BankUserViewController.m in Sources */,
 				0806498720C5755C003B155F /* UIViewController+RTRootNavigationController.m in Sources */,
 				088052E320A9E1560018AE6E /* ViewController+MASAdditions.m in Sources */,

@@ -48,7 +48,7 @@
                         [[MeConfigModel alloc]initIconName:@"icon_my_13-1" dec:@"修改密码" cla:@"ChangePasswordViewController"],
                         [[MeConfigModel alloc]initIconName:@"icon_my_12" dec:@"关于我们" cla:@"AboutViewController"],
                         [[MeConfigModel alloc]initIconName:@"icon_my_13" dec:@"设置" cla:@"SetViewController"],
-                        [[MeConfigModel alloc]initIconName:@"icon_my_14" dec:@"联系客服" cla:@""],
+                        [[MeConfigModel alloc]initIconName:@"icon_my_14" dec:@"联系客服" cla:@"9"],
                         [[MeConfigModel alloc]initIconName:@"icon_my_15" dec:@"在线留言" cla:@"MsgViewController"],
                         [[MeConfigModel alloc]initIconName:@"" dec:@"" cla:@""],
                         [[MeConfigModel alloc]initIconName:@"" dec:@"" cla:@""]

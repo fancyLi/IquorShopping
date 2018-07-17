@@ -16,13 +16,14 @@
 #import "MeSectionTableView.h"
 #import "GoodsInfoModel.h"
 #import "AssessCell.h"
-@interface GoodsDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface GoodsDetailViewController ()<UITableViewDelegate, UITableViewDataSource, UIWebViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) DetailTableHeader *tableHead;
 @property (nonatomic, strong) DetailTableFooter *tableFooter;
 @property (nonatomic, strong) DetailPageFooter *pageFooter;
 @property (nonatomic, strong) GoodsInfoModel *goodsDetail;
+@property (nonatomic, strong) UIWebView *webview;
 @property (nonatomic, copy) NSString *isCollected;
 @property (nonatomic, assign) BOOL isCart;
 @end
@@ -59,7 +60,7 @@
         if (code == 200) {
             GoodsInfoModel *model = [GoodsInfoModel yy_modelWithDictionary:responseObject[@"content"]];
             self.tableHead.goodsInfo = model;
-            self.tableFooter.frament = model.goods_detail;
+            [self loadFrament:model.goods_detail];
             self.goodsDetail = model;
             self.isCollected = model.isCollect;
             [self.tableView reloadData];
@@ -118,16 +119,23 @@
 }
 #pragma mark UITableViewDataSource & UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.goodsDetail.comment.count;
+    if (section == 0) {
+        return self.goodsDetail.comment.count;
+    }
+    return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (self.goodsDetail.comment.count) {
-        return 50;
+    if (section == 0) {
+        if (self.goodsDetail.comment.count) {
+            return 50;
+        }
+        return 0.1;
     }
-    return 0.1;
+    return 50;
+    
     
 }
 
@@ -142,10 +150,14 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (self.goodsDetail.comment.count) {
+    if (self.goodsDetail.comment.count && section == 0) {
         MeSectionTableView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"MeSectionTableView" owner:self options:nil] firstObject];
         headerView.leftTitle = @"用户评价";
         headerView.rightTitle = @"查看所有评价";
+        return headerView;
+    }else if (section == 1) {
+        MeSectionTableView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"MeSectionTableView" owner:self options:nil] firstObject];
+        headerView.leftTitle = @"商品详情";
         return headerView;
     }
     return nil;
@@ -156,11 +168,39 @@
     [cell configCell:self.goodsDetail.comment[indexPath.row]];
     return cell;
 }
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    CGFloat webViewHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
+    webView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), webViewHeight);
+    [self.tableView beginUpdates];
+    [self.tableView setTableFooterView:self.webview];
+    [self.tableView endUpdates];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)loadFrament:(NSString *)frament {
+    NSString *HTML = [NSString stringWithFormat:@"<html> \n"
+                       "<head> \n"
+                       "<style type=\"text/css\"> \n"
+                       "body {font-size:15px;}\n"
+                       "</style> \n"
+                       "</head> \n"
+                       "<body>"
+                       "<script type='text/javascript'>"
+                       "window.onload = function(){\n"
+                       "var $img = document.getElementsByTagName('img');\n"
+                       "for(var p in  $img){\n"
+                       "$img[p].style.width = '90%%';\n"
+                       "$img[p].style.height ='auto'\n"
+                       "}\n"
+                       "}"
+                       "</script>%@"
+                       "</body>"
+                       "</html>",frament];
+    [self.webview loadHTMLString:HTML baseURL:nil];
+}
 #pragma mark set & get
 - (UITableView *)tableView {
     if (!_tableView) {
@@ -175,7 +215,7 @@
         _tableView.delegate = self;
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.tableHeaderView = self.tableHead;
-        _tableView.tableFooterView = self.tableFooter;
+//        _tableView.tableFooterView = self.tableFooter;
         
     }
     return _tableView;
@@ -190,9 +230,24 @@
 
 - (DetailTableFooter *)tableFooter {
     if (!_tableFooter) {
-        _tableFooter = [[DetailTableFooter alloc]initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 400)];
+        _tableFooter = [[DetailTableFooter alloc]initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 200)];
+        @weakify(self);
+        _tableFooter.footerBlock = ^(CGFloat height) {
+            @strongify(self);
+            [self.tableView beginUpdates];
+            [self.tableView setTableFooterView:self->_tableFooter];
+            [self.tableView endUpdates];
+        };
     }
     return _tableFooter;
+}
+
+- (UIWebView *)webview {
+    if (!_webview) {
+        _webview = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
+        _webview.delegate = self;
+    }
+    return _webview;
 }
 
 - (DetailPageFooter *)pageFooter {

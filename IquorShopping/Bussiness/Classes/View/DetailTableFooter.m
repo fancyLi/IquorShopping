@@ -8,7 +8,7 @@
 //
 
 #import "DetailTableFooter.h"
-@interface DetailTableFooter ()
+@interface DetailTableFooter ()<UIWebViewDelegate>
 
 @property (nonatomic, strong) UIWebView *webview;
 @end
@@ -62,6 +62,7 @@
         make.left.right.bottom.equalTo(self);
     }];
 }
+
 - (void)setFrament:(NSString *)frament {
     _frament = frament;
     //解决图片自使用
@@ -86,10 +87,19 @@
     [self.webview loadHTMLString:htmls baseURL:nil];
 }
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    CGFloat webViewHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
+    webView.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), webViewHeight);
+    if (self.footerBlock) {
+        self.footerBlock(webView.frame.size.height+52);
+    }
+   
+}
 - (UIWebView *)webview {
     if (!_webview) {
-        _webview = [[UIWebView alloc]init];
+        _webview = [[UIWebView alloc]initWithFrame:CGRectMake(0, 50, self.frame.size.width, 150)];
         _webview.scrollView.bounces = NO;
+        _webview.delegate = self;
         _webview.scrollView.showsVerticalScrollIndicator = NO;
         _webview.scrollView.showsHorizontalScrollIndicator = NO;
         _webview.backgroundColor = [UIColor whiteColor];

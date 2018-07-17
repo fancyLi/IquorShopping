@@ -27,9 +27,14 @@
 
 #define get_user_info_url             @"user/personalData"
 
+//会员升级
+#define user_upGrade                    @"user/upGrade"
+
 //更改昵称
 #define update_nikename_url                 @"user/modifyTheNickname"
 
+//个人中心-我的
+#define user_personCenter                      @"user/personCenter"
 //更改头像
 #define update_userAvatar_url                  @"user/uploadAvatar"
 
@@ -121,6 +126,9 @@
 
 //我的订单
 #define user_userOrderList                          @"user/userOrderList"
+
+//订单详情
+#define user_orderInfo                              @"user/orderInfo"
 
 //订单处理
 #define user_userOrderDeal                          @"user/userOrderDeal"

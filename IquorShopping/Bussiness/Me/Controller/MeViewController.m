@@ -51,7 +51,8 @@
     [super viewWillAppear:animated];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    self.configView.isfresh = YES;
+    [self requestMeInfo];
+    
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -63,6 +64,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+//我的
+- (void)requestMeInfo {
+    [AFNetworkTool postJSONWithUrl:user_personCenter parameters:nil success:^(id responseObject) {
+        NSInteger code = [responseObject[@"code"] integerValue];
+        if (code == 200) {
+            IquorUser *user = [IquorUser shareIquorUser];
+            user.uid = responseObject[@"content"][@"user_info"][@"uid"];
+            user.level = responseObject[@"content"][@"user_info"][@"level"];
+            user.level_name = responseObject[@"content"][@"user_info"][@"level_name"];
+            user.service_number = responseObject[@"content"][@"set_contact"][@"service_number"];
+            self.configView.isfresh = YES;
+        }else {
+            
+        }
+    } fail:^{
+        
+    }];
+}
+- (void)startContactService {
+    NSString *tel = [NSString stringWithFormat:@"tel:%@", [IquorUser shareIquorUser].user_tel];
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:tel]]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tel]];
+    }
+}
 #pragma mark UICollectionViewDelegateFlowLayout & UICollectionViewDataSource
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     return CGSizeMake(kMainScreenWidth, 50);
@@ -91,10 +116,16 @@
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     MeConfigModel *cm = _configModel.configModels[indexPath.section][indexPath.item];
     if (![UIUtils isNullOrEmpty:cm.className]) {
-        Class cls = NSClassFromString(cm.className);
-        UIViewController *vc = [[cls alloc]init];
-        vc.title = cm.decTitle;
-        [self.navigationController pushViewController:vc animated:YES];
+        if (cm.className.intValue == 9) {
+            //联系客服
+            [self startContactService];
+        }else {
+            Class cls = NSClassFromString(cm.className);
+            UIViewController *vc = [[cls alloc]init];
+            vc.title = cm.decTitle;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
     }
 }
 

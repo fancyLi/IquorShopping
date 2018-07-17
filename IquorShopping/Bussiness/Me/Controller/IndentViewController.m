@@ -30,7 +30,7 @@
 }
 
 - (NSString *)pageController:(WMPageController *)pageController titleAtIndex:(NSInteger)index {
-    switch (index % 3) {
+    switch (index) {
         case 0: return @"全部";
         case 1: return @"待付款";
         case 2: return @"待发货";

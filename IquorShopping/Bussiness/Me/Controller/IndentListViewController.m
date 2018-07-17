@@ -12,6 +12,7 @@
 #import "HeaderTableView.h"
 #import "FooterTableView.h"
 #import "IndentModel.h"
+#import "EveGoodsViewController.h"
 @interface IndentListViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *indentTable;
 @property (nonatomic, strong) NSMutableArray *arrs;
@@ -46,7 +47,9 @@
         NSInteger code = [responseObject[@"code"] integerValue];
         [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
-            
+            self.page = 1;
+            self.arrs = nil;
+            [self requestOrderList];
         }else {
         }
     } fail:^{
@@ -99,7 +102,9 @@
     [self orderHandle:indent detailType:@"confirm"];
 }
 - (void)eveOrder:(IndentModel *)indent {
-    
+    EveGoodsViewController *vc = [[EveGoodsViewController alloc]init];
+    vc.order_id = indent.order_id;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark UITableViewDataSource & UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

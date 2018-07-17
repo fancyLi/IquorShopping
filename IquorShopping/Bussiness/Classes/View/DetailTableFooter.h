@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^FooterBlock)(CGFloat height);
 @interface DetailTableFooter : UIView
 @property (nonatomic, copy) NSString *frament;
+@property (nonatomic, copy) FooterBlock footerBlock;
 @end

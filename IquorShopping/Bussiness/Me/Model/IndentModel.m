@@ -11,10 +11,15 @@
 
 @end
 
+@implementation OrderInfo
+
+@end
 
 @implementation IndentModel
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"goods_list" : [IndentGoods class]
+    return @{@"goods_list" : [IndentGoods class],
+             @"order_info": [OrderInfo class],
+             @"order_addr": [AddressModel class]
              };
 }
 @end
