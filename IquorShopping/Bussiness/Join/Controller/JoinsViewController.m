@@ -21,15 +21,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"加盟";
-    [self requestJoin];
     self.tableview.showsVerticalScrollIndicator = NO;
     self.tableview.tableHeaderView = self.imageview;
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
     self.tableview.rowHeight = 45;
+    self.tableview.tableFooterView = [UIView new];
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self requestJoin];
+}
 - (void)requestJoin {
     @weakify(self);
     [AFNetworkTool postJSONWithUrl:join_Advantage_url parameters:nil success:^(id responseObject) {
@@ -40,8 +43,8 @@
             [self.imageview sd_setImageWithURL:[NSURL URLWithString:self.join.join_pic] placeholderImage:[UIImage imageNamed:@"icon_35"]];
             [self.tableview reloadData];
             [self.webview loadHTMLString:self.join.advantage baseURL:nil];
-            
         }else {
+            [Dialog popTextAnimation:responseObject[@"message"]];
         }
     } fail:^{
         
@@ -54,7 +57,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
     if (indexPath.row == 0) {
-        NSString *str = [NSString stringWithFormat:@"加盟费用：￥%@", self.join.join_money];
+        NSString *str = [NSString stringWithFormat:@"加盟费用：￥%@", [UIUtils isNullOrEmpty:self.join.join_money]?@"0.00":self.join.join_money];
         NSMutableAttributedString *mutStr = [[NSMutableAttributedString alloc]initWithString:str];
         [mutStr setAttributes:@{NSForegroundColorAttributeName:[UIColor c_333Color], NSFontAttributeName:[UIFont systemFontOfSize:14]} range:NSMakeRange(0, 5)];
         [mutStr setAttributes:@{NSForegroundColorAttributeName:[UIColor c_cc0Color], NSFontAttributeName: [UIFont systemFontOfSize:24]} range:NSMakeRange(5, str.length-5)];

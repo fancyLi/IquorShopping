@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *nick_name;
 @property (nonatomic, copy) NSString *user_code;
 @property (nonatomic, copy) NSString *uid;
+@property (nonatomic, copy) NSString *is_code;
 @property (nonatomic, copy) NSString *level;
 @property (nonatomic, copy) NSString *level_name;
 @property (nonatomic, copy) NSString *service_number;

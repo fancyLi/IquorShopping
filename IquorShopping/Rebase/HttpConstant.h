@@ -96,6 +96,9 @@
 //提交留言
 #define msg_upload_url                       @"user/onlineMessage"
 
+//填写邀请码
+#define user_modifyTheUserCode                @"user/modifyTheUserCode"
+
 //====== 商品管理类 =======
 //首页产品
 #define index_homePage                          @"index/homePage"

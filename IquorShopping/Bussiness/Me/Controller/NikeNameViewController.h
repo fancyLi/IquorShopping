@@ -10,4 +10,5 @@
 
 @interface NikeNameViewController : IquorViewController
 @property (nonatomic, copy) NSString *nike;
+@property (nonatomic, assign) BOOL isCode;
 @end

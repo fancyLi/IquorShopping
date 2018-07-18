@@ -21,8 +21,14 @@
     
 }
 - (void)configNikeUI {
-    self.title = @"昵称";
-    self.nikeNameField.text = self.nike;
+    
+    if (self.isCode) {
+        self.title = @"填写邀请码";
+    }else {
+        self.title = @"昵称";
+        self.nikeNameField.text = self.nike;
+    }
+    
     UIButton *saveBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 44)];
     [saveBtn setTitle:@"保存" forState:UIControlStateNormal];
     [saveBtn setTitleColor:[UIColor c_333Color] forState:UIControlStateNormal];
@@ -33,12 +39,22 @@
 }
 - (void)saveClick:(UIButton *)barItem {
     
+    NSDictionary *param;
+    NSString *urlStr;
     if ([UIUtils isNullOrEmpty:self.nikeNameField.text]) {
-        [Dialog popTextAnimation:@"请输入昵称"];
+      
+        [Dialog popTextAnimation:self.isCode?@"请填写邀请码":@"请输入昵称"];
     }else {
-        NSDictionary *param = @{@"nick_name":self.nikeNameField.text
-                                };
-        [AFNetworkTool postJSONWithUrl:update_nikename_url parameters:param success:^(id responseObject) {
+        if (self.isCode) {
+            param = @{@"user_code":self.nikeNameField.text
+                      };
+            urlStr = user_modifyTheUserCode;
+        }else {
+            param = @{@"nick_name":self.nikeNameField.text
+                      };
+            urlStr = update_nikename_url;
+        }
+        [AFNetworkTool postJSONWithUrl:urlStr parameters:param success:^(id responseObject) {
             NSInteger code = [responseObject[@"code"] integerValue];
             [Dialog popTextAnimation:responseObject[@"message"]];
             if (code == 200) {

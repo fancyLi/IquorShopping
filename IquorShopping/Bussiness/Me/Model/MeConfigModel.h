@@ -12,9 +12,10 @@
 @property (nonatomic, copy) NSString *iconName;
 @property (nonatomic, copy) NSString *dec;
 @property (nonatomic, copy) NSString *className;
+@property (nonatomic, assign) BOOL need;
 
 @property (nonatomic, strong) NSArray *configModels;
 
-- (instancetype)initIconName:(NSString *)ic dec:(NSString *)dec cla:(NSString *)cla;
+- (instancetype)initIconName:(NSString *)ic dec:(NSString *)dec cla:(NSString *)cla need:(BOOL)need;
 
 @end

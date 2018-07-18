@@ -85,6 +85,18 @@
         
     }];
 }
+- (void)showAlert {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"您尚未登录，是否现在登录" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"登录" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertVC addAction:cancelAction];
+    [alertVC addAction:sureAction];
+    [self presentViewController:alertVC animated:YES completion:nil];
+}
 - (void)startContactService {
     NSString *tel = [NSString stringWithFormat:@"tel:%@", [IQourUser shareInstance].service_number];
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:tel]]) {
@@ -134,26 +146,29 @@
             [self startContactService];
         }else {
             Class cls = NSClassFromString(cm.className);
-            UIViewController *vc = [[cls alloc]init];
-            if ([vc isKindOfClass:[IndentViewController class]]) {
-                IndentViewController *indentVC = (IndentViewController*)vc;
-                if ([cm.dec isEqualToString:@"待付款"]) {
-                    indentVC.curIndex = 1;
-                }else if ([cm.dec isEqualToString:@"待发货"]) {
-                    indentVC.curIndex = 2;
-                }else if ([cm.dec isEqualToString:@"待收货"]) {
-                    indentVC.curIndex = 3;
-                }else if ([cm.dec isEqualToString:@"待评价"]) {
-                    indentVC.curIndex = 4;
-                }
-                indentVC.title = cm.dec;
-                [self.navigationController pushViewController:indentVC animated:YES];
+            if (cm.need && [UIUtils isNullOrEmpty:[IQourUser shareInstance].user_tel]) {
+                [self showAlert];
             }else {
-                vc.title = cm.dec;
-                [self.navigationController pushViewController:vc animated:YES];
+                UIViewController *vc = [[cls alloc]init];
+                if ([vc isKindOfClass:[IndentViewController class]]) {
+                    IndentViewController *indentVC = (IndentViewController*)vc;
+                    if ([cm.dec isEqualToString:@"待付款"]) {
+                        indentVC.curIndex = 1;
+                    }else if ([cm.dec isEqualToString:@"待发货"]) {
+                        indentVC.curIndex = 2;
+                    }else if ([cm.dec isEqualToString:@"待收货"]) {
+                        indentVC.curIndex = 3;
+                    }else if ([cm.dec isEqualToString:@"待评价"]) {
+                        indentVC.curIndex = 4;
+                    }
+                    indentVC.title = cm.dec;
+                    [self.navigationController pushViewController:indentVC animated:YES];
+                }else {
+                    vc.title = cm.dec;
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
             }
         }
-        
     }
 }
 

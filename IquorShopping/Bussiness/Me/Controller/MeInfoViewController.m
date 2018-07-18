@@ -61,6 +61,7 @@
 }
 #pragma mark UITableViewDataSource & UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+  
     return self.leftTitles.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -99,6 +100,8 @@
         if (indexPath.section == 0 && indexPath.row == 1) {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.rightTltle.textColor = [UIColor c_333Color];
+        }else if (indexPath.section == 2 && indexPath.row == 0) {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         cell.leftTitle.text = self.leftTitles[indexPath.section][indexPath.row];
         cell.rightTltle.text = self.rightTitles[indexPath.section][indexPath.row];
@@ -113,6 +116,10 @@
         NikeNameViewController *nikeVC = [[NikeNameViewController alloc]init];
         nikeVC.nike = self.user.nick_name;
         [self.navigationController pushViewController:nikeVC animated:YES];
+    }else if (indexPath.section == 2 && indexPath.row == 0) {
+        NikeNameViewController *nikeVC = [[NikeNameViewController alloc]init];
+        nikeVC.isCode = YES;
+        [self.navigationController pushViewController:nikeVC animated:YES];
     }
 }
 
@@ -124,20 +131,38 @@
 #pragma mark set & get
 - (NSArray *)leftTitles {
     if (!_leftTitles) {
-        _leftTitles = @[
-                        @[@"头像", @"昵称", @"姓名", @"电话号码"],
-                        @[@"我的邀请码"]
-                        ];
+        if (self.user.is_code.intValue == 1) {
+            _leftTitles = @[
+                            @[@"头像", @"昵称", @"姓名", @"电话号码"],
+                            @[@"我的邀请码"],
+                            @[@"邀请码（选填）"]
+                            ];
+        }else {
+            _leftTitles = @[
+                            @[@"头像", @"昵称", @"姓名", @"电话号码"],
+                            @[@"我的邀请码"]
+                            ];
+        }
+        
     }
     return _leftTitles;
 }
 
 - (NSArray *)rightTitles {
     if (!_rightTitles) {
-        _rightTitles = @[
-                         @[@"", self.user.nick_name, self.user.user_name, self.user.user_tel],
-                         @[self.user.user_code]
-                         ];
+        if (self.user.is_code.intValue == 1) {
+            _rightTitles = @[
+                             @[@"", self.user.nick_name, self.user.user_name, self.user.user_tel],
+                             @[self.user.user_code],
+                             @[@""]
+                             ];
+        }else {
+            _rightTitles = @[
+                             @[@"", self.user.nick_name, self.user.user_name, self.user.user_tel],
+                             @[self.user.user_code]
+                             ];
+        }
+        
     }
     return _rightTitles;
 }
