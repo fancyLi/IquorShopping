@@ -219,6 +219,7 @@
         _shopTableView.estimatedSectionHeaderHeight = 0;
         _shopTableView.estimatedSectionFooterHeight = 5;
         _shopTableView.estimatedRowHeight = 270;
+        _shopTableView.bounces = NO;
 //        [_shopTableView registerClass:[ShopConfigCell class] forCellReuseIdentifier:NSStringFromClass([ShopConfigCell class])];
         [_shopTableView registerNib:[UINib nibWithNibName:@"ShopConfigCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopConfigCell class])];
         [_shopTableView registerNib:[UINib nibWithNibName:@"ShopVideoCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopVideoCell class])];
