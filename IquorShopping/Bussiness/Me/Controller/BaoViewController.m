@@ -87,7 +87,6 @@
         [self.tableview.mj_header endRefreshing];
         
         NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
             NSArray *arrs = [NSArray yy_modelArrayWithClass:[BrokerModel class] json:responseObject[@"content"][@"list"]];
             if (arrs.count) {
@@ -96,9 +95,8 @@
             }else {
                 [Dialog popTextAnimation:@"没有下一页了"];
             }
-            
-            
         }else {
+            [Dialog popTextAnimation:responseObject[@"message"]];
         }
     } fail:^{
         
@@ -110,7 +108,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BrokerCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BrokerCell class])];
-   
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell confiBlanceCell:self.brokeArrs[indexPath.row]];
     return cell;
 }

@@ -37,7 +37,7 @@
         [self.assessTable.mj_header endRefreshing];
         
         NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
+        
         if (code == 200) {
             NSArray *arrs = [NSArray yy_modelArrayWithClass:[CommentModel class] json:responseObject[@"content"][@"list"]];
             if (arrs.count) {
@@ -46,10 +46,8 @@
             }else {
                 [Dialog popTextAnimation:@"没有下一页了"];
             }
-            
-            
         }else {
-            
+            [Dialog popTextAnimation:responseObject[@"message"]];
         }
     } fail:^{
         
@@ -90,7 +88,7 @@
         @weakify(self);
         _assessTable.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             @strongify(self);
-            self.page = 0;
+            self.page = 1;
             self.arrs = nil;
             [self requestCouponList];
         }];

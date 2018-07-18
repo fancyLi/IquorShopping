@@ -55,10 +55,6 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9OX-Ut-t1R">
-                    <rect key="frame" x="183" y="54" width="90" height="64"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
                 <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="AM1-Sf-wvS">
                     <rect key="frame" x="0.0" y="150" width="375" height="60"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -94,8 +90,6 @@
             <color key="backgroundColor" red="0.80000000000000004" green="0.14117647058823529" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="p7y-N9-TgM" firstAttribute="top" secondItem="aMk-ly-79t" secondAttribute="top" constant="5" id="169-wV-TR2"/>
-                <constraint firstItem="9OX-Ut-t1R" firstAttribute="leading" secondItem="p7y-N9-TgM" secondAttribute="trailing" constant="10" id="1cK-qQ-XpV"/>
-                <constraint firstItem="9OX-Ut-t1R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="54" id="4QM-CS-TJv"/>
                 <constraint firstItem="AM1-Sf-wvS" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="5FT-J5-SXn"/>
                 <constraint firstItem="AM1-Sf-wvS" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="5GH-wH-vCB"/>
                 <constraint firstItem="2SP-4u-7I8" firstAttribute="leading" secondItem="aMk-ly-79t" secondAttribute="trailing" constant="20" id="Adt-45-khA"/>
@@ -108,10 +102,8 @@
                 <constraint firstItem="B9X-OE-ixi" firstAttribute="leading" secondItem="uhB-v5-SQn" secondAttribute="trailing" constant="10" id="lhO-gg-1m1"/>
                 <constraint firstItem="AM1-Sf-wvS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mEq-Eh-exw"/>
                 <constraint firstItem="aMk-ly-79t" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="nad-fH-q85"/>
-                <constraint firstItem="jub-8p-rV2" firstAttribute="top" secondItem="9OX-Ut-t1R" secondAttribute="bottom" constant="3" id="pCR-in-PTc"/>
                 <constraint firstItem="aMk-ly-79t" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="rug-4i-gst"/>
                 <constraint firstItem="uhB-v5-SQn" firstAttribute="leading" secondItem="p7y-N9-TgM" secondAttribute="leading" id="vWh-KM-dup"/>
-                <constraint firstItem="B9X-OE-ixi" firstAttribute="leading" secondItem="9OX-Ut-t1R" secondAttribute="trailing" constant="70" id="vZj-RD-9v6"/>
                 <constraint firstItem="jub-8p-rV2" firstAttribute="trailing" secondItem="uhB-v5-SQn" secondAttribute="trailing" id="w6w-GA-fRt"/>
                 <constraint firstItem="jub-8p-rV2" firstAttribute="leading" secondItem="p7y-N9-TgM" secondAttribute="leading" id="zmr-83-2AZ"/>
             </constraints>

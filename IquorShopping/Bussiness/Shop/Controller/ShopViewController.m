@@ -11,16 +11,20 @@
 #import "PlayerViewController.h"
 #import "SiginViewController.h"
 #import "GoodsInfoViewController.h"
+#import "SearchViewController.h"
 #import "ShopTableHeaderView.h"
 #import "ShopConfigCell.h"
 #import "ShopVideoCell.h"
 #import "ShopHotCell.h"
 #import "ShopNewCell.h"
 #import "HomePageModel.h"
+#import "NavSearchView.h"
+
 @interface ShopViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *shopTableView;
 @property (nonatomic, strong) ShopTableHeaderView *tableHeader;
 @property (nonatomic, strong) HomePageModel *homePageModel;
+@property (nonatomic, strong) NavSearchView *searchView;
 @end
 
 @implementation ShopViewController
@@ -35,18 +39,24 @@
 
     [self.view addSubview:self.shopTableView];
     self.shopTableView.tableHeaderView = self.tableHeader;
+    [self.view addSubview:self.searchView];
+    [self.searchView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(@0);
+        make.height.equalTo(@64);
+    }];
     [self requestHomePage];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
- 
+    self.navigationController.navigationBar.hidden=YES;
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    self.navigationController.navigationBar.hidden = NO;
+
+}
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
 }
 - (void)startPlayer {
     if ([UIUtils isNullOrEmpty:self.homePageModel.video.video_url]) {
@@ -56,6 +66,11 @@
         playerVC.viderStr = self.homePageModel.video.video_url;
         [self presentViewController:playerVC animated:YES completion:nil];
     }
+}
+
+- (void)startSearch {
+    SearchViewController *vc = [[SearchViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)requestHomePage {
@@ -111,6 +126,7 @@
                 SiginViewController *siginVC = [[SiginViewController alloc]init];
                 siginVC.cat_id = model.cat_id;
                 siginVC.cat_name = model.cat_name;
+                siginVC.type = @"3";
                 [selfWeak.navigationController pushViewController:siginVC animated:YES];
             }else {
                 if ([model.cat_name isEqualToString:@"领券"]) {
@@ -176,6 +192,17 @@
     }
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY>44) {
+        self.searchView.backgroundColor = [UIColorFromRGB(0x152E3D) colorWithAlphaComponent:offsetY/100];
+        
+    }else {
+        self.searchView.backgroundColor = [UIColor clearColor];
+    }
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -207,5 +234,16 @@
         _tableHeader = [[ShopTableHeaderView alloc]initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 250)];
     }
     return _tableHeader;
+}
+- (NavSearchView *)searchView {
+    if (!_searchView) {
+        _searchView = [[NSBundle mainBundle] loadNibNamed:@"NavSearchView" owner:self options:0].firstObject;
+        @weakify(self);
+        _searchView.operatorSerachBlock = ^{
+            @strongify(self);
+            [self startSearch];
+        };
+    }
+    return _searchView;
 }
 @end

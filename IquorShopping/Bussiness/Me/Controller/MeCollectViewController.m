@@ -115,13 +115,12 @@
         [AFNetworkTool postJSONWithUrl:user_delGoodsCollection parameters:param success:^(id responseObject) {
              @strongify(self);
             NSInteger code = [responseObject[@"code"] integerValue];
-            [Dialog popTextAnimation:responseObject[@"message"]];
             if (code == 200) {
                 [self.arrs removeObjectsAtIndexes:self.indexpaths];
                 [self.collectedTable deleteSections:self.indexpaths withRowAnimation:UITableViewRowAnimationMiddle];
 
             }else {
-                
+                [Dialog popTextAnimation:responseObject[@"message"]];
             }
         } fail:^{
             

@@ -35,6 +35,8 @@
     
 }
 - (void)tapLeftGesClick:(UITapGestureRecognizer *)tapGes {
+    self.leftTitle.textColor = [UIColor c_cc0Color];
+    self.rightTitle.textColor = [UIColor c_333Color];
     self.volumeSort = @"";
     self.rightIcon.image = [UIImage imageNamed:@"icon_15"];
     self.priceSort = [self.priceSort isEqualToString:@"1"]?@"2":@"1";
@@ -44,6 +46,8 @@
     }
 }
 - (void)tapRightGesClick:(UITapGestureRecognizer *)tapGes {
+    self.leftTitle.textColor = [UIColor c_333Color];
+    self.rightTitle.textColor = [UIColor c_cc0Color];
     self.priceSort = @"";
     self.leftIcon.image = [UIImage imageNamed:@"icon_15"];
     self.volumeSort = [self.volumeSort isEqualToString:@"1"]?@"2":@"1";

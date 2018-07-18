@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIControl (IquorArea)
+@interface UIButton (IquorArea)
 - (void)setEnlargeEdgeWithTop:(CGFloat) top right:(CGFloat) right bottom:(CGFloat) bottom left:(CGFloat) left;
 
 - (void)setEnlargeEdge:(CGFloat) size;

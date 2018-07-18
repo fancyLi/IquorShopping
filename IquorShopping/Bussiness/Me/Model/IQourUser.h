@@ -1,15 +1,14 @@
 //
-//  IquorUser.h
+//  IQourUser.h
 //  IquorShopping
 //
-//  Created by nanli5 on 2018/7/1.
+//  Created by nanli5 on 2018/7/18.
 //  Copyright © 2018年 Hefei elevation network technology co. LTD. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface IquorUser : NSObject
-
+@interface IQourUser : NSObject<NSCoding>
 @property (nonatomic, copy) NSString *avatar;
 @property (nonatomic, copy) NSString *user_name;
 @property (nonatomic, copy) NSString *user_tel;
@@ -20,7 +19,5 @@
 @property (nonatomic, copy) NSString *level_name;
 @property (nonatomic, copy) NSString *service_number;
 
-+ (instancetype)shareIquorUser;
-
-- (void)configDict:(NSDictionary *)dict;
+singtonInterface
 @end

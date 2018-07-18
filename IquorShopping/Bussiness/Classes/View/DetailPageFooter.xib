@@ -17,7 +17,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIA-VX-ILR">
-                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                    <rect key="frame" x="0.0" y="1" width="60" height="59"/>
+                    <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="kBp-JU-9OE"/>
                     </constraints>
@@ -30,7 +31,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITr-WQ-HdB">
-                    <rect key="frame" x="61" y="0.0" width="60" height="60"/>
+                    <rect key="frame" x="61" y="1" width="60" height="59"/>
+                    <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <state key="normal" title="收藏">
                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -40,7 +42,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBj-9X-g2q">
-                    <rect key="frame" x="122" y="0.0" width="60" height="60"/>
+                    <rect key="frame" x="122" y="1" width="60" height="59"/>
+                    <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <state key="normal" title="购物车">
                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -50,7 +53,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wl-0o-lBW">
-                    <rect key="frame" x="278.5" y="0.0" width="96.5" height="60"/>
+                    <rect key="frame" x="278.5" y="1" width="96.5" height="59"/>
                     <color key="backgroundColor" red="0.80000000000000004" green="0.0078431372549019607" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="立即购买"/>
@@ -59,7 +62,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZn-yK-O4Y">
-                    <rect key="frame" x="182" y="0.0" width="96.5" height="60"/>
+                    <rect key="frame" x="182" y="1" width="96.5" height="59"/>
                     <color key="backgroundColor" red="0.10980392156862745" green="0.12549019607843137" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="加入购物车"/>
@@ -68,25 +71,25 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="OZn-yK-O4Y" secondAttribute="bottom" id="3MG-zT-e1w"/>
-                <constraint firstItem="7wl-0o-lBW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="5tl-Cb-R8t"/>
-                <constraint firstItem="ITr-WQ-HdB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="B3W-0e-rBI"/>
+                <constraint firstItem="7wl-0o-lBW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="0.5" id="5tl-Cb-R8t"/>
+                <constraint firstItem="ITr-WQ-HdB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="0.5" id="B3W-0e-rBI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ITr-WQ-HdB" secondAttribute="bottom" id="CGG-TV-Tqw"/>
                 <constraint firstItem="uIA-VX-ILR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="FGo-Hr-xPt"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7wl-0o-lBW" secondAttribute="trailing" id="Khz-UU-kcJ"/>
                 <constraint firstItem="OZn-yK-O4Y" firstAttribute="width" secondItem="7wl-0o-lBW" secondAttribute="width" id="P4u-Yp-dCc"/>
-                <constraint firstItem="aBj-9X-g2q" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Pjn-uP-37G"/>
+                <constraint firstItem="aBj-9X-g2q" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="0.5" id="Pjn-uP-37G"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uIA-VX-ILR" secondAttribute="bottom" id="QCl-ob-w7n"/>
-                <constraint firstItem="ITr-WQ-HdB" firstAttribute="leading" secondItem="uIA-VX-ILR" secondAttribute="trailing" constant="1" id="VWd-bY-Vzd"/>
+                <constraint firstItem="ITr-WQ-HdB" firstAttribute="leading" secondItem="uIA-VX-ILR" secondAttribute="trailing" constant="0.5" id="VWd-bY-Vzd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7wl-0o-lBW" secondAttribute="bottom" id="WmR-nk-gtX"/>
                 <constraint firstItem="uIA-VX-ILR" firstAttribute="width" secondItem="ITr-WQ-HdB" secondAttribute="width" id="eDP-KS-HgE"/>
-                <constraint firstItem="aBj-9X-g2q" firstAttribute="leading" secondItem="ITr-WQ-HdB" secondAttribute="trailing" constant="1" id="feb-Il-Tfs"/>
-                <constraint firstItem="OZn-yK-O4Y" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="hGW-7b-Gmm"/>
+                <constraint firstItem="aBj-9X-g2q" firstAttribute="leading" secondItem="ITr-WQ-HdB" secondAttribute="trailing" constant="0.5" id="feb-Il-Tfs"/>
+                <constraint firstItem="OZn-yK-O4Y" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="0.5" id="hGW-7b-Gmm"/>
                 <constraint firstItem="OZn-yK-O4Y" firstAttribute="leading" secondItem="aBj-9X-g2q" secondAttribute="trailing" id="hNE-60-MxQ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="aBj-9X-g2q" secondAttribute="bottom" id="hYL-uB-XjR"/>
-                <constraint firstItem="uIA-VX-ILR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="rFD-VQ-Xt5"/>
+                <constraint firstItem="uIA-VX-ILR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="0.5" id="rFD-VQ-Xt5"/>
                 <constraint firstItem="uIA-VX-ILR" firstAttribute="width" secondItem="aBj-9X-g2q" secondAttribute="width" id="siR-hf-3xZ"/>
                 <constraint firstItem="7wl-0o-lBW" firstAttribute="leading" secondItem="OZn-yK-O4Y" secondAttribute="trailing" id="zHI-oR-z0K"/>
             </constraints>

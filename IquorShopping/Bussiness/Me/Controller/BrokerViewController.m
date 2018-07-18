@@ -44,9 +44,11 @@
     [AFNetworkTool postJSONWithUrl:url parameters:param success:^(id responseObject) {
         @strongify(self);
         NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
+        
         if (code == 200) {
             [self.navigationController popViewControllerAnimated:YES];
+        }else {
+            [Dialog popTextAnimation:responseObject[@"message"]];
         }
     } fail:^{
         

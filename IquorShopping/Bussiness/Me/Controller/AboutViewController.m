@@ -39,7 +39,7 @@
                                "window.onload = function(){\n"
                                "var $img = document.getElementsByTagName('img');\n"
                                "for(var p in  $img){\n"
-                               "$img[p].style.width = '90%%';\n"
+                               "$img[p].style.width = '100%%';\n"
                                "$img[p].style.height ='auto'\n"
                                "}\n"
                                "}"

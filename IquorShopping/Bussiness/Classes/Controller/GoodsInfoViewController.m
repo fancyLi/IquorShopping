@@ -9,7 +9,7 @@
 #import "GoodsInfoViewController.h"
 #import "GoodsDetailViewController.h"
 #import "AssessViewController.h"
-
+#import "PageDetailViewController.h"
 @interface GoodsInfoViewController ()
 @property (nonatomic, strong) GoodsDetailViewController *detailVC;
 @property (nonatomic, strong) AssessViewController *assessVC;
@@ -23,9 +23,24 @@
 
 }
 
+- (void)refreshCurrentViewController:(NSNotification*)noti {
+    
+    self.selectIndex = 1;
+}
 - (void)defaultConfig {
     self.showOnNavigationBar = YES;
     self.menuViewStyle = WMMenuViewStyleLine;
+    self.progressViewIsNaughty = NO;
+    self.progressWidth = 28;
+    self.progressViewCornerRadius = 1.5;
+    self.progressHeight = 3;
+    
+    self.progressColor = [UIColor c_cc0Color];
+    self.titleColorNormal = [UIColor c_333Color];
+    self.titleColorSelected = [UIColor c_cc0Color];
+    self.menuItemWidth = kMainScreenWidth/5.0;
+    self.menuViewLayoutMode = WMMenuViewLayoutModeCenter;
+    self.menuView.progressViewBottomSpace = 11;
 }
 //设置导航栏返回按钮
 - (UIBarButtonItem *)rt_customBackItemWithTarget:(id)target action:(SEL)action {
@@ -62,10 +77,22 @@
 }
 
 - (UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index {
-    switch (index % 3) {
-        case 0: return self.detailVC;
-        case 1: return [[UIViewController alloc] init];
-        case 2: return self.assessVC;
+    switch (index) {
+        case 0:
+            return self.detailVC;
+            break;
+        case 1:{
+            PageDetailViewController *vc = [[PageDetailViewController alloc]init];
+            vc.goods_detail = self.detailVC.goods_detail;
+            return vc;
+        }
+            break;
+        case 2:
+            return self.assessVC;
+            break;
+            
+        default:
+            break;
     }
     return [[UIViewController alloc] init];
 }
@@ -89,7 +116,9 @@
     return CGRectMake(0, originY, self.view.frame.size.width, self.view.frame.size.height - originY);
 }
 
-
+- (void)pageController:(WMPageController *)pageController willEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info {
+    
+}
 #pragma mark set & get
 - (GoodsDetailViewController *)detailVC {
     if (!_detailVC) {

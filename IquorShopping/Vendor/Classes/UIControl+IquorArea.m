@@ -15,7 +15,7 @@ static char rightNameKey;
 static char bottomNameKey;
 static char leftNameKey;
 
-@implementation UIControl (IquorArea)
+@implementation UIButton (IquorArea)
 
 - (void)setEnlargeEdge:(CGFloat) size
 {

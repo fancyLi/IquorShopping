@@ -146,6 +146,7 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="avatar" destination="rmw-g5-Uqh" id="Spy-wc-Pea"/>
+                <outlet property="bottomView" destination="6Sd-mg-xl8" id="oQ7-wd-aZa"/>
                 <outlet property="colContainer" destination="Nzs-Ar-9dc" id="eyc-ng-PYc"/>
                 <outlet property="colLayoutConstraint" destination="MR2-YF-5uk" id="oic-2t-Axk"/>
                 <outlet property="collectionView" destination="vjT-kE-2U8" id="UoB-Ls-FV5"/>

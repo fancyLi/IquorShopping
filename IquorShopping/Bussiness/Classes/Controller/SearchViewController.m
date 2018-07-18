@@ -24,12 +24,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor c_f6f6Color];
     self.navigationItem.titleView = self.searchBar;
-    
     [self initConfig];
 }
 - (void)initConfig {
     self.page = 1;
+    
     self.priceSort = @"";
     self.volumeSort = @"";
 }
@@ -37,31 +38,32 @@
     //代表类型 1.热门推荐2.最新产品3.分类产品4.搜索关键词
     //商品价格排序 1.升序2.降序
     //商品价格排序 1.升序2.降序
-    WeakObj(self);
+    @weakify(self);
     NSDictionary *param = @{@"page":@(self.page),
                             @"type":@"4",
                             @"goods_price_sort":self.priceSort,
                             @"sales_volume_sort":self.volumeSort,
-                            @"cat_id":self.cat_id,
+                            @"cat_id":[UIUtils isNullOrEmpty:self.cat_id]?@"":self.cat_id,
                             @"key_words":[UIUtils isNullOrEmpty:self.searchBar.text]?@"":self.searchBar.text
                             };
     [AFNetworkTool postJSONWithUrl:shop_goodsList parameters:param success:^(id responseObject) {
-        [selfWeak.classView.mj_footer endRefreshing];
-        [selfWeak.classView.mj_header endRefreshing];
+        @strongify(self);
+        [self.classView.mj_footer endRefreshing];
+        [self.classView.mj_header endRefreshing];
         
         NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
-        
+       
         if (code == 200) {
             AllInfo *allInfo = [AllInfo yy_modelWithJSON:responseObject[@"content"]];
-            [selfWeak.goods addObjectsFromArray:allInfo.list];
-            [selfWeak.classView reloadData];
+            [self.goods addObjectsFromArray:allInfo.list];
+            [self.classView reloadData];
             [self.view addSubview:self.segmentBar];
             [self.view addSubview:self.classView];
             
         }else {
+             [Dialog popTextAnimation:responseObject[@"message"]];
         }
-        [selfWeak.classView setTableBgViewWithCount:selfWeak.goods.count img:@"icon_none_02" msg:@"空空如也..."];
+        [self.classView setTableBgViewWithCount:self.goods.count img:@"icon_none_02" msg:@"空空如也..."];
     } fail:^{
         
     }];
@@ -81,8 +83,10 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [self.navigationController pushViewController:[GoodsInfoViewController new] animated:YES];
+    GoodsInfoViewController *vc = [[GoodsInfoViewController alloc]init];
+    GoodsInfoModel *model = self.goods[indexPath.item];
+    vc.goods_id = model.goods_id;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark UISearchBarDelegate
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
@@ -92,8 +96,8 @@
     
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    self.page = 0;
-    self.goods = [NSMutableArray array];
+    self.page = 1;
+    self.goods = nil;
     [self requertClassInfo];
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
@@ -102,8 +106,13 @@
 #pragma mark set & get
 - (UISearchBar *)searchBar {
     if (!_searchBar) {
-        _searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, kMainScreenWidth-30, 30)];
+        _searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, kMainScreenWidth-30, 44)];
         _searchBar.delegate = self;
+        _searchBar.tintColor = UIColorFromRGB(0x3194F9);
+        _searchBar.placeholder = @"按商品关键词搜索";
+        UIView *searchTextField =  [[[_searchBar.subviews firstObject] subviews] lastObject];
+        searchTextField.backgroundColor = UIColorFromRGB(0xEDEDED);
+        [_searchBar becomeFirstResponder];
     }
     return _searchBar;
 }
@@ -121,14 +130,17 @@
         [_classView registerNib:[UINib nibWithNibName:@"SiginCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([SiginCell class])];
         _classView.dataSource = self;
         _classView.delegate = self;
-        WeakObj(self);
+        @weakify(self);
         _classView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            selfWeak.page = 0;
-            selfWeak.goods = [NSMutableArray array];
-            [selfWeak requertClassInfo];
+            @strongify(self);
+            self.page = 1;
+            self.goods = nil;
+            [self requertClassInfo];
         }];
         _classView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-            [selfWeak requertClassInfo];
+            @strongify(self);
+            self.page++;
+            [self requertClassInfo];
         }];
     }
     return _classView;
@@ -140,12 +152,18 @@
         _segmentBar.segmentSelectedBlock = ^(NSString *priceSort, NSString *volumeSort) {
             selfWeak.priceSort = priceSort;
             selfWeak.volumeSort = volumeSort;
-            selfWeak.page = 0;
-            selfWeak.goods = [NSMutableArray array];
+            selfWeak.page = 1;
+            selfWeak.goods = nil;
             [selfWeak requertClassInfo];
         };
         
     }
     return _segmentBar;
+}
+- (NSMutableArray *)goods {
+    if (!_goods) {
+        _goods = [NSMutableArray array];
+    }
+    return _goods;
 }
 @end

@@ -38,7 +38,7 @@
         [self.tableView.mj_header endRefreshing];
         
         NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
+        
         if (code == 200) {
             NSArray *arrs = [NSArray yy_modelArrayWithClass:[DiscountModel class] json:responseObject[@"content"][@"list"]];
             if (arrs.count) {
@@ -50,7 +50,7 @@
             [self.tableView setTableBgViewWithCount:self.arr.count img:@"icon_none_02" msg:@"空空如也"];
             
         }else {
-            
+            [Dialog popTextAnimation:responseObject[@"message"]];
         }
     } fail:^{
         
@@ -100,6 +100,7 @@
         }];
         _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
             @strongify(self);
+            self.page++;
             [self requestCouponList];
         }];
     }

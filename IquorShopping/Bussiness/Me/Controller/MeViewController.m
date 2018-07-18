@@ -70,11 +70,13 @@
     [AFNetworkTool postJSONWithUrl:user_personCenter parameters:nil success:^(id responseObject) {
         NSInteger code = [responseObject[@"code"] integerValue];
         if (code == 200) {
-            IquorUser *user = [IquorUser shareIquorUser];
+//            IquorUser *user = [IquorUser shareIquorUser];
+            IQourUser *user = [IQourUser shareInstance];
             user.uid = responseObject[@"content"][@"user_info"][@"uid"];
             user.level = responseObject[@"content"][@"user_info"][@"level"];
             user.level_name = responseObject[@"content"][@"user_info"][@"level_name"];
             user.service_number = responseObject[@"content"][@"set_contact"][@"service_number"];
+            
             self.configView.isfresh = YES;
         }else {
             
@@ -84,7 +86,7 @@
     }];
 }
 - (void)startContactService {
-    NSString *tel = [NSString stringWithFormat:@"tel:%@", [IquorUser shareIquorUser].user_tel];
+    NSString *tel = [NSString stringWithFormat:@"tel:%@", [IQourUser shareInstance].service_number];
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:tel]]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tel]];
     }
@@ -161,16 +163,17 @@
 - (MeHeaderTableView *)configView {
     if (!_configView) {
         _configView = [[[NSBundle mainBundle]loadNibNamed:@"MeHeaderTableView" owner:self options:nil] firstObject];
-        WeakObj(self);
+        @weakify(self);
         _configView.clickButtonBlock = ^(OperateType operate) {
+            @strongify(self);
             if (operate == KLogin) {
                 LoginViewController *loginVC = [[LoginViewController alloc]init];
-                [selfWeak.navigationController pushViewController:loginVC animated:YES];
+                [self.navigationController pushViewController:loginVC animated:YES];
             }else if (operate == KJoin) {
                 
             }else if (operate == KMeInfo) {
                 MeInfoViewController *infoVC = [[MeInfoViewController alloc]init];
-                [selfWeak.navigationController pushViewController:infoVC animated:YES];
+                [self.navigationController pushViewController:infoVC animated:YES];
             }
         };
     }

@@ -42,6 +42,11 @@
         make.left.right.bottom.equalTo(self.view);
         make.height.equalTo(@60);
     }];
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
 - (void)requestGoodsInfo {
@@ -59,6 +64,7 @@
             [self loadFrament:model.goods_detail];
             self.goodsDetail = model;
             self.isCollected = model.isCollect;
+            self.goods_detail = model.goods_detail;
             [self.tableView reloadData];
         }else {
             
@@ -164,6 +170,7 @@
     [cell configCell:self.goodsDetail.comment[indexPath.row]];
     return cell;
 }
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     CGFloat webViewHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
     webView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), webViewHeight);
@@ -172,6 +179,8 @@
     [self.tableView endUpdates];
     
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -188,7 +197,7 @@
                        "window.onload = function(){\n"
                        "var $img = document.getElementsByTagName('img');\n"
                        "for(var p in  $img){\n"
-                       "$img[p].style.width = '90%%';\n"
+                       "$img[p].style.width = '100%%';\n"
                        "$img[p].style.height ='auto'\n"
                        "}\n"
                        "}"
@@ -200,7 +209,7 @@
 #pragma mark set & get
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
         [_tableView registerNib:[UINib nibWithNibName:@"AssessCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([AssessCell class])];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.estimatedSectionFooterHeight = 0;

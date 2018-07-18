@@ -65,7 +65,7 @@
         [self.indentTable.mj_header endRefreshing];
         
         NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
+        
         if (code == 200) {
             NSArray *arrs = [NSArray yy_modelArrayWithClass:[IndentModel class] json:responseObject[@"content"][@"list"]];
             if (arrs.count) {
@@ -77,6 +77,7 @@
             [self.indentTable setTableBgViewWithCount:self.arrs.count img:@"icon_none_02" msg:@"还没有订单哦"];
             
         }else {
+            [Dialog popTextAnimation:responseObject[@"message"]];
         }
     } fail:^{
         

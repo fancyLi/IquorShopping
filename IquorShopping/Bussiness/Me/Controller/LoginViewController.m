@@ -65,8 +65,9 @@
     [AFNetworkTool postJSONWithUrl:get_user_info_url parameters:nil success:^(id responseObject) {
         NSInteger code = [responseObject[@"code"] integerValue];
         if (code == 200) {
-            IquorUser *user = [IquorUser shareIquorUser];
-            [user configDict:responseObject[@"content"]];
+//            IquorUser *user = [IquorUser shareIquorUser];
+//            [user configDict:responseObject[@"content"]];
+            [IQourUser yy_modelWithDictionary:responseObject[@"content"]];
         }else {
             
         }

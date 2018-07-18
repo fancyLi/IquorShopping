@@ -92,6 +92,34 @@
 #define COLOR_Yellow     UIColorFromRGB(0xFC8E0D)//黄色
 #define COLOR_Red    UIColorFromRGB(0xF13740)//红色
 
+/*
+ *单利
+ */
+#define singtonInterface  + (instancetype)shareInstance;
+
+#define singtonImplement(class) \
+\
+static class *_shareInstance; \
+\
++ (instancetype)shareInstance { \
+\
+if(_shareInstance == nil) {\
+_shareInstance = [[class alloc] init]; \
+} \
+return _shareInstance; \
+} \
+\
++(instancetype)allocWithZone:(struct _NSZone *)zone { \
+\
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+_shareInstance = [super allocWithZone:zone]; \
+}); \
+\
+return _shareInstance; \
+\
+}
+
 /**
  弱引用
  @param weakSelf

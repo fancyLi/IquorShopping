@@ -7,6 +7,7 @@
 //
 
 #import "CommentViewController.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 #import "MeCommenCell.h"
 #import "MeCommentModel.h"
 @interface CommentViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -28,7 +29,6 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = 100;
     self.tableView.estimatedSectionHeaderHeight = 0;
     self.tableView.estimatedSectionFooterHeight = 0;
     self.page = 1;
@@ -37,7 +37,7 @@
     @weakify(self);
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         @strongify(self);
-        self.page = 0;
+        self.page = 1;
         self.arrs = nil;
         [self requestCouponList];
     }];
@@ -56,7 +56,6 @@
         [self.tableView.mj_header endRefreshing];
         
         NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
             NSArray *arrs = [NSArray yy_modelArrayWithClass:[MeCommentModel class] json:responseObject[@"content"][@"list"]];
             if (arrs.count) {
@@ -68,7 +67,7 @@
             [self.tableView setTableBgViewWithCount:self.arrs.count img:@"icon_none_02" msg:@"空空如也"];
             
         }else {
-            
+            [Dialog popTextAnimation:responseObject[@"message"]];
         }
     } fail:^{
         
@@ -94,6 +93,11 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 0.1;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [tableView fd_heightForCellWithIdentifier:NSStringFromClass([MeCommenCell class]) configuration:^(MeCommenCell *cell) {
+        cell.comment = self.arrs[indexPath.section];
+    }];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MeCommenCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MeCommenCell class])];

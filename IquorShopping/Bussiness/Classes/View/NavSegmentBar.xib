@@ -20,15 +20,15 @@
                     <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlM-J0-PHk">
-                            <rect key="frame" x="5" y="0.0" width="90" height="44"/>
+                            <rect key="frame" x="5" y="0.0" width="92" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.80000000000000004" green="0.12549019607843137" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_15" translatesAutoresizingMaskIntoConstraints="NO" id="QuJ-s7-st9">
-                            <rect key="frame" x="103" y="16.5" width="12" height="12"/>
+                            <rect key="frame" x="105" y="16.5" width="8" height="12"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="12" id="1al-E2-poE"/>
+                                <constraint firstAttribute="width" constant="8" id="1al-E2-poE"/>
                                 <constraint firstAttribute="height" constant="12" id="fev-8x-XBG"/>
                             </constraints>
                         </imageView>
@@ -47,14 +47,14 @@
                     <rect key="frame" x="187.5" y="0.0" width="187.5" height="44"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_15" translatesAutoresizingMaskIntoConstraints="NO" id="sir-Ce-pXr">
-                            <rect key="frame" x="103" y="16" width="12" height="12"/>
+                            <rect key="frame" x="105" y="16" width="8" height="12"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="12" id="8HL-9o-NBE"/>
-                                <constraint firstAttribute="width" constant="12" id="GYh-nY-H7G"/>
+                                <constraint firstAttribute="width" constant="8" id="GYh-nY-H7G"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="销量" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2e-wy-HZg">
-                            <rect key="frame" x="5" y="0.0" width="90" height="44"/>
+                            <rect key="frame" x="5" y="0.0" width="92" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>

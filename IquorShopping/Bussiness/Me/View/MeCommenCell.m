@@ -21,12 +21,15 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *colLayoutConstraint;
 @property (nonatomic, strong) UILabel *leverLabel;
 @property (nonatomic, strong) NSArray *imgs;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 
 @end
 @implementation MeCommenCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.avatar.layer.cornerRadius = 20;
+    self.avatar.clipsToBounds = YES;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self.contentView addSubview:self.leverLabel];
     [self.leverLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -47,8 +50,11 @@
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.scrollEnabled = NO;
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
+//    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goodsClick)];
 }
-
+- (void)goodsClick {
+    
+}
 - (void)setComment:(MeCommentModel *)comment {
     _comment = comment;
     if (![UIUtils isNullOrEmpty:_comment.avatar]) {

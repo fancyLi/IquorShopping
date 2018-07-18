@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *infoTableview;
 @property (nonatomic, strong) NSArray *leftTitles;
 @property (nonatomic, strong) NSArray *rightTitles;
-@property (nonatomic, strong) IquorUser *user;
+@property (nonatomic, strong) IQourUser *user;
 
 @end
 
@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.user = [IquorUser shareIquorUser];
+    self.user = [IQourUser shareInstance];
     [self configInfoUI];
 }
 

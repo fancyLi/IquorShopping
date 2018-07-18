@@ -13,6 +13,7 @@
 #import "SiginCell.h"
 #import "GoodsInfoModel.h"
 #import "GoodsInfoViewController.h"
+#import "UIControl+IquorArea.h"
 
 @interface SiginViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, assign) NSInteger page;
@@ -33,6 +34,8 @@
     [self.view addSubview:self.segmentBar];
     
     UIButton *searchBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
+    
+    [searchBtn setEnlargeEdge:20];
     [searchBtn setBackgroundImage:[UIImage imageNamed:@"icon_s_02"] forState:UIControlStateNormal];
     [searchBtn addTarget:self action:@selector(startSearch) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:searchBtn];
@@ -51,7 +54,7 @@
     //代表类型 1.热门推荐2.最新产品3.分类产品4.搜索关键词
     //商品价格排序 1.升序2.降序
     //商品价格排序 1.升序2.降序
-    WeakObj(self);
+    @weakify(self);
     NSDictionary *param = @{@"page":@(self.page),
                             @"type":[UIUtils isNullOrEmpty:self.type]?@"":self.type,
                             @"goods_price_sort":self.priceSort,
@@ -60,20 +63,20 @@
                             @"key_words":[UIUtils isNullOrEmpty:self.serContent]?@"":self.serContent
                             };
     [AFNetworkTool postJSONWithUrl:shop_goodsList parameters:param success:^(id responseObject) {
-        [selfWeak.classView.mj_footer endRefreshing];
-        [selfWeak.classView.mj_header endRefreshing];
+        @strongify(self);
+        [self.classView.mj_footer endRefreshing];
+        [self.classView.mj_header endRefreshing];
         
         NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
-        
         if (code == 200) {
             AllInfo *allInfo = [AllInfo yy_modelWithJSON:responseObject[@"content"]];
-            [selfWeak.goods addObjectsFromArray:allInfo.list];
-            [selfWeak.classView reloadData];
+            [self.goods addObjectsFromArray:allInfo.list];
+            [self.classView reloadData];
             
         }else {
+            [Dialog popTextAnimation:responseObject[@"message"]];
         }
-        [selfWeak.classView setTableBgViewWithCount:selfWeak.goods.count img:@"icon_none_02" msg:@"空空如也..."];
+        [self.classView setTableBgViewWithCount:self.goods.count img:@"icon_none_02" msg:@"空空如也..."];
     } fail:^{
         
     }];
@@ -116,28 +119,32 @@
         [_classView registerNib:[UINib nibWithNibName:@"SiginCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([SiginCell class])];
         _classView.dataSource = self;
         _classView.delegate = self;
-        WeakObj(self);
+        @weakify(self);
         _classView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            selfWeak.page = 0;
-            selfWeak.goods = [NSMutableArray array];
-            [selfWeak requertClassInfo];
+            @strongify(self);
+            self.page = 1;
+            self.goods = nil;
+            [self requertClassInfo];
         }];
         _classView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-            [selfWeak requertClassInfo];
+            @strongify(self);
+            self.page++;
+            [self requertClassInfo];
         }];
     }
     return _classView;
 }
 - (NavSegmentBar *)segmentBar {
     if (!_segmentBar) {
-        WeakObj(self);
+        @weakify(self);
         _segmentBar = [[NSBundle mainBundle]loadNibNamed:@"NavSegmentBar" owner:self options:nil].firstObject;
         _segmentBar.segmentSelectedBlock = ^(NSString *priceSort, NSString *volumeSort) {
-            selfWeak.priceSort = priceSort;
-            selfWeak.volumeSort = volumeSort;
-            selfWeak.page = 0;
-            selfWeak.goods = [NSMutableArray array];
-            [selfWeak requertClassInfo];
+            @strongify(self);
+            self.priceSort = priceSort;
+            self.volumeSort = volumeSort;
+            self.page = 1;
+            self.goods = nil;
+            [self requertClassInfo];
         };
         
     }

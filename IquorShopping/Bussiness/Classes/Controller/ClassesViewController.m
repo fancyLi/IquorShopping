@@ -30,13 +30,13 @@
     WeakObj(self);
     [AFNetworkTool postJSONWithUrl:shop_goodsCatList parameters:nil success:^(id responseObject) {
         NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
+        
         if (code == 200) {
             selfWeak.classes = [NSArray yy_modelArrayWithClass:[ClassInfoModel class] json:responseObject[@"content"][@"list"]];
             [selfWeak.classView reloadData];
             
         }else {
-            
+            [Dialog popTextAnimation:responseObject[@"message"]];
         }
     } fail:^{
         
@@ -57,6 +57,7 @@
     SiginViewController *siginVC = [[SiginViewController alloc]init];
     siginVC.cat_id = infoModel.cat_id;
     siginVC.cat_name = infoModel.cat_name;
+    siginVC.type = @"3";
     siginVC.title = infoModel.cat_name;
     [self.navigationController pushViewController:siginVC animated:YES];
 }

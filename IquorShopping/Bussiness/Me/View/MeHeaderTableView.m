@@ -32,8 +32,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.layer.borderColor = [UIColor redColor].CGColor;
-    self.layer.borderWidth = 1;
+//    self.layer.borderColor = [UIColor redColor].CGColor;
+//    self.layer.borderWidth = 1;
     self.userHeader.layer.cornerRadius = 32;
     self.userHeader.clipsToBounds = YES;
     [self.meInfoBtn setEnlargeEdge:20];
@@ -54,7 +54,7 @@
 }
 - (void)setIsfresh:(BOOL)isfresh {
     _isfresh = isfresh;
-    IquorUser *user = [IquorUser shareIquorUser];
+    IQourUser *user = [IQourUser shareInstance];
     if (user.user_tel) {
         self.startLoginBtn.hidden = YES;
         self.vipDes.hidden = NO;
@@ -93,14 +93,14 @@
 //    self.heightLayout.constant = btn.selected ? 0 : 60;
 }
 - (IBAction)joinClick:(id)sender {
-    if (self.clickButtonBlock && [IquorUser shareIquorUser].user_tel) {
+    if (self.clickButtonBlock && [IQourUser shareInstance].user_tel) {
         self.clickButtonBlock(KJoin);
     }else {
         self.clickButtonBlock(KLogin);
     }
 }
 - (IBAction)infoClick:(id)sender {
-    if (self.clickButtonBlock  && [IquorUser shareIquorUser].user_tel) {
+    if (self.clickButtonBlock  && [IQourUser shareInstance].user_tel) {
         self.clickButtonBlock(KMeInfo);
     }else {
         self.clickButtonBlock(KLogin);
