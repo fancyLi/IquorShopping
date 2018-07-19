@@ -21,7 +21,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdY-Vs-tJw">
-                        <rect key="frame" x="5" y="11" width="20" height="20"/>
+                        <rect key="frame" x="10" y="11" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="0YS-9D-DX7"/>
                             <constraint firstAttribute="height" constant="20" id="EvJ-CQ-75P"/>
@@ -33,20 +33,20 @@
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pay_01" translatesAutoresizingMaskIntoConstraints="NO" id="BFF-jS-oKY">
-                        <rect key="frame" x="30" y="9.5" width="25" height="25"/>
+                        <rect key="frame" x="40" y="9.5" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="1tA-I1-beh"/>
                             <constraint firstAttribute="width" constant="25" id="vuY-09-mm2"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9z3-jD-Jg3">
-                        <rect key="frame" x="60" y="11" width="125" height="22"/>
+                        <rect key="frame" x="75" y="11" width="117.5" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jr1-Kd-clt">
-                        <rect key="frame" x="190" y="0.0" width="125" height="43.5"/>
+                        <rect key="frame" x="197.5" y="0.0" width="117.5" height="43.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -54,11 +54,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="FdY-Vs-tJw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9Vm-TE-72j"/>
-                    <constraint firstItem="9z3-jD-Jg3" firstAttribute="leading" secondItem="BFF-jS-oKY" secondAttribute="trailing" constant="5" id="AsQ-sn-Zx9"/>
-                    <constraint firstItem="BFF-jS-oKY" firstAttribute="leading" secondItem="FdY-Vs-tJw" secondAttribute="trailing" constant="5" id="LfM-dc-LD1"/>
+                    <constraint firstItem="9z3-jD-Jg3" firstAttribute="leading" secondItem="BFF-jS-oKY" secondAttribute="trailing" constant="10" id="AsQ-sn-Zx9"/>
+                    <constraint firstItem="BFF-jS-oKY" firstAttribute="leading" secondItem="FdY-Vs-tJw" secondAttribute="trailing" constant="10" id="LfM-dc-LD1"/>
                     <constraint firstAttribute="trailing" secondItem="jr1-Kd-clt" secondAttribute="trailing" constant="5" id="M4d-ga-teK"/>
                     <constraint firstItem="BFF-jS-oKY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RtG-LJ-Rnu"/>
-                    <constraint firstItem="FdY-Vs-tJw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="cIz-em-f23"/>
+                    <constraint firstItem="FdY-Vs-tJw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="cIz-em-f23"/>
                     <constraint firstAttribute="bottom" secondItem="jr1-Kd-clt" secondAttribute="bottom" id="eBF-4M-Auh"/>
                     <constraint firstItem="9z3-jD-Jg3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="f11-1M-2JW"/>
                     <constraint firstItem="jr1-Kd-clt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fF3-o9-2IO"/>

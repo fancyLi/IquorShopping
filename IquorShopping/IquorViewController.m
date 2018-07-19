@@ -18,6 +18,8 @@
     [super viewDidLoad];
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
+//    self.view.backgroundColor = [UIColor c_f6f6Color];
+    
 //    if (@available(iOS 11.0, *)) {
 //        [UITableView appearance].contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
 //    }else {
@@ -45,6 +47,25 @@
 
 - (void)goBack {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (BOOL)isLogin {
+    if ([IQourUser shareInstance].user_tel) {
+        return YES;
+    }else {
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"您尚未登录，是否现在登录" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"登录" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertVC addAction:cancelAction];
+        [alertVC addAction:sureAction];
+        [self presentViewController:alertVC animated:YES completion:nil];
+        return NO;
+    }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

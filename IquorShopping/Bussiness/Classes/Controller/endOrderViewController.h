@@ -11,5 +11,5 @@
 #import "OrderModel.h"
 @interface endOrderViewController : IquorViewController
 @property (nonatomic, strong) OrderResult *endOrder;
-@property (nonatomic, strong) OrderModel *order;
+@property (nonatomic, copy) NSString *order_sn;
 @end

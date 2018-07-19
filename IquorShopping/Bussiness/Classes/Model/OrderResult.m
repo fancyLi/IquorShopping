@@ -14,7 +14,8 @@
              };
 }
 + (NSDictionary *)modelCustomPropertyMapper {
-    return @{@"order_id" : @"order_info.order_id"
+    return @{@"order_id" : @"order_info.order_id",
+             @"order_total" : @"order_info.order_total"
              };
 }
 @end

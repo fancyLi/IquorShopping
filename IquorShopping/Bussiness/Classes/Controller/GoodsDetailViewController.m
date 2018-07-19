@@ -74,7 +74,9 @@
         
     }];
 }
-
+- (void)contactServer {
+    
+}
 - (void)collectGooods {
     self.isCollected = [self.isCollected isEqualToString:@"1"]?@"2":@"1";
     NSDictionary *param = @{
@@ -250,7 +252,7 @@
             @strongify(self);
             switch (index) {
                 case 0:
-                    
+                    [self contactServer];
                     break;
                 case 1:
                     [self collectGooods];

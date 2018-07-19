@@ -171,6 +171,10 @@
 //提交订单
 #define pay_requestPayment                      @"pay/requestPayment"
 
+//订单结果页面
+#define order_getOrdersnInfo                    @"order/getOrdersnInfo"
+
+
 //获取银行卡信息
 #define user_getAListOfBanks                    @"user/getAListOfBanks"
 

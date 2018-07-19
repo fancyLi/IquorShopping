@@ -13,6 +13,7 @@
 #import "FooterTableView.h"
 #import "IndentModel.h"
 #import "EveGoodsViewController.h"
+#import "OrderDetailViewController.h"
 @interface IndentListViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *indentTable;
 @property (nonatomic, strong) NSMutableArray *arrs;
@@ -196,8 +197,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    IndentDetailViewController *detailVC = [[IndentDetailViewController alloc]init];
-    [self.navigationController pushViewController:detailVC animated:YES];
+    IndentModel *indent = self.arrs[indexPath.section];
+    OrderDetailViewController *vc = [[OrderDetailViewController alloc]init];
+    vc.order_id = indent.order_id;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (UITableView *)indentTable {
     if (!_indentTable) {

@@ -154,6 +154,14 @@
 		087A44AD20FF8D760031C499 /* PageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087A44AC20FF8D760031C499 /* PageDetailViewController.m */; };
 		087A44B020FF9CC30031C499 /* NavSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 087A44AF20FF9CC30031C499 /* NavSearchView.m */; };
 		087A44B220FF9CCB0031C499 /* NavSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 087A44B120FF9CCB0031C499 /* NavSearchView.xib */; };
+		087A44B72100C6D70031C499 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 087A44B62100C6D70031C499 /* AlipaySDK.framework */; };
+		087A44B92100C6F50031C499 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 087A44B82100C6F50031C499 /* AlipaySDK.bundle */; };
+		087A44BD2100C9AC0031C499 /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087A44BB2100C9AC0031C499 /* RechargeViewController.m */; };
+		087A44BE2100C9AC0031C499 /* RechargeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 087A44BC2100C9AC0031C499 /* RechargeViewController.xib */; };
+		087A44C12100D6A90031C499 /* WechatOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 087A44C02100D6A90031C499 /* WechatOrder.m */; };
+		087A44C72100FA0F0031C499 /* OrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087A44C62100FA0F0031C499 /* OrderDetailViewController.m */; };
+		087A44CB2100FB420031C499 /* OrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 087A44C92100FB420031C499 /* OrderDetailCell.m */; };
+		087A44CC2100FB420031C499 /* OrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 087A44CA2100FB420031C499 /* OrderDetailCell.xib */; };
 		0880523F20A2EB180018AE6E /* IquorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880523E20A2EB180018AE6E /* IquorViewController.m */; };
 		0880524920A2EB730018AE6E /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524520A2EB730018AE6E /* FileUtils.m */; };
 		0880524A20A2EB730018AE6E /* AFNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524620A2EB730018AE6E /* AFNetworkTool.m */; };
@@ -531,6 +539,18 @@
 		087A44AE20FF9CC30031C499 /* NavSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavSearchView.h; sourceTree = "<group>"; };
 		087A44AF20FF9CC30031C499 /* NavSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavSearchView.m; sourceTree = "<group>"; };
 		087A44B120FF9CCB0031C499 /* NavSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavSearchView.xib; sourceTree = "<group>"; };
+		087A44B62100C6D70031C499 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		087A44B82100C6F50031C499 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		087A44BA2100C9AC0031C499 /* RechargeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RechargeViewController.h; sourceTree = "<group>"; };
+		087A44BB2100C9AC0031C499 /* RechargeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RechargeViewController.m; sourceTree = "<group>"; };
+		087A44BC2100C9AC0031C499 /* RechargeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RechargeViewController.xib; sourceTree = "<group>"; };
+		087A44BF2100D6A90031C499 /* WechatOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WechatOrder.h; sourceTree = "<group>"; };
+		087A44C02100D6A90031C499 /* WechatOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WechatOrder.m; sourceTree = "<group>"; };
+		087A44C52100FA0F0031C499 /* OrderDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDetailViewController.h; sourceTree = "<group>"; };
+		087A44C62100FA0F0031C499 /* OrderDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDetailViewController.m; sourceTree = "<group>"; };
+		087A44C82100FB420031C499 /* OrderDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDetailCell.h; sourceTree = "<group>"; };
+		087A44C92100FB420031C499 /* OrderDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDetailCell.m; sourceTree = "<group>"; };
+		087A44CA2100FB420031C499 /* OrderDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailCell.xib; sourceTree = "<group>"; };
 		0880523D20A2EB180018AE6E /* IquorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IquorViewController.h; sourceTree = "<group>"; };
 		0880523E20A2EB180018AE6E /* IquorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorViewController.m; sourceTree = "<group>"; };
 		0880524120A2EB730018AE6E /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
@@ -739,6 +759,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A099031B18DA7D1580389EE /* libPods-IquorShopping.a in Frameworks */,
+				087A44B72100C6D70031C499 /* AlipaySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,6 +980,8 @@
 				0848C1F920FE38D000A9963E /* EveGoodsViewController.h */,
 				0848C1FA20FE38D000A9963E /* EveGoodsViewController.m */,
 				0848C1FB20FE38D000A9963E /* EveGoodsViewController.xib */,
+				087A44C52100FA0F0031C499 /* OrderDetailViewController.h */,
+				087A44C62100FA0F0031C499 /* OrderDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1021,6 +1044,9 @@
 				0848C20620FE439A00A9963E /* EveGoodsView.h */,
 				0848C20720FE439A00A9963E /* EveGoodsView.m */,
 				0848C20920FE43B600A9963E /* EveGoodsView.xib */,
+				087A44C82100FB420031C499 /* OrderDetailCell.h */,
+				087A44C92100FB420031C499 /* OrderDetailCell.m */,
+				087A44CA2100FB420031C499 /* OrderDetailCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1250,6 +1276,9 @@
 				0848C1F420FE192800A9963E /* VIPLevelViewController.h */,
 				0848C1F520FE192800A9963E /* VIPLevelViewController.m */,
 				0848C1F620FE192800A9963E /* VIPLevelViewController.xib */,
+				087A44BA2100C9AC0031C499 /* RechargeViewController.h */,
+				087A44BB2100C9AC0031C499 /* RechargeViewController.m */,
+				087A44BC2100C9AC0031C499 /* RechargeViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1277,6 +1306,8 @@
 				0848C1EA20FE16A400A9963E /* UserVIP.m */,
 				087A44A820FF78180031C499 /* IQourUser.h */,
 				087A44A920FF78180031C499 /* IQourUser.m */,
+				087A44BF2100D6A90031C499 /* WechatOrder.h */,
+				087A44C02100D6A90031C499 /* WechatOrder.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1351,6 +1382,7 @@
 		0880523C20A2EAD90018AE6E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				087A44B82100C6F50031C499 /* AlipaySDK.bundle */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1547,6 +1579,7 @@
 		134D5D1ED14E4A186BE30363 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				087A44B62100C6D70031C499 /* AlipaySDK.framework */,
 				1B24F8520DB163081C6C3D09 /* libPods-IquorShopping.a */,
 				292E4C7C26E5AC99EAB3C6A5 /* libPods-IquorShoppingTests.a */,
 				F45D40AB9D001EA5225FCD25 /* libPods-IquorShoppingUITests.a */,
@@ -1685,6 +1718,7 @@
 				0847F1CD20AB286700BEF0F6 /* CollectedCell.xib in Resources */,
 				08B8672C20EBA08C00F73677 /* MePageCollectionViewCell.xib in Resources */,
 				0880527120A33F960018AE6E /* LoginViewController.xib in Resources */,
+				087A44BE2100C9AC0031C499 /* RechargeViewController.xib in Resources */,
 				0847F1C320AB0C4400BEF0F6 /* IndentBottomCell.xib in Resources */,
 				0848C17E20F8C63F00A9963E /* BaoCouViewController.xib in Resources */,
 				0848C1E820FE0B9400A9963E /* MeCollectionCell.xib in Resources */,
@@ -1700,6 +1734,7 @@
 				0898C38A20AF1D2300664482 /* DetailTableHeader.xib in Resources */,
 				080649B020C8C7F6003B155F /* AdressListViewController.xib in Resources */,
 				08E4643920A2E7B900E405DB /* LaunchScreen.storyboard in Resources */,
+				087A44CC2100FB420031C499 /* OrderDetailCell.xib in Resources */,
 				086AF79C20F0AAA1002A0385 /* MeInfoTableViewCell.xib in Resources */,
 				0898C3C620B2F42500664482 /* ShopCartViewController.xib in Resources */,
 				0806499820C6ABCF003B155F /* AddressCell.xib in Resources */,
@@ -1710,6 +1745,7 @@
 				0880529820A354700018AE6E /* ChangePasswordViewController.xib in Resources */,
 				088052A120A354950018AE6E /* NikeNameViewController.xib in Resources */,
 				0847F1AF20AB070700BEF0F6 /* IndentDetailViewController.xib in Resources */,
+				087A44B92100C6F50031C499 /* AlipaySDK.bundle in Resources */,
 				0898C35820ADDC4900664482 /* NavSegmentBar.xib in Resources */,
 				086AF79420F08D79002A0385 /* AddGoodsViewController.xib in Resources */,
 				0848C1D220FCE92300A9963E /* OrderDisCell.xib in Resources */,
@@ -1897,6 +1933,7 @@
 				080649B320C8D7DA003B155F /* ImageViewController.m in Sources */,
 				086AF79320F08D79002A0385 /* AddGoodsViewController.m in Sources */,
 				080649A120C7F418003B155F /* AreaChoseViewController.m in Sources */,
+				087A44C72100FA0F0031C499 /* OrderDetailViewController.m in Sources */,
 				088052E820A9E1560018AE6E /* View+MASAdditions.m in Sources */,
 				0847F1CC20AB286700BEF0F6 /* CollectedCell.m in Sources */,
 				08B8672B20EBA08C00F73677 /* MePageCollectionViewCell.m in Sources */,
@@ -1982,6 +2019,7 @@
 				0848C20420FE3CE100A9963E /* EveGoodsTableCell.m in Sources */,
 				0847F1E220AB34AE00BEF0F6 /* DiscountViewController.m in Sources */,
 				0847F19C20AAFFB900BEF0F6 /* IndentViewController.m in Sources */,
+				087A44BD2100C9AC0031C499 /* RechargeViewController.m in Sources */,
 				0880527520A3443D0018AE6E /* FirstRegViewController.m in Sources */,
 				080649CC20CE1983003B155F /* BrokerModel.m in Sources */,
 				086AF78420F07D70002A0385 /* CommentModel.m in Sources */,
@@ -2025,6 +2063,7 @@
 				0898C3C520B2F42500664482 /* ShopCartViewController.m in Sources */,
 				0848C1FC20FE38D000A9963E /* EveGoodsViewController.m in Sources */,
 				0848C18F20F8E1DE00A9963E /* BankUserViewController.m in Sources */,
+				087A44C12100D6A90031C499 /* WechatOrder.m in Sources */,
 				087A44B020FF9CC30031C499 /* NavSearchView.m in Sources */,
 				0806498720C5755C003B155F /* UIViewController+RTRootNavigationController.m in Sources */,
 				088052E320A9E1560018AE6E /* ViewController+MASAdditions.m in Sources */,
@@ -2032,6 +2071,7 @@
 				0898C31620ADB57800664482 /* StartViewController.m in Sources */,
 				0898C34720ADD53A00664482 /* NavSearchBar.m in Sources */,
 				0847F1DE20AB323400BEF0F6 /* DiscountCell.m in Sources */,
+				087A44CB2100FB420031C499 /* OrderDetailCell.m in Sources */,
 				0880525020A2EC100018AE6E /* IquorTabBarViewController.m in Sources */,
 				0848C17D20F8C63F00A9963E /* BaoCouViewController.m in Sources */,
 			);
@@ -2206,6 +2246,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 92V366UDRT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IquorShopping/PrefixHeader.h";
 				INFOPLIST_FILE = IquorShopping/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2229,6 +2273,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IquorShopping/PrefixHeader.h";
 				INFOPLIST_FILE = IquorShopping/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;

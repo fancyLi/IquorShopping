@@ -35,26 +35,28 @@
     self.rightBtn.layer.cornerRadius = 5;
     self.rightBtn.layer.borderWidth = 1;
     self.rightBtn.layer.borderColor = [UIColor c_e8e8Color].CGColor;
-    
-    self.nameCon.text = [NSString stringWithFormat:@"%@  %@", self.order.addr.contact_name, self.order.addr.contact_tel];
-    self.adress.text = [NSString stringWithFormat:@"%@%@%@%@", self.order.addr.province_name, self.order.addr.city_name, self.order.addr.district_name, self.order.addr.contact_addr];
-//    self.price.text = [NSString stringWithFormat:@"实付：￥%@", ]
     if (self.endOrder) {
-        self.icon.image = [UIImage imageNamed:@"icon_prompt_01"];
-        self.result.text = @"付款成功";
-        self.result.textColor = UIColorFromRGB(0x0db530);
-        self.bus_contact.text = [NSString stringWithFormat:@"我们会尽快安排发货\n如有疑问请联系：%@", self.endOrder.service_number];
-        [self.leftBtn setTitle:@"查看订单" forState:UIControlStateNormal];
-        [self.rightBtn setTitle:@"继续购物" forState:UIControlStateNormal];
-        isSuc = YES;
-    }else {
-        self.icon.image = [UIImage imageNamed:@"icon_prompt_02"];
-        self.result.text = @"付款失败";
-        self.result.textColor = [UIColor c_cc0Color];
-        self.bus_contact.text = [NSString stringWithFormat:@"请完成付款\n否则订单会被系统取消"];
-        [self.leftBtn setTitle:@"查看订单" forState:UIControlStateNormal];
-        [self.rightBtn setTitle:@"重新付款" forState:UIControlStateNormal];
+        self.nameCon.text = [NSString stringWithFormat:@"%@  %@", self.endOrder.return_addr.contact_name, self.endOrder.return_addr.contact_tel];
+        self.adress.text = [NSString stringWithFormat:@"%@%@%@%@", self.endOrder.return_addr.province_name, self.endOrder.return_addr.city_name, self.endOrder.return_addr.district_name, self.endOrder.return_addr.contact_addr];
+        self.price.text = [NSString stringWithFormat:@"实付：￥%@", self.endOrder.order_total];
+        if (self.endOrder) {
+            self.icon.image = [UIImage imageNamed:@"icon_prompt_01"];
+            self.result.text = @"付款成功";
+            self.result.textColor = UIColorFromRGB(0x0db530);
+            self.bus_contact.text = [NSString stringWithFormat:@"我们会尽快安排发货\n如有疑问请联系：%@", self.endOrder.service_number];
+            [self.leftBtn setTitle:@"查看订单" forState:UIControlStateNormal];
+            [self.rightBtn setTitle:@"继续购物" forState:UIControlStateNormal];
+            isSuc = YES;
+        }else {
+            self.icon.image = [UIImage imageNamed:@"icon_prompt_02"];
+            self.result.text = @"付款失败";
+            self.result.textColor = [UIColor c_cc0Color];
+            self.bus_contact.text = [NSString stringWithFormat:@"请完成付款\n否则订单会被系统取消"];
+            [self.leftBtn setTitle:@"查看订单" forState:UIControlStateNormal];
+            [self.rightBtn setTitle:@"重新付款" forState:UIControlStateNormal];
+        }
     }
+    
 }
 
 - (IBAction)leftClick:(id)sender {

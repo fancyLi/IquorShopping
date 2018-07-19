@@ -8,7 +8,12 @@
 
 #import "AppDelegate.h"
 #import "IquorTabBarViewController.h"
-@interface AppDelegate ()
+#import <WechatOpenSDK/WXApi.h>
+#import <AlipaySDK/AlipaySDK.h>
+
+static NSString *const wxID = @"wx86dc5e8dc01486ec";
+static NSString *const appSecret = @"f21r5t4r4r512a3werq3485940x3da2a";
+@interface AppDelegate ()<WXApiDelegate>
 
 @end
 
@@ -18,6 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [WXApi registerApp:wxID];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     self.window.backgroundColor = [UIColor whiteColor];
@@ -61,6 +67,54 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    if ([url.host isEqualToString:@"safepay"]) {
+        // 支付跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            if ([[resultDic valueForKey:@"resultStatus"] intValue] == 9000) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"orderresult" object:nil];
+            }else {
+                [Dialog popTextAnimation:@"支付宝付款失败"];
+            }
+            NSLog(@"result = %@",resultDic);
+        }];
+        
+        // 授权跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+            // 解析 auth code
+            NSString *result = resultDic[@"result"];
+            NSString *authCode = nil;
+            if (result.length>0) {
+                NSArray *resultArr = [result componentsSeparatedByString:@"&"];
+                for (NSString *subResult in resultArr) {
+                    if (subResult.length > 10 && [subResult hasPrefix:@"auth_code="]) {
+                        authCode = [subResult substringFromIndex:10];
+                        break;
+                    }
+                }
+            }
+            NSLog(@"授权结果 authCode = %@", authCode?:@"");
+        }];
+    }
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+#pragma mark - WXApiDelegate-
+- (void)onReq:(BaseReq *)req {
+    
+}
+- (void)onResp:(BaseResp *)resp {
+
+    if (resp.errCode == 0) {
+         [[NSNotificationCenter defaultCenter] postNotificationName:@"orderresult" object:nil];
+    }else if (resp.errCode == -2) {
+        //取消授权
+        [Dialog popTextAnimation:@"已取消微信支付"];
+    }else {
+        [Dialog popTextAnimation:@"支付失败"];
+    }
+}
 
 - (void)cookieExpire {
     

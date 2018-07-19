@@ -10,4 +10,6 @@
 
 @interface IquorViewController : UIViewController
 
+//用户是否登录
+- (BOOL)isLogin;
 @end

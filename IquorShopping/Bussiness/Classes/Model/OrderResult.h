@@ -11,5 +11,6 @@
 @interface OrderResult : NSObject
 @property (nonatomic, copy) NSString *service_number;
 @property (nonatomic, copy) NSString *order_id;
+@property (nonatomic, copy) NSString *order_total;
 @property (nonatomic, strong) AddressModel *return_addr;
 @end

@@ -32,6 +32,7 @@
 @property (nonatomic, copy) NSString *order_eval;
 @property (nonatomic, copy) NSString *act_name;
 @property (nonatomic, copy) NSString *pay_type_name;
+@property (nonatomic, copy) NSString *pay_type;
 @end
 
 

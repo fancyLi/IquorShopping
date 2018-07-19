@@ -10,6 +10,7 @@
 #import "StartBaoViewController.h"
 #import "BrokerCell.h"
 #import "BrokerModel.h"
+#import "RechargeViewController.h"
 @interface BaoViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *rechargeButton;
 @property (weak, nonatomic) IBOutlet UIButton *outButton;
@@ -25,12 +26,18 @@
     [super viewDidLoad];
     [self configUI];
     [self requestUserBalance];
+    
+// Do any additional setup after loading the view from its nib.
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.page = 1;
+    self.brokeArrs = nil;
     [self requestBalanceWater];
-    // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)startRecharge:(UIButton *)sender {
-    
+    RechargeViewController *vc = [[RechargeViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)startOut:(UIButton *)sender {
     StartBaoViewController *vc = [[StartBaoViewController alloc]init];

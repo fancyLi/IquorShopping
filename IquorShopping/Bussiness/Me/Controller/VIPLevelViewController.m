@@ -9,12 +9,17 @@
 #import "VIPLevelViewController.h"
 #import "VIPLevelCell.h"
 #import "UserVIP.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import <WechatOpenSDK/WXApi.h>
+#import "WechatOrder.h"
+#import "PayKindViewController.h"
 @interface VIPLevelViewController ()<UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UILabel *viplevel;
 @property (weak, nonatomic) IBOutlet UILabel *vipPrice;
 @property (nonatomic, strong) UIWebView *webview;
 @property (nonatomic, strong) UserVIP *vip;
+@property (nonatomic, copy) NSString *curLevel;
 @end
 
 @implementation VIPLevelViewController
@@ -50,8 +55,65 @@
     }];
 }
 - (IBAction)buttonClick:(id)sender {
+    if ([UIUtils isNullOrEmpty:self.curLevel]) {
+        [Dialog popTextAnimation:@"请选择会员等级"];
+    }else {
+        PayKindViewController *vc = [[PayKindViewController alloc]init];
+        vc.pay_scene = @"3";
+        @weakify(self);
+        vc.operatorPayCellBlock = ^(NSString *type) {
+            @strongify(self);
+            [self startOrder:type];
+        };
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
+- (void)startOrder:(NSString *)type {
+    if ([UIUtils isNullOrEmpty:self.curLevel]) {
+        [Dialog popTextAnimation:@"请选择会员等级"];
+    }else {
+        NSDictionary *param = @{@"pay_type":type, @"pay_scene":@"3", @"level":self.curLevel};
+        @weakify(self);
+        [AFNetworkTool postJSONWithUrl:pay_requestPayment parameters:param success:^(id responseObject) {
+            @strongify(self);
+            NSInteger code = [responseObject[@"code"] integerValue];
+            if (code == 200) {
+                if (type.integerValue == 1) {
+                    [self doAPPay:responseObject[@"content"]];
+                }else if (type.integerValue == 2) {
+                    [self doWeChat:[WechatOrder yy_modelWithDictionary:responseObject[@"content"]]];
+                }else {
+                    [Dialog popTextAnimation:@"支付成功"];
+                }
+            }else {
+                [Dialog popTextAnimation:responseObject[@"message"]];
+            }
+        } fail:^{
 
+        }];
+    }
+}
+- (void)doAPPay:(NSString *)orderString {
+    [[AlipaySDK defaultService] payOrder:orderString fromScheme:@"com.elevation.IquorShopping" callback:^(NSDictionary *resultDic) {
+        NSLog(@"reslut = %@",resultDic);
+    }];
+}
+- (void)doWeChat:(WechatOrder *)order {
+    PayReq *request = [[PayReq alloc] init];
+    
+    request.partnerId = order.partnerid;
+    
+    request.prepayId= order.prepayid;
+    
+    request.package = order.package;
+    
+    request.nonceStr= order.noncestr;
+    
+    request.timeStamp= order.timestamp;
+    
+    request.sign= order.sign;
+    [WXApi sendReq:request];
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.vip.up_grade.count;
 }
@@ -83,6 +145,7 @@
     cell.layer.borderWidth = 1;
     self.vipPrice.text = [NSString stringWithFormat:@"￥%@",self.vip.up_grade[indexPath.section].grade_money];
     self.viplevel.text = self.vip.up_grade[indexPath.section].grade_name;
+    self.curLevel = self.vip.up_grade[indexPath.section].level;
     
 }
 

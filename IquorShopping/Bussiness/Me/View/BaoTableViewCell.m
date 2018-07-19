@@ -19,10 +19,10 @@
     // Initialization code
 }
 - (IBAction)operatorClick:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    if (self.operatorBaoCellBlock) {
-        self.operatorBaoCellBlock(sender.selected, self);
-    }
+//    sender.selected = !sender.selected;
+//    if (self.operatorBaoCellBlock) {
+//        self.operatorBaoCellBlock(sender.selected, self);
+//    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

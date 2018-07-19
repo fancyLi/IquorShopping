@@ -11,6 +11,10 @@
 #import "UIControl+IquorArea.h"
 #import "MeCollectionCell.h"
 #import "VIPLevelViewController.h"
+#import "PayKindViewController.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import <WechatOpenSDK/WXApi.h>
+#import "WechatOrder.h"
 @interface MeHeaderTableView ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
     NSInteger cor;
@@ -106,13 +110,55 @@
         self.clickButtonBlock(KLogin);
     }
 }
-
+- (void)startOrder:(NSString *)type {
+   
+        NSDictionary *param = @{@"pay_type":type, @"pay_scene":@"2"};
+        @weakify(self);
+        [AFNetworkTool postJSONWithUrl:pay_requestPayment parameters:param success:^(id responseObject) {
+            @strongify(self);
+            NSInteger code = [responseObject[@"code"] integerValue];
+            if (code == 200) {
+                if (type.integerValue == 1) {
+                    [self doAPPay:responseObject[@"content"]];
+                }else if (type.integerValue == 2) {
+                    [self doWeChat:[WechatOrder yy_modelWithDictionary:responseObject[@"content"]]];
+                }else {
+                    [Dialog popTextAnimation:@"支付成功"];
+                }
+            }else {
+                [Dialog popTextAnimation:responseObject[@"message"]];
+            }
+        } fail:^{
+            
+        }];
+}
+- (void)doAPPay:(NSString *)orderString {
+    [[AlipaySDK defaultService] payOrder:orderString fromScheme:@"com.elevation.IquorShopping" callback:^(NSDictionary *resultDic) {
+        NSLog(@"reslut = %@",resultDic);
+    }];
+}
+- (void)doWeChat:(WechatOrder *)order {
+    PayReq *request = [[PayReq alloc] init];
+    
+    request.partnerId = order.partnerid;
+    
+    request.prepayId= order.prepayid;
+    
+    request.package = order.package;
+    
+    request.nonceStr= order.noncestr;
+    
+    request.timeStamp= order.timestamp;
+    
+    request.sign= order.sign;
+    [WXApi sendReq:request];
+}
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return cor;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MeCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([MeCollectionCell class]) forIndexPath:indexPath];
-    if (indexPath.item == 0) {
+    if (indexPath.item == 0 && cor == 2) {
         cell.title.text = @"加入会员  福利多多";
         cell.subTitle.text = @"不同会员等级享受不等的商品折扣";
         cell.container.backgroundColor = UIColorFromRGB(0xcbcbcb);
@@ -123,13 +169,21 @@
         };
         
     }else {
-        cell.title.text = @"成为经销商";
-        cell.subTitle.text = @"成为经销商";
+        cell.title.text = @"成为经销商享受专属福利";
+        cell.subTitle.text = @"成为经销商购物福利多多";
         [cell.operatorBtn setTitle:@"立即加盟" forState:UIControlStateNormal];
+        [cell.operatorBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        cell.operatorBtn.backgroundColor = UIColorFromRGB(0xCD8946);
         cell.container.backgroundColor = UIColorFromRGB(0xd39b66);
+        @weakify(self);
         cell.operatorCellBlock = ^{
-            NSObject.getCurrentVC.tabBarController.selectedIndex = 1;
-            
+            @strongify(self);
+            PayKindViewController *vc = [[PayKindViewController alloc]init];
+            vc.pay_scene = @"2";
+            vc.operatorPayCellBlock = ^(NSString *type) {
+                [self startOrder:type];
+            };
+            [NSObject.getCurrentVC.navigationController pushViewController:vc animated:YES];
         };
     }
     return cell;

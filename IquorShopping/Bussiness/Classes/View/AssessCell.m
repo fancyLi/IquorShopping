@@ -26,6 +26,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.icon.layer.cornerRadius = 20;
+    self.icon.clipsToBounds = YES;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self.contentView addSubview:self.leverLabel];
     [self.leverLabel mas_makeConstraints:^(MASConstraintMaker *make) {

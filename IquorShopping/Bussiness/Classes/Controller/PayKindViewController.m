@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) UITableView *tableview;
 @property (nonatomic, strong) NSArray *arr;
-@property (nonatomic, strong) NSMutableArray *cellArr;
 @property (nonatomic, strong) UIButton *sureBtn;
 @property (nonatomic, copy) NSString *curPayType;
 @end
@@ -25,6 +24,7 @@
     self.title = @"选择付款方式";
     self.view.backgroundColor = [UIColor c_f6f6Color];
     [self requestPay];
+    
     [self.view addSubview:self.tableview];
     [self.view addSubview:self.sureBtn];
     
@@ -63,30 +63,36 @@
         
     }];
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.1;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.arr.count;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BaoTableViewCell class])];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    OrderPay *pay = self.arr[indexPath.row];
+    OrderPay *pay = self.arr[indexPath.section];
     [cell.icon sd_setImageWithURL:[NSURL URLWithString:pay.pic]];
     cell.name.text = pay.type_name;
-    if (![self.cellArr containsObject:cell]) {
-        [self.cellArr addObject:cell];
-    }
-    @weakify(self);
-    cell.operatorBaoCellBlock = ^(BOOL sel, BaoTableViewCell *cell) {
-        @strongify(self);
-        self.curPayType = pay.pay_type;
-        for (BaoTableViewCell *temcell in self.cellArr) {
-            if (temcell != cell) {
-                temcell.operatorBtn.selected = NO;
-            }
-        }
-    };
     return cell;
+    
+}
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BaoTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.operatorBtn.selected = NO;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BaoTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.operatorBtn.selected = YES;
+    OrderPay *pay = self.arr[indexPath.section];
+    self.curPayType = pay.pay_type;
     
 }
 - (void)didReceiveMemoryWarning {
@@ -103,6 +109,7 @@
         _tableview.rowHeight = 45;
         _tableview.backgroundColor = [UIColor c_f6f6Color];
         _tableview.tableFooterView = [UIView new];
+        _tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
         [_tableview registerNib:[UINib nibWithNibName:@"BaoTableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([BaoTableViewCell class])];
     }
     return _tableview;
@@ -119,11 +126,6 @@
     }
     return _sureBtn;
 }
-- (NSMutableArray *)cellArr {
-    if (!_cellArr) {
-        _cellArr = [NSMutableArray array];
-    }
-    return _cellArr;
-}
+
 
 @end
