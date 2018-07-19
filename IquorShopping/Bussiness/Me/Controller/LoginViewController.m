@@ -23,8 +23,6 @@
     [super viewDidLoad];
     [self configLoginUI];
     // Do any additional setup after loading the view from its nib.
-    
-    
 }
 - (void)configLoginUI {
     self.title = @"登录";
@@ -32,6 +30,9 @@
     self.registBtn.layer.borderColor = [UIColor redColor].CGColor;
     self.registBtn.layer.borderWidth = 1;
     self.registBtn.layer.masksToBounds = YES;
+}
+- (void)reloadLogin {
+    
 }
 - (IBAction)forgetClick:(UIButton *)sender {
     ResetPasswordViewController *resetVC = [[ResetPasswordViewController alloc]init];
@@ -42,23 +43,32 @@
     [self.navigationController pushViewController:registVC animated:YES];
 }
 - (IBAction)loginClick:(UIButton *)sender {
-    NSDictionary *param = @{@"user_tel":self.telField.text,
-                            @"pass_word":self.passwordField.text
-                            };
-    [AFNetworkTool postJSONWithUrl:me_login_url parameters:param success:^(id responseObject) {
-        NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
-        if (code == 200) {
-            [self getUserInfo];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.navigationController popViewControllerAnimated:YES];
-            });
-        }else {
-            
-        }
-    } fail:^{
+    if ([UIUtils isNullOrEmpty:self.telField.text]) {
+        [Dialog popTextAnimation:@"请输入手机号"];
+    }else if ([UIUtils isNullOrEmpty:self.passwordField.text]) {
+        [Dialog popTextAnimation:@"请输入密码"];
+    }else {
+        NSDictionary *param = @{@"user_tel":self.telField.text,
+                                @"pass_word":self.passwordField.text
+                                };
+        [[NSUserDefaults standardUserDefaults] setObject:self.telField.text forKey:@"tel"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.passwordField.text forKey:@"pwd"];
         
-    }];
+        [AFNetworkTool postJSONWithUrl:me_login_url parameters:param success:^(id responseObject) {
+            NSInteger code = [responseObject[@"code"] integerValue];
+            [Dialog popTextAnimation:responseObject[@"message"]];
+            if (code == 200) {
+                [self getUserInfo];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self.navigationController popViewControllerAnimated:YES];
+                });
+            }else {
+                
+            }
+        } fail:^{
+            
+        }];
+    }
 }
 - (void)getUserInfo {
 
@@ -80,14 +90,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
