@@ -20,5 +20,16 @@
 @property (nonatomic, copy) NSString *level_name;
 @property (nonatomic, copy) NSString *service_number;
 
+@property (nonatomic, copy) NSString *tel;
+@property (nonatomic, copy) NSString *pwd;
+
 singtonInterface
+
+/**
+ 归档并保存在NSUserDefaults中
+ */
+- (void)save;
+
+//清除缓存
+- (void)clean;
 @end

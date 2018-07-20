@@ -11,6 +11,8 @@
 #import "BlanceBeforeModel.h"
 #import "BaoCouViewController.h"
 #import "BankUserViewController.h"
+#import "BankModel.h"
+
 @interface StartBaoViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *inputMoney;
 @property (weak, nonatomic) IBOutlet UILabel *balance;
@@ -65,6 +67,13 @@
     }];
 }
 - (IBAction)startBalance:(UIButton *)sender {
+    if (![UIUtils isNullOrEmpty:self.blanceBefor.balance]) {
+        
+        self.inputMoney.text = self.blanceBefor.balance;
+    }
+}
+
+- (void)sureButtonClick:(UIButton *)sender {
     if (self.inputMoney.text.floatValue>self.money.floatValue) {
         [Dialog popTextAnimation:@"提现金额不能大于可提现金额"];
     }else if ([UIUtils isNullOrEmpty:self.pay_type]) {
@@ -73,7 +82,13 @@
         [Dialog popTextAnimation:@"请输入提现金额"];
     }else {
         @weakify(self);
-        NSDictionary *param = @{@"pay_type":self.pay_type, @"user_bank_id":@"", @"money":self.inputMoney.text};
+        
+        NSDictionary *param ;
+        if (self.pay_type.intValue == 1) {
+            param = @{@"pay_type":self.pay_type, @"user_bank_id":@"", @"money":self.inputMoney.text};
+        }else {
+           param = @{@"pay_type":self.pay_type, @"user_bank_id":self.bank.bank_id, @"money":self.inputMoney.text};
+        }
         [AFNetworkTool postJSONWithUrl:user_balancePutForward parameters:param success:^(id responseObject) {
             @strongify(self);
             NSInteger code = [responseObject[@"code"] integerValue];
@@ -90,7 +105,6 @@
     
 }
 
-
 #pragma mark UITableViewDelegate & UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrs.count;
@@ -104,7 +118,7 @@
     sureButton.backgroundColor = [UIColor c_cc0Color];
     [sureButton setTitle:@"确定提现" forState:UIControlStateNormal];
     [sureButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [sureButton addTarget:self action:@selector(startBalance:) forControlEvents:UIControlEventTouchUpInside];
+    [sureButton addTarget:self action:@selector(sureButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [bg addSubview:sureButton];
     return bg;
     
@@ -154,6 +168,7 @@
             @strongify(self);
             self.bank=bank;
         };
+      
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

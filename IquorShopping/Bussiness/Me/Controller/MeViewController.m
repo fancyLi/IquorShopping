@@ -15,6 +15,7 @@
 #import "MeCollectionReusableView.h"
 #import "MePageCollectionViewCell.h"
 #import "IndentViewController.h"
+#import "LoginOperator.h"
 @interface MeViewController ()< UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 @property (nonatomic, strong) MeHeaderTableView *configView;
 @property (nonatomic, strong) MeConfigModel *configModel;
@@ -53,7 +54,7 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [self requestMeInfo];
-    
+    self.configView.isfresh = YES;
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -70,13 +71,12 @@
     [AFNetworkTool postJSONWithUrl:user_personCenter parameters:nil success:^(id responseObject) {
         NSInteger code = [responseObject[@"code"] integerValue];
         if (code == 200) {
-//            IquorUser *user = [IquorUser shareIquorUser];
             IQourUser *user = [IQourUser shareInstance];
             user.uid = responseObject[@"content"][@"user_info"][@"uid"];
             user.level = responseObject[@"content"][@"user_info"][@"level"];
             user.level_name = responseObject[@"content"][@"user_info"][@"level_name"];
             user.service_number = responseObject[@"content"][@"set_contact"][@"service_number"];
-            
+            [[NSUserDefaults standardUserDefaults] setObject:user.service_number forKey:@"severTel"];
             self.configView.isfresh = YES;
         }else {
             
@@ -91,14 +91,18 @@
         
     }];
     UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"登录" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        
+      
+        [[LoginOperator shareInstance] loginVC:^(BOOL isScu) {
+            
+        }];
     }];
     [alertVC addAction:cancelAction];
     [alertVC addAction:sureAction];
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 - (void)startContactService {
-    NSString *tel = [NSString stringWithFormat:@"tel:%@", [IQourUser shareInstance].service_number];
+    NSString *telNum = [[NSUserDefaults standardUserDefaults] objectForKey:@"severTel"];
+    NSString *tel = [NSString stringWithFormat:@"tel:%@", telNum];
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:tel]]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tel]];
     }
@@ -111,6 +115,7 @@
     if (kind == UICollectionElementKindSectionHeader) {
         MeCollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass([MeCollectionReusableView class]) forIndexPath:indexPath];
         if (indexPath.section == 0) {
+            view.title.text = @"我的订单";
             view.button.hidden = NO;
             view.indicate.hidden = NO;
             @weakify(self);
@@ -119,6 +124,10 @@
                 IndentViewController *vc = [[IndentViewController alloc]init];
                 [self.navigationController pushViewController:vc animated:YES];
             };
+        }else if (indexPath.section == 1) {
+            view.title.text = @"代理中心";
+        }else if (indexPath.section == 2) {
+            view.title.text = @"我的服务";
         }
         return view;
     }

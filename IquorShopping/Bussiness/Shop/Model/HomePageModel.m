@@ -24,7 +24,9 @@
 @implementation HomePageModel
 + (NSDictionary *)modelCustomPropertyMapper {
     return @{@"goods_new"  : @"new_goods",
-             @"video": @"walk_into_us"
+             @"video": @"walk_into_us",
+             @"title":@"notice.title",
+             @"content":@"notice.content"
              };
 }
 + (NSDictionary *)modelContainerPropertyGenericClass {

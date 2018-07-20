@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HomePageModel.h"
-typedef void (^JCBannerViewBlock)(NSDictionary *data);
+typedef void (^JCBannerViewBlock)(Banner *banner);
 
 @interface ShopTableHeaderView : UIView
 @property (nonatomic, copy) NSArray<Banner *> *banners;

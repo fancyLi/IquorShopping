@@ -13,4 +13,11 @@
 @property (nonatomic, copy) NSString *bank_id;
 @property (nonatomic, copy) NSString *bank_account;
 @property (nonatomic, copy) NSString *bank_pic;
+
+//支付宝
+@property (nonatomic, copy) NSString *alipay_id;
+@property (nonatomic, copy) NSString *alipay_name;
+@property (nonatomic, copy) NSString *alipay_account;
+@property (nonatomic, copy) NSString *addtime;
+
 @end

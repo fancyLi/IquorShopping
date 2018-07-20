@@ -27,6 +27,9 @@
 @property (nonatomic, strong) NSArray <GoodsInfoModel*> *hot_goods;
 @property (nonatomic, strong) NSArray <GoodsInfoModel*> *goods_new;
 @property (nonatomic, strong) Video *video;
+@property (nonatomic, copy) NSString *isOpen;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *content;
 @end
 
 

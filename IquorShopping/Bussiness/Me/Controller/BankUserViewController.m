@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UITableView *tableview;
 @property (nonatomic, strong) NSArray *arrs;
 @property (nonatomic, strong) NSMutableArray *cellArr;
+@property (nonatomic, strong) BankModel *curBank;
 @end
 
 @implementation BankUserViewController
@@ -21,12 +22,22 @@
     [super viewDidLoad];
     self.title = @"银行卡";
     self.view.backgroundColor = [UIColor c_f6f6Color];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(startEdit:)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor c_333Color];
     [self.view addSubview:self.tableview];
     [self.tableview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.bottom.equalTo(self.view);
     }];
     // Do any additional setup after loading the view.
 }
+
+- (void)startEdit:(UIBarButtonItem *)item {
+    if (self.operatorUserBlock) {
+        self.operatorUserBlock(self.curBank);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self requestUserBank];
@@ -74,33 +85,17 @@
     BankUserCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BankUserCell class])];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.bank = self.arrs[indexPath.row];
-    if (![self.cellArr containsObject:cell]) {
-        [self.cellArr addObject:cell];
-    }
-    @weakify(self);
-    cell.operatorUserCellBlock = ^(BOOL sel, BankUserCell *cell) {
-        @strongify(self);
-        
-        for (BankUserCell *temcell in self.cellArr) {
-            if (temcell != cell) {
-                temcell.operatorBtn.selected = NO;
-            }
-        }
-        
-        if (self.operatorUserBlock) {
-            self.operatorUserBlock(self.arrs[indexPath.row]);
-        }
-        [self.navigationController popViewControllerAnimated:YES];
-    };
-  
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    if (self.operatorCellBlock) {
-//        self.operatorCellBlock(self.arrs[indexPath.row]);
-//    }
-    [self dismissViewControllerAnimated:YES completion:nil];
+    self.curBank = self.arrs[indexPath.row];
+    BankUserCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.operatorBtn.selected = YES;
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BankUserCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.operatorBtn.selected = NO;
 }
 
 

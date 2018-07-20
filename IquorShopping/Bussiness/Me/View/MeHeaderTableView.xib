@@ -77,15 +77,6 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="代理商级别：普通会员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jub-8p-rV2">
-                    <rect key="frame" x="99" y="121" width="234" height="18"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="18" id="rkn-qM-dWR"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="0.80000000000000004" green="0.14117647058823529" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -95,7 +86,6 @@
                 <constraint firstItem="2SP-4u-7I8" firstAttribute="leading" secondItem="aMk-ly-79t" secondAttribute="trailing" constant="20" id="Adt-45-khA"/>
                 <constraint firstItem="2SP-4u-7I8" firstAttribute="centerY" secondItem="aMk-ly-79t" secondAttribute="centerY" id="F3W-fH-51u"/>
                 <constraint firstItem="B9X-OE-ixi" firstAttribute="centerY" secondItem="aMk-ly-79t" secondAttribute="centerY" id="JE2-w4-uwe"/>
-                <constraint firstItem="jub-8p-rV2" firstAttribute="top" secondItem="uhB-v5-SQn" secondAttribute="bottom" constant="2" id="UmS-wP-kyx"/>
                 <constraint firstAttribute="trailing" secondItem="B9X-OE-ixi" secondAttribute="trailing" constant="20" id="W2n-W8-YRq"/>
                 <constraint firstItem="uhB-v5-SQn" firstAttribute="top" secondItem="p7y-N9-TgM" secondAttribute="bottom" constant="2" id="YoT-MI-ghn"/>
                 <constraint firstItem="p7y-N9-TgM" firstAttribute="leading" secondItem="aMk-ly-79t" secondAttribute="trailing" constant="20" id="j1s-Ox-F1x"/>
@@ -104,12 +94,9 @@
                 <constraint firstItem="aMk-ly-79t" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="nad-fH-q85"/>
                 <constraint firstItem="aMk-ly-79t" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="rug-4i-gst"/>
                 <constraint firstItem="uhB-v5-SQn" firstAttribute="leading" secondItem="p7y-N9-TgM" secondAttribute="leading" id="vWh-KM-dup"/>
-                <constraint firstItem="jub-8p-rV2" firstAttribute="trailing" secondItem="uhB-v5-SQn" secondAttribute="trailing" id="w6w-GA-fRt"/>
-                <constraint firstItem="jub-8p-rV2" firstAttribute="leading" secondItem="p7y-N9-TgM" secondAttribute="leading" id="zmr-83-2AZ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="agentDes" destination="jub-8p-rV2" id="4z2-ga-0uk"/>
                 <outlet property="collectionView" destination="AM1-Sf-wvS" id="xCj-SD-bno"/>
                 <outlet property="heightLayout" destination="CYF-d5-62h" id="Luj-3m-ySK"/>
                 <outlet property="meInfoBtn" destination="B9X-OE-ixi" id="i4B-7U-cL6"/>

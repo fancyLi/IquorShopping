@@ -7,8 +7,7 @@
 //
 
 #import "IquorViewController.h"
-
-@class BankModel;
+#import "BankModel.h"
 typedef void (^OperatorUserBlock)(BankModel *bank);
 @interface BankUserViewController : IquorViewController
 

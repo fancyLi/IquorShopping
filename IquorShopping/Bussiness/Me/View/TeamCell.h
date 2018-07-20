@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TeamerModel.h"
 @interface TeamCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *icon;
 
-@property (weak, nonatomic) IBOutlet UILabel *name;
-@property (weak, nonatomic) IBOutlet UILabel *des;
+@property (nonatomic, strong) TeamerModel *teamer;
 @end

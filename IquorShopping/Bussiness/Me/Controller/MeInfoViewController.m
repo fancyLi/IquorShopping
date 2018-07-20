@@ -12,6 +12,7 @@
 #import "MeHeaderCell.h"
 @interface MeInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *infoTableview;
+@property (nonatomic, strong) UIImageView *userHeader;
 @property (nonatomic, strong) NSArray *leftTitles;
 @property (nonatomic, strong) NSArray *rightTitles;
 @property (nonatomic, strong) IQourUser *user;
@@ -45,15 +46,10 @@
     [AFNetworkTool requestWithUrl:update_userAvatar_url params:nil picImageArray:@[image] fileName:@"avatar" success:^(id responseObject) {
         
         NSInteger status = [responseObject[@"status"] integerValue];
+        [Dialog popTextAnimation:responseObject[@"message"]];
         if (status == 200) {
-           
-        }else {
-            NSString *message = responseObject[@"message"];
-            [Dialog showInfoWithStatus:message];
+            self.userHeader.image =image;
         }
-        
-        
-        
     } fail:^{
         [Dialog showErrorWithStatus:@"上传失败"];
     }];
@@ -83,6 +79,7 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         MeHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MeHeaderCell class])];
         cell.textLabel.text = self.leftTitles[indexPath.section][indexPath.row];
+        [cell.avatar sd_setImageWithURL:[NSURL URLWithString:[UIUtils isNullOrEmpty:self.user.avatar]?@"":self.user.avatar]];
         @weakify(self);
         @weakify(cell);
         cell.changeAvatorBlock = ^{
@@ -90,7 +87,7 @@
             @strongify(cell);
             [[ImageViewController shareImageVC] choosePhotoOrCamera];
             [ImageViewController shareImageVC].imageChooseBlock = ^(UIImage *image) {
-                cell.avatar.image = image;
+                self.userHeader = cell.avatar;
                 [self uploadUserAvator:image];
             };
         };

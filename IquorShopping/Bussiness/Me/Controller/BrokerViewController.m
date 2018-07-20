@@ -82,7 +82,6 @@
         [self.brokerTableView.mj_header endRefreshing];
         
         NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
             NSArray *arrs = [NSArray yy_modelArrayWithClass:[BrokerModel class] json:responseObject[@"content"][@"list"]];
             if (arrs.count) {

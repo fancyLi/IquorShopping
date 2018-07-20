@@ -16,7 +16,9 @@
                 <outlet property="chosBtn" destination="C0R-pT-zBP" id="hf8-aY-2bV"/>
                 <outlet property="chosNums" destination="xNw-Xj-Gu7" id="PXT-ig-tsS"/>
                 <outlet property="chosPrice" destination="CsC-m3-7t2" id="IIs-m9-9bt"/>
+                <outlet property="emView" destination="fBq-qQ-Tlr" id="mFW-ud-EkM"/>
                 <outlet property="footView" destination="9QV-v8-xbg" id="DIj-gZ-qWL"/>
+                <outlet property="goButton" destination="P3h-CI-bkD" id="qoh-CH-ddz"/>
                 <outlet property="sureBtn" destination="wbT-Jz-qQ3" id="iSY-LG-iRw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -86,10 +88,59 @@
                         <constraint firstAttribute="trailing" secondItem="wbT-Jz-qQ3" secondAttribute="trailing" id="ztc-0d-A80"/>
                     </constraints>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBq-qQ-Tlr">
+                    <rect key="frame" x="97" y="211" width="180" height="220"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_none_01" translatesAutoresizingMaskIntoConstraints="NO" id="w8o-1k-X5f">
+                            <rect key="frame" x="45" y="30" width="90" height="70"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="O7b-EO-lus"/>
+                                <constraint firstAttribute="height" constant="70" id="Zoh-No-LoK"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="购物车里是空的" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWE-SM-72F">
+                            <rect key="frame" x="10" y="110" width="160" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="L6U-Td-0Tc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3h-CI-bkD">
+                            <rect key="frame" x="50" y="151" width="80" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="9RL-Tz-Lbj"/>
+                                <constraint firstAttribute="width" constant="80" id="OXl-BA-rJ2"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="去逛逛">
+                                <color key="titleColor" red="1" green="0.44705882352941173" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="goShopping:" destination="-1" eventType="touchUpInside" id="jZB-Zz-a5a"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="w8o-1k-X5f" firstAttribute="centerX" secondItem="fBq-qQ-Tlr" secondAttribute="centerX" id="0R2-c0-G8y"/>
+                        <constraint firstItem="P3h-CI-bkD" firstAttribute="centerX" secondItem="fBq-qQ-Tlr" secondAttribute="centerX" id="5lp-Is-dHP"/>
+                        <constraint firstAttribute="trailing" secondItem="AWE-SM-72F" secondAttribute="trailing" constant="10" id="AgG-kK-9zb"/>
+                        <constraint firstItem="AWE-SM-72F" firstAttribute="leading" secondItem="fBq-qQ-Tlr" secondAttribute="leading" constant="10" id="GyA-R6-1mq"/>
+                        <constraint firstItem="w8o-1k-X5f" firstAttribute="top" secondItem="fBq-qQ-Tlr" secondAttribute="top" constant="30" id="TvX-fY-NM5"/>
+                        <constraint firstItem="P3h-CI-bkD" firstAttribute="top" secondItem="AWE-SM-72F" secondAttribute="bottom" constant="20" id="YHm-JL-i8c"/>
+                        <constraint firstAttribute="width" constant="180" id="qAO-EX-m2d"/>
+                        <constraint firstAttribute="height" constant="220" id="tR1-9I-SrA"/>
+                        <constraint firstItem="AWE-SM-72F" firstAttribute="top" secondItem="w8o-1k-X5f" secondAttribute="bottom" constant="10" id="vTa-dl-ghr"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="3Yt-HW-wdG" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="7pV-zs-yKh"/>
+                <constraint firstItem="fBq-qQ-Tlr" firstAttribute="centerY" secondItem="3Yt-HW-wdG" secondAttribute="centerY" id="9d9-bT-mGJ"/>
+                <constraint firstItem="fBq-qQ-Tlr" firstAttribute="centerX" secondItem="3Yt-HW-wdG" secondAttribute="centerX" id="Nwg-61-uXO"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="3Yt-HW-wdG" secondAttribute="trailing" id="Sgg-95-fAD"/>
                 <constraint firstItem="9QV-v8-xbg" firstAttribute="top" secondItem="3Yt-HW-wdG" secondAttribute="bottom" id="Tzn-eM-Bpm"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="9QV-v8-xbg" secondAttribute="bottom" id="Zii-ex-MkJ"/>
@@ -102,6 +153,7 @@
         </view>
     </objects>
     <resources>
+        <image name="icon_none_01" width="90" height="72"/>
         <image name="icon_normal_01" width="18" height="18"/>
     </resources>
 </document>

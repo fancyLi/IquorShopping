@@ -8,7 +8,7 @@
 
 #import "ShopTableHeaderView.h"
 #import "SDCycleScrollView.h"
-@interface ShopTableHeaderView ()
+@interface ShopTableHeaderView ()<SDCycleScrollViewDelegate>
 @property (nonatomic, strong) SDCycleScrollView *cycleScrollView;
 
 @end
@@ -30,10 +30,17 @@
     self.cycleScrollView.imageURLStringsGroup = arr;
     
 }
+
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
+    if (self.seletedBlock) {
+        self.seletedBlock(self.banners[index]);
+    }
+}
 - (SDCycleScrollView *)cycleScrollView {
     if (!_cycleScrollView) {
         _cycleScrollView = [[SDCycleScrollView alloc]initWithFrame:self.bounds];
         _cycleScrollView.autoScrollTimeInterval = 5;
+        _cycleScrollView.delegate = self;
     }
     return _cycleScrollView;
 }

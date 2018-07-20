@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[LoginOperator shareInstance] ensconceLogin];
 //    [self welcomeView];
     
     ShopViewController *home                 = [[ShopViewController alloc] init];
@@ -50,7 +51,7 @@
     shoppingCartNav.tabBarItem.title           = @"购物车";
     shoppingCartNav.tabBarItem.selectedImage   = [[UIImage imageNamed:@"icon_nav_004"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     shoppingCartNav.tabBarItem.image           = [UIImage imageNamed:@"icon_nav_04"];
-    shoppingCartNav.tabBarItem.badgeValue = @"1";
+//    shoppingCartNav.tabBarItem.badgeValue = @"1";
     
     MeViewController *account           = [[MeViewController alloc] init];
     IquorNavigationViewController *accountNav         = [[IquorNavigationViewController alloc] initWithRootViewController:account];

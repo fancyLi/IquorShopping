@@ -45,9 +45,33 @@
     [self.navigationController pushViewController:versionVC animated:YES];
 }
 - (IBAction)exitClick:(id)sender {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"是否确定退出？" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"否" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self outLogin];
+       
+    }];
+    [alertVC addAction:cancelAction];
+    [alertVC addAction:sureAction];
+    [self presentViewController:alertVC animated:YES completion:nil];
     
 }
 
+- (void)outLogin {
+    [AFNetworkTool postJSONWithUrl:user_loginOut parameters:nil success:^(id responseObject) {
+        NSInteger code = [responseObject[@"code"] integerValue];
+        if (code == 200) {
+            [[IQourUser shareInstance] clean];
+            [PDDDataManger cleanLoginCookie];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } fail:^{
+        
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

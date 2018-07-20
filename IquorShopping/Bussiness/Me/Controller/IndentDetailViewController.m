@@ -166,7 +166,7 @@
     }else {
         NSDictionary *param = @{@"pay_type":self.payType,
                                 @"pay_scene":self.pay_scene,
-                                @"order_type":@"1",
+                                @"order_type":self.order_type,
                                 @"addr_id":self.order.addr.aid,
                                 @"goods_ids_nums":self.goods_ids_nums,
                                 @"goods_num":self.goods_num,

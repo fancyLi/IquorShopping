@@ -38,6 +38,9 @@
 //更改头像
 #define update_userAvatar_url                  @"user/uploadAvatar"
 
+//退出登录
+#define user_loginOut                           @"user/loginOut"
+
 #pragma mark 地址列表
 //获取省市区
 #define get_regionlist_url                  @"user/regionJaonData"
@@ -84,6 +87,8 @@
 //提现前获取信息
 #define user_theBalanceIsBefore             @"user/theBalanceIsBefore"
 
+//支付宝信息
+#define user_aliPayAccountInfo              @"user/aliPayAccountInfo"
 //余额提现
 #define user_balancePutForward              @"user/balancePutForward"
 
@@ -186,6 +191,11 @@
 //获取支付方式
 #define index_paymentType                       @"index/paymentType"
 
+//我的团队
+#define user_teamList                           @"user/teamList"
+
+//团队下级
+#define user_userLowerLevel                    @"user/userLowerLevel"
 //关于我们
 #define user_aboutUs                            @"user/aboutUs"
 #endif /* HttpConstant_h */

@@ -12,4 +12,5 @@
 @property (nonatomic, copy) NSString *join_pic;
 @property (nonatomic, copy) NSString *join_money;
 @property (nonatomic, copy) NSString *advantage;
+@property (nonatomic, copy) NSString *is_join;
 @end

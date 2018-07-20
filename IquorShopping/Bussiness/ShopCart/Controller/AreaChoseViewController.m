@@ -34,8 +34,10 @@ typedef NS_ENUM(NSInteger, AreaChose) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.75];
     _choseAreaModel = [[ChoseAreaModel alloc]init];
     [self.areaTableview registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    self.areaTableview.backgroundColor = [UIColor whiteColor];
     self.areaTableview.dataSource = self;
     self.areaTableview.delegate = self;
     self.areaTableview.tableFooterView = [UIView new];

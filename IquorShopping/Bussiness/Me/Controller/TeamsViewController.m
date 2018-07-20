@@ -7,9 +7,11 @@
 //
 
 #import "TeamsViewController.h"
-#import "YSLContainerViewController.h"
 #import "TeamViewController.h"
-@interface TeamsViewController ()
+#import "WMPageController.h"
+#import "WMMenuView.h"
+@interface TeamsViewController ()<WMPageControllerDelegate, WMPageControllerDataSource>
+@property (nonatomic, strong) WMPageController *pageController;
 
 @end
 
@@ -19,45 +21,95 @@
     [super viewDidLoad];
     self.title = @"我的团队";
     
-    TeamViewController *allvc = [[TeamViewController alloc]init];
-    allvc.title = @"金牌团队";
+    [self.view addSubview:self.pageController.view];
+    [self addChildViewController:self.pageController];
     
-    TeamViewController *awatfkvc = [[TeamViewController alloc]init];
-    awatfkvc.title = @"银牌团队";
-    
-    TeamViewController *awatfhvc = [[TeamViewController alloc]init];
-    awatfhvc.title = @"铜牌团队";
-    
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[allvc, awatfkvc, awatfhvc]
-                                                                                        topBarHeight:0
-                                                                                parentViewController:self];
-    containerVC.menuItemTitleColor = [UIColor c_333Color];
-    containerVC.menuItemSelectedTitleColor = [UIColor c_cc0Color];
-    containerVC.menuIndicatorColor = [UIColor c_cc0Color];
-    containerVC.menuBackGroudColor = [UIColor whiteColor];
-    containerVC.menuItemFont = [UIFont fontWithName:@"Futura-Medium" size:14];
-    
-    [self.view addSubview:containerVC.view];
-    
-    [containerVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(self.view.mas_top).offset(84);
-    }];
+}
+- (NSInteger)numbersOfChildControllersInPageController:(WMPageController *)pageController {
+    return 3;
 }
 
+- (NSString *)pageController:(WMPageController *)pageController titleAtIndex:(NSInteger)index {
+    switch (index) {
+        case 0: return @"金牌团队";
+        case 1: return @"银牌团队";
+        case 2: return @"铜牌团队";
+    }
+    return @"NONE";
+}
+
+- (UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index {
+    TeamViewController *vc = [[TeamViewController alloc]init];
+    switch (index) {
+        case 0:
+            vc.team_id = @"1";
+            break;
+        case 1:
+            vc.team_id = @"2";
+            break;
+        case 2:
+            vc.team_id = @"3";
+            break;
+        default:
+            break;
+    }
+    return vc;
+}
+
+- (CGFloat)menuView:(WMMenuView *)menu widthForItemAtIndex:(NSInteger)index {
+    CGFloat width = [self menuView:menu widthForItemAtIndex:index];
+    return width + 20;
+}
+
+- (CGRect)pageController:(WMPageController *)pageController preferredFrameForMenuView:(WMMenuView *)menuView {
+    
+    return CGRectMake(0, kTopHeight, kMainScreenWidth, 45);
+    
+}
+
+- (CGRect)pageController:(WMPageController *)pageController preferredFrameForContentView:(WMScrollView *)contentView {
+    
+    CGFloat originY = CGRectGetMaxY([self pageController:pageController preferredFrameForMenuView:self.pageController.menuView]);
+    return CGRectMake(0, originY, self.view.frame.size.width, self.view.frame.size.height - originY);
+}
+
+- (WMPageController *)pageController {
+    if (!_pageController) {
+        _pageController = [WMPageController new];
+        _pageController.delegate = self;
+        _pageController.dataSource = self;
+        _pageController.menuViewStyle = WMMenuViewStyleLine;
+        _pageController.progressViewIsNaughty = NO;
+        _pageController.progressWidth = 28;
+        _pageController.progressViewCornerRadius = 1.5;
+        _pageController.progressHeight = 3;
+        
+        _pageController.progressColor = [UIColor c_cc0Color];
+        _pageController.titleColorNormal = [UIColor c_333Color];
+        _pageController.titleColorSelected = [UIColor c_cc0Color];
+        _pageController.menuItemWidth = kMainScreenWidth/3.0;
+        _pageController.menuViewLayoutMode = WMMenuViewLayoutModeCenter;
+        _pageController.menuView.progressViewBottomSpace = 11;
+    }
+    return _pageController;
+}
+- (void)requestTeam {
+//    [AFNetworkTool postJSONWithUrl:user_teamList parameters:nil success:^(id responseObject) {
+//        NSInteger code = [responseObject[@"code"] integerValue];
+//        
+//        if (code == 200) {
+//        }else {
+//            [Dialog popTextAnimation:responseObject[@"message"]];
+//        }
+//    } fail:^{
+//        
+//    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

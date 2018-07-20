@@ -54,6 +54,7 @@ static NSString *const appSecret = @"f21r5t4r4r512a3werq3485940x3da2a";
             [Dialog popTextAnimation:@"无网络连接"];
         }
     }];
+    [[LoginOperator shareInstance] ensconceLogin];
     
 }
 
@@ -114,42 +115,6 @@ static NSString *const appSecret = @"f21r5t4r4r512a3werq3485940x3da2a";
     }else {
         [Dialog popTextAnimation:@"支付失败"];
     }
-}
-
-- (void)cookieExpire {
-    
-    NSString *tel = [[NSUserDefaults standardUserDefaults] objectForKey:@"tel"];
-    NSString *pwd = [[NSUserDefaults standardUserDefaults] objectForKey:@"pwd"];
-    NSDictionary *param = @{@"user_tel":tel,
-                            @"pass_word":pwd
-                            };
-    
-    [AFNetworkTool postJSONWithUrl:me_login_url parameters:param success:^(id responseObject) {
-        NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
-        if (code == 200) {
-            [self getUserInfo];
-        }else {
-            
-        }
-    } fail:^{
-        
-    }];
-}
-
-- (void)getUserInfo {
-    
-    [AFNetworkTool postJSONWithUrl:get_user_info_url parameters:nil success:^(id responseObject) {
-        NSInteger code = [responseObject[@"code"] integerValue];
-        if (code == 200) {
-        
-            [IQourUser yy_modelWithDictionary:responseObject[@"content"]];
-        }else {
-            
-        }
-    } fail:^{
-        
-    }];
 }
 
 @end

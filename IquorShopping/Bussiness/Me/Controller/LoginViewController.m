@@ -51,13 +51,17 @@
         NSDictionary *param = @{@"user_tel":self.telField.text,
                                 @"pass_word":self.passwordField.text
                                 };
+        
         [[NSUserDefaults standardUserDefaults] setObject:self.telField.text forKey:@"tel"];
         [[NSUserDefaults standardUserDefaults] setObject:self.passwordField.text forKey:@"pwd"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         
         [AFNetworkTool postJSONWithUrl:me_login_url parameters:param success:^(id responseObject) {
             NSInteger code = [responseObject[@"code"] integerValue];
             [Dialog popTextAnimation:responseObject[@"message"]];
             if (code == 200) {
+                
+                [PDDDataManger saveLoginCookie];
                 [self getUserInfo];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [self.navigationController popViewControllerAnimated:YES];
@@ -78,6 +82,7 @@
 //            IquorUser *user = [IquorUser shareIquorUser];
 //            [user configDict:responseObject[@"content"]];
             [IQourUser yy_modelWithDictionary:responseObject[@"content"]];
+            [[IQourUser shareInstance] save];
         }else {
             
         }

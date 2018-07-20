@@ -13,6 +13,7 @@ typedef void (^OperatorCellBlock)(void);
 @property (nonatomic, copy) OperatorCellBlock operatorCellBlock;
 @property (weak, nonatomic) IBOutlet UIButton *button;
 @property (weak, nonatomic) IBOutlet UIImageView *indicate;
+@property (weak, nonatomic) IBOutlet UILabel *title;
 
 @end
 

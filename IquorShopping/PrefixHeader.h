@@ -27,4 +27,5 @@
 #import <MJRefresh/MJRefresh.h>
 #import <UIImageView+WebCache.h>
 #import "IQourUser.h"
+#import "LoginOperator.h"
 #endif /* PrefixHeader_h */

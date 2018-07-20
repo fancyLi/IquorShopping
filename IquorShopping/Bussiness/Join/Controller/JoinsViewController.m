@@ -41,6 +41,13 @@
         if (code == 200) {
             self.join = [JoinModel yy_modelWithJSON:responseObject[@"content"]];
             [self.imageview sd_setImageWithURL:[NSURL URLWithString:self.join.join_pic] placeholderImage:[UIImage imageNamed:@"icon_35"]];
+            if (self.join.is_join.intValue != 1) {
+                self.joinBtn.backgroundColor = [UIColor c_999Color];
+                self.joinBtn.enabled = NO;
+            }else {
+                self.joinBtn.backgroundColor = [UIColor c_cc0Color];
+                self.joinBtn.enabled = YES;
+            }
             [self.tableview reloadData];
             [self.webview loadHTMLString:self.join.advantage baseURL:nil];
         }else {

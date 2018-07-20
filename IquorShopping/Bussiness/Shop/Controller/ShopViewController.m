@@ -19,6 +19,7 @@
 #import "ShopNewCell.h"
 #import "HomePageModel.h"
 #import "NavSearchView.h"
+#import "NoticeViewController.h"
 
 @interface ShopViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *shopTableView;
@@ -37,14 +38,34 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
 
-    [self.view addSubview:self.shopTableView];
-    self.shopTableView.tableHeaderView = self.tableHeader;
-    [self.view addSubview:self.searchView];
-    [self.searchView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.equalTo(@0);
-        make.height.equalTo(@64);
-    }];
+    
     [self requestHomePage];
+}
+
+- (void)setupSubviews {
+//    self.homePageModel.isOpen = @"2";
+    if (self.homePageModel.isOpen.intValue == 1) {
+        self.tableHeader.banners = self.homePageModel.banner_list;
+        [self.view addSubview:self.shopTableView];
+        self.shopTableView.tableHeaderView = self.tableHeader;
+        [self.view addSubview:self.searchView];
+        [self.searchView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.equalTo(@0);
+            make.height.equalTo(@64);
+        }];
+        [self.shopTableView reloadData];
+    }else {
+        NoticeViewController *vc = [[NoticeViewController alloc]init];
+        vc.noticeMsg = self.homePageModel.title;
+        vc.contect = self.homePageModel.content;
+        if ([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0) {
+            vc.modalPresentationStyle=UIModalPresentationOverCurrentContext;
+        }else{
+            vc.modalPresentationStyle=UIModalPresentationCurrentContext;
+        }
+        [UIApplication sharedApplication].keyWindow.rootViewController = vc;
+    }
+
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -80,8 +101,7 @@
         NSInteger code = [responseObject[@"code"] integerValue];
         if (code == 200) {
             self.homePageModel = [HomePageModel yy_modelWithJSON:responseObject[@"content"]];
-            self.tableHeader.banners = self.homePageModel.banner_list;
-            [self.shopTableView reloadData];
+            [self setupSubviews];
             
         }else {
             
@@ -232,6 +252,15 @@
 - (ShopTableHeaderView *)tableHeader {
     if (!_tableHeader) {
         _tableHeader = [[ShopTableHeaderView alloc]initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 250)];
+        @weakify(self);
+        _tableHeader.seletedBlock = ^(Banner *banner) {
+            @strongify(self);
+            if (![UIUtils isNullOrEmpty:banner.goods_id]) {
+                GoodsInfoViewController *vc = [[GoodsInfoViewController alloc]init];
+                vc.goods_id = banner.goods_id;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        };
     }
     return _tableHeader;
 }

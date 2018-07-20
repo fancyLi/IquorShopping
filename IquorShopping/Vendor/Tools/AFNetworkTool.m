@@ -465,17 +465,14 @@ static AFURLSessionManager* urlSessionManager = nil;
             
             NSDictionary* dic=[NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
            
-            NSInteger status = [dic[@"status"] integerValue];
+            NSInteger status = [dic[@"code"] integerValue];
             
             
-            if (status == 203) { //登录过期，需要重新登录，同时保存 cookie
-                NSLog(@"返回 203 接口调用 -- %@",urlStr);
+            if (status == 201) { //登录过期，需要重新登录，同时保存 cookie
+                NSLog(@"返回 201 接口调用 -- %@",urlStr);
                 
                 [PDDDataManger cleanLoginCookie];
-                
-                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                [appDelegate cookieExpire];
-        
+                [[LoginOperator shareInstance] ensconceLogin];
                 [Dialog hideSVProgressHUD];
                 
                 return ;

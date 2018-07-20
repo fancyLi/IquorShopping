@@ -162,6 +162,13 @@
 		087A44C72100FA0F0031C499 /* OrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087A44C62100FA0F0031C499 /* OrderDetailViewController.m */; };
 		087A44CB2100FB420031C499 /* OrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 087A44C92100FB420031C499 /* OrderDetailCell.m */; };
 		087A44CC2100FB420031C499 /* OrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 087A44CA2100FB420031C499 /* OrderDetailCell.xib */; };
+		087A44CF2101FA9C0031C499 /* OrderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 087A44CE2101FA9C0031C499 /* OrderFooterView.m */; };
+		087A44D12101FAA40031C499 /* OrderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 087A44D02101FAA40031C499 /* OrderFooterView.xib */; };
+		087A44D4210206170031C499 /* OrderHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 087A44D3210206170031C499 /* OrderHeaderView.m */; };
+		087A44D6210206250031C499 /* OrderHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 087A44D5210206250031C499 /* OrderHeaderView.xib */; };
+		087A44D9210217FA0031C499 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087A44D8210217FA0031C499 /* NoticeViewController.m */; };
+		087A44DC2102272A0031C499 /* TeamerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 087A44DB2102272A0031C499 /* TeamerModel.m */; };
+		087A44DF210241700031C499 /* LoginOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 087A44DE210241700031C499 /* LoginOperator.m */; };
 		0880523F20A2EB180018AE6E /* IquorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880523E20A2EB180018AE6E /* IquorViewController.m */; };
 		0880524920A2EB730018AE6E /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524520A2EB730018AE6E /* FileUtils.m */; };
 		0880524A20A2EB730018AE6E /* AFNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880524620A2EB730018AE6E /* AFNetworkTool.m */; };
@@ -551,6 +558,18 @@
 		087A44C82100FB420031C499 /* OrderDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDetailCell.h; sourceTree = "<group>"; };
 		087A44C92100FB420031C499 /* OrderDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDetailCell.m; sourceTree = "<group>"; };
 		087A44CA2100FB420031C499 /* OrderDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailCell.xib; sourceTree = "<group>"; };
+		087A44CD2101FA9C0031C499 /* OrderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderFooterView.h; sourceTree = "<group>"; };
+		087A44CE2101FA9C0031C499 /* OrderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderFooterView.m; sourceTree = "<group>"; };
+		087A44D02101FAA40031C499 /* OrderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderFooterView.xib; sourceTree = "<group>"; };
+		087A44D2210206170031C499 /* OrderHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderHeaderView.h; sourceTree = "<group>"; };
+		087A44D3210206170031C499 /* OrderHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderHeaderView.m; sourceTree = "<group>"; };
+		087A44D5210206250031C499 /* OrderHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderHeaderView.xib; sourceTree = "<group>"; };
+		087A44D7210217FA0031C499 /* NoticeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
+		087A44D8210217FA0031C499 /* NoticeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
+		087A44DA2102272A0031C499 /* TeamerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamerModel.h; sourceTree = "<group>"; };
+		087A44DB2102272A0031C499 /* TeamerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamerModel.m; sourceTree = "<group>"; };
+		087A44DD210241700031C499 /* LoginOperator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginOperator.h; sourceTree = "<group>"; };
+		087A44DE210241700031C499 /* LoginOperator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginOperator.m; sourceTree = "<group>"; };
 		0880523D20A2EB180018AE6E /* IquorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IquorViewController.h; sourceTree = "<group>"; };
 		0880523E20A2EB180018AE6E /* IquorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorViewController.m; sourceTree = "<group>"; };
 		0880524120A2EB730018AE6E /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
@@ -1047,6 +1066,12 @@
 				087A44C82100FB420031C499 /* OrderDetailCell.h */,
 				087A44C92100FB420031C499 /* OrderDetailCell.m */,
 				087A44CA2100FB420031C499 /* OrderDetailCell.xib */,
+				087A44CD2101FA9C0031C499 /* OrderFooterView.h */,
+				087A44CE2101FA9C0031C499 /* OrderFooterView.m */,
+				087A44D02101FAA40031C499 /* OrderFooterView.xib */,
+				087A44D2210206170031C499 /* OrderHeaderView.h */,
+				087A44D3210206170031C499 /* OrderHeaderView.m */,
+				087A44D5210206250031C499 /* OrderHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1070,6 +1095,8 @@
 				080649BA20C91F98003B155F /* PlayerViewController.m */,
 				08B866C120E8A31200F73677 /* ShopDiscountViewController.h */,
 				08B866C220E8A31200F73677 /* ShopDiscountViewController.m */,
+				087A44D7210217FA0031C499 /* NoticeViewController.h */,
+				087A44D8210217FA0031C499 /* NoticeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1308,6 +1335,10 @@
 				087A44A920FF78180031C499 /* IQourUser.m */,
 				087A44BF2100D6A90031C499 /* WechatOrder.h */,
 				087A44C02100D6A90031C499 /* WechatOrder.m */,
+				087A44DA2102272A0031C499 /* TeamerModel.h */,
+				087A44DB2102272A0031C499 /* TeamerModel.m */,
+				087A44DD210241700031C499 /* LoginOperator.h */,
+				087A44DE210241700031C499 /* LoginOperator.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1739,6 +1770,7 @@
 				0898C3C620B2F42500664482 /* ShopCartViewController.xib in Resources */,
 				0806499820C6ABCF003B155F /* AddressCell.xib in Resources */,
 				0806498A20C5755C003B155F /* .gitkeep in Resources */,
+				087A44D12101FAA40031C499 /* OrderFooterView.xib in Resources */,
 				08676F3B20B6F83B00F870B9 /* ShopVideoCell.xib in Resources */,
 				08676F4520B6FBB000F870B9 /* ShopNewCell.xib in Resources */,
 				08676F3620B6F63300F870B9 /* ShopConfigCell.xib in Resources */,
@@ -1771,6 +1803,7 @@
 				087A44B220FF9CCB0031C499 /* NavSearchView.xib in Resources */,
 				086AF7D620F38E4B002A0385 /* MeCommenCell.xib in Resources */,
 				08E4643420A2E7B900E405DB /* Main.storyboard in Resources */,
+				087A44D6210206250031C499 /* OrderHeaderView.xib in Resources */,
 				088052BF20A9BF420018AE6E /* MeHeaderTableView.xib in Resources */,
 				0848C18320F8CA3900A9963E /* BankNewViewController.xib in Resources */,
 				08676F2E20B6E65300F870B9 /* MeInfoViewController.xib in Resources */,
@@ -1972,12 +2005,16 @@
 				0848C18920F8CD5F00A9963E /* BankModel.m in Sources */,
 				086AF7CC20F386A8002A0385 /* CollectModel.m in Sources */,
 				088052E220A9E1560018AE6E /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				087A44DF210241700031C499 /* LoginOperator.m in Sources */,
 				0848C1E720FE0B9400A9963E /* MeCollectionCell.m in Sources */,
+				087A44CF2101FA9C0031C499 /* OrderFooterView.m in Sources */,
 				08676F3520B6F63300F870B9 /* ShopConfigCell.m in Sources */,
 				086AF7D520F38E4B002A0385 /* MeCommenCell.m in Sources */,
+				087A44DC2102272A0031C499 /* TeamerModel.m in Sources */,
 				086AF7BE20F0C465002A0385 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				0880527F20A349D00018AE6E /* ResetPasswordViewController.m in Sources */,
 				0880524C20A2EB730018AE6E /* UIUtils.m in Sources */,
+				087A44D9210217FA0031C499 /* NoticeViewController.m in Sources */,
 				08FBE78C20AC75F400B507DB /* BrokerViewController.m in Sources */,
 				088052A020A354950018AE6E /* NikeNameViewController.m in Sources */,
 				0880527A20A347710018AE6E /* SecondRegViewController.m in Sources */,
@@ -2039,6 +2076,7 @@
 				0880527020A33F960018AE6E /* LoginViewController.m in Sources */,
 				086AF7AF20F0B7B0002A0385 /* SDCollectionViewCell.m in Sources */,
 				080649AB20C807B8003B155F /* ChoseAreaModel.m in Sources */,
+				087A44D4210206170031C499 /* OrderHeaderView.m in Sources */,
 				0880525F20A2ED410018AE6E /* ClassesViewController.m in Sources */,
 				088052EA20A9E1560018AE6E /* MASViewConstraint.m in Sources */,
 				0848C1D520FCF6F000A9963E /* IndentModel.m in Sources */,
@@ -2244,8 +2282,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 92V366UDRT;
+				DEVELOPMENT_TEAM = B89375PW2V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2257,10 +2296,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.iflytek.ahzwfu.gov;
+				PRODUCT_BUNDLE_IDENTIFIER = com.elevation.IquorShopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3165978a-15bc-478d-920e-e665afcf2e05";
-				PROVISIONING_PROFILE_SPECIFIER = AHZWFU_DEV;
+				PROVISIONING_PROFILE = "0a476b0d-bd0a-4e92-a5d8-3cbc9726292c";
+				PROVISIONING_PROFILE_SPECIFIER = zuiXiaoYao_dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2271,8 +2310,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B89375PW2V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2284,9 +2324,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.iflytek.ahzwfu.gov;
+				PRODUCT_BUNDLE_IDENTIFIER = com.elevation.IquorShopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "e8cfda0a-3725-46ef-a5e5-06a3efba54ff";
+				PROVISIONING_PROFILE_SPECIFIER = zuiXiaoYao_dis;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

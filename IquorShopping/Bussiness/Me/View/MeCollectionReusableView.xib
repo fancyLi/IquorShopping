@@ -69,6 +69,7 @@
             <connections>
                 <outlet property="button" destination="iV4-8Z-CBz" id="513-Cr-IkH"/>
                 <outlet property="indicate" destination="DtN-6I-O8Z" id="tgY-pA-gjg"/>
+                <outlet property="title" destination="XTI-rg-hkt" id="Dec-fe-EVl"/>
             </connections>
             <point key="canvasLocation" x="45" y="104"/>
         </collectionReusableView>

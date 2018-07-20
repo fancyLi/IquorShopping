@@ -9,5 +9,5 @@
 #import "IquorViewController.h"
 
 @interface TeamViewController : IquorViewController
-
+@property (nonatomic, copy) NSString *team_id;
 @end

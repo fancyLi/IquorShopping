@@ -11,6 +11,8 @@
 #import "UploadCartViewController.h"
 #import "CartModel.h"
 #import "IndentDetailViewController.h"
+#import "GoodsInfoViewController.h"
+
 @interface ShopCartViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
     BOOL _isEdit;
@@ -25,6 +27,9 @@
 @property (weak, nonatomic) IBOutlet UIView *footView;
 @property (nonatomic, strong) NSMutableArray<CartModel*> *carts;
 @property (nonatomic, strong) NSMutableIndexSet *indexSets;
+@property (weak, nonatomic) IBOutlet UIView *emView;
+@property (weak, nonatomic) IBOutlet UIButton *goButton;
+@property (nonatomic, strong) UIButton *itemButton;
 @end
 
 @implementation ShopCartViewController
@@ -42,11 +47,20 @@
     self.arrs = nil;
     [self requestCouponList];
 }
+- (IBAction)goShopping:(UIButton *)sender {
+    self.tabBarController.selectedIndex = 0;
+}
 - (void)shopCartConfigUI {
     self.title = @"购物车";
     _isEdit = NO;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(startEdit:)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor c_333Color];
+    
+    UIButton *saveBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 44)];
+    [saveBtn setTitle:@"编辑" forState:UIControlStateNormal];
+    [saveBtn setTitleColor:[UIColor c_333Color] forState:UIControlStateNormal];
+    saveBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [saveBtn addTarget:self action:@selector(startEdit:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:saveBtn];
+    self.itemButton = saveBtn;
     
     [self.catTableview registerNib:[UINib nibWithNibName:@"ShopCartCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopCartCell class])];
     self.catTableview.rowHeight = 108;
@@ -78,7 +92,6 @@
         [self.catTableview.mj_header endRefreshing];
         
         NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
             NSArray *arrs = [NSArray yy_modelArrayWithClass:[CartModel class] json:responseObject[@"content"][@"list"]];
             if (arrs.count) {
@@ -87,11 +100,22 @@
             }else {
                 [Dialog popTextAnimation:@"没有下一页了"];
             }
-            self.footView.hidden = !self.arrs.count;
-            [self.catTableview setTableBgViewWithCount:self.arrs.count img:@"icon_none_01" msg:@"购物车里是空的"];
             
+            if (!self.arrs.count) {
+                self.emView.hidden = NO;
+                self.footView.hidden = YES;
+                self.itemButton.hidden = YES;
+            }else {
+                self.emView.hidden = YES;
+                self.footView.hidden = NO;
+                self.itemButton.hidden = NO;
+            }
+           
         }else {
-            
+            self.emView.hidden = NO;
+            self.footView.hidden = YES;
+            self.itemButton.hidden = YES;
+           
         }
     } fail:^{
         
@@ -100,20 +124,23 @@
 
 - (void)deleteCart {
     if (self.carts.count) {
-        NSString *str = @"";
+        NSMutableArray *arrStr = [NSMutableArray array];
         for (CartModel *cart in self.carts) {
-            str = [NSString stringWithFormat:@"%@,%@", str, cart.cart_id];
+            [arrStr addObject:cart.cart_id];
         }
         
-        NSDictionary *param = @{@"cart_ids":str};
+        NSDictionary *param = @{@"cart_ids":[arrStr componentsJoinedByString:@","]};
             @weakify(self);
         [AFNetworkTool postJSONWithUrl:shop_delCartGoods parameters:param success:^(id responseObject) {
             @strongify(self);
             NSInteger code = [responseObject[@"code"] integerValue];
             [Dialog popTextAnimation:responseObject[@"message"]];
             if (code == 200) {
-                [self.arrs removeObjectsAtIndexes:self.indexSets];
-                [self.catTableview deleteSections:self.indexSets withRowAnimation:UITableViewRowAnimationMiddle];
+                self.page = 1;
+                self.arrs = nil;
+                [self requestCouponList];
+//                [self.arrs removeObjectsAtIndexes:self.indexSets];
+//                [self.catTableview deleteSections:self.indexSets withRowAnimation:UITableViewRowAnimationMiddle];
             }else {
                 
             }
@@ -144,7 +171,6 @@
 }
 
 - (void)startOrder {
-//    UploadCartViewController *uploadVC = [[UploadCartViewController alloc]init];
     NSString *str = @"";
     IndentDetailViewController *vc = [[IndentDetailViewController alloc]init];
     for (CartModel *cart in self.carts) {
@@ -153,16 +179,17 @@
    
     vc.goods_ids_nums = [str substringFromIndex:1];
     vc.pay_scene = @"4";
+    vc.order_type = @"2";
     [self.navigationController pushViewController:vc animated:YES];
 }
-- (void)startEdit:(UIBarButtonItem *)item {
-    if ([item.title isEqualToString:@"编辑"]) {
-        item.title = @"完成";
+- (void)startEdit:(UIButton *)item {
+    if ([item.titleLabel.text isEqualToString:@"编辑"]) {
+        [item setTitle:@"完成" forState:UIControlStateNormal];
         self.chosPrice.hidden = YES;
         [self.sureBtn setTitle:@"删除所选" forState:UIControlStateNormal];
         _isEdit = YES;
     }else {
-        item.title = @"编辑";
+        [item setTitle:@"编辑" forState:UIControlStateNormal];
         self.chosPrice.hidden = NO;
         [self.sureBtn setTitle:@"下单" forState:UIControlStateNormal];
         _isEdit = NO;
@@ -219,11 +246,22 @@
         }else {
             [self.chosBtn setImage:[UIImage imageNamed:@"icon_normal_01"] forState:UIControlStateNormal];
         }
+        CGFloat price = 0.00;
+        for (CartModel *cachCart in self.carts) {
+          price += cachCart.goods_num.intValue*cachCart.goods_price.floatValue;
+        }
+        self.chosPrice.text = [NSString stringWithFormat:@"￥%.2f", price];
     };
     cell.cart = cart;
     return cell;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    GoodsInfoViewController *vc = [[GoodsInfoViewController alloc]init];
+    CartModel *cart = self.arrs[indexPath.section];
+    vc.goods_id = cart.goods_id;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -38,7 +38,14 @@
     self.name.text = _indent.goods_name;
     self.des.text = [NSString stringWithFormat:@"规格%@", _indent.value_name];
     self.price.text = [NSString stringWithFormat:@"￥%@", _indent.goods_price];
-    self.nums.hidden = YES;
+}
+- (void)setOrderIndent:(IndentGoods *)orderIndent {
+    _orderIndent = orderIndent;
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:_orderIndent.goods_image]];
+    self.name.text = _orderIndent.goods_name;
+    self.des.text = [NSString stringWithFormat:@"规格%@", _orderIndent.value_name];
+    self.price.text = [NSString stringWithFormat:@"￥%@", _orderIndent.goods_price];
+    self.nums.text = [NSString stringWithFormat:@"x%@", _orderIndent.goods_num];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

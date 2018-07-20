@@ -7,11 +7,11 @@
 //
 
 #import "BaoCouViewController.h"
-
+#import "BankModel.h"
 @interface BaoCouViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *name;
 @property (weak, nonatomic) IBOutlet UITextField *count;
-
+@property (nonatomic, strong) BankModel *bank;
 @end
 
 @implementation BaoCouViewController
@@ -19,9 +19,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"支付宝账号";
+    [self requestBaoInfo];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(startEdit:)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor c_333Color];
     // Do any additional setup after loading the view from its nib.
+}
+- (void)configBaoInfo {
+    self.name.text = self.bank.alipay_name;
+    self.count.text = self.bank.alipay_account;
+}
+- (void)requestBaoInfo {
+    @weakify(self);
+    [AFNetworkTool postJSONWithUrl:user_aliPayAccountInfo parameters:nil success:^(id responseObject) {
+        @strongify(self);
+        NSInteger code = [responseObject[@"code"] integerValue];
+        if (code == 200) {
+            self.bank = [BankModel yy_modelWithDictionary:responseObject[@"content"][@"alipay"]];
+            [self configBaoInfo];
+        }
+    } fail:^{
+        
+    }];
 }
 - (void)startEdit:(UIBarButtonItem *)item {
     if ([UIUtils isNullOrEmpty:self.name.text]) {

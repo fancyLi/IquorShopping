@@ -12,4 +12,5 @@
 
 @property (nonatomic, copy) NSString *goods_ids_nums;
 @property (nonatomic, copy) NSString *pay_scene;
+@property (nonatomic, copy) NSString *order_type;
 @end

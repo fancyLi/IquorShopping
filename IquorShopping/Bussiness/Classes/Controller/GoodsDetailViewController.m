@@ -75,7 +75,11 @@
     }];
 }
 - (void)contactServer {
-    
+    NSString *telNum = [[NSUserDefaults standardUserDefaults] objectForKey:@"severTel"];
+    NSString *tel = [NSString stringWithFormat:@"tel:%@", telNum];
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:tel]]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tel]];
+    }
 }
 - (void)collectGooods {
     self.isCollected = [self.isCollected isEqualToString:@"1"]?@"2":@"1";
@@ -111,6 +115,7 @@
         IndentDetailViewController *vc = [[IndentDetailViewController alloc]init];
         vc.goods_ids_nums = [NSString stringWithFormat:@"%@#%@", goods_id, goods_num];
         vc.pay_scene = @"4";
+        vc.order_type = @"1";
         [self.navigationController pushViewController:vc animated:YES];
     };
    

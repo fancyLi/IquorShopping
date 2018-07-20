@@ -105,13 +105,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IquorShopping/Bussiness/Classes/Controller/OrderDetailViewController.m"
-            timestampString = "553713466.441751"
+            filePath = "IquorShopping/Bussiness/Me/Model/IQourUser.m"
+            timestampString = "553802136.635747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-requestOrderInfo"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "-clean"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IquorShopping/Bussiness/Me/Model/LoginOperator.m"
+            timestampString = "553802136.6358221"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-ensconceLogin"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

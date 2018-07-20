@@ -12,5 +12,6 @@
 @interface IndentDetailCell : UITableViewCell
 @property (nonatomic, strong) OrderGoods *order;
 @property (nonatomic, strong) IndentGoods *indent;
+@property (nonatomic, strong) IndentGoods *orderIndent;
 @end
 

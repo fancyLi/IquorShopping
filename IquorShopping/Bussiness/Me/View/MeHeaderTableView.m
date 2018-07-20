@@ -59,15 +59,25 @@
 - (void)setIsfresh:(BOOL)isfresh {
     _isfresh = isfresh;
     IQourUser *user = [IQourUser shareInstance];
-    if (user.user_tel) {
+    if (![UIUtils isNullOrEmpty:user.user_tel]) {
         self.startLoginBtn.hidden = YES;
         self.vipDes.hidden = NO;
         self.nikeName.hidden = NO;
         self.agentDes.hidden = NO;
         self.nikeName.text = user.nick_name;
         [self.userHeader sd_setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:[UIImage imageNamed:@"icon_head_01"]];
-        self.vipDes.text = [NSString stringWithFormat:@"会员级别：%@", [self getVIPLever:user.level.integerValue]];
-        self.agentDes.text = user.level_name;
+        self.vipDes.text = [NSString stringWithFormat:@"会员级别：%@", user.level_name];
+        if (user.level.intValue <= 3) {
+            cor = 2;
+            self.collectionView.hidden = NO;
+        }else if (user.level.intValue == 4) {
+            cor = 1;
+            self.collectionView.hidden = NO;
+        }else {
+            cor = 0;
+            self.collectionView.hidden = YES;
+        }
+        [self.collectionView reloadData];
         
     }else {
         self.startLoginBtn.hidden = NO;
@@ -76,17 +86,11 @@
         self.agentDes.hidden = YES;
     }
    
-    if (user.level.intValue <= 3) {
-        cor = 2;
-        self.collectionView.hidden = NO;
-    }else if (user.level.intValue == 4) {
-        cor = 1;
-        self.collectionView.hidden = NO;
-    }else {
-        cor = 0;
+    
+    if ([UIUtils isNullOrEmpty:user.user_tel]) {
         self.collectionView.hidden = YES;
     }
-    [self.collectionView reloadData];
+    
 }
 - (IBAction)loginClick:(id)sender {
     if (self.clickButtonBlock) {
