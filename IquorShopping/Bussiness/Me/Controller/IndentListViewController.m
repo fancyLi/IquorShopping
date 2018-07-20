@@ -201,7 +201,7 @@
     return indent.goods_list.count;;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 45;
+    return 50;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 50;
@@ -292,7 +292,7 @@
         [_indentTable registerNib:[UINib nibWithNibName:@"IndentDetailCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([IndentDetailCell class])];
         _indentTable.separatorStyle = UITableViewCellSeparatorStyleNone;
         _indentTable.rowHeight = 100;
-        _indentTable.estimatedSectionHeaderHeight = 0;
+        _indentTable.estimatedSectionHeaderHeight = 5;
         _indentTable.estimatedSectionFooterHeight = 50;
         _indentTable.delegate = self;
         _indentTable.dataSource = self;

@@ -16,7 +16,7 @@
 
 #import <EAIntroView.h>
 
-@interface IquorTabBarViewController ()
+@interface IquorTabBarViewController ()<UITabBarControllerDelegate>
 @property (strong, nonatomic) EAIntroView *intro;
 @end
 
@@ -24,10 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [[LoginOperator shareInstance] ensconceLogin];
 //    [self welcomeView];
-    
     ShopViewController *home                 = [[ShopViewController alloc] init];
     IquorNavigationViewController *homeNav            = [[IquorNavigationViewController alloc] initWithRootViewController:home];
     homeNav.tabBarItem.title                   = @"商城";
@@ -69,6 +67,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - EAIntroView delegate
 - (void)introDidFinish:(EAIntroView *)introView {

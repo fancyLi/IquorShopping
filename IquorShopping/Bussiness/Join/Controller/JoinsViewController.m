@@ -31,7 +31,29 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self requestJoin];
+    if ([UIUtils isNullOrEmpty:[IQourUser shareInstance].user_tel]) {
+        [self showAlert];
+    }else {
+        self.tableview.hidden = NO;
+        self.joinBtn.hidden = NO;
+        [self requestJoin];
+    }
+    
+}
+- (void)showAlert {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"您尚未登录，是否现在登录" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"登录" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        [[LoginOperator shareInstance] loginVC:^(BOOL isScu) {
+            
+        }];
+    }];
+    [alertVC addAction:cancelAction];
+    [alertVC addAction:sureAction];
+    [self presentViewController:alertVC animated:YES completion:nil];
 }
 - (void)requestJoin {
     @weakify(self);

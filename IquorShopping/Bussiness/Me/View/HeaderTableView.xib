@@ -32,10 +32,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p38-kQ-EeS">
-                    <rect key="frame" x="0.0" y="44" width="375" height="1"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="2"/>
                     <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="1" id="aQH-a4-vv8"/>
+                        <constraint firstAttribute="height" constant="2" id="aQH-a4-vv8"/>
                     </constraints>
                 </view>
             </subviews>
@@ -43,6 +43,7 @@
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="p38-kQ-EeS" secondAttribute="trailing" id="9Jf-LY-42Y"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="RVO-aL-xvA" secondAttribute="bottom" id="9hH-cK-LiD"/>
+                <constraint firstItem="p38-kQ-EeS" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="9ps-um-eAn"/>
                 <constraint firstItem="p38-kQ-EeS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="RBw-l8-sez"/>
                 <constraint firstItem="2TM-Gz-Vjc" firstAttribute="leading" secondItem="RVO-aL-xvA" secondAttribute="trailing" constant="5" id="RKz-vi-yhU"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="2TM-Gz-Vjc" secondAttribute="bottom" id="VVW-ne-kU4"/>
@@ -50,7 +51,6 @@
                 <constraint firstItem="RVO-aL-xvA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="et3-OF-wQG"/>
                 <constraint firstItem="2TM-Gz-Vjc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="fkH-Ub-LeI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2TM-Gz-Vjc" secondAttribute="trailing" constant="5" id="suG-1G-PRc"/>
-                <constraint firstAttribute="bottom" secondItem="p38-kQ-EeS" secondAttribute="bottom" id="vt9-Wm-Ntb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

@@ -49,7 +49,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
                     <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="1" id="Otp-aS-RFn"/>
+                        <constraint firstAttribute="height" constant="0.5" id="Otp-aS-RFn"/>
                     </constraints>
                 </view>
             </subviews>

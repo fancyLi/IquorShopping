@@ -76,6 +76,9 @@
 }
 - (void)contactServer {
     NSString *telNum = [[NSUserDefaults standardUserDefaults] objectForKey:@"severTel"];
+    if ([UIUtils isNullOrEmpty:telNum]) {
+        telNum = @"400-0551-888";
+    }
     NSString *tel = [NSString stringWithFormat:@"tel:%@", telNum];
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:tel]]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tel]];

@@ -37,7 +37,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.goButton.layer.cornerRadius = 5;
+    self.goButton.layer.borderColor =UIColorFromRGB(0xff7200).CGColor;
+    self.goButton.layer.borderWidth = 1;
     [self shopCartConfigUI];
     
 }

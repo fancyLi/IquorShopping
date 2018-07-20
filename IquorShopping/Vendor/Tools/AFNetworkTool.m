@@ -475,7 +475,7 @@ static AFURLSessionManager* urlSessionManager = nil;
                 [[LoginOperator shareInstance] ensconceLogin];
                 [Dialog hideSVProgressHUD];
                 
-                return ;
+//                return ;
             }
             
             success(dic);
