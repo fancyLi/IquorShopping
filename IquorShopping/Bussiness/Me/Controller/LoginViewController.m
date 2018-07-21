@@ -48,6 +48,7 @@
     }else if ([UIUtils isNullOrEmpty:self.passwordField.text]) {
         [Dialog popTextAnimation:@"请输入密码"];
     }else {
+       
         NSDictionary *param = @{@"user_tel":self.telField.text,
                                 @"pass_word":self.passwordField.text
                                 };
@@ -55,13 +56,10 @@
         [IQourUser shareInstance].tel = self.telField.text;
         [IQourUser shareInstance].pwd = self.passwordField.text;
         [[IQourUser shareInstance] save];
-//        [[NSUserDefaults standardUserDefaults] setObject:self.telField.text forKey:@"tel"];
-//        [[NSUserDefaults standardUserDefaults] setObject:self.passwordField.text forKey:@"pwd"];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-        
+
+        [Dialog showSVPWithStatus:@"正在登录..."];
         [AFNetworkTool postJSONWithUrl:me_login_url parameters:param success:^(id responseObject) {
             NSInteger code = [responseObject[@"code"] integerValue];
-            [Dialog popTextAnimation:responseObject[@"message"]];
             if (code == 200) {
                 
                 [PDDDataManger saveLoginCookie];
@@ -81,7 +79,9 @@
 
     [AFNetworkTool postJSONWithUrl:get_user_info_url parameters:nil success:^(id responseObject) {
         NSInteger code = [responseObject[@"code"] integerValue];
+    
         if (code == 200) {
+            [Dialog popTextAnimation:@"登录成功"];
             [IQourUser yy_modelWithDictionary:responseObject[@"content"]];
             [[IQourUser shareInstance] save];
         }else {

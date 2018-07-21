@@ -89,6 +89,7 @@
         }else {
            param = @{@"pay_type":self.pay_type, @"user_bank_id":self.bank.bank_id, @"money":self.inputMoney.text};
         }
+        [Dialog showSVPWithStatus:@"正在处理..."];
         [AFNetworkTool postJSONWithUrl:user_balancePutForward parameters:param success:^(id responseObject) {
             @strongify(self);
             NSInteger code = [responseObject[@"code"] integerValue];

@@ -48,6 +48,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)requestUserBank {
+    [Dialog showSVPWithStatus:@"正在处理..."];
     [AFNetworkTool postJSONWithUrl:user_userBankAccountList parameters:nil success:^(id responseObject) {
         
         NSInteger code = [responseObject[@"code"] integerValue];

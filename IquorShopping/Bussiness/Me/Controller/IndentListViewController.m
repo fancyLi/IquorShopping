@@ -34,17 +34,23 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
-    self.page = 1;
-    [self requestOrderList];
+    
     [self.view addSubview:self.indentTable];
     [self.indentTable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.bottom.equalTo(self.view);
     }];
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.page = 1;
+    self.arrs = nil;
+    [self requestOrderList];
+}
 
 //订单处理
 - (void)orderHandle:(IndentModel *)indent detailType:(NSString *)type{
     //处理状态 'pay'=>去支付 'confirm'=>确认收货 'cancel'=>取消订单 'del'=>删除订单
+    [Dialog showSVPWithStatus:@"正在处理..."];
     NSDictionary *param = @{@"order_id":indent.order_id, @"deal_type":type};
     @weakify(self);
     [AFNetworkTool postJSONWithUrl:user_userOrderDeal parameters:param success:^(id responseObject) {
@@ -77,7 +83,7 @@
                 [self.arrs addObjectsFromArray:arrs];
                 [self.indentTable reloadData];
             }else {
-                [Dialog popTextAnimation:@"没有下一页了"];
+                [Dialog popTextAnimation:self.page==1?@"暂无数据":@"没有下一页了"];
             }
             [self.indentTable setTableBgViewWithCount:self.arrs.count img:@"icon_none_02" msg:@"还没有订单哦"];
             
@@ -150,6 +156,7 @@
                             @"pay_scene":@"5",
                             @"order_id":indent.order_id
                             };
+    [Dialog showSVPWithStatus:@"正在处理..."];
     [AFNetworkTool postJSONWithUrl:pay_requestPayment parameters:param success:^(id responseObject) {
         @strongify(self);
         NSInteger code = [responseObject[@"code"] integerValue];

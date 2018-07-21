@@ -11,4 +11,5 @@
 typedef void (^ButtonClickBlock)(NSInteger index);
 @interface DetailPageFooter : UIView
 @property (nonatomic, copy) ButtonClickBlock buttonClickBlock;
+@property (nonatomic, assign) BOOL isCol;
 @end

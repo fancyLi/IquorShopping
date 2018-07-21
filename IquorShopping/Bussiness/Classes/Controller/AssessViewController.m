@@ -60,7 +60,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [tableView fd_heightForCellWithIdentifier:NSStringFromClass([AssessCell class]) configuration:^(id cell) {
+   
+    return [tableView fd_heightForCellWithIdentifier:NSStringFromClass([AssessCell class]) cacheByIndexPath:indexPath configuration:^(AssessCell *cell) {
         [cell configCell:self.arrs[indexPath.row]];
     }];
 }

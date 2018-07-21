@@ -64,6 +64,7 @@
             [self loadFrament:model.goods_detail];
             self.goodsDetail = model;
             self.isCollected = model.isCollect;
+            self.pageFooter.isCol = model.isCollect.intValue==1?YES:NO;
             self.goods_detail = model.goods_detail;
             [self.tableView reloadData];
         }else {
@@ -85,7 +86,6 @@
     }
 }
 - (void)collectGooods {
-    self.isCollected = [self.isCollected isEqualToString:@"1"]?@"2":@"1";
     NSDictionary *param = @{
                             @"goods_id":self.goods_id,
                             @"collect_type": self.isCollected
@@ -96,6 +96,8 @@
         if (code == 200) {
            ;
             [Dialog popTextAnimation:[self.isCollected isEqualToString:@"1"]?@"已取消收藏":@"收藏成功"];
+            self.pageFooter.isCol = self.isCollected.intValue == 1 ?NO:YES;
+            self.isCollected = [self.isCollected isEqualToString:@"1"]?@"2":@"1";
         }else {
             [Dialog popTextAnimation:responseObject[@"message"]];
         }

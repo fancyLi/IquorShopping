@@ -55,6 +55,7 @@
     }else if ([UIUtils isNullOrEmpty:self.count.text]) {
         [Dialog popTextAnimation:@"填写银行卡账号"];
     }else {
+        [Dialog showSVPWithStatus:@"正在处理..."];
         NSDictionary *param = @{@"bank_id":self.secBankid, @"user_name":self.name.text, @"bank_account":self.count.text};
         [AFNetworkTool postJSONWithUrl:user_addBankAccount parameters:param success:^(id responseObject) {
             

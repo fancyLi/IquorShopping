@@ -9,22 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IquorShopping/Bussiness/Me/Controller/BankNewViewController.m"
-            timestampString = "553183642.431461"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "-startEdit:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "IquorShopping/Bussiness/Me/Controller/DiscountViewController.m"
             timestampString = "553627900.681384"
             startingColumnNumber = "9223372036854775807"
@@ -57,29 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IquorShopping/Bussiness/Me/Controller/IndentListViewController.m"
-            timestampString = "553843528.147783"
+            filePath = "IquorShopping/Bussiness/Me/Controller/MeCollectViewController.m"
+            timestampString = "553868972.38791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
-            landmarkName = "-cancelOrder:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IquorShopping/Bussiness/Me/Controller/IndentListViewController.m"
-            timestampString = "553843528.147855"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "-payOrder:"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "-requestCouponList"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

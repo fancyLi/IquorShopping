@@ -51,6 +51,7 @@
     }else if ([UIUtils isNullOrEmpty:self.textfied.text]) {
         [Dialog popTextAnimation:@"请输入充值金额"];
     }else {
+        [Dialog showSVPWithStatus:@"正在处理..."];
         NSDictionary *param = @{@"pay_type":self.pay_type, @"pay_scene":@"1", @"recharge_money":self.textfied.text};
         @weakify(self);
         [AFNetworkTool postJSONWithUrl:pay_requestPayment parameters:param success:^(id responseObject) {

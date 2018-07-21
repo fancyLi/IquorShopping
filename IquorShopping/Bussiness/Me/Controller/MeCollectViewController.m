@@ -45,14 +45,12 @@
     self.collectedTable.rowHeight = 100;
     self.collectedTable.estimatedSectionHeaderHeight = 0;
     self.collectedTable.estimatedSectionFooterHeight = 0;
-    self.page = 1;
     self.title = @"我的收藏";
-    [self requestCouponList];
     
     @weakify(self);
     _collectedTable.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         @strongify(self);
-        self.page = 0;
+        self.page = 1;
         self.arrs = nil;
         [self requestCouponList];
     }];
@@ -61,6 +59,15 @@
         self.page++;
         [self requestCouponList];
     }];
+}
+
+- (void)refreshLayout {
+    if (self.arrs.count) {
+        self.footLayoutConstraint.constant = 45;
+    }else {
+        self.footLayoutConstraint.constant = 0;
+    }
+     [self.collectedTable reloadData];
 }
 - (void)requestCouponList {
     NSDictionary *param = @{@"page":@(self.page)};
@@ -71,22 +78,22 @@
         [self.collectedTable.mj_header endRefreshing];
         
         NSInteger code = [responseObject[@"code"] integerValue];
-        [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
             NSArray *arrs = [NSArray yy_modelArrayWithClass:[CollectModel class] json:responseObject[@"content"][@"list"]];
             if (arrs.count) {
                 [self.arrs addObjectsFromArray:arrs];
                 [self.collectedTable reloadData];
             }else {
-                [Dialog popTextAnimation:@"没有下一页了"];
+                [Dialog popTextAnimation:self.page==1?@"暂无数据":@"没有下一页了"];
             }
             [self.collectedTable setTableBgViewWithCount:self.arrs.count img:@"icon_none_02" msg:@"空空如也"];
-            
+            [self refreshLayout];
         }else {
-            
+            [self refreshLayout];
+             [self.collectedTable setTableBgViewWithCount:self.arrs.count img:@"icon_none_02" msg:@"空空如也"];
         }
     } fail:^{
-        
+       
     }];
 }
 - (void)startEdit:(UIButton *)sender {
@@ -102,7 +109,12 @@
     _isEdit = sender.selected;
     [self.collectedTable reloadData];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.page = 1;
+    self.arrs = nil;
+    [self requestCouponList];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

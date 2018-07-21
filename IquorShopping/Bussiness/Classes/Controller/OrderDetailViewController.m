@@ -31,14 +31,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"订单详情";
-    [self requestOrderInfo];
     self.view.backgroundColor = [UIColor c_f6f6Color];
+    [self requestOrderInfo];
     
-    // Do any additional setup after loading the view.
 }
 - (void)setupSubviews {
     
+    [self.tableview reloadData];
     [self.view addSubview:self.tableview];
+    self.tableview.tableHeaderView = self.header;
+    self.header.nameCon.text = [NSString stringWithFormat:@"%@   %@", self.indent.order_addr.contact_name, self.indent.order_addr.contact_tel];
+    self.header.userAdress.text = [NSString stringWithFormat:@"%@%@%@%@", self.indent.order_addr.province_name, self.indent.order_addr.city_name, self.indent.order_addr.district_name, self.indent.order_addr.contact_addr];
+    
     BOOL isFooter;
     if (self.indent.order_info.act.intValue == 1) {
         //待付款
@@ -64,7 +68,7 @@
         self.footer.rightBtn.hidden = YES;
     }
     self.footer.price.text = [NSString stringWithFormat:@"应支付：￥%@", self.indent.order_info.order_amount];
-    
+
     if (isFooter) {
         [self.view addSubview:self.footer];
         [self.tableview mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -77,16 +81,16 @@
         }];
     }else {
         [self.tableview mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.view);
+            make.left.right.top.bottom.equalTo(self.view);
         }];
     }
-    [self.tableview reloadData];
-    self.tableview.tableHeaderView = self.header;
-    self.header.nameCon.text = [NSString stringWithFormat:@"%@   %@", self.indent.order_addr.contact_name, self.indent.order_addr.contact_tel];
-    self.header.userAdress.text = [NSString stringWithFormat:@"%@%@%@%@", self.indent.order_addr.province_name, self.indent.order_addr.city_name, self.indent.order_addr.district_name, self.indent.order_addr.contact_addr];
+   
     
 }
-
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.header.frame = CGRectMake(0, 0, kMainScreenWidth, 100);
+}
 //去评价
 - (void)startCom {
     EveGoodsViewController *vc = [[EveGoodsViewController alloc]init];
@@ -208,6 +212,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return 100;
@@ -274,7 +279,6 @@
         _tableview.estimatedSectionHeaderHeight = 5;
         _tableview.backgroundColor = [UIColor c_f6f6Color];
         _tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableview.tableHeaderView = [UIView new];
         [_tableview registerNib:[UINib nibWithNibName:@"IndentDetailCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([IndentDetailCell class])];
         [_tableview registerNib:[UINib nibWithNibName:@"OrderDetailCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([OrderDetailCell class])];
        
@@ -309,5 +313,8 @@
       
     }
     return _footer;
+}
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end

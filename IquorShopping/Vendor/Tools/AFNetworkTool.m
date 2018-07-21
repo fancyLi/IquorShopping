@@ -450,9 +450,8 @@ static AFURLSessionManager* urlSessionManager = nil;
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     // 设置返回格式
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-
+    manager.requestSerializer.timeoutInterval = 20.f;
     [PDDDataManger loadLoginCookie];
-    
     [manager POST:urlStr parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -467,13 +466,13 @@ static AFURLSessionManager* urlSessionManager = nil;
            
             NSInteger status = [dic[@"code"] integerValue];
             
-            
+            [Dialog hideSVProgressHUD];
             if (status == 201) { //登录过期，需要重新登录，同时保存 cookie
                 NSLog(@"返回 201 接口调用 -- %@",urlStr);
                 
                 [PDDDataManger cleanLoginCookie];
                 [[LoginOperator shareInstance] ensconceLogin];
-                [Dialog hideSVProgressHUD];
+                
                 
 //                return ;
             }
@@ -483,6 +482,7 @@ static AFURLSessionManager* urlSessionManager = nil;
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
+        [Dialog hideSVProgressHUD];
         NSLog(@"失败原因--%@", error);
         if (fail) {
             fail();

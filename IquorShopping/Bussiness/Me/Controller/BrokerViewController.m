@@ -88,7 +88,7 @@
                 [self.brokeArrs addObjectsFromArray:arrs];
                 [self.brokerTableView reloadData];
             }else {
-                [Dialog popTextAnimation:@"没有下一页了"];
+                [Dialog popTextAnimation:self.page==1?@"暂无数据":@"没有下一页了"];
             }
             
             

@@ -55,7 +55,7 @@
                             @"status":[NSString stringWithFormat:@"%i", self.count],
                             @"images":imageStr
                             };
-    
+    [Dialog showSVPWithStatus:@"正在提交..."];
     [AFNetworkTool postJSONWithUrl:user_addGoodsComment parameters:param success:^(id responseObject) {
         NSInteger code = [responseObject[@"code"] integerValue];
         [Dialog popTextAnimation:responseObject[@"message"]];

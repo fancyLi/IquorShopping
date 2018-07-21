@@ -29,6 +29,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedSectionHeaderHeight = 0;
     self.tableView.estimatedSectionFooterHeight = 0;
     self.page = 1;
@@ -62,7 +63,7 @@
                 [self.arrs addObjectsFromArray:arrs];
                 [self.tableView reloadData];
             }else {
-                [Dialog popTextAnimation:@"没有下一页了"];
+                [Dialog popTextAnimation:self.page==1?@"暂无数据":@"没有下一页了"];
             }
             [self.tableView setTableBgViewWithCount:self.arrs.count img:@"icon_none_02" msg:@"空空如也"];
             
@@ -95,7 +96,8 @@
     return 0.1;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [tableView fd_heightForCellWithIdentifier:NSStringFromClass([MeCommenCell class]) configuration:^(MeCommenCell *cell) {
+
+    return [tableView fd_heightForCellWithIdentifier:NSStringFromClass([MeCommenCell class]) cacheByIndexPath:indexPath configuration:^(MeCommenCell *cell) {
         cell.comment = self.arrs[indexPath.section];
     }];
 }

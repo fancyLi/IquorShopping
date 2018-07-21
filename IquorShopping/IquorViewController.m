@@ -25,7 +25,11 @@
 //    }else {
 //        self.automaticallyAdjustsScrollViewInsets = NO;
 //    }
-//    
+//
+    //设置toast样式
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor c_333Color], NSFontAttributeName: [UIFont systemFontOfSize:17]}];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
     [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
