@@ -70,6 +70,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="searchView" destination="0f1-wc-2f1" id="aYd-4C-D5L"/>
+                <outlet property="topLayoutConstraint" destination="2qT-Ks-MBq" id="sCo-Ei-cXZ"/>
             </connections>
             <point key="canvasLocation" x="32.5" y="70"/>
         </view>

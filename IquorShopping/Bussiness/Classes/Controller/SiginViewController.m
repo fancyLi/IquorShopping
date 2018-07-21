@@ -13,8 +13,7 @@
 #import "SiginCell.h"
 #import "GoodsInfoModel.h"
 #import "GoodsInfoViewController.h"
-#import "UIControl+IquorArea.h"
-
+#import "UIButton+IquorArea.h"
 @interface SiginViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, copy) NSString *priceSort;
@@ -29,7 +28,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor c_f6f6Color];
     [self.view addSubview:self.classView];
     [self.view addSubview:self.segmentBar];
     

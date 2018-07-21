@@ -108,26 +108,30 @@
     self.tabBarController.selectedIndex = 3;
 }
 - (void)showAddPage {
-    AddGoodsViewController *vc = [[AddGoodsViewController alloc]init];
-    vc.goodsInfo = self.goodsDetail;
-    vc.isCart = self.isCart;
-    @weakify(self);
-    vc.operatorBuyBlock = ^(NSString *goods_id, NSString *goods_num) {
-        @strongify(self);
-        //立即购买
-        IndentDetailViewController *vc = [[IndentDetailViewController alloc]init];
-        vc.goods_ids_nums = [NSString stringWithFormat:@"%@#%@", goods_id, goods_num];
-        vc.pay_scene = @"4";
-        vc.order_type = @"1";
-        [self.navigationController pushViewController:vc animated:YES];
-    };
-   
-    if ([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0) {
-        vc.modalPresentationStyle=UIModalPresentationOverCurrentContext;
-    }else{
-        vc.modalPresentationStyle=UIModalPresentationCurrentContext;
+    if ([UIUtils isNullOrEmpty:[IQourUser shareInstance].user_tel]) {
+        [[LoginOperator shareInstance] alertLogin];
+    }else {
+        AddGoodsViewController *vc = [[AddGoodsViewController alloc]init];
+        vc.goodsInfo = self.goodsDetail;
+        vc.isCart = self.isCart;
+        @weakify(self);
+        vc.operatorBuyBlock = ^(NSString *goods_id, NSString *goods_num) {
+            @strongify(self);
+            //立即购买
+            IndentDetailViewController *vc = [[IndentDetailViewController alloc]init];
+            vc.goods_ids_nums = [NSString stringWithFormat:@"%@#%@", goods_id, goods_num];
+            vc.pay_scene = @"4";
+            vc.order_type = @"1";
+            [self.navigationController pushViewController:vc animated:YES];
+        };
+        
+        if ([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0) {
+            vc.modalPresentationStyle=UIModalPresentationOverCurrentContext;
+        }else{
+            vc.modalPresentationStyle=UIModalPresentationCurrentContext;
+        }
+        [self presentViewController:vc animated:YES completion:nil];
     }
-    [self presentViewController:vc animated:YES completion:nil];
 }
 #pragma mark UITableViewDataSource & UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

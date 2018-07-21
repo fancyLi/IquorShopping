@@ -11,11 +11,31 @@
 
 @implementation IQourUser
 
-singtonImplement(IQourUser)
+//singtonImplement(IQourUser)
 
+static IQourUser *_shareInstance;
++(instancetype)shareInstance {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        YYCache *cache = [YYCache cacheWithName:APPCacheName];
+        _shareInstance = (IQourUser *)[cache objectForKey:UserInfo];
+        if (_shareInstance == nil) {
+            _shareInstance = [[IQourUser alloc]init];
+        }
+    });
+    return _shareInstance;
+}
+
++ (instancetype)allocWithZone:(struct _NSZone *)zone {
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        _shareInstance = [super allocWithZone:zone];
+    });
+    return _shareInstance;
+}
 - (void)save {
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"pdUser"];
+    YYCache *cache = [YYCache cacheWithName:APPCacheName];
+    [cache setObject:_shareInstance forKey:UserInfo];
 }
 
 - (void)clean {
@@ -29,14 +49,14 @@ singtonImplement(IQourUser)
     self.level = @"";
     self.level_name = @"";
     self.service_number = @"";
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"pdUser"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"tel"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"pwd"];
+    self.tel = @"";
+    self.pwd = @"";
+    YYCache *cache = [YYCache cacheWithName:APPCacheName];
+    if ([cache containsObjectForKey:UserInfo]) {
+        [cache removeObjectForKey:UserInfo];
+    }
 }
-+ (instancetype)userDefaultUnarchiver {
-    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"pdUser"];
-    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
-}
+
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     return [self yy_modelInitWithCoder:aDecoder];

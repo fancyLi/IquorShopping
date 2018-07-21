@@ -7,7 +7,7 @@
 //
 
 #import "AddGoodsViewController.h"
-#import "UIControl+IquorArea.h"
+#import "UIButton+IquorArea.h"
 @interface AddGoodsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 
@@ -28,8 +28,9 @@
     self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.75];
     [self.closeBtn setEnlargeEdge:20];
     [self.leftBtn setBackgroundColor:[UIColor c_fbfbfbColor]];
-    [self.leftBtn setEnlargeEdgeWithTop:10 right:0 bottom:10 left:10];
-    [self.rightBtn setEnlargeEdgeWithTop:10 right:10 bottom:10 left:0];
+    [self.leftBtn setEnlargeEdgeWithTop:10 left:10 bottom:10 right:0];
+    [self.rightBtn setEnlargeEdgeWithTop:10 left:0 bottom:10 right:10];
+    
     
     UITapGestureRecognizer *closeTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closePageVC)];
     [self.view addGestureRecognizer:closeTap];

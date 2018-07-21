@@ -76,6 +76,8 @@
             user.level = responseObject[@"content"][@"user_info"][@"level"];
             user.level_name = responseObject[@"content"][@"user_info"][@"level_name"];
             user.service_number = responseObject[@"content"][@"set_contact"][@"service_number"];
+            [[IQourUser shareInstance] save];
+            
             [[NSUserDefaults standardUserDefaults] setObject:user.service_number forKey:@"severTel"];
             self.configView.isfresh = YES;
         }else {

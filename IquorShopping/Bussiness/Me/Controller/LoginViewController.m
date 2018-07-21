@@ -52,9 +52,12 @@
                                 @"pass_word":self.passwordField.text
                                 };
         
-        [[NSUserDefaults standardUserDefaults] setObject:self.telField.text forKey:@"tel"];
-        [[NSUserDefaults standardUserDefaults] setObject:self.passwordField.text forKey:@"pwd"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        [IQourUser shareInstance].tel = self.telField.text;
+        [IQourUser shareInstance].pwd = self.passwordField.text;
+        [[IQourUser shareInstance] save];
+//        [[NSUserDefaults standardUserDefaults] setObject:self.telField.text forKey:@"tel"];
+//        [[NSUserDefaults standardUserDefaults] setObject:self.passwordField.text forKey:@"pwd"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
         
         [AFNetworkTool postJSONWithUrl:me_login_url parameters:param success:^(id responseObject) {
             NSInteger code = [responseObject[@"code"] integerValue];
@@ -79,8 +82,6 @@
     [AFNetworkTool postJSONWithUrl:get_user_info_url parameters:nil success:^(id responseObject) {
         NSInteger code = [responseObject[@"code"] integerValue];
         if (code == 200) {
-//            IquorUser *user = [IquorUser shareIquorUser];
-//            [user configDict:responseObject[@"content"]];
             [IQourUser yy_modelWithDictionary:responseObject[@"content"]];
             [[IQourUser shareInstance] save];
         }else {

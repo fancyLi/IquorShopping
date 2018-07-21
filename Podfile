@@ -7,13 +7,14 @@ target 'IquorShopping' do
 
   # Pods for IquorShopping
   pod 'MBProgressHUD'
-	pod 'YYModel'
+  pod 'YYModel'
   pod 'YYCategories'
-	pod 'SDWebImage'
-	pod 'IQKeyboardManager'
-	pod 'BlocksKit'
-	pod 'AFNetworking'
-	pod 'SVProgressHUD'
+  pod 'YYCache'
+  pod 'SDWebImage'
+  pod 'IQKeyboardManager'
+  pod 'BlocksKit'
+  pod 'AFNetworking'
+  pod 'SVProgressHUD'
   pod 'MJRefresh'
   pod "FMDB"
   pod 'UMengAnalytics-NO-IDFA'

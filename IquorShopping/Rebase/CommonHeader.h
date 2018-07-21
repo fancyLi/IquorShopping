@@ -13,6 +13,10 @@
 //cookies对象存储地址
 #define CookieStoragePath   [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0] stringByAppendingPathComponent:@"cookies.archive"]
 
+//缓存存放目录
+#define APPCacheName       @"bufferMemory"
+#define UserInfo           @"userKey"
+
 //友盟
 #define UMengAppkey        @"593d260a8f4a9d03b40016e0"
 

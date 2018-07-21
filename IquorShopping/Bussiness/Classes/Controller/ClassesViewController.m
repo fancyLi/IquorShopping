@@ -56,7 +56,7 @@
     ClassInfoModel *infoModel = self.classes[indexPath.item];
     SiginViewController *siginVC = [[SiginViewController alloc]init];
     siginVC.cat_id = infoModel.cat_id;
-    siginVC.cat_name = infoModel.cat_name;
+    siginVC.title = infoModel.cat_name;
     siginVC.type = @"3";
     siginVC.title = infoModel.cat_name;
     [self.navigationController pushViewController:siginVC animated:YES];

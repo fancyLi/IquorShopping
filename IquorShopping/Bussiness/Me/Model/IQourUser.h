@@ -23,7 +23,8 @@
 @property (nonatomic, copy) NSString *tel;
 @property (nonatomic, copy) NSString *pwd;
 
-singtonInterface
+//singtonInterface
++ (instancetype)shareInstance;
 
 /**
  归档并保存在NSUserDefaults中

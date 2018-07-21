@@ -146,9 +146,9 @@
 - (void)startPay:(IndentModel *)indent {
     @weakify(self);
     
-    NSDictionary *param = @{@"pay_type":indent.order_info.pay_type,
+    NSDictionary *param = @{@"pay_type":indent.pay_type,
                             @"pay_scene":@"5",
-                            @"order_id":indent.order_info.order_id
+                            @"order_id":indent.order_id
                             };
     [AFNetworkTool postJSONWithUrl:pay_requestPayment parameters:param success:^(id responseObject) {
         @strongify(self);

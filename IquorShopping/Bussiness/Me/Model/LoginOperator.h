@@ -14,4 +14,6 @@ singtonInterface
 - (void)loginVC:(void(^)(BOOL isScu))complation;
 
 - (void)ensconceLogin;
+
+- (void)alertLogin;
 @end

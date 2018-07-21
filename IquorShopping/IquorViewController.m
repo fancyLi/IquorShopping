@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
-//    self.view.backgroundColor = [UIColor c_f6f6Color];
+    self.view.backgroundColor = [UIColor c_f6f6Color];
     
 //    if (@available(iOS 11.0, *)) {
 //        [UITableView appearance].contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -28,7 +28,7 @@
 //    
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor c_333Color], NSFontAttributeName: [UIFont systemFontOfSize:17]}];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor c_333Color], NSFontAttributeName: [UIFont systemFontOfSize:16]}
                                                           forState:UIControlStateNormal];
     

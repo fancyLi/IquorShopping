@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *telField;
 @property (weak, nonatomic) IBOutlet UITextField *codeField;
 @property (weak, nonatomic) IBOutlet UIButton *codeBtn;
+
 @end
 
 @implementation FirstRegViewController
@@ -31,9 +32,17 @@
         [self startWithTime:59];
         NSDictionary *param = @{@"user_tel":self.telField.text,
                                 @"code_type":@"1"
-                                };
+                   };
+        @weakify(self);
         [AFNetworkTool postJSONWithUrl:me_getSMS_url parameters:param success:^(id responseObject) {
+            @strongify(self);
             [Dialog popTextAnimation:responseObject[@"message"]];
+            NSInteger code = [responseObject[@"code"] integerValue];
+            if (code == 202) {
+                //已注册
+                [self startWithTime:0];
+                
+            }
         } fail:^{
             
         }];

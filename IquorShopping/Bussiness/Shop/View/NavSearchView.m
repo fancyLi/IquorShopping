@@ -10,6 +10,7 @@
 
 @interface NavSearchView ()
 @property (weak, nonatomic) IBOutlet UIView *searchView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
 
 @end
 @implementation NavSearchView
@@ -19,6 +20,10 @@
     self.searchView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(startSerach)];
     [self.searchView addGestureRecognizer:tapGes];
+}
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.topLayoutConstraint.constant = kStatusBarHeight+5;
 }
 - (IBAction)startSearch:(id)sender {
     if (self.operatorSerachBlock) {

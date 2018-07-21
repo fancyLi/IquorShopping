@@ -20,17 +20,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_02 " translatesAutoresizingMaskIntoConstraints="NO" id="ITI-lH-HjQ">
-                        <rect key="frame" x="25" y="10" width="150" height="150"/>
+                        <rect key="frame" x="25" y="10" width="150" height="144"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="7rH-M3-xkf"/>
-                            <constraint firstAttribute="height" constant="150" id="hMI-ii-pcz"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="剑南春 水晶剑 52度 单瓶装 白酒 500ml 口感浓" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbG-aX-BFO">
-                        <rect key="frame" x="10" y="175" width="180" height="44"/>
+                        <rect key="frame" x="10" y="169" width="180" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="ebF-ir-qQw"/>
-                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="hiU-8d-gRU"/>
+                            <constraint firstAttribute="height" constant="50" id="hiU-8d-gRU"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

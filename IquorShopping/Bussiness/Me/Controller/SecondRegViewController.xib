@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,13 +25,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCc-Oc-gCZ">
-                    <rect key="frame" x="20" y="35" width="335" height="216"/>
+                    <rect key="frame" x="0.0" y="35" width="375" height="216"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sCD-BN-QLG">
-                            <rect key="frame" x="0.0" y="0.0" width="335" height="53"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCJ-K0-2ii">
-                                    <rect key="frame" x="5" y="0.0" width="325" height="53"/>
+                                    <rect key="frame" x="5" y="0.0" width="365" height="53"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -47,10 +47,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3N-ah-Nvu">
-                            <rect key="frame" x="0.0" y="54" width="335" height="53"/>
+                            <rect key="frame" x="0.0" y="54" width="375" height="53"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邀请码（选填）" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AYp-Rk-fGj">
-                                    <rect key="frame" x="5" y="0.0" width="325" height="53"/>
+                                    <rect key="frame" x="5" y="0.0" width="365" height="53"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -66,10 +66,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Pa-K6-mOk">
-                            <rect key="frame" x="0.0" y="108" width="335" height="53"/>
+                            <rect key="frame" x="0.0" y="108" width="375" height="53"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M2n-Cj-MCS">
-                                    <rect key="frame" x="5" y="0.0" width="325" height="53"/>
+                                    <rect key="frame" x="5" y="0.0" width="365" height="53"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -85,10 +85,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="og7-ez-El4">
-                            <rect key="frame" x="0.0" y="162" width="335" height="53"/>
+                            <rect key="frame" x="0.0" y="162" width="375" height="53"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="确认密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="19u-Sg-aAX">
-                                    <rect key="frame" x="5" y="0.0" width="325" height="53"/>
+                                    <rect key="frame" x="5" y="0.0" width="365" height="53"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -146,8 +146,8 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ICN-KN-21Z" firstAttribute="top" secondItem="JCc-Oc-gCZ" secondAttribute="bottom" constant="53" id="0Jt-1r-xGs"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="JCc-Oc-gCZ" secondAttribute="trailing" constant="20" id="EWX-qy-5WQ"/>
-                <constraint firstItem="JCc-Oc-gCZ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="Iwv-m7-rr7"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="JCc-Oc-gCZ" secondAttribute="trailing" id="EWX-qy-5WQ"/>
+                <constraint firstItem="JCc-Oc-gCZ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Iwv-m7-rr7"/>
                 <constraint firstItem="ICN-KN-21Z" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="QUf-BV-kRs"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="ICN-KN-21Z" secondAttribute="trailing" constant="20" id="ZGo-2I-Ph0"/>
                 <constraint firstItem="JCc-Oc-gCZ" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="15" id="gKi-DV-yds"/>

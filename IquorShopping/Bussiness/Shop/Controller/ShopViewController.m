@@ -43,7 +43,8 @@
 }
 
 - (void)setupSubviews {
-//    self.homePageModel.isOpen = @"2";
+    
+    
     if (self.homePageModel.isOpen.intValue == 1) {
         self.tableHeader.banners = self.homePageModel.banner_list;
         [self.view addSubview:self.shopTableView];
@@ -51,7 +52,7 @@
         [self.view addSubview:self.searchView];
         [self.searchView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.top.equalTo(@0);
-            make.height.equalTo(@64);
+            make.height.mas_equalTo(kStatusBarHeight+44);
         }];
         [self.shopTableView reloadData];
     }else {
@@ -78,6 +79,9 @@
 }
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+}
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 - (void)startPlayer {
     if ([UIUtils isNullOrEmpty:self.homePageModel.video.video_url]) {
@@ -130,28 +134,29 @@
     }else if (indexPath.section == 1) {
         return 270;
     }else if (indexPath.section == 2) {
-        return 270;
+        return 300;
     }else {
         ShopNewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopNewCell class])];
        return  [cell getCellHeight:self.homePageModel.goods_new];
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WeakObj(self);
+    @weakify(self);
     if (indexPath.section == 0) {
         ShopConfigCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopConfigCell class])];
         [cell configCatInfo:self.homePageModel.goods_cat_list];
         cell.configBlock = ^(ClassInfoModel *model) {
+            @strongify(self);
             if (model.cat_id.integerValue != 0) {
                 SiginViewController *siginVC = [[SiginViewController alloc]init];
                 siginVC.cat_id = model.cat_id;
-                siginVC.cat_name = model.cat_name;
+                siginVC.title = model.cat_name;
                 siginVC.type = @"3";
-                [selfWeak.navigationController pushViewController:siginVC animated:YES];
+                [self.navigationController pushViewController:siginVC animated:YES];
             }else {
                 if ([model.cat_name isEqualToString:@"领券"]) {
                     ShopDiscountViewController *vc = [[ShopDiscountViewController alloc]init];
-                    [selfWeak.navigationController pushViewController:vc animated:YES];
+                    [self.navigationController pushViewController:vc animated:YES];
                 }else {
                     self.tabBarController.selectedIndex = 2;
                 }
@@ -232,7 +237,7 @@
 #pragma mark set & get
 - (UITableView *)shopTableView {
     if (!_shopTableView) {
-        _shopTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight-49) style:UITableViewStyleGrouped];
+        _shopTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight-kTabBarHeight) style:UITableViewStyleGrouped];
         _shopTableView.dataSource = self;
         _shopTableView.delegate = self;
         _shopTableView.separatorStyle = UITableViewCellSeparatorStyleNone;

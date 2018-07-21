@@ -43,6 +43,7 @@
 @property (nonatomic, copy) NSString *act;
 @property (nonatomic, copy) NSString *order_actname;
 @property (nonatomic, copy) NSString *order_eval;
+@property (nonatomic, copy) NSString *pay_type;
 @property (nonatomic, strong) OrderInfo *order_info;
 @property (nonatomic, strong) AddressModel *order_addr;
 @property (nonatomic, strong) NSArray<IndentGoods*> *goods_list;

@@ -8,7 +8,7 @@
 
 #import "MeHeaderTableView.h"
 #import "MeInfoViewController.h"
-#import "UIControl+IquorArea.h"
+#import "UIButton+IquorArea.h"
 #import "MeCollectionCell.h"
 #import "VIPLevelViewController.h"
 #import "PayKindViewController.h"
@@ -36,22 +36,14 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-//    self.layer.borderColor = [UIColor redColor].CGColor;
-//    self.layer.borderWidth = 1;
+
     self.userHeader.layer.cornerRadius = 32;
     self.userHeader.clipsToBounds = YES;
     [self.meInfoBtn setEnlargeEdge:20];
-    self.collectionView.dataSource = self;
-    self.collectionView.delegate = self;
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    flowLayout.minimumLineSpacing = 20;
-    flowLayout.minimumInteritemSpacing = 0;
-    flowLayout.sectionInset = UIEdgeInsetsMake(0, 20, 0, 0);
-    flowLayout.itemSize = CGSizeMake(kMainScreenWidth-80, 60);
-    self.collectionView.collectionViewLayout = flowLayout;
-    [self.collectionView registerNib:[UINib nibWithNibName:@"MeCollectionCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([MeCollectionCell class])];
     
+}
+- (void)layoutSubviews {
+    [super layoutSubviews];
 }
 - (NSString *)getVIPLever:(NSInteger)lever {
     return [NSString stringWithFormat:@"%ld级会员", (long)lever];
@@ -91,6 +83,16 @@
         self.collectionView.hidden = YES;
     }
     
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    flowLayout.minimumLineSpacing = 20;
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.sectionInset = UIEdgeInsetsMake(0, 20, 0, 0);
+    flowLayout.itemSize = CGSizeMake(kMainScreenWidth-80, 60);
+    self.collectionView.collectionViewLayout = flowLayout;
+    [self.collectionView registerNib:[UINib nibWithNibName:@"MeCollectionCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([MeCollectionCell class])];
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
 }
 - (IBAction)loginClick:(id)sender {
     if (self.clickButtonBlock) {

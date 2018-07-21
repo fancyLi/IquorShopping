@@ -39,6 +39,7 @@
 		080E99A820D93E0300AF09FF /* HomePageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 080E99A720D93E0300AF09FF /* HomePageModel.m */; };
 		080E99AE20DA95C500AF09FF /* UITableView+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 080E99AD20DA95C500AF09FF /* UITableView+Util.m */; };
 		080E99B120DA95EB00AF09FF /* UICollectionView+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 080E99B020DA95EB00AF09FF /* UICollectionView+Util.m */; };
+		083CAE122102EC1000859126 /* UIButton+IquorArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 083CAE112102EC1000859126 /* UIButton+IquorArea.m */; };
 		0847F19C20AAFFB900BEF0F6 /* IndentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F19A20AAFFB900BEF0F6 /* IndentViewController.m */; };
 		0847F1A520AB03D400BEF0F6 /* YSLContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F1A020AB03D400BEF0F6 /* YSLContainerViewController.m */; };
 		0847F1A620AB03D400BEF0F6 /* LNContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F1A120AB03D400BEF0F6 /* LNContainerViewController.m */; };
@@ -120,7 +121,6 @@
 		086AF78F20F08B08002A0385 /* IquorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF78E20F08B08002A0385 /* IquorButton.m */; };
 		086AF79320F08D79002A0385 /* AddGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF79120F08D79002A0385 /* AddGoodsViewController.m */; };
 		086AF79420F08D79002A0385 /* AddGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086AF79220F08D79002A0385 /* AddGoodsViewController.xib */; };
-		086AF79720F09268002A0385 /* UIControl+IquorArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF79620F09268002A0385 /* UIControl+IquorArea.m */; };
 		086AF79B20F0AAA1002A0385 /* MeInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF79920F0AAA1002A0385 /* MeInfoTableViewCell.m */; };
 		086AF79C20F0AAA1002A0385 /* MeInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086AF79A20F0AAA1002A0385 /* MeInfoTableViewCell.xib */; };
 		086AF7AD20F0B7B0002A0385 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 086AF7A120F0B7B0002A0385 /* SDCycleScrollView.m */; };
@@ -353,6 +353,8 @@
 		080E99AD20DA95C500AF09FF /* UITableView+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Util.m"; sourceTree = "<group>"; };
 		080E99AF20DA95EB00AF09FF /* UICollectionView+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Util.h"; sourceTree = "<group>"; };
 		080E99B020DA95EB00AF09FF /* UICollectionView+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Util.m"; sourceTree = "<group>"; };
+		083CAE102102EC1000859126 /* UIButton+IquorArea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+IquorArea.h"; sourceTree = "<group>"; };
+		083CAE112102EC1000859126 /* UIButton+IquorArea.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+IquorArea.m"; sourceTree = "<group>"; };
 		0847F19920AAFFB900BEF0F6 /* IndentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndentViewController.h; sourceTree = "<group>"; };
 		0847F19A20AAFFB900BEF0F6 /* IndentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndentViewController.m; sourceTree = "<group>"; };
 		0847F19F20AB03D400BEF0F6 /* YSLScrollMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLScrollMenuView.h; sourceTree = "<group>"; };
@@ -486,8 +488,6 @@
 		086AF79020F08D79002A0385 /* AddGoodsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddGoodsViewController.h; sourceTree = "<group>"; };
 		086AF79120F08D79002A0385 /* AddGoodsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddGoodsViewController.m; sourceTree = "<group>"; };
 		086AF79220F08D79002A0385 /* AddGoodsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddGoodsViewController.xib; sourceTree = "<group>"; };
-		086AF79520F09267002A0385 /* UIControl+IquorArea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+IquorArea.h"; sourceTree = "<group>"; };
-		086AF79620F09268002A0385 /* UIControl+IquorArea.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+IquorArea.m"; sourceTree = "<group>"; };
 		086AF79820F0AAA1002A0385 /* MeInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeInfoTableViewCell.h; sourceTree = "<group>"; };
 		086AF79920F0AAA1002A0385 /* MeInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeInfoTableViewCell.m; sourceTree = "<group>"; };
 		086AF79A20F0AAA1002A0385 /* MeInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeInfoTableViewCell.xib; sourceTree = "<group>"; };
@@ -1465,8 +1465,8 @@
 				080E99AD20DA95C500AF09FF /* UITableView+Util.m */,
 				080E99AF20DA95EB00AF09FF /* UICollectionView+Util.h */,
 				080E99B020DA95EB00AF09FF /* UICollectionView+Util.m */,
-				086AF79520F09267002A0385 /* UIControl+IquorArea.h */,
-				086AF79620F09268002A0385 /* UIControl+IquorArea.m */,
+				083CAE102102EC1000859126 /* UIButton+IquorArea.h */,
+				083CAE112102EC1000859126 /* UIButton+IquorArea.m */,
 				086AF78D20F08B08002A0385 /* IquorButton.h */,
 				086AF78E20F08B08002A0385 /* IquorButton.m */,
 				0848C17220F8246600A9963E /* UIImage+IquorImage.h */,
@@ -1952,6 +1952,7 @@
 				0848C1D820FCFA5000A9963E /* HeaderTableView.m in Sources */,
 				0848C20820FE439A00A9963E /* EveGoodsView.m in Sources */,
 				088052E520A9E1560018AE6E /* MASConstraintMaker.m in Sources */,
+				083CAE122102EC1000859126 /* UIButton+IquorArea.m in Sources */,
 				0848C19320F8E2A900A9963E /* BankUserCell.m in Sources */,
 				0898C38820AF1D1A00664482 /* DetailTableHeader.m in Sources */,
 				0848C1EB20FE16A400A9963E /* UserVIP.m in Sources */,
@@ -2034,7 +2035,6 @@
 				0848C18C20F8D93A00A9963E /* BlanceBeforeModel.m in Sources */,
 				080649BB20C91F98003B155F /* PlayerViewController.m in Sources */,
 				086AF7C020F0C465002A0385 /* UITableView+FDIndexPathHeightCache.m in Sources */,
-				086AF79720F09268002A0385 /* UIControl+IquorArea.m in Sources */,
 				08676F3F20B6F9F600F870B9 /* ShopHotCell.m in Sources */,
 				080649C920CE11DD003B155F /* JoinModel.m in Sources */,
 				080E99B120DA95EB00AF09FF /* UICollectionView+Util.m in Sources */,

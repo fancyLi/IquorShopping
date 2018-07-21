@@ -7,7 +7,7 @@
 //
 
 #import "ShopCartCell.h"
-#import "UIControl+IquorArea.h"
+#import "UIButton+IquorArea.h"
 @interface ShopCartCell ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *shopIcon;
 @property (weak, nonatomic) IBOutlet UILabel *shopName;
@@ -33,8 +33,9 @@
 //    self.viewContainer.layer.borderColor = [UIColor c_999Color].CGColor;
 //    self.viewContainer.layer.borderWidth = 1;
 //    self.viewContainer.layer.cornerRadius = 3;
-    [self.reduceBtn setEnlargeEdgeWithTop:10 right:0 bottom:10 left:10];
-    [self.addBtn setEnlargeEdgeWithTop:10 right:10 bottom:10 left:0];
+    [self.reduceBtn setEnlargeEdgeWithTop:10 left:10 bottom:10 right:90];
+    [self.addBtn setEnlargeEdgeWithTop:10 left:0 bottom:10 right:10];
+    
     
 }
 

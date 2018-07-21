@@ -24,6 +24,7 @@
 #import "UICollectionView+Util.h"
 #import "RTRootNavigationController.h"
 #import <YYModel/YYModel.h>
+#import <YYCache/YYCache.h>
 #import <MJRefresh/MJRefresh.h>
 #import <UIImageView+WebCache.h>
 #import "IQourUser.h"

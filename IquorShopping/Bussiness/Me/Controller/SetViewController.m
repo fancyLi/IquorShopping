@@ -65,7 +65,6 @@
         if (code == 200) {
             [[IQourUser shareInstance] clean];
             [PDDDataManger cleanLoginCookie];
-            
             [self.navigationController popViewControllerAnimated:YES];
         }
     } fail:^{

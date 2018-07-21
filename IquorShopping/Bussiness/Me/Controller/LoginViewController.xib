@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,10 +24,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GAh-6X-jqz" userLabel="top">
-                    <rect key="frame" x="25" y="35" width="325" height="110"/>
+                    <rect key="frame" x="0.0" y="35" width="375" height="110"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyV-QO-J7h">
-                            <rect key="frame" x="0.0" y="0.0" width="325" height="54"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_login_01" translatesAutoresizingMaskIntoConstraints="NO" id="F4e-h9-vYK">
                                     <rect key="frame" x="5" y="18" width="18" height="18"/>
@@ -37,7 +37,7 @@
                                     </constraints>
                                 </imageView>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mmr-om-Xc5">
-                                    <rect key="frame" x="33" y="0.0" width="282" height="54"/>
+                                    <rect key="frame" x="33" y="0.0" width="332" height="54"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -54,7 +54,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4l6-bj-tEg">
-                            <rect key="frame" x="0.0" y="55" width="325" height="54"/>
+                            <rect key="frame" x="0.0" y="55" width="375" height="54"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_login_03" translatesAutoresizingMaskIntoConstraints="NO" id="FI4-Ds-E8C">
                                     <rect key="frame" x="5" y="18" width="18" height="18"/>
@@ -64,7 +64,7 @@
                                     </constraints>
                                 </imageView>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="89G-mA-SAR">
-                                    <rect key="frame" x="33" y="0.0" width="282" height="54"/>
+                                    <rect key="frame" x="33" y="0.0" width="332" height="54"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -159,8 +159,8 @@
                 <constraint firstItem="OHV-zR-ghU" firstAttribute="top" secondItem="GAh-6X-jqz" secondAttribute="bottom" constant="53" id="3Bh-uB-Hke"/>
                 <constraint firstItem="YlJ-Ml-EmC" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="DMv-7e-q92"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="cbB-9C-1mM" secondAttribute="trailing" constant="20" id="GiE-fn-pc8"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="GAh-6X-jqz" secondAttribute="trailing" constant="25" id="JjR-Eq-yOS"/>
-                <constraint firstItem="GAh-6X-jqz" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="25" id="NL4-u7-MpI"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="GAh-6X-jqz" secondAttribute="trailing" id="JjR-Eq-yOS"/>
+                <constraint firstItem="GAh-6X-jqz" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="NL4-u7-MpI"/>
                 <constraint firstItem="OHV-zR-ghU" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="fqY-8B-LK3"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="OHV-zR-ghU" secondAttribute="trailing" constant="20" id="hRP-Es-6rI"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="YlJ-Ml-EmC" secondAttribute="trailing" constant="20" id="hyj-cH-T9O"/>
