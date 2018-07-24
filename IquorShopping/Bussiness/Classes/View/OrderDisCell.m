@@ -32,9 +32,9 @@
 }
 - (IBAction)buttonClick:(UIButton *)sender {
     sender.selected = !sender.selected;
-    if (self.operatorButtonBlock) {
-        self.operatorButtonBlock();
-    }
+//    if (self.operatorButtonBlock) {
+//        self.operatorButtonBlock();
+//    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

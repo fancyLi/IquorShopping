@@ -81,12 +81,11 @@
             NSArray *arrs = [NSArray yy_modelArrayWithClass:[IndentModel class] json:responseObject[@"content"][@"list"]];
             if (arrs.count) {
                 [self.arrs addObjectsFromArray:arrs];
-                [self.indentTable reloadData];
             }else {
                 [Dialog popTextAnimation:self.page==1?@"暂无数据":@"没有下一页了"];
             }
             [self.indentTable setTableBgViewWithCount:self.arrs.count img:@"icon_none_02" msg:@"还没有订单哦"];
-            
+            [self.indentTable reloadData];
         }else {
             [Dialog popTextAnimation:responseObject[@"message"]];
         }
@@ -162,13 +161,13 @@
         NSInteger code = [responseObject[@"code"] integerValue];
         
         if (code == 200) {
-            if (indent.order_info.pay_type.intValue == 3) {
+            if (indent.pay_type.intValue == 3) {
                 endOrderViewController *vc = [[endOrderViewController alloc]init];
                 vc.endOrder = [OrderResult yy_modelWithDictionary:responseObject[@"content"]];
                 [self.navigationController pushViewController:vc animated:YES];
-            }else if (indent.order_info.pay_type.intValue == 2) {
+            }else if (indent.pay_type.intValue == 2) {
                 [self startWechatOrder:responseObject[@"content"]];
-            }else if (indent.order_info.pay_type.intValue == 1) {
+            }else if (indent.pay_type.intValue == 1) {
                 [self startBaoOrder:responseObject[@"content"]];
             }
             
@@ -185,7 +184,17 @@
     [self orderHandle:indent detailType:@"cancel"];
 }
 - (void)deleteOrder:(IndentModel *)indent {
-    [self orderHandle:indent detailType:@"del"];
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"确认取消订单？" message:@"取消订单之后需重新下单" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self orderHandle:indent detailType:@"del"];
+    }];
+    [alertVC addAction:cancel];
+    [alertVC addAction:sure];
+    [self presentViewController:alertVC animated:YES completion:nil];
+    
 }
 - (void)payOrder:(IndentModel *)indent {
     [self startPay:indent];

@@ -61,9 +61,9 @@
         PayKindViewController *vc = [[PayKindViewController alloc]init];
         vc.pay_scene = @"3";
         @weakify(self);
-        vc.operatorPayCellBlock = ^(NSString *type) {
+        vc.operatorPayCellBlock = ^(OrderPay *pay) {
             @strongify(self);
-            [self startOrder:type];
+            [self startOrder:pay.pay_type];
         };
         [self.navigationController pushViewController:vc animated:YES];
     }

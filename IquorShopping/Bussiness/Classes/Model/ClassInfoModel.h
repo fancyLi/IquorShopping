@@ -16,4 +16,5 @@
 @property (nonatomic, copy) NSString *del;
 @property (nonatomic, copy) NSString *isshow;
 @property (nonatomic, copy) NSString *sort;
+@property (nonatomic, assign) BOOL isOrgin;
 @end

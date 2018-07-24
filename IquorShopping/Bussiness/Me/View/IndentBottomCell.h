@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface IndentBottomCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UITextField *textview;
+@property (weak, nonatomic) IBOutlet UITextView *textview;
+
 @property (weak, nonatomic) IBOutlet UILabel *goodsPrice;
 @property (weak, nonatomic) IBOutlet UILabel *dicountPrice;
 @property (weak, nonatomic) IBOutlet UILabel *vipPrice;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightLayout;
 @end

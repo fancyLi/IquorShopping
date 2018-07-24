@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"优惠券";
+    self.view.backgroundColor = [UIColor c_f6f6Color];
     [self requestDiscountInfo];
     [self.view addSubview:self.tableview];
     [self.tableview mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -39,13 +40,14 @@
     [bottomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.tableview.mas_bottom);
         make.left.equalTo(@20);
+        make.height.equalTo(@45);
         make.bottom.right.equalTo(@-20);
     }];
     
 }
 
 - (void)buttonClick {
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)requestDiscountInfo {
     
@@ -85,25 +87,35 @@
     DiscountModel *model = self.couponArrs[indexPath.section];
     cell.discount = model;
     
-    if (![self.cellArr containsObject:cell]) {
-        [self.cellArr addObject:cell];
-    }
-    @weakify(self);
-    cell.operatorButtonBlock = ^{
-        @strongify(self);
-        for (OrderDisCell *temcell in self.cellArr) {
-            if (temcell != cell) {
-                temcell.selButton.selected = NO;
-            }
-        }
-        if (self.operatorOrderBlock) {
-            self.operatorOrderBlock(model);
-        }
-    };
+//    if (![self.cellArr containsObject:cell]) {
+//        [self.cellArr addObject:cell];
+//    }
+//    @weakify(self);
+//    cell.operatorButtonBlock = ^{
+//        @strongify(self);
+//        for (OrderDisCell *temcell in self.cellArr) {
+//            if (temcell != cell) {
+//                temcell.selButton.selected = NO;
+//            }
+//        }
+//        if (self.operatorOrderBlock) {
+//            self.operatorOrderBlock(model);
+//        }
+//    };
     return cell;
 }
-
-
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    OrderDisCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.selButton.selected = NO;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DiscountModel *model = self.couponArrs[indexPath.section];
+    OrderDisCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.selButton.selected = YES;
+    if (self.operatorOrderBlock) {
+        self.operatorOrderBlock(model);
+    }
+}
 
 - (UITableView *)tableview {
     if (!_tableview) {

@@ -114,6 +114,19 @@
         
     }];
 }
+- (void)enterVC:(ClassInfoModel *)model {
+    if (model.cat_id.intValue == 1 || model.cat_id.intValue == 2) {
+        SiginViewController *vc = [[SiginViewController alloc]init];
+        vc.type = model.cat_id;
+        vc.title = @"热门推荐";
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (model.cat_id.intValue == 3) {
+        ShopDiscountViewController *vc = [[ShopDiscountViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else {
+        self.tabBarController.selectedIndex = 2;
+    }
+}
 #pragma mark UITableViewDataSource & UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 4;
@@ -147,21 +160,15 @@
         [cell configCatInfo:self.homePageModel.goods_cat_list];
         cell.configBlock = ^(ClassInfoModel *model) {
             @strongify(self);
-            if (model.cat_id.integerValue != 0) {
+            if (model.isOrgin) {
+                [self enterVC:model];
+            }else {
                 SiginViewController *siginVC = [[SiginViewController alloc]init];
                 siginVC.cat_id = model.cat_id;
                 siginVC.title = model.cat_name;
                 siginVC.type = @"3";
                 [self.navigationController pushViewController:siginVC animated:YES];
-            }else {
-                if ([model.cat_name isEqualToString:@"领券"]) {
-                    ShopDiscountViewController *vc = [[ShopDiscountViewController alloc]init];
-                    [self.navigationController pushViewController:vc animated:YES];
-                }else {
-                    self.tabBarController.selectedIndex = 2;
-                }
             }
-            
         };
         return cell;
     }else if (indexPath.section == 1) {
@@ -245,6 +252,7 @@
         _shopTableView.estimatedSectionFooterHeight = 5;
         _shopTableView.estimatedRowHeight = 270;
         _shopTableView.bounces = NO;
+        _shopTableView.showsVerticalScrollIndicator = NO;
         [_shopTableView registerNib:[UINib nibWithNibName:@"ShopConfigCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopConfigCell class])];
         [_shopTableView registerNib:[UINib nibWithNibName:@"ShopVideoCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopVideoCell class])];
         [_shopTableView registerNib:[UINib nibWithNibName:@"ShopHotCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopHotCell class])];

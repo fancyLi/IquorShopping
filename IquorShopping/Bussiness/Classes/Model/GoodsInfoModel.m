@@ -13,7 +13,7 @@
     return @{@"goods_new"  : @"new"};
 }
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"comment":[CommentModel class]};
+    return @{@"comment_info":[CommentModel class]};
 }
 @end
 

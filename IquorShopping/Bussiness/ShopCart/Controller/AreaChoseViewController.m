@@ -88,23 +88,25 @@ typedef NS_ENUM(NSInteger, AreaChose) {
         self.choseArea = KArea;
         _cityModel = _provinceModel.sub[indexPath.row];
         _choseAreaModel.cityId = _cityModel.region_id;
-        if (![_choseAreaModel.areaStr isEqualToString:_cityModel.region_name]) {
+        if (![_choseAreaModel.areaStr isEqualToString:_cityModel.region_name] && ![_choseAreaModel.areaStr containsString:_cityModel.region_name]) {
             _choseAreaModel.areaStr = [NSString stringWithFormat:@"%@  %@", _choseAreaModel.areaStr, _cityModel.region_name];
         }
+        
         [self.city setTitle:_cityModel.region_name forState:UIControlStateNormal];
         [self.city setTitleColor:[UIColor c_333Color] forState:UIControlStateNormal];
         [self.areaTableview reloadData];
     }else {
         AreaModel *areaModel = _cityModel.sub[indexPath.row];
         _choseAreaModel.districtId = areaModel.region_id;
-        if (![_choseAreaModel.areaStr isEqualToString:areaModel.region_name]) {
-            _choseAreaModel.areaStr = [NSString stringWithFormat:@"%@  %@", _choseAreaModel.areaStr, areaModel.region_name];
-        }
+        
+        _choseAreaModel.areaStr = [NSString stringWithFormat:@"%@  %@", _choseAreaModel.areaStr, areaModel.region_name];
+        
         if (self.selectedAreaBlock) {
             self.selectedAreaBlock(_choseAreaModel);
         }
         [self.area setTitle:areaModel.region_name forState:UIControlStateNormal];
         [self.area setTitleColor:[UIColor c_333Color] forState:UIControlStateNormal];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 - (void)didReceiveMemoryWarning {

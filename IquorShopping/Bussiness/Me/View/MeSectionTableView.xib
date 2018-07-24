@@ -40,6 +40,9 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="8DL-x0-hBQ"/>
                     </constraints>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="OY0-ra-LBx"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2S-5W-E8A">
                     <rect key="frame" x="0.0" y="43" width="375" height="1"/>

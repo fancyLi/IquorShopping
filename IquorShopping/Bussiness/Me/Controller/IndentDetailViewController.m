@@ -19,7 +19,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import <WechatOpenSDK/WXApi.h>
 #import "WechatOrder.h"
-
+#import "MeInfoTableViewCell.h"
 @interface IndentDetailViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *nameConnect;
 @property (weak, nonatomic) IBOutlet UILabel *address;
@@ -50,12 +50,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"订单详情";
-    [self requestOrder];
+    
     [self configUI];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self requestOrder];
+}
 - (IBAction)addNewAdress:(UIButton *)sender {
-    
+    [self intoAddressList];
 }
 
 - (void)configOrder {
@@ -90,23 +93,29 @@
     
     IndentBottomCell *cell = [self.detailTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
     cell.goodsPrice.text = [NSString stringWithFormat:@"￥%.2f",num];
-    
+    CGFloat endPrice = num*(self.order.discount.floatValue/10);
+    CGFloat disPrice = num*(1-self.order.discount.floatValue/10);
     //折扣
-    if (self.order.is_discount.intValue == 1) {
-        self.discount_money = [NSString stringWithFormat:@"%.2f", self.order.discount.floatValue/10];
-        cell.vipPrice.text = [NSString stringWithFormat:@"-￥%.2f", self.order.discount.floatValue/10];
+    if (self.order.is_discount.intValue == 1 && num>self.order.discount.floatValue/10) {
+        cell.heightLayout.constant = 45.0;
+        
+        self.discount_money = [NSString stringWithFormat:@"%.2f", endPrice];
+        cell.vipPrice.text = [NSString stringWithFormat:@"-￥%.2f", disPrice];
     }else {
-        self.discount_money = @"0.00";
+        self.discount_money = @"";
+        cell.heightLayout.constant = 0.0;
     }
+    CGFloat cou = 0.00;
     if (self.order.coupon.count) {
         Coupon *coupon = self.order.coupon.firstObject;
         self.ucid = coupon.ucid;
+        cou = coupon.money.floatValue;
         cell.dicountPrice.text = [NSString stringWithFormat:@"-￥%@", coupon.money];
     }else {
         self.ucid = @"";
     }
     
-    CGFloat order_total = num-self.discount_money.floatValue-cell.dicountPrice.text.floatValue;
+    CGFloat order_total = endPrice-cou;
     self.order_total = [NSString stringWithFormat:@"%.2f", order_total];
     self.yzf.text = [NSString stringWithFormat:@"应支付：￥%.2f", order_total];
 }
@@ -122,7 +131,7 @@
     self.detailTable.separatorStyle = UITableViewCellSelectionStyleNone;
     [self.detailTable registerNib:[UINib nibWithNibName:@"IndentDetailCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([IndentDetailCell class])];
     [self.detailTable registerNib:[UINib nibWithNibName:@"IndentBottomCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([IndentBottomCell class])];
-    [self.detailTable registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    [self.detailTable registerNib:[UINib nibWithNibName:@"MeInfoTableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([MeInfoTableViewCell class])];
     
     UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(intoAddressList)];
     [self.addressCon addGestureRecognizer:tapGes];
@@ -163,7 +172,10 @@
     @weakify(self);
     if ([UIUtils isNullOrEmpty:self.payType]) {
         [Dialog popTextAnimation:@"请选择支付方式"];
-    }else {
+    }else if ([UIUtils isNullOrEmpty:self.order.addr.aid]) {
+        [Dialog popTextAnimation:@"请添加收货地址"];
+    }
+    else {
         NSDictionary *param = @{@"pay_type":self.payType,
                                 @"pay_scene":self.pay_scene,
                                 @"order_type":self.order_type,
@@ -288,12 +300,13 @@
         cell.order = self.order.goods_list[indexPath.row];
         return cell;
     }else if (indexPath.section == 1) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
+        MeInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MeInfoTableViewCell class])];
+        
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         if (indexPath.row == 0) {
-            cell.textLabel.text = @"支付方式";
+            cell.leftTitle.text = @"支付方式";
         }else {
-            cell.textLabel.text = @"优惠券";
+            cell.leftTitle.text = @"优惠券";
         }
         return cell;
     }else {
@@ -305,21 +318,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    MeInfoTableViewCell *cell = (MeInfoTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     if (indexPath.section ==1 && indexPath.row == 0) {
         //支付方式
         PayKindViewController *vc = [[PayKindViewController alloc]init];
         vc.pay_scene = @"2";
+        vc.curPay = self.payType;
         @weakify(self);
-        vc.operatorPayCellBlock = ^(NSString *type) {
+        vc.operatorPayCellBlock = ^(OrderPay *orderPay) {
             @strongify(self);
-            self.payType = type;
+            self.payType = orderPay.pay_type;
+            cell.rightTltle.text = orderPay.type_name;
         };
+       
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 1) {
         OrderDisViewController *vc = [[OrderDisViewController alloc]init];
         vc.order_amount = self.order_amount;
         vc.operatorOrderBlock = ^(DiscountModel *discount) {
             self.ucid = discount.ucid;
+            cell.rightTltle.text = [NSString stringWithFormat:@"-￥%@", discount.money];
             [self requestOrder];
         };
         [self.navigationController pushViewController:vc animated:YES];

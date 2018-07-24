@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self defaultConfig];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeCurrentVC) name:@"currentViewControllerChangged" object:nil];
 
 }
 
@@ -42,6 +43,11 @@
     self.menuViewLayoutMode = WMMenuViewLayoutModeCenter;
     self.menuView.progressViewBottomSpace = 11;
 }
+
+- (void)changeCurrentVC {
+    self.selectIndex = 2;
+}
+
 //设置导航栏返回按钮
 - (UIBarButtonItem *)rt_customBackItemWithTarget:(id)target action:(SEL)action {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];

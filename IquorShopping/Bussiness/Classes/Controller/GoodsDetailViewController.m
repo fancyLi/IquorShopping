@@ -141,13 +141,13 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return self.goodsDetail.comment.count;
+        return self.goodsDetail.comment_info.count;
     }
     return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        if (self.goodsDetail.comment.count) {
+        if (self.goodsDetail.comment_info.count) {
             return 50;
         }
         return 0.1;
@@ -162,16 +162,19 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [tableView fd_heightForCellWithIdentifier:NSStringFromClass([AssessCell class]) configuration:^(id cell) {
-        [cell configCell:self.goodsDetail.comment[indexPath.row]];
+    return [tableView fd_heightForCellWithIdentifier:NSStringFromClass([AssessCell class]) cacheByIndexPath:indexPath configuration:^(AssessCell *cell) {
+        [cell configCell:self.goodsDetail.comment_info[indexPath.row]];
     }];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (self.goodsDetail.comment.count && section == 0) {
+    if (self.goodsDetail.comment_info.count && section == 0) {
         MeSectionTableView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"MeSectionTableView" owner:self options:nil] firstObject];
         headerView.leftTitle = @"用户评价";
         headerView.rightTitle = @"查看所有评价";
+        headerView.tableSectionOperatorBlock = ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"currentViewControllerChangged" object:nil];
+        };
         return headerView;
     }else if (section == 1) {
         MeSectionTableView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"MeSectionTableView" owner:self options:nil] firstObject];
@@ -183,7 +186,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AssessCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AssessCell class])];
-    [cell configCell:self.goodsDetail.comment[indexPath.row]];
+    [cell configCell:self.goodsDetail.comment_info[indexPath.row]];
     return cell;
 }
 
@@ -200,6 +203,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"currentViewControllerChangged" object:nil];
 }
 - (void)loadFrament:(NSString *)frament {
     NSString *HTML = [NSString stringWithFormat:@"<html> \n"

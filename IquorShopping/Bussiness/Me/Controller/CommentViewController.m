@@ -68,7 +68,7 @@
             [self.tableView setTableBgViewWithCount:self.arrs.count img:@"icon_none_02" msg:@"空空如也"];
             
         }else {
-            [Dialog popTextAnimation:responseObject[@"message"]];
+            [Dialog popTextAnimation:@"暂无数据"];
         }
     } fail:^{
         

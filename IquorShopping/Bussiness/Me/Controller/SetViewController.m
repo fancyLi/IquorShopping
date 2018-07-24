@@ -65,7 +65,10 @@
         if (code == 200) {
             [[IQourUser shareInstance] clean];
             [PDDDataManger cleanLoginCookie];
-            [self.navigationController popViewControllerAnimated:YES];
+            [[LoginOperator shareInstance] loginVC:^(BOOL isScu) {
+                 [self.navigationController popToRootViewControllerAnimated:YES];
+            }];
+           
         }
     } fail:^{
         

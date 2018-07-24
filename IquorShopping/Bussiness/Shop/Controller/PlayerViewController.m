@@ -20,10 +20,13 @@
     [self playerAudio];
     // Do any additional setup after loading the view.
 }
+- (void)setViderStr:(NSString *)viderStr {
+    _viderStr = viderStr;
+}
 - (void)playerAudio {
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
-    AVPlayer *player = [AVPlayer playerWithURL:[NSURL URLWithString:@"https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"]];
+    AVPlayer *player = [AVPlayer playerWithURL:[NSURL URLWithString:self.viderStr]];
     AVPlayerViewController * playerController = [[AVPlayerViewController alloc] init];
     playerController.player = player;
     playerController.videoGravity = AVLayerVideoGravityResizeAspect;

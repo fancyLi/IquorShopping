@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^TableSectionOperatorBlock)(void);
 @interface MeSectionTableView : UIView
 @property (nonatomic, assign) NSInteger section;
 @property (nonatomic, copy) NSString *leftTitle;
 @property (nonatomic, copy) NSString *rightTitle;
+@property (nonatomic, copy)  TableSectionOperatorBlock tableSectionOperatorBlock;
 @end

@@ -22,8 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 @property (weak, nonatomic) IBOutlet UILabel *chosNums;
 @property (weak, nonatomic) IBOutlet UILabel *chosPrice;
-@property (nonatomic, strong) NSMutableArray *arrs;
-@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSArray *arrs;
 @property (weak, nonatomic) IBOutlet UIView *footView;
 @property (nonatomic, strong) NSMutableArray<CartModel*> *carts;
 @property (nonatomic, strong) NSMutableIndexSet *indexSets;
@@ -45,8 +44,6 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.page = 1;
-    self.arrs = nil;
     [self requestCouponList];
 }
 - (IBAction)goShopping:(UIButton *)sender {
@@ -71,38 +68,17 @@
     self.catTableview.delegate = self;
     self.catTableview.dataSource = self;
     self.catTableview.tableFooterView = [UIView new];
-    @weakify(self);
-    _catTableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        @strongify(self);
-        self.page = 1;
-        self.arrs = nil;
-        [self requestCouponList];
-    }];
-    _catTableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        @strongify(self);
-        self.page++;
-        [self requestCouponList];
-    }];
     
 }
 - (void)requestCouponList {
-    NSDictionary *param = @{@"page":@(self.page)};
     @weakify(self);
-    [AFNetworkTool postJSONWithUrl:shop_shoppingCart parameters:param success:^(id responseObject) {
+    [AFNetworkTool postJSONWithUrl:shop_shoppingCart parameters:nil success:^(id responseObject) {
         @strongify(self);
-        [self.catTableview.mj_footer endRefreshing];
-        [self.catTableview.mj_header endRefreshing];
+       
         
         NSInteger code = [responseObject[@"code"] integerValue];
         if (code == 200) {
-            NSArray *arrs = [NSArray yy_modelArrayWithClass:[CartModel class] json:responseObject[@"content"][@"list"]];
-            if (arrs.count) {
-                [self.arrs addObjectsFromArray:arrs];
-                [self.catTableview reloadData];
-            }else {
-                [Dialog popTextAnimation:@"没有下一页了"];
-            }
-            
+            self.arrs = [NSArray yy_modelArrayWithClass:[CartModel class] json:responseObject[@"content"][@"list"]];
             if (!self.arrs.count) {
                 self.emView.hidden = NO;
                 self.footView.hidden = YES;
@@ -112,12 +88,12 @@
                 self.footView.hidden = NO;
                 self.itemButton.hidden = NO;
             }
+            [self.catTableview reloadData];
            
         }else {
             self.emView.hidden = NO;
             self.footView.hidden = YES;
             self.itemButton.hidden = YES;
-           
         }
     } fail:^{
         
@@ -138,8 +114,8 @@
             NSInteger code = [responseObject[@"code"] integerValue];
             [Dialog popTextAnimation:responseObject[@"message"]];
             if (code == 200) {
-                self.page = 1;
-                self.arrs = nil;
+                [self.carts removeAllObjects];
+                [self refreshFooterView];
                 [self requestCouponList];
 //                [self.arrs removeObjectsAtIndexes:self.indexSets];
 //                [self.catTableview deleteSections:self.indexSets withRowAnimation:UITableViewRowAnimationMiddle];
@@ -206,6 +182,14 @@
     }
     
 }
+- (void)refreshFooterView {
+    self.chosNums.text = [NSString stringWithFormat:@"已选(%lu)", (unsigned long)self.carts.count];
+    if (self.carts.count) {
+        [self.chosBtn setImage:[UIImage imageNamed:@"icon_normal_02"] forState:UIControlStateNormal];
+    }else {
+        [self.chosBtn setImage:[UIImage imageNamed:@"icon_normal_01"] forState:UIControlStateNormal];
+    }
+}
 #pragma mark UITableViewDataSource & UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.arrs.count;
@@ -241,13 +225,7 @@
             }
             [self.indexSets removeIndexes:[NSIndexSet indexSetWithIndex:indexPath.section]];
         }
-        self.chosNums.text = [NSString stringWithFormat:@"已选(%lu)", (unsigned long)self.carts.count];
-        
-        if (self.carts.count) {
-            [self.chosBtn setImage:[UIImage imageNamed:@"icon_normal_02"] forState:UIControlStateNormal];
-        }else {
-            [self.chosBtn setImage:[UIImage imageNamed:@"icon_normal_01"] forState:UIControlStateNormal];
-        }
+        [self refreshFooterView];
         CGFloat price = 0.00;
         for (CartModel *cachCart in self.carts) {
           price += cachCart.goods_num.intValue*cachCart.goods_price.floatValue;
@@ -271,12 +249,6 @@
 
 
 #pragma mark set & get
-- (NSMutableArray *)arrs {
-    if (!_arrs) {
-        _arrs = [NSMutableArray array];
-    }
-    return _arrs;
-}
 
 - (NSMutableArray<CartModel *> *)carts {
     if (!_carts) {

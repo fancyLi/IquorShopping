@@ -14,6 +14,9 @@ singtonImplement(LoginOperator)
 
 - (void)loginVC:(void (^)(BOOL))complation {
     LoginViewController *vc = [[LoginViewController alloc]init];
+    vc.loginOperatorBlock = ^(BOOL isScu) {
+        complation(isScu);
+    };
     [LoginOperator.getCurrentVC.navigationController pushViewController:vc animated:YES];
 }
 
@@ -25,7 +28,7 @@ singtonImplement(LoginOperator)
     UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"登录" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         
         [[LoginOperator shareInstance] loginVC:^(BOOL isScu) {
-            
+            [LoginOperator.getCurrentVC.navigationController popViewControllerAnimated:YES];
         }];
     }];
     [alertVC addAction:cancelAction];

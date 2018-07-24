@@ -21,10 +21,10 @@
 }
 
 - (void)setClassInfo:(ClassInfoModel *)model {
-    if (model.cat_id.integerValue != 0) {
-        [self.icon sd_setImageWithURL:[NSURL URLWithString:model.cat_image] placeholderImage:[UIImage imageNamed:@"icon_01"]];
-    }else {
+    if (model.isOrgin) {
         self.icon.image = [UIImage imageNamed:model.cat_image];
+    }else {
+        [self.icon sd_setImageWithURL:[NSURL URLWithString:model.cat_image] placeholderImage:[UIImage imageNamed:@"icon_01"]];
     }
         self.name.text = model.cat_name;
 }

@@ -30,7 +30,7 @@
 @property (nonatomic, copy) NSString *goods_new;
 @property (nonatomic, strong) NSArray *goods_pics;
 @property (nonatomic, strong) NSArray *tag_list;
-@property (nonatomic, strong) NSArray <CommentModel *>*comment;
+@property (nonatomic, strong) NSArray <CommentModel *>*comment_info;
 @property (nonatomic, copy) NSString *cat_name;
 @property (nonatomic, copy) NSString *attr_name;
 @property (nonatomic, copy) NSString *isCollect;

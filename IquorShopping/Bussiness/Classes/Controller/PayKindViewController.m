@@ -14,7 +14,8 @@
 @property (nonatomic, strong) UITableView *tableview;
 @property (nonatomic, strong) NSArray *arr;
 @property (nonatomic, strong) UIButton *sureBtn;
-@property (nonatomic, copy) NSString *curPayType;
+@property (nonatomic, strong) OrderPay  *orderPay;
+@property (nonatomic, strong) BaoTableViewCell *curCell;
 @end
 
 @implementation PayKindViewController
@@ -41,8 +42,8 @@
 }
 
 - (void)sureButtonClick {
-    if (self.operatorPayCellBlock && ![UIUtils isNullOrEmpty:self.curPayType]) {
-        self.operatorPayCellBlock(self.curPayType);
+    if (self.operatorPayCellBlock && ![UIUtils isNullOrEmpty:self.orderPay.pay_type]) {
+        self.operatorPayCellBlock(self.orderPay);
     }else {
         [Dialog popTextAnimation:@"请选择付款方式"];
     }
@@ -81,6 +82,10 @@
     OrderPay *pay = self.arr[indexPath.section];
     [cell.icon sd_setImageWithURL:[NSURL URLWithString:pay.pic]];
     cell.name.text = pay.type_name;
+    if ([pay.pay_type isEqualToString:self.curPay]) {
+        cell.operatorBtn.selected = YES;
+        self.curCell = cell;
+    }
     return cell;
     
 }
@@ -90,9 +95,12 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     BaoTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (self.curCell) {
+        self.curCell.operatorBtn.selected = NO;
+    }
     cell.operatorBtn.selected = YES;
     OrderPay *pay = self.arr[indexPath.section];
-    self.curPayType = pay.pay_type;
+    self.orderPay = pay;
     
 }
 - (void)didReceiveMemoryWarning {

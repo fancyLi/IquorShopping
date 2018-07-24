@@ -8,6 +8,7 @@
 
 #import "IquorViewController.h"
 
+typedef void (^LoginOperatorBlock)(BOOL isScu);
 @interface LoginViewController : IquorViewController
-
+@property (nonatomic, copy) LoginOperatorBlock loginOperatorBlock;
 @end

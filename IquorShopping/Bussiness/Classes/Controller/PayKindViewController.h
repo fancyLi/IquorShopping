@@ -7,9 +7,10 @@
 //
 
 #import "IquorViewController.h"
-
-typedef void (^OperatorPayCellBlock)(NSString *type);
+#import "OrderPay.h"
+typedef void (^OperatorPayCellBlock)(OrderPay *orderPay);
 @interface PayKindViewController : IquorViewController
 @property (nonatomic, copy) OperatorPayCellBlock operatorPayCellBlock;
 @property (nonatomic, copy) NSString *pay_scene;
+@property (nonatomic, copy) NSString *curPay;
 @end

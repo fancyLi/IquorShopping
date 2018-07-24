@@ -39,5 +39,10 @@
     self.idicateImage.hidden = NO;
     self.subButton.hidden = NO;
 }
+- (IBAction)buttonClick:(id)sender {
+    if (self.tableSectionOperatorBlock) {
+        self.tableSectionOperatorBlock();
+    }
+}
 
 @end

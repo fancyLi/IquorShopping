@@ -76,6 +76,7 @@
         self.nikeName.hidden = YES;
         self.vipDes.hidden = YES;
         self.agentDes.hidden = YES;
+        self.collectionView.hidden = YES;
     }
    
     
@@ -168,7 +169,7 @@
         cell.title.text = @"加入会员  福利多多";
         cell.subTitle.text = @"不同会员等级享受不等的商品折扣";
         cell.container.backgroundColor = UIColorFromRGB(0xcbcbcb);
-        
+        [cell.operatorBtn setTitle:@"会员申请" forState:UIControlStateNormal];
         cell.operatorCellBlock = ^{
             VIPLevelViewController *vc = [[VIPLevelViewController alloc]init];
             [NSObject.getCurrentVC.navigationController pushViewController:vc animated:YES];
@@ -186,8 +187,8 @@
             @strongify(self);
             PayKindViewController *vc = [[PayKindViewController alloc]init];
             vc.pay_scene = @"2";
-            vc.operatorPayCellBlock = ^(NSString *type) {
-                [self startOrder:type];
+            vc.operatorPayCellBlock = ^(OrderPay *pay) {
+                [self startOrder:pay.pay_type];
             };
             [NSObject.getCurrentVC.navigationController pushViewController:vc animated:YES];
         };

@@ -17,8 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.edgesForExtendedLayout = UIRectEdgeAll;
-    self.view.backgroundColor = [UIColor c_f6f6Color];
+//    if (@available(iOS 11.0, *)) {
+//        self.additionalSafeAreaInsets = UIEdgeInsetsMake(64, 0, 49, 0);
+//        NSLog(@"---%f-%f",self.additionalSafeAreaInsets.top, self.additionalSafeAreaInsets.bottom);
+//    } else {
+//    }
+//    self.edgesForExtendedLayout = UIRectEdgeAll;
+//    self.view.backgroundColor = [UIColor c_f6f6Color];
     
 //    if (@available(iOS 11.0, *)) {
 //        [UITableView appearance].contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
