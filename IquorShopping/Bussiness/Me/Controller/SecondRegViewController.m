@@ -40,7 +40,9 @@
         NSInteger code = [responseObject[@"code"] integerValue];
         [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            [[LoginOperator shareInstance] loginVC:^(BOOL isScu) {
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }];
         }else {
             
         }

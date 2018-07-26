@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.edgesForExtendedLayout = UIRectEdgeNone;
 //    if (@available(iOS 11.0, *)) {
 //        self.additionalSafeAreaInsets = UIEdgeInsetsMake(64, 0, 49, 0);
 //        NSLog(@"---%f-%f",self.additionalSafeAreaInsets.top, self.additionalSafeAreaInsets.bottom);

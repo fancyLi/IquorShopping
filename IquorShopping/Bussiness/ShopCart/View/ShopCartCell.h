@@ -16,4 +16,5 @@ typedef void (^OperatorCartNumBlock)(NSString *op, NSString *num);
 @property (nonatomic, copy) ChoseCollectBlock choseCollectBlock;
 @property (nonatomic, assign) BOOL refreshLayout;
 @property (nonatomic, strong) CartModel *cart;
+@property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @end

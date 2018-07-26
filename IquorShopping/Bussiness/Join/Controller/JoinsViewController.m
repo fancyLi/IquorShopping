@@ -8,6 +8,10 @@
 
 #import "JoinsViewController.h"
 #import "JoinModel.h"
+#import "PayKindViewController.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import <WechatOpenSDK/WXApi.h>
+#import "WechatOrder.h"
 @interface JoinsViewController ()<UIWebViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UIButton *joinBtn;
@@ -40,6 +44,16 @@
     }
     
 }
+- (void)startOrder:(NSString *)type {
+    
+    NSDictionary *param = @{@"pay_type":type, @"pay_scene":@"2"};
+  
+    @weakify(self);
+    [[IquorDataManager shareInstance] submitOrderParameters:param payKind:type enterVC:NO orderCom:^(BOOL isScu) {
+        @strongify(self);
+        [self requestJoin];
+    }];
+}
 
 - (void)requestJoin {
     @weakify(self);
@@ -51,6 +65,7 @@
             [self.imageview sd_setImageWithURL:[NSURL URLWithString:self.join.join_pic] placeholderImage:[UIImage imageNamed:@"icon_35"]];
             if (self.join.is_join.intValue != 1) {
                 self.joinBtn.backgroundColor = [UIColor c_999Color];
+                [self.joinBtn setTitle:@"您已加盟" forState:UIControlStateNormal];
                 self.joinBtn.enabled = NO;
             }else {
                 self.joinBtn.backgroundColor = [UIColor c_cc0Color];
@@ -84,7 +99,12 @@
     return cell;
 }
 - (IBAction)startJoin:(UIButton *)sender {
-    
+    PayKindViewController *vc = [[PayKindViewController alloc]init];
+    vc.pay_scene = @"2";
+    vc.operatorPayCellBlock = ^(OrderPay *pay) {
+        [self startOrder:pay.pay_type];
+    };
+    [NSObject.getCurrentVC.navigationController pushViewController:vc animated:YES];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     CGFloat webViewHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];

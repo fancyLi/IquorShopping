@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShopCartViewController">
             <connections>
+                <outlet property="bottomButton" destination="TED-tE-yGk" id="SXx-x8-cok"/>
                 <outlet property="catTableview" destination="3Yt-HW-wdG" id="mwO-KI-j16"/>
                 <outlet property="chosBtn" destination="C0R-pT-zBP" id="hf8-aY-2bV"/>
                 <outlet property="chosNums" destination="xNw-Xj-Gu7" id="PXT-ig-tsS"/>
@@ -69,9 +70,19 @@
                             <color key="textColor" red="0.92549019607843142" green="0.19215686274509802" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TED-tE-yGk">
+                            <rect key="frame" x="0.0" y="0.0" width="120" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="dzA-hl-96X"/>
+                            </constraints>
+                            <connections>
+                                <action selector="bottomButtonClick:" destination="-1" eventType="touchUpInside" id="myb-17-XbL"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="TED-tE-yGk" firstAttribute="leading" secondItem="9QV-v8-xbg" secondAttribute="leading" id="3Nh-3X-i53"/>
                         <constraint firstItem="C0R-pT-zBP" firstAttribute="centerY" secondItem="9QV-v8-xbg" secondAttribute="centerY" id="64n-eP-tLV"/>
                         <constraint firstAttribute="bottom" secondItem="xNw-Xj-Gu7" secondAttribute="bottom" id="8fJ-F7-ZqW"/>
                         <constraint firstAttribute="bottom" secondItem="wbT-Jz-qQ3" secondAttribute="bottom" id="BdE-7M-TgP"/>
@@ -80,8 +91,10 @@
                         <constraint firstItem="C0R-pT-zBP" firstAttribute="leading" secondItem="9QV-v8-xbg" secondAttribute="leading" constant="10" id="JqC-Sb-hXI"/>
                         <constraint firstItem="wbT-Jz-qQ3" firstAttribute="leading" secondItem="CsC-m3-7t2" secondAttribute="trailing" constant="5" id="R0z-Vm-gJR"/>
                         <constraint firstAttribute="height" constant="45" id="V6t-7r-RGK"/>
+                        <constraint firstAttribute="bottom" secondItem="TED-tE-yGk" secondAttribute="bottom" id="cdp-KD-Q7R"/>
                         <constraint firstItem="xNw-Xj-Gu7" firstAttribute="top" secondItem="9QV-v8-xbg" secondAttribute="top" id="gqx-Xj-VEh"/>
                         <constraint firstItem="wbT-Jz-qQ3" firstAttribute="top" secondItem="9QV-v8-xbg" secondAttribute="top" id="m5o-r2-1xZ"/>
+                        <constraint firstItem="TED-tE-yGk" firstAttribute="top" secondItem="9QV-v8-xbg" secondAttribute="top" id="uFo-bn-2A9"/>
                         <constraint firstItem="xNw-Xj-Gu7" firstAttribute="leading" secondItem="C0R-pT-zBP" secondAttribute="trailing" constant="10" id="vSn-AF-x4P"/>
                         <constraint firstAttribute="bottom" secondItem="CsC-m3-7t2" secondAttribute="bottom" id="w8H-rX-eF5"/>
                         <constraint firstItem="CsC-m3-7t2" firstAttribute="top" secondItem="9QV-v8-xbg" secondAttribute="top" id="zQv-Fo-0sY"/>

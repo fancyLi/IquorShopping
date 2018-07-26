@@ -11,9 +11,7 @@
 #import "CollectedCell.h"
 #import "CollectModel.h"
 @interface MeCollectViewController ()<UITableViewDelegate, UITableViewDataSource>
-{
-    BOOL _isEdit;
-}
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *footLayoutConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *chosIcon;
 @property (weak, nonatomic) IBOutlet UILabel *chosNums;
@@ -21,9 +19,10 @@
 @property (weak, nonatomic) IBOutlet UITableView *collectedTable;
 @property (weak, nonatomic) IBOutlet UIView *footView;
 @property (nonatomic, strong) NSMutableArray *arrs;
-@property (nonatomic, strong) NSMutableArray *collectArrs;
-@property (nonatomic, strong) NSMutableIndexSet *indexpaths;
 @property (nonatomic, assign) NSInteger page;
+@property (weak, nonatomic) IBOutlet UIButton *bottomButton;
+@property (nonatomic, assign) BOOL ieEdit;
+
 @end
 
 @implementation MeCollectViewController
@@ -60,15 +59,42 @@
         [self requestCouponList];
     }];
 }
-
-- (void)refreshLayout {
-    if (self.arrs.count) {
-        self.footLayoutConstraint.constant = 45;
-    }else {
-        self.footLayoutConstraint.constant = 0;
+- (IBAction)buttomButtonClick:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    for (CollectModel *collect in self.arrs) {
+        collect.isScu = sender.selected;
     }
-     [self.collectedTable reloadData];
+    [self.collectedTable reloadData];
+    [self refreshFooterView];
 }
+- (void)refreshFooterView {
+    int count = 0;
+    for (CollectModel *collect in self.arrs) {
+        if (collect.isScu) {
+            count++;
+        }
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.chosNums.text = [NSString stringWithFormat:@"已选(%d)", count];
+        if (count>0) {
+            self.chosIcon.image = [UIImage imageNamed:@"icon_normal_02"];
+            self.bottomButton.selected = YES;
+        }else {
+            self.chosIcon.image = [UIImage imageNamed:@"icon_normal_01"];
+            self.bottomButton.selected = NO;
+        }
+        
+        if (self.arrs.count && self.ieEdit) {
+            self.footView.hidden = NO;
+            self.footLayoutConstraint.constant = 45;
+        }else {
+            self.footView.hidden = YES;
+            self.footLayoutConstraint.constant = 0;
+        }
+    });
+    
+}
+
 - (void)requestCouponList {
     NSDictionary *param = @{@"page":@(self.page)};
     @weakify(self);
@@ -82,14 +108,16 @@
             NSArray *arrs = [NSArray yy_modelArrayWithClass:[CollectModel class] json:responseObject[@"content"][@"list"]];
             if (arrs.count) {
                 [self.arrs addObjectsFromArray:arrs];
-                [self.collectedTable reloadData];
             }else {
                 [Dialog popTextAnimation:self.page==1?@"暂无数据":@"没有下一页了"];
             }
+            
             [self.collectedTable setTableBgViewWithCount:self.arrs.count img:@"icon_none_02" msg:@"空空如也"];
-            [self refreshLayout];
+            [self.collectedTable reloadData];
+            [self refreshFooterView];
+            
         }else {
-            [self refreshLayout];
+            [self refreshFooterView];
              [self.collectedTable setTableBgViewWithCount:self.arrs.count img:@"icon_none_02" msg:@"空空如也"];
         }
     } fail:^{
@@ -101,12 +129,8 @@
     [sender setTitle:sender.selected?@"完成":@"管理" forState:UIControlStateNormal];
     
     self.footView.hidden = !sender.selected;
-    if (self.footView.hidden) {
-        self.footLayoutConstraint.constant = 0;
-    }else {
-        self.footLayoutConstraint.constant = 50;
-    }
-    _isEdit = sender.selected;
+    self.ieEdit = sender.selected;
+    [self refreshFooterView];
     [self.collectedTable reloadData];
 }
 - (void)viewWillAppear:(BOOL)animated {
@@ -121,16 +145,23 @@
 }
 - (IBAction)cancelChoseCollect:(UIButton *)sender {
     @weakify(self);
-    if (self.collectArrs.count) {
-        NSString *str = [self.collectArrs componentsJoinedByString:@","];
+    NSMutableArray *arrStr = [NSMutableArray array];
+    for (CollectModel *collect in self.arrs) {
+        if (collect.isScu) {
+            [arrStr addObject:collect.collect_id];
+        }
+    }
+    if (arrStr.count>0) {
+        NSString *str = [arrStr componentsJoinedByString:@","];
         NSDictionary *param = @{@"collect_ids":str};
         [AFNetworkTool postJSONWithUrl:user_delGoodsCollection parameters:param success:^(id responseObject) {
-             @strongify(self);
+            @strongify(self);
             NSInteger code = [responseObject[@"code"] integerValue];
             if (code == 200) {
-                [self.arrs removeObjectsAtIndexes:self.indexpaths];
-                [self.collectedTable deleteSections:self.indexpaths withRowAnimation:UITableViewRowAnimationMiddle];
-
+                self.page = 1;
+                self.arrs = nil;
+                [self requestCouponList];
+                
             }else {
                 [Dialog popTextAnimation:responseObject[@"message"]];
             }
@@ -140,7 +171,6 @@
     }else {
         [Dialog popTextAnimation:@"请选择要删除的收藏"];
     }
-    
 }
 
 #pragma mark UITableViewDelegate & UITableViewDataSource
@@ -160,26 +190,12 @@
     CollectedCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([CollectedCell class])];
     CollectModel *collect = self.arrs[indexPath.section];
     cell.collect = collect;
-    cell.isEdit = _isEdit;
+    cell.isEdit = self.ieEdit;
     @weakify(self);
     cell.choseCollectBlock = ^(BOOL sel) {
         @strongify(self);
-        if (sel) {
-            [self.collectArrs addObject:collect.collect_id];
-            [self.indexpaths addIndexes:[NSIndexSet indexSetWithIndex:indexPath.section]];
-        }else {
-            if ([self.collectArrs containsObject:collect.collect_id]) {
-                [self.collectArrs removeObject:collect.collect_id];
-            }
-            [self.indexpaths removeIndexes:[NSIndexSet indexSetWithIndex:indexPath.section]];
-        }
-        self.chosNums.text = [NSString stringWithFormat:@"已选(%lu)", (unsigned long)self.collectArrs.count];
-        
-        if (self.collectArrs.count) {
-            self.chosIcon.image = [UIImage imageNamed:@"icon_normal_02"];
-        }else {
-            self.chosIcon.image = [UIImage imageNamed:@"icon_normal_01"];
-        }
+        collect.isScu = sel;
+        [self refreshFooterView];
     };
     return cell;
 }
@@ -199,19 +215,8 @@
     return _arrs;
 }
 
-- (NSMutableArray *)collectArrs {
-    if (!_collectArrs) {
-        _collectArrs = [NSMutableArray array];
-    }
-    return _collectArrs;
-}
 
-- (NSMutableIndexSet *)indexpaths {
-    if (!_indexpaths) {
-        _indexpaths = [NSMutableIndexSet indexSet];
-        
-    }
-    return _indexpaths;
-}
+
+
 
 @end

@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIView *viewContainer;
 @property (weak, nonatomic) IBOutlet UIButton *reduceBtn;
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
+
 @property (weak, nonatomic) IBOutlet UILabel *nums;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *withLayout;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftLayout;
@@ -30,13 +31,11 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.textf.delegate = self;
     self.textf.keyboardType = UIKeyboardTypeNumberPad;
-//    self.viewContainer.layer.borderColor = [UIColor c_999Color].CGColor;
-//    self.viewContainer.layer.borderWidth = 1;
-//    self.viewContainer.layer.cornerRadius = 3;
+
     [self.reduceBtn setEnlargeEdgeWithTop:10 left:10 bottom:10 right:90];
     [self.addBtn setEnlargeEdgeWithTop:10 left:0 bottom:10 right:10];
-    
-    
+    [self.leftButton setEnlargeEdgeWithTop:20 left:5 bottom:20 right:5];
+    self.leftButton.selected = NO;
 }
 
 - (void)setCart:(CartModel *)cart {

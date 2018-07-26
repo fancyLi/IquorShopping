@@ -112,7 +112,7 @@
         flowLayout.minimumInteritemSpacing = 1;
         CGFloat wh =(kMainScreenWidth-1)/2;
         flowLayout.itemSize = CGSizeMake(wh, wh);
-        _classView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 108, kMainScreenWidth, kMainScreenHeight-108) collectionViewLayout:flowLayout];
+        _classView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 44, kMainScreenWidth, kMainScreenHeight-108) collectionViewLayout:flowLayout];
         _classView.backgroundColor = [UIColor c_f6f6Color];
         [_classView registerNib:[UINib nibWithNibName:@"SiginCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([SiginCell class])];
         _classView.dataSource = self;

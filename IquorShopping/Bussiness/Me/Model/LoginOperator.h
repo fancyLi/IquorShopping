@@ -16,4 +16,7 @@ singtonInterface
 - (void)ensconceLogin;
 
 - (void)alertLogin;
+
+- (void)alertAuth;
+
 @end

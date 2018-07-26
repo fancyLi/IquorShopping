@@ -29,4 +29,6 @@
 #import <UIImageView+WebCache.h>
 #import "IQourUser.h"
 #import "LoginOperator.h"
+#import "IquorRequestModel.h"
+#import "IquorDataManager.h"
 #endif /* PrefixHeader_h */

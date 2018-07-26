@@ -7,7 +7,7 @@
 //
 
 #import "CollectedCell.h"
-
+#import "UIButton+IquorArea.h"
 @interface CollectedCell ()
 @property (weak, nonatomic) IBOutlet UIButton *chosBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
@@ -24,6 +24,7 @@
     // Initialization code
     self.chosBtnLeadLayoutConstraint.constant = -18;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    [self.chosBtn setEnlargeEdge:15];
 }
 - (void)setIsEdit:(BOOL)isEdit {
     _isEdit = isEdit;
@@ -39,6 +40,7 @@
     self.name.text = _collect.goods_name;
     self.des.text = [NSString stringWithFormat:@"规格：%@", _collect.attribute_value];
     self.price.text = [NSString stringWithFormat:@"￥%@", _collect.goods_price];
+    self.chosBtn.selected = _collect.isScu;
 }
 - (IBAction)choseOperate:(UIButton *)sender {
     sender.selected = !sender.selected;

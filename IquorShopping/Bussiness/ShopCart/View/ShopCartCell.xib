@@ -140,6 +140,7 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="addBtn" destination="Ird-9a-a3a" id="TAd-Ly-Ftq"/>
+                <outlet property="leftButton" destination="glx-Ud-3i0" id="M0X-vG-ujR"/>
                 <outlet property="leftLayout" destination="Wcj-4V-2Qy" id="zat-gT-FpT"/>
                 <outlet property="reduceBtn" destination="zOy-1B-tcd" id="s6w-tR-KqE"/>
                 <outlet property="rightLayout" destination="X3Y-Oa-kRl" id="YxY-CX-bag"/>

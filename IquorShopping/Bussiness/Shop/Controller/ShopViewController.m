@@ -37,11 +37,18 @@
     }else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkingNoti:) name:@"APPNetworkingAuth" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshHomePageData:) name:@"RefreshAPPNetworking" object:nil];
     
     [self requestHomePage];
 }
 
+- (void)networkingNoti:(NSNotification *)noti {
+    [[LoginOperator shareInstance] alertAuth];
+}
+- (void)refreshHomePageData:(NSNotification *)noti {
+    [self requestHomePage];
+}
 - (void)setupSubviews {
     
     
@@ -118,7 +125,7 @@
     if (model.cat_id.intValue == 1 || model.cat_id.intValue == 2) {
         SiginViewController *vc = [[SiginViewController alloc]init];
         vc.type = model.cat_id;
-        vc.title = @"热门推荐";
+        vc.title = model.cat_name;
         [self.navigationController pushViewController:vc animated:YES];
     }else if (model.cat_id.intValue == 3) {
         ShopDiscountViewController *vc = [[ShopDiscountViewController alloc]init];
@@ -239,7 +246,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 #pragma mark set & get
 - (UITableView *)shopTableView {

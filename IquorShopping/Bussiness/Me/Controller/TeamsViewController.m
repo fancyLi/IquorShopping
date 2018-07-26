@@ -63,7 +63,7 @@
 
 - (CGRect)pageController:(WMPageController *)pageController preferredFrameForMenuView:(WMMenuView *)menuView {
     
-    return CGRectMake(0, kTopHeight, kMainScreenWidth, 45);
+    return CGRectMake(0,0, kMainScreenWidth, 45);
     
 }
 

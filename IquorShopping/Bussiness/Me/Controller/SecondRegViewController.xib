@@ -31,7 +31,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCJ-K0-2ii">
-                                    <rect key="frame" x="5" y="0.0" width="365" height="53"/>
+                                    <rect key="frame" x="10" y="0.0" width="360" height="53"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -40,7 +40,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="LCJ-K0-2ii" firstAttribute="top" secondItem="sCD-BN-QLG" secondAttribute="top" id="9Cg-iD-k35"/>
-                                <constraint firstItem="LCJ-K0-2ii" firstAttribute="leading" secondItem="sCD-BN-QLG" secondAttribute="leading" constant="5" id="OU5-I0-5XV"/>
+                                <constraint firstItem="LCJ-K0-2ii" firstAttribute="leading" secondItem="sCD-BN-QLG" secondAttribute="leading" constant="10" id="OU5-I0-5XV"/>
                                 <constraint firstAttribute="bottom" secondItem="LCJ-K0-2ii" secondAttribute="bottom" id="cgV-OC-c8C"/>
                                 <constraint firstAttribute="trailing" secondItem="LCJ-K0-2ii" secondAttribute="trailing" constant="5" id="iWI-nA-5e7"/>
                                 <constraint firstAttribute="height" constant="53" id="niZ-RZ-OjM"/>
@@ -50,7 +50,7 @@
                             <rect key="frame" x="0.0" y="54" width="375" height="53"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邀请码（选填）" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AYp-Rk-fGj">
-                                    <rect key="frame" x="5" y="0.0" width="365" height="53"/>
+                                    <rect key="frame" x="10" y="0.0" width="360" height="53"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -61,7 +61,7 @@
                                 <constraint firstAttribute="height" constant="53" id="2vX-US-GBr"/>
                                 <constraint firstAttribute="trailing" secondItem="AYp-Rk-fGj" secondAttribute="trailing" constant="5" id="OE5-8J-zes"/>
                                 <constraint firstAttribute="bottom" secondItem="AYp-Rk-fGj" secondAttribute="bottom" id="QhA-O3-5nx"/>
-                                <constraint firstItem="AYp-Rk-fGj" firstAttribute="leading" secondItem="n3N-ah-Nvu" secondAttribute="leading" constant="5" id="Rtw-di-vuq"/>
+                                <constraint firstItem="AYp-Rk-fGj" firstAttribute="leading" secondItem="n3N-ah-Nvu" secondAttribute="leading" constant="10" id="Rtw-di-vuq"/>
                                 <constraint firstItem="AYp-Rk-fGj" firstAttribute="top" secondItem="n3N-ah-Nvu" secondAttribute="top" id="Z45-v0-bxe"/>
                             </constraints>
                         </view>
@@ -69,10 +69,10 @@
                             <rect key="frame" x="0.0" y="108" width="375" height="53"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M2n-Cj-MCS">
-                                    <rect key="frame" x="5" y="0.0" width="365" height="53"/>
+                                    <rect key="frame" x="10" y="0.0" width="360" height="53"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,22 +81,22 @@
                                 <constraint firstAttribute="height" constant="53" id="LAX-pL-G3i"/>
                                 <constraint firstAttribute="bottom" secondItem="M2n-Cj-MCS" secondAttribute="bottom" id="cRq-p9-W4P"/>
                                 <constraint firstAttribute="trailing" secondItem="M2n-Cj-MCS" secondAttribute="trailing" constant="5" id="dvg-8f-hzH"/>
-                                <constraint firstItem="M2n-Cj-MCS" firstAttribute="leading" secondItem="8Pa-K6-mOk" secondAttribute="leading" constant="5" id="rDe-Pg-Hvg"/>
+                                <constraint firstItem="M2n-Cj-MCS" firstAttribute="leading" secondItem="8Pa-K6-mOk" secondAttribute="leading" constant="10" id="rDe-Pg-Hvg"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="og7-ez-El4">
                             <rect key="frame" x="0.0" y="162" width="375" height="53"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="确认密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="19u-Sg-aAX">
-                                    <rect key="frame" x="5" y="0.0" width="365" height="53"/>
+                                    <rect key="frame" x="10" y="0.0" width="360" height="53"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="19u-Sg-aAX" firstAttribute="leading" secondItem="og7-ez-El4" secondAttribute="leading" constant="5" id="DgE-Qe-uOW"/>
+                                <constraint firstItem="19u-Sg-aAX" firstAttribute="leading" secondItem="og7-ez-El4" secondAttribute="leading" constant="10" id="DgE-Qe-uOW"/>
                                 <constraint firstAttribute="bottom" secondItem="19u-Sg-aAX" secondAttribute="bottom" id="Fqs-4b-8lH"/>
                                 <constraint firstItem="19u-Sg-aAX" firstAttribute="top" secondItem="og7-ez-El4" secondAttribute="top" id="JW0-2E-fBG"/>
                                 <constraint firstAttribute="trailing" secondItem="19u-Sg-aAX" secondAttribute="trailing" constant="5" id="a5M-8C-iSi"/>

@@ -78,6 +78,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DiscountCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([DiscountCell class])];
     [cell configDiscountCell:self.arr[indexPath.section]];
+    @weakify(self);
+    cell.operatorButtonBlock = ^{
+        @strongify(self);
+        self.tabBarController.selectedIndex = 0;
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    };
     return cell;
 }
 

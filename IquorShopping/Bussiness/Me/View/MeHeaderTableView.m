@@ -120,24 +120,28 @@
 - (void)startOrder:(NSString *)type {
    
         NSDictionary *param = @{@"pay_type":type, @"pay_scene":@"2"};
-        @weakify(self);
-        [AFNetworkTool postJSONWithUrl:pay_requestPayment parameters:param success:^(id responseObject) {
-            @strongify(self);
-            NSInteger code = [responseObject[@"code"] integerValue];
-            if (code == 200) {
-                if (type.integerValue == 1) {
-                    [self doAPPay:responseObject[@"content"]];
-                }else if (type.integerValue == 2) {
-                    [self doWeChat:[WechatOrder yy_modelWithDictionary:responseObject[@"content"]]];
-                }else {
-                    [Dialog popTextAnimation:@"支付成功"];
-                }
-            }else {
-                [Dialog popTextAnimation:responseObject[@"message"]];
-            }
-        } fail:^{
-            
-        }];
+   
+    [[IquorDataManager shareInstance] submitOrderParameters:param payKind:type enterVC:NO orderCom:^(BOOL isScu) {
+        
+    }];
+//        @weakify(self);
+//        [AFNetworkTool postJSONWithUrl:pay_requestPayment parameters:param success:^(id responseObject) {
+//            @strongify(self);
+//            NSInteger code = [responseObject[@"code"] integerValue];
+//            if (code == 200) {
+//                if (type.integerValue == 1) {
+//                    [self doAPPay:responseObject[@"content"]];
+//                }else if (type.integerValue == 2) {
+//                    [self doWeChat:[WechatOrder yy_modelWithDictionary:responseObject[@"content"]]];
+//                }else {
+//                    [Dialog popTextAnimation:@"支付成功"];
+//                }
+//            }else {
+//                [Dialog popTextAnimation:responseObject[@"message"]];
+//            }
+//        } fail:^{
+//            
+//        }];
 }
 - (void)doAPPay:(NSString *)orderString {
     [[AlipaySDK defaultService] payOrder:orderString fromScheme:@"com.elevation.IquorShopping" callback:^(NSDictionary *resultDic) {

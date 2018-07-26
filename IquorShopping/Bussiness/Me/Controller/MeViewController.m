@@ -43,22 +43,24 @@
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.top.equalTo(self.configView.mas_bottom);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-kTabBarHeight);
+        make.bottom.equalTo(self.view.mas_bottom);
     }];
 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.hidden = YES;
     [self requestMeInfo];
     self.configView.isfresh = YES;
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    self.navigationController.navigationBar.hidden = NO;
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -86,21 +88,7 @@
         
     }];
 }
-- (void)showAlert {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"您尚未登录，是否现在登录" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
-    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"登录" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-      
-        [[LoginOperator shareInstance] loginVC:^(BOOL isScu) {
-            
-        }];
-    }];
-    [alertVC addAction:cancelAction];
-    [alertVC addAction:sureAction];
-    [self presentViewController:alertVC animated:YES completion:nil];
-}
+
 - (void)startContactService {
     NSString *telNum = [[NSUserDefaults standardUserDefaults] objectForKey:@"severTel"];
     NSString *tel = [NSString stringWithFormat:@"tel:%@", telNum];
@@ -157,7 +145,7 @@
         }else {
             Class cls = NSClassFromString(cm.className);
             if (cm.need && [UIUtils isNullOrEmpty:[IQourUser shareInstance].user_tel]) {
-                [self showAlert];
+                [[LoginOperator shareInstance] alertLogin];
             }else {
                 UIViewController *vc = [[cls alloc]init];
                 if ([vc isKindOfClass:[IndentViewController class]]) {
@@ -192,8 +180,9 @@
         _configView.clickButtonBlock = ^(OperateType operate) {
             @strongify(self);
             if (operate == KLogin) {
-                LoginViewController *loginVC = [[LoginViewController alloc]init];
-                [self.navigationController pushViewController:loginVC animated:YES];
+                [[LoginOperator shareInstance] loginVC:^(BOOL isScu) {
+                    [LoginOperator.getCurrentVC.navigationController popViewControllerAnimated:YES];
+                }];
             }else if (operate == KJoin) {
                 
             }else if (operate == KMeInfo) {

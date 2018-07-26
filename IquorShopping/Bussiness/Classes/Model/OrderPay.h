@@ -13,4 +13,5 @@
 @property (nonatomic, copy) NSString *type_name;
 @property (nonatomic, copy) NSString *pic;
 @property (nonatomic, copy) NSString *isshow;
+@property (nonatomic, assign) BOOL isScu;
 @end

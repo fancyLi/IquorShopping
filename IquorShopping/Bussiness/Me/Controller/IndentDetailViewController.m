@@ -15,10 +15,6 @@
 #import "AdressListViewController.h"
 #import "OrderDisViewController.h"
 #import "OrderResult.h"
-#import "endOrderViewController.h"
-#import <AlipaySDK/AlipaySDK.h>
-#import <WechatOpenSDK/WXApi.h>
-#import "WechatOrder.h"
 #import "MeInfoTableViewCell.h"
 @interface IndentDetailViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *nameConnect;
@@ -93,18 +89,17 @@
     
     IndentBottomCell *cell = [self.detailTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
     cell.goodsPrice.text = [NSString stringWithFormat:@"￥%.2f",num];
-    CGFloat endPrice = num*(self.order.discount.floatValue/10);
-    CGFloat disPrice = num*(1-self.order.discount.floatValue/10);
-    //折扣
-    if (self.order.is_discount.intValue == 1 && num>self.order.discount.floatValue/10) {
-        cell.heightLayout.constant = 45.0;
-        
-        self.discount_money = [NSString stringWithFormat:@"%.2f", endPrice];
-        cell.vipPrice.text = [NSString stringWithFormat:@"-￥%.2f", disPrice];
-    }else {
-        self.discount_money = @"";
-        cell.heightLayout.constant = 0.0;
+    CGFloat endPrice = 0 ;
+    CGFloat disPrice = 0;
+    if (![UIUtils isNullOrEmpty:self.order.discount]) {
+         endPrice = num*(self.order.discount.floatValue/10);
+         disPrice = num*(1-self.order.discount.floatValue/10);
     }
+    
+    //折扣
+    self.discount_money = [NSString stringWithFormat:@"%.2f", endPrice];
+    cell.vipPrice.text = [NSString stringWithFormat:@"-￥%.2f", disPrice];
+    
     CGFloat cou = 0.00;
     if (self.order.coupon.count) {
         Coupon *coupon = self.order.coupon.firstObject;
@@ -114,8 +109,10 @@
     }else {
         self.ucid = @"";
     }
-    
-    CGFloat order_total = endPrice-cou;
+    if (endPrice) {
+        
+    }
+    CGFloat order_total = num-disPrice-cou;
     self.order_total = [NSString stringWithFormat:@"%.2f", order_total];
     self.yzf.text = [NSString stringWithFormat:@"应支付：￥%.2f", order_total];
 }
@@ -169,13 +166,14 @@
 }
 - (IBAction)submitOrder:(UIButton *)sender {
     IndentBottomCell *cell = [self.detailTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
-    @weakify(self);
+//    @weakify(self);
     if ([UIUtils isNullOrEmpty:self.payType]) {
         [Dialog popTextAnimation:@"请选择支付方式"];
     }else if ([UIUtils isNullOrEmpty:self.order.addr.aid]) {
         [Dialog popTextAnimation:@"请添加收货地址"];
     }
     else {
+      
         NSDictionary *param = @{@"pay_type":self.payType,
                                 @"pay_scene":self.pay_scene,
                                 @"order_type":self.order_type,
@@ -186,77 +184,12 @@
                                 @"discount_money":self.discount_money,
                                 @"order_total":self.order_total,
                                 @"message":cell.textview.text};
-        [AFNetworkTool postJSONWithUrl:pay_requestPayment parameters:param success:^(id responseObject) {
-            @strongify(self);
-            NSInteger code = [responseObject[@"code"] integerValue];
-            
-            if (code == 200) {
-                if (self.payType.intValue == 3) {
-                    endOrderViewController *vc = [[endOrderViewController alloc]init];
-                    vc.endOrder = [OrderResult yy_modelWithDictionary:responseObject[@"content"]];
-                    [self.navigationController pushViewController:vc animated:YES];
-                }else if (self.payType.intValue == 2) {
-                    [self startWechatOrder:responseObject[@"content"]];
-                }else if (self.payType.intValue == 1) {
-                    [self startBaoOrder:responseObject[@"content"]];
-                }
-                
-            }else {
-            }
-            
-        } fail:^{
+       
+        [[IquorDataManager shareInstance] submitOrderParameters:param payKind:self.payType enterVC:YES orderCom:^(BOOL isScu) {
             
         }];
     }
     
-}
-
-- (void)intoEndOrder:(NSNotification *)noti {
-    NSDictionary *param = @{@"order_sn":self.code};
-    @weakify(self);
-    [AFNetworkTool postJSONWithUrl:order_getOrdersnInfo parameters:param success:^(id responseObject) {
-        @strongify(self);
-        NSInteger code = [responseObject[@"code"] integerValue];
-        if (code == 200) {
-            endOrderViewController *vc = [[endOrderViewController alloc]init];
-            vc.endOrder = [OrderResult yy_modelWithDictionary:responseObject[@"content"]];
-            [self.navigationController pushViewController:vc animated:YES];
-        }else {
-        }
-    } fail:^{
-        
-    }];
-    
-}
-- (void)startBaoOrder:(NSDictionary *)content {
-    NSString *orderString = [content objectForKey:@"result"];
-    self.code = content[@"order_sn"];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(intoEndOrder:) name:@"orderresult" object:nil];
-    [[AlipaySDK defaultService] payOrder:orderString fromScheme:@"com.elevation.IquorShopping" callback:^(NSDictionary *resultDic) {
-        NSLog(@"reslut = %@",resultDic);
-    }];
-}
-
-- (void)startWechatOrder:(NSDictionary *)orderDict {
-    WechatOrder *order = [WechatOrder yy_modelWithDictionary:orderDict[@"result"]];
-    self.code = orderDict[@"order_sn"];
-   
-    PayReq *request = [[PayReq alloc] init];
-    request.partnerId = order.partnerid;
-    
-    request.prepayId= order.prepayid;
-    
-    request.package = order.package;
-    
-    request.nonceStr= order.noncestr;
-    
-    request.timeStamp= order.timestamp;
-    
-    request.sign= order.sign;
-    [WXApi sendReq:request];
-
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(intoEndOrder:) name:@"orderresult" object:nil];
 }
 
 #pragma mark

@@ -31,24 +31,28 @@
     homeNav.tabBarItem.title                   = @"商城";
     homeNav.tabBarItem.selectedImage           = [[UIImage imageNamed:@"icon_nav_001"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     homeNav.tabBarItem.image                   = [UIImage imageNamed:@"icon_nav_01"];
+    [homeNav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor c_cc0Color]} forState:UIControlStateSelected];
     
     JoinsViewController *catagory     = [[JoinsViewController alloc] init];
     IquorNavigationViewController *catagoryNav        = [[IquorNavigationViewController alloc] initWithRootViewController:catagory];
     catagoryNav.tabBarItem.title               = @"加盟";
     catagoryNav.tabBarItem.selectedImage       = [[UIImage imageNamed:@"icon_nav_002"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     catagoryNav.tabBarItem.image               = [UIImage imageNamed:@"icon_nav_02"];
+    [catagoryNav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor c_cc0Color]} forState:UIControlStateSelected];
     
     ClassesViewController *promotion       = [[ClassesViewController alloc] init];
     IquorNavigationViewController *promotionNav       = [[IquorNavigationViewController alloc] initWithRootViewController:promotion];
     promotionNav.tabBarItem.title              = @"分类";
     promotionNav.tabBarItem.selectedImage      = [[UIImage imageNamed:@"icon_nav_003"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     promotionNav.tabBarItem.image              = [UIImage imageNamed:@"icon_nav_03"];
+    [promotionNav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor c_cc0Color]} forState:UIControlStateSelected];
     
     ShopCartViewController *shoppingCart = [[ShopCartViewController alloc] init];
     IquorNavigationViewController *shoppingCartNav    = [[IquorNavigationViewController alloc] initWithRootViewController:shoppingCart];
     shoppingCartNav.tabBarItem.title           = @"购物车";
     shoppingCartNav.tabBarItem.selectedImage   = [[UIImage imageNamed:@"icon_nav_004"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     shoppingCartNav.tabBarItem.image           = [UIImage imageNamed:@"icon_nav_04"];
+    [shoppingCartNav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor c_cc0Color]} forState:UIControlStateSelected];
 //    shoppingCartNav.tabBarItem.badgeValue = @"1";
     
     MeViewController *account           = [[MeViewController alloc] init];
@@ -56,6 +60,7 @@
     accountNav.tabBarItem.title                = @"我的";
     accountNav.tabBarItem.selectedImage        = [[UIImage imageNamed:@"icon_nav_005"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     accountNav.tabBarItem.image                = [UIImage imageNamed:@"icon_nav_05"];
+    [accountNav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor c_cc0Color]} forState:UIControlStateSelected];
     
     // 设置 tabbar 控制器
     self.viewControllers  = @[homeNav, catagoryNav, promotionNav, shoppingCartNav, accountNav];

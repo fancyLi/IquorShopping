@@ -82,25 +82,33 @@
     OrderPay *pay = self.arr[indexPath.section];
     [cell.icon sd_setImageWithURL:[NSURL URLWithString:pay.pic]];
     cell.name.text = pay.type_name;
-    if ([pay.pay_type isEqualToString:self.curPay]) {
-        cell.operatorBtn.selected = YES;
-        self.curCell = cell;
+    if (pay.pay_type.intValue == self.curPay.intValue) {
+        pay.isScu = YES;
     }
+    cell.operatorBtn.selected = pay.isScu;
+    
     return cell;
     
 }
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    BaoTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.operatorBtn.selected = NO;
+
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    BaoTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (self.curCell) {
-        self.curCell.operatorBtn.selected = NO;
+    
+    for (OrderPay *orderPay in self.arr) {
+        NSInteger index = [self.arr indexOfObject:orderPay];
+        if (index == indexPath.section) {
+            orderPay.isScu = YES;
+            self.orderPay = orderPay;
+            self.curPay = orderPay.pay_type;
+        }else {
+            orderPay.isScu = NO;
+        }
     }
-    cell.operatorBtn.selected = YES;
-    OrderPay *pay = self.arr[indexPath.section];
-    self.orderPay = pay;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableview reloadData];
+    });
+    
     
 }
 - (void)didReceiveMemoryWarning {

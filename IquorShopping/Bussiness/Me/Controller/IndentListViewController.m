@@ -13,10 +13,6 @@
 #import "IndentModel.h"
 #import "EveGoodsViewController.h"
 #import "OrderDetailViewController.h"
-#import "endOrderViewController.h"
-#import <AlipaySDK/AlipaySDK.h>
-#import <WechatOpenSDK/WXApi.h>
-#import "WechatOrder.h"
 @interface IndentListViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *indentTable;
 @property (nonatomic, strong) NSMutableArray *arrs;
@@ -42,11 +38,14 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self reloadRequest];
+}
+
+- (void)reloadRequest {
     self.page = 1;
     self.arrs = nil;
     [self requestOrderList];
 }
-
 //订单处理
 - (void)orderHandle:(IndentModel *)indent detailType:(NSString *)type{
     //处理状态 'pay'=>去支付 'confirm'=>确认收货 'cancel'=>取消订单 'del'=>删除订单
@@ -58,9 +57,7 @@
         NSInteger code = [responseObject[@"code"] integerValue];
         [Dialog popTextAnimation:responseObject[@"message"]];
         if (code == 200) {
-            self.page = 1;
-            self.arrs = nil;
-            [self requestOrderList];
+            [self reloadRequest];
         }else {
         }
     } fail:^{
@@ -98,103 +95,36 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)intoEndOrder:(NSNotification *)noti {
-    NSDictionary *param = @{@"order_sn":self.code};
-    @weakify(self);
-    [AFNetworkTool postJSONWithUrl:order_getOrdersnInfo parameters:param success:^(id responseObject) {
-        @strongify(self);
-        NSInteger code = [responseObject[@"code"] integerValue];
-        if (code == 200) {
-            endOrderViewController *vc = [[endOrderViewController alloc]init];
-            vc.endOrder = [OrderResult yy_modelWithDictionary:responseObject[@"content"]];
-            [self.navigationController pushViewController:vc animated:YES];
-        }else {
-        }
-    } fail:^{
-        
-    }];
-    
-}
-- (void)startBaoOrder:(NSDictionary *)content {
-    NSString *orderString = [content objectForKey:@"result"];
-    self.code = content[@"order_sn"];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(intoEndOrder:) name:@"orderresult" object:nil];
-    [[AlipaySDK defaultService] payOrder:orderString fromScheme:@"com.elevation.IquorShopping" callback:^(NSDictionary *resultDic) {
-        NSLog(@"reslut = %@",resultDic);
-    }];
-}
-
-- (void)startWechatOrder:(NSDictionary *)orderDict {
-    WechatOrder *order = [WechatOrder yy_modelWithDictionary:orderDict[@"result"]];
-    self.code = orderDict[@"order_sn"];
-    
-    PayReq *request = [[PayReq alloc] init];
-    request.partnerId = order.partnerid;
-    
-    request.prepayId= order.prepayid;
-    
-    request.package = order.package;
-    
-    request.nonceStr= order.noncestr;
-    
-    request.timeStamp= order.timestamp;
-    
-    request.sign= order.sign;
-    [WXApi sendReq:request];
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(intoEndOrder:) name:@"orderresult" object:nil];
-}
-
 
 //去付款
 - (void)startPay:(IndentModel *)indent {
-    @weakify(self);
+//    @weakify(self);
     
     NSDictionary *param = @{@"pay_type":indent.pay_type,
                             @"pay_scene":@"5",
                             @"order_id":indent.order_id
                             };
-    [Dialog showSVPWithStatus:@"正在处理..."];
-    [AFNetworkTool postJSONWithUrl:pay_requestPayment parameters:param success:^(id responseObject) {
-        @strongify(self);
-        NSInteger code = [responseObject[@"code"] integerValue];
-        
-        if (code == 200) {
-            if (indent.pay_type.intValue == 3) {
-                endOrderViewController *vc = [[endOrderViewController alloc]init];
-                vc.endOrder = [OrderResult yy_modelWithDictionary:responseObject[@"content"]];
-                [self.navigationController pushViewController:vc animated:YES];
-            }else if (indent.pay_type.intValue == 2) {
-                [self startWechatOrder:responseObject[@"content"]];
-            }else if (indent.pay_type.intValue == 1) {
-                [self startBaoOrder:responseObject[@"content"]];
-            }
-            
-        }else {
-        }
-        
-    } fail:^{
+    [[IquorDataManager shareInstance] submitOrderParameters:param payKind:indent.pay_type enterVC:YES orderCom:^(BOOL isScu) {
         
     }];
 }
 
 #pragma mark action
 - (void)cancelOrder:(IndentModel *)indent {
-    [self orderHandle:indent detailType:@"cancel"];
-}
-- (void)deleteOrder:(IndentModel *)indent {
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"确认取消订单？" message:@"取消订单之后需重新下单" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
     }];
     UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [self orderHandle:indent detailType:@"del"];
+         [self orderHandle:indent detailType:@"cancel"];
     }];
     [alertVC addAction:cancel];
     [alertVC addAction:sure];
     [self presentViewController:alertVC animated:YES completion:nil];
-    
+   
+}
+- (void)deleteOrder:(IndentModel *)indent {
+    [self orderHandle:indent detailType:@"del"];
 }
 - (void)payOrder:(IndentModel *)indent {
     [self startPay:indent];
@@ -275,13 +205,16 @@
             }
         };
     }else if (indent.act.intValue>4) {
-        [footView.leftBtn setTitle:@"删除订单" forState:UIControlStateNormal];
-        [footView.rightBtn setTitle:@"已评价" forState:UIControlStateNormal];
-        footView.rightBtn.backgroundColor = UIColorFromRGB(0xC7C7C7);
-        footView.rightBtn.enabled = NO;
+        [footView.rightBtn setTitle:@"删除订单" forState:UIControlStateNormal];
+        footView.rightBtn.backgroundColor = [UIColor whiteColor];
+        [footView.rightBtn setTitleColor:[UIColor c_333Color] forState:UIControlStateNormal];
+        footView.rightBtn.layer.cornerRadius = 5;
+        footView.rightBtn.layer.borderColor = [UIColor c_333Color].CGColor;
+        footView.rightBtn.layer.borderWidth = 1;
+        footView.leftBtn.hidden = YES;
         footView.operatorBlock = ^(BOOL isLeft) {
             @strongify(self);
-            if (isLeft) {
+            if (!isLeft) {
                 [self deleteOrder:indent];
             }
         };
@@ -308,7 +241,7 @@
         [_indentTable registerNib:[UINib nibWithNibName:@"IndentDetailCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([IndentDetailCell class])];
         _indentTable.separatorStyle = UITableViewCellSeparatorStyleNone;
         _indentTable.rowHeight = 100;
-        _indentTable.estimatedSectionHeaderHeight = 5;
+        _indentTable.estimatedSectionHeaderHeight = 50;
         _indentTable.estimatedSectionFooterHeight = 50;
         _indentTable.delegate = self;
         _indentTable.dataSource = self;

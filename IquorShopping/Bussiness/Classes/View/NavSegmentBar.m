@@ -58,7 +58,7 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-    self.frame = CGRectMake(0, 64, kMainScreenWidth, 44);
+    self.frame = CGRectMake(0, 0, kMainScreenWidth, 44);
 }
 
 

@@ -102,6 +102,8 @@
 		0848C20520FE3CE100A9963E /* EveGoodsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0848C20320FE3CE100A9963E /* EveGoodsTableCell.xib */; };
 		0848C20820FE439A00A9963E /* EveGoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848C20720FE439A00A9963E /* EveGoodsView.m */; };
 		0848C20A20FE43B600A9963E /* EveGoodsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0848C20920FE43B600A9963E /* EveGoodsView.xib */; };
+		084ADA352108A72B00CFA964 /* IquorDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 084ADA342108A72B00CFA964 /* IquorDataManager.m */; };
+		084ADA382108A91500CFA964 /* IquorRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 084ADA372108A91500CFA964 /* IquorRequestModel.m */; };
 		08676F2820B6E59D00F870B9 /* MeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F2620B6E59D00F870B9 /* MeHeaderCell.m */; };
 		08676F2920B6E59D00F870B9 /* MeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08676F2720B6E59D00F870B9 /* MeHeaderCell.xib */; };
 		08676F2D20B6E65300F870B9 /* MeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08676F2B20B6E65300F870B9 /* MeInfoViewController.m */; };
@@ -458,6 +460,10 @@
 		0848C20620FE439A00A9963E /* EveGoodsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EveGoodsView.h; sourceTree = "<group>"; };
 		0848C20720FE439A00A9963E /* EveGoodsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EveGoodsView.m; sourceTree = "<group>"; };
 		0848C20920FE43B600A9963E /* EveGoodsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EveGoodsView.xib; sourceTree = "<group>"; };
+		084ADA332108A72B00CFA964 /* IquorDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IquorDataManager.h; sourceTree = "<group>"; };
+		084ADA342108A72B00CFA964 /* IquorDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorDataManager.m; sourceTree = "<group>"; };
+		084ADA362108A91500CFA964 /* IquorRequestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IquorRequestModel.h; sourceTree = "<group>"; };
+		084ADA372108A91500CFA964 /* IquorRequestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IquorRequestModel.m; sourceTree = "<group>"; };
 		08676F2520B6E59D00F870B9 /* MeHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeHeaderCell.h; sourceTree = "<group>"; };
 		08676F2620B6E59D00F870B9 /* MeHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeHeaderCell.m; sourceTree = "<group>"; };
 		08676F2720B6E59D00F870B9 /* MeHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHeaderCell.xib; sourceTree = "<group>"; };
@@ -1106,6 +1112,10 @@
 			children = (
 				080E99A620D93E0300AF09FF /* HomePageModel.h */,
 				080E99A720D93E0300AF09FF /* HomePageModel.m */,
+				084ADA332108A72B00CFA964 /* IquorDataManager.h */,
+				084ADA342108A72B00CFA964 /* IquorDataManager.m */,
+				084ADA362108A91500CFA964 /* IquorRequestModel.h */,
+				084ADA372108A91500CFA964 /* IquorRequestModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1965,6 +1975,7 @@
 				0898C3CF20B3010C00664482 /* CartTextCell.m in Sources */,
 				0848C19A20FB8A7200A9963E /* PayKindViewController.m in Sources */,
 				080649B320C8D7DA003B155F /* ImageViewController.m in Sources */,
+				084ADA352108A72B00CFA964 /* IquorDataManager.m in Sources */,
 				086AF79320F08D79002A0385 /* AddGoodsViewController.m in Sources */,
 				080649A120C7F418003B155F /* AreaChoseViewController.m in Sources */,
 				087A44C72100FA0F0031C499 /* OrderDetailViewController.m in Sources */,
@@ -2049,6 +2060,7 @@
 				08E4642E20A2E7B900E405DB /* AppDelegate.m in Sources */,
 				0848C1F720FE192800A9963E /* VIPLevelViewController.m in Sources */,
 				086AF78A20F088FA002A0385 /* DetailPageFooter.m in Sources */,
+				084ADA382108A91500CFA964 /* IquorRequestModel.m in Sources */,
 				0848C19720FB7A6500A9963E /* OrderModel.m in Sources */,
 				086AF7B020F0B7B0002A0385 /* TADotView.m in Sources */,
 				0847F1C220AB0C4400BEF0F6 /* IndentBottomCell.m in Sources */,

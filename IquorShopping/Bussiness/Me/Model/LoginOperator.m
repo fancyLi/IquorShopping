@@ -16,6 +16,7 @@ singtonImplement(LoginOperator)
     LoginViewController *vc = [[LoginViewController alloc]init];
     vc.loginOperatorBlock = ^(BOOL isScu) {
         complation(isScu);
+        
     };
     [LoginOperator.getCurrentVC.navigationController pushViewController:vc animated:YES];
 }
@@ -36,6 +37,20 @@ singtonImplement(LoginOperator)
     [LoginOperator.getCurrentVC presentViewController:alertVC animated:YES completion:nil];
 }
 
+- (void)alertAuth {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"请检查网络是否连接" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"去设置" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"App-Prefs:root=MOBILE_DATA_SETTINGS_ID"]]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"App-Prefs:root=MOBILE_DATA_SETTINGS_ID"]];
+        }
+    }];
+    [alertVC addAction:cancelAction];
+    [alertVC addAction:sureAction];
+    [LoginOperator.getCurrentVC presentViewController:alertVC animated:YES completion:nil];
+}
 - (void)ensconceLogin {
 //    NSString *tel = [[NSUserDefaults standardUserDefaults] objectForKey:@"tel"];
 //    NSString *pwd = [[NSUserDefaults standardUserDefaults] objectForKey:@"pwd"];

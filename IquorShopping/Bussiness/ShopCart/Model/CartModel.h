@@ -16,4 +16,5 @@
 @property (nonatomic, copy) NSString *goods_image;
 @property (nonatomic, copy) NSString *goods_price;
 @property (nonatomic, copy) NSString *attribute_value;
+@property (nonatomic, assign) BOOL isSec;
 @end

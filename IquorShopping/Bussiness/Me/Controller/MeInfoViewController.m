@@ -26,7 +26,10 @@
     self.user = [IQourUser shareInstance];
     [self configInfoUI];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.infoTableview reloadData];
+}
 - (void)configInfoUI {
     self.title = @"个人资料";
     [self.infoTableview registerNib:[UINib nibWithNibName:@"MeHeaderCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([MeHeaderCell class])];

@@ -108,6 +108,7 @@
 }
 - (void)skipGoodsCart {
     self.tabBarController.selectedIndex = 3;
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (void)showAddPage {
     if ([UIUtils isNullOrEmpty:[IQourUser shareInstance].user_tel]) {
