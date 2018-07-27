@@ -46,6 +46,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:saveBtn];
     self.itemButton = saveBtn;
     
+    [self loadCartList];
     [self.catTableview registerNib:[UINib nibWithNibName:@"ShopCartCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopCartCell class])];
     self.catTableview.rowHeight = 108;
     self.catTableview.estimatedSectionHeaderHeight = 5;
@@ -54,15 +55,21 @@
     self.catTableview.dataSource = self;
     self.catTableview.tableFooterView = [UIView new];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshGoodsCart:) name:@"refreshGoodsCart" object:nil];
+    
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    
+}
+
+- (void)refreshGoodsCart:(NSNotification *)noti {
     [self loadCartList];
-     _isEdit = NO;
+    _isEdit = NO;
     self.chosPrice.hidden = NO;
     [self.sureBtn setTitle:@"下单" forState:UIControlStateNormal];
     [self.itemButton setTitle:@"编辑" forState:UIControlStateNormal];
-    
 }
 - (IBAction)bottomButtonClick:(UIButton *)sender {
     sender.selected = !sender.selected;
@@ -143,14 +150,28 @@
 
 - (void)cartOperate:(NSString *)op nums:(NSString *)num cat:(CartModel *)cat {
    
+    NSInteger section = [self.arrs indexOfObject:cat];
+    NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:section];
+    [Dialog showSVPWithStatus:@"请稍等..."];
+    @weakify(self);
     NSDictionary *param = @{@"cart_id":cat.cart_id, @"goods_id":cat.goods_id, @"goods_num":num, @"calculation_type":op};
     [AFNetworkTool postJSONWithUrl:shop_changeCartGoodsNum parameters:param success:^(id responseObject) {
-
+        @strongify(self);
         NSInteger code = [responseObject[@"code"] integerValue];
         if (code == 200) {
-            [self loadCartList];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (op.intValue == 1) {
+                    cat.goods_num = [NSString stringWithFormat:@"%i", cat.goods_num.intValue+1];
+                }else if (op.intValue == 2) {
+                    cat.goods_num = [NSString stringWithFormat:@"%i", cat.goods_num.intValue-1];
+                }else {
+                    cat.goods_num = [NSString stringWithFormat:@"%@", num];
+                }
+                [self.catTableview reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];  
+                [self refreshFooterView];
+            });
         }else {
-            
+            [Dialog popTextAnimation:responseObject[@"message"]];
         }
     } fail:^{
         
@@ -264,6 +285,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 
 

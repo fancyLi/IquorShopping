@@ -59,7 +59,7 @@
 - (IBAction)chosNum:(id)sender {
     int num = self.textf.text.intValue;
     num--;
-    self.textf.text = [NSString stringWithFormat:@"%i", num];
+//    self.textf.text = [NSString stringWithFormat:@"%i", num];
     if (num <= 1) {
         self.reduceBtn.enabled = NO;
         [self.reduceBtn setBackgroundColor:[UIColor c_fbfbfbColor]];
@@ -75,7 +75,8 @@
         self.reduceBtn.enabled = YES;
         [self.reduceBtn setBackgroundColor:[UIColor c_f5f5f5Color]];
     }
-    self.textf.text = [NSString stringWithFormat:@"%i", num];
+
+//    self.textf.text = [NSString stringWithFormat:@"%i", num];
     if (self.operatorCartNumBlock) {
         self.operatorCartNumBlock(@"1", @"");
     }
@@ -93,6 +94,8 @@
     // Configure the view for the selected state
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+}
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if (self.operatorCartNumBlock) {
         self.operatorCartNumBlock(@"3", textField.text);

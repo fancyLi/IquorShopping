@@ -60,6 +60,7 @@
             NSInteger code = [responseObject[@"code"] integerValue];
             [Dialog popTextAnimation:responseObject[@"message"]];
             if (code == 200) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshGoodsCart" object:nil];
                 [self closePageVC];
             }
         } fail:^{

@@ -96,7 +96,8 @@
     }else {
         PlayerViewController *playerVC = [[PlayerViewController alloc]init];
         playerVC.viderStr = self.homePageModel.video.video_url;
-        [self presentViewController:playerVC animated:YES completion:nil];
+        [self.navigationController pushViewController:playerVC animated:YES];
+//        [self presentViewController:playerVC animated:YES completion:nil];
     }
 }
 
