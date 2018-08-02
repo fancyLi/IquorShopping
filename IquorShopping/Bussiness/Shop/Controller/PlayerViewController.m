@@ -19,8 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"走进我们";
-    self.webview = [[UIWebView alloc]initWithFrame:self.view.bounds];
+    self.webview = [[UIWebView alloc]init];
     [self.view addSubview:self.webview];
+    [self.webview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(@0);
+    }];
     [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.viderStr]]];
 //    [self playerAudio];
     // Do any additional setup after loading the view.

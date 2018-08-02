@@ -59,10 +59,12 @@
         isFooter = YES;
         self.footer.leftBtn.tag = 1003;
         self.footer.rightBtn.tag = 1004;
+        [self.footer.leftBtn setTitle:@"删除订单" forState:UIControlStateNormal];
     }else {
         isFooter = YES;
-        self.footer.leftBtn.tag = 1003;
-        self.footer.rightBtn.hidden = YES;
+        self.footer.leftBtn.hidden = YES;
+        self.footer.rightBtn.tag = 1003;
+        [self.footer.rightBtn setTitle:@"删除订单" forState:UIControlStateNormal];
     }
     self.footer.price.text = [NSString stringWithFormat:@"应支付：￥%@", self.indent.order_info.order_amount];
 
