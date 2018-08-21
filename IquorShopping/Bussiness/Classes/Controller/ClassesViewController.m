@@ -22,6 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.classView];
+    [self.classView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.bottom.mas_equalTo(0);
+    }];
     self.navigationItem.titleView = self.navSearchBar;
     [self requestClssInfo];
 }
@@ -75,7 +78,7 @@
         flowLayout.minimumLineSpacing = 0;
         flowLayout.minimumInteritemSpacing = (kMainScreenWidth-3*wh)/3;
         flowLayout.itemSize = CGSizeMake(wh, wh);
-        _classView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+        _classView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         _classView.backgroundColor = [UIColor whiteColor];
         [_classView registerNib:[UINib nibWithNibName:@"ClassCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([ClassCell class])];
         _classView.dataSource = self;
