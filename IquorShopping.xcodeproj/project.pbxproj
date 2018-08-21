@@ -2322,7 +2322,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = B89375PW2V;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2338,8 +2338,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.elevation.IquorShopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0a476b0d-bd0a-4e92-a5d8-3cbc9726292c";
-				PROVISIONING_PROFILE_SPECIFIER = zuiXiaoYao_dev;
+				PROVISIONING_PROFILE = "e8cfda0a-3725-46ef-a5e5-06a3efba54ff";
+				PROVISIONING_PROFILE_SPECIFIER = zuiXiaoYao_dis;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
