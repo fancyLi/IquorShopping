@@ -106,5 +106,10 @@
     }
     return _teamTable;
 }
-
+- (NSMutableArray *)arrs {
+    if (!_arrs) {
+        _arrs = [NSMutableArray arrayWithCapacity:0];
+    }
+    return _arrs;
+}
 @end

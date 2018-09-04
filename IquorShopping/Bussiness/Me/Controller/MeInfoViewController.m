@@ -116,6 +116,10 @@
         NikeNameViewController *nikeVC = [[NikeNameViewController alloc]init];
         nikeVC.nike = self.user.nick_name;
         [self.navigationController pushViewController:nikeVC animated:YES];
+    }else if (indexPath.section == 1 && indexPath.row == 0) {
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        pasteboard.string = self.user.user_code;
+        [Dialog popTextAnimation:@"邀请码已复制到剪贴板"];
     }else if (indexPath.section == 2 && indexPath.row == 0) {
         NikeNameViewController *nikeVC = [[NikeNameViewController alloc]init];
         nikeVC.isCode = YES;
