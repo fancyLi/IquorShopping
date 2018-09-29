@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SiginCell">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_02 " translatesAutoresizingMaskIntoConstraints="NO" id="ITI-lH-HjQ">
+                        <rect key="frame" x="25" y="10" width="150" height="144"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="7rH-M3-xkf"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="剑南春 水晶剑 52度 单瓶装 白酒 500ml 口感浓" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbG-aX-BFO">
+                        <rect key="frame" x="10" y="169" width="180" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="ebF-ir-qQw"/>
+                            <constraint firstAttribute="height" constant="50" id="hiU-8d-gRU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Y358.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSd-ug-Z83">
+                        <rect key="frame" x="10" y="224" width="180" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="XmQ-pB-SzU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.80000000000000004" green="0.12549019607843137" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="PSd-ug-Z83" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="3cz-v6-xhB"/>
+                <constraint firstItem="ITI-lH-HjQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="B5e-l6-UWl"/>
+                <constraint firstItem="PSd-ug-Z83" firstAttribute="top" secondItem="FbG-aX-BFO" secondAttribute="bottom" constant="5" id="KtO-uI-anv"/>
+                <constraint firstAttribute="trailing" secondItem="PSd-ug-Z83" secondAttribute="trailing" constant="10" id="QeN-RO-BLg"/>
+                <constraint firstItem="FbG-aX-BFO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Vp2-so-pUQ"/>
+                <constraint firstItem="ITI-lH-HjQ" firstAttribute="centerX" secondItem="SEy-5g-ep8" secondAttribute="centerX" id="c35-Ih-JZn"/>
+                <constraint firstAttribute="bottom" secondItem="PSd-ug-Z83" secondAttribute="bottom" constant="10" id="mRP-UU-i2R"/>
+                <constraint firstAttribute="trailing" secondItem="FbG-aX-BFO" secondAttribute="trailing" constant="10" id="ufR-1L-efE"/>
+                <constraint firstItem="FbG-aX-BFO" firstAttribute="top" secondItem="ITI-lH-HjQ" secondAttribute="bottom" constant="15" id="xk1-k6-DkG"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <connections>
+                <outlet property="goodsDes" destination="FbG-aX-BFO" id="HPF-hS-zpR"/>
+                <outlet property="goodsPrice" destination="PSd-ug-Z83" id="KS7-NA-DhT"/>
+                <outlet property="icon" destination="ITI-lH-HjQ" id="GM5-ld-dkS"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icon_02 " width="35" height="35"/>
+    </resources>
+</document>

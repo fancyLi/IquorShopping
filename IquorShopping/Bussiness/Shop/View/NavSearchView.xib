@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NavSearchView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0f1-wc-2f1" customClass="UIButton">
+                    <rect key="frame" x="20" y="25" width="335" height="30"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7N-fV-KTD">
+                            <rect key="frame" x="25" y="0.0" width="310" height="30"/>
+                            <connections>
+                                <action selector="startSearch:" destination="iN0-l3-epB" eventType="touchUpInside" id="za3-oQ-aCh"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_s_01" translatesAutoresizingMaskIntoConstraints="NO" id="5uJ-Rx-hT0">
+                            <rect key="frame" x="10" y="7.5" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="MbD-XX-Ntr"/>
+                                <constraint firstAttribute="width" constant="15" id="wnm-Sy-wFT"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="按商品关键词搜索" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deB-Lj-xhn">
+                            <rect key="frame" x="30" y="0.0" width="305" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.3529411764705882" green="0.52156862745098043" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="I7N-fV-KTD" secondAttribute="trailing" id="7Bj-qs-Ed9"/>
+                        <constraint firstItem="5uJ-Rx-hT0" firstAttribute="leading" secondItem="0f1-wc-2f1" secondAttribute="leading" constant="10" id="8KJ-FL-GlZ"/>
+                        <constraint firstItem="deB-Lj-xhn" firstAttribute="leading" secondItem="5uJ-Rx-hT0" secondAttribute="trailing" constant="5" id="AmR-3U-gOu"/>
+                        <constraint firstAttribute="height" constant="30" id="GBT-8t-Zbr"/>
+                        <constraint firstItem="I7N-fV-KTD" firstAttribute="leading" secondItem="5uJ-Rx-hT0" secondAttribute="trailing" id="Kaz-CH-5bR"/>
+                        <constraint firstItem="5uJ-Rx-hT0" firstAttribute="centerY" secondItem="0f1-wc-2f1" secondAttribute="centerY" id="RSO-Mu-Zns"/>
+                        <constraint firstAttribute="trailing" secondItem="deB-Lj-xhn" secondAttribute="trailing" id="beV-jO-pdu"/>
+                        <constraint firstAttribute="bottom" secondItem="deB-Lj-xhn" secondAttribute="bottom" id="jHS-HI-BNY"/>
+                        <constraint firstItem="deB-Lj-xhn" firstAttribute="top" secondItem="0f1-wc-2f1" secondAttribute="top" id="ndf-Va-SYK"/>
+                        <constraint firstAttribute="bottom" secondItem="I7N-fV-KTD" secondAttribute="bottom" id="opY-5U-1WX"/>
+                        <constraint firstItem="I7N-fV-KTD" firstAttribute="top" secondItem="0f1-wc-2f1" secondAttribute="top" id="pcM-Ec-9mM"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="0f1-wc-2f1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="0IF-2d-hgq"/>
+                <constraint firstItem="0f1-wc-2f1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="25" id="2qT-Ks-MBq"/>
+                <constraint firstItem="0f1-wc-2f1" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-20" id="dZl-Hm-SfG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="searchView" destination="0f1-wc-2f1" id="aYd-4C-D5L"/>
+                <outlet property="topLayoutConstraint" destination="2qT-Ks-MBq" id="sCo-Ei-cXZ"/>
+            </connections>
+            <point key="canvasLocation" x="32.5" y="70"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_s_01" width="14" height="14"/>
+    </resources>
+</document>
