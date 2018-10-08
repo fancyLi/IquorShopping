@@ -929,13 +929,6 @@
 			path = FD;
 			sourceTree = "<group>";
 		};
-		0880522520A2EAD90018AE6E /* Thirds */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Thirds;
-			sourceTree = "<group>";
-		};
 		0880522620A2EAD90018AE6E /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1620,7 +1613,6 @@
 				0880524D20A2EBF40018AE6E /* Rebase */,
 				0880522720A2EAD90018AE6E /* Bussiness */,
 				0880523C20A2EAD90018AE6E /* Resource */,
-				0880522520A2EAD90018AE6E /* Thirds */,
 				0880522620A2EAD90018AE6E /* Vendor */,
 				08E4642C20A2E7B900E405DB /* AppDelegate.h */,
 				08E4642D20A2E7B900E405DB /* AppDelegate.m */,
@@ -1915,6 +1907,8 @@
 				0806498A20C5755C003B155F /* .gitkeep in Resources */,
 				087A44D12101FAA40031C499 /* OrderFooterView.xib in Resources */,
 				3C63BCAB215C693800908F26 /* ShareSDKUI.bundle in Resources */,
+				0806498A20C5755C003B155F /* .gitkeep in Resources */,
+				087A44D12101FAA40031C499 /* OrderFooterView.xib in Resources */,
 				08676F3B20B6F83B00F870B9 /* ShopVideoCell.xib in Resources */,
 				08676F4520B6FBB000F870B9 /* ShopNewCell.xib in Resources */,
 				08676F3620B6F63300F870B9 /* ShopConfigCell.xib in Resources */,

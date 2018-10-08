@@ -52,6 +52,7 @@ static IQourUser *_shareInstance;
     self.tel = @"";
     self.pwd = @"";
     self.share_url = @"";
+
     YYCache *cache = [YYCache cacheWithName:APPCacheName];
     if ([cache containsObjectForKey:UserInfo]) {
         [cache removeObjectForKey:UserInfo];

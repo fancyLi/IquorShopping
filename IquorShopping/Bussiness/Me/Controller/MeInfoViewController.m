@@ -10,8 +10,11 @@
 #import "ImageViewController.h"
 #import "MeInfoTableViewCell.h"
 #import "MeHeaderCell.h"
+<<<<<<< HEAD
 #import "ShareViewController.h"
 
+=======
+>>>>>>> 23aa774beb2ab61c3ba18f812d60c4134b2ac09a
 @interface MeInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *infoTableview;
 @property (nonatomic, strong) UIImageView *userHeader;
@@ -60,6 +63,7 @@
     }];
 
 }
+<<<<<<< HEAD
 
 - (void)shareURL {
     ShareViewController *shareVC = [[ShareViewController alloc]init];
@@ -71,6 +75,8 @@
     
     [self presentViewController:shareVC animated:YES completion:nil];
 }
+=======
+>>>>>>> 23aa774beb2ab61c3ba18f812d60c4134b2ac09a
 #pragma mark UITableViewDataSource & UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   
@@ -116,12 +122,15 @@
         }else if (indexPath.section == 2 && indexPath.row == 0) {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
+<<<<<<< HEAD
         if (indexPath.section == 1 && indexPath.row == 0) {
             [cell.shareBtn addTarget:self action:@selector(shareURL) forControlEvents:UIControlEventTouchUpInside];
         }else {
             cell.witdhLayout.constant = 0;
             cell.shareBtn.hidden = YES;
         }
+=======
+>>>>>>> 23aa774beb2ab61c3ba18f812d60c4134b2ac09a
         cell.leftTitle.text = self.leftTitles[indexPath.section][indexPath.row];
         cell.rightTltle.text = self.rightTitles[indexPath.section][indexPath.row];
         return cell;

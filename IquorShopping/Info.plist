@@ -15,7 +15,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
+<<<<<<< HEAD
 	<string>1.0.6</string>
+=======
+	<string>1.0.2</string>
+>>>>>>> 23aa774beb2ab61c3ba18f812d60c4134b2ac09a
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -39,6 +43,7 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>20180821</string>
+<<<<<<< HEAD
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>wechat</string>
@@ -50,6 +55,10 @@
 	<string>6337772f0f32</string>
 	<key>MOBAppSecret</key>
 	<string>1ae5d5190a5af18df2915caeef1ee5be</string>
+=======
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+>>>>>>> 23aa774beb2ab61c3ba18f812d60c4134b2ac09a
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

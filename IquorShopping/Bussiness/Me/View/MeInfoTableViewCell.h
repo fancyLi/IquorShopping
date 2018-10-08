@@ -11,7 +11,9 @@
 @interface MeInfoTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *leftTitle;
 @property (weak, nonatomic) IBOutlet UILabel *rightTltle;
+
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *witdhLayout;
+
 
 @end

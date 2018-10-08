@@ -7,7 +7,9 @@
 //
 
 #import "MeInfoTableViewCell.h"
+
 #import "UIButton+IquorArea.h"
+
 
 @implementation MeInfoTableViewCell
 
@@ -15,6 +17,7 @@
     [super awakeFromNib];
     // Initialization code
     [self.shareBtn setEnlargeEdgeWithTop:10 left:0 bottom:10 right:0];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

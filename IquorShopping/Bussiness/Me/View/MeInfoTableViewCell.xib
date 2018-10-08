@@ -20,17 +20,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8f5-jG-qVU">
+<<<<<<< .merge_file_DEEORi
                         <rect key="frame" x="10" y="0.0" width="132.5" height="43.5"/>
+=======
+                        <rect key="frame" x="10" y="0.0" width="147.5" height="43.5"/>
+>>>>>>> .merge_file_Qtj5n0
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PB-Ge-pNh">
+<<<<<<< .merge_file_DEEORi
                         <rect key="frame" x="147.5" y="0.0" width="132.5" height="43.5"/>
+=======
+                        <rect key="frame" x="162.5" y="0.0" width="147.5" height="43.5"/>
+>>>>>>> .merge_file_Qtj5n0
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+<<<<<<< .merge_file_DEEORi
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyI-J8-AT7">
                         <rect key="frame" x="285" y="9" width="30" height="24"/>
                         <constraints>
@@ -44,18 +53,29 @@
                     <constraint firstAttribute="bottom" secondItem="5PB-Ge-pNh" secondAttribute="bottom" id="4on-Gf-ak4"/>
                     <constraint firstItem="5PB-Ge-pNh" firstAttribute="width" secondItem="8f5-jG-qVU" secondAttribute="width" id="IZ9-Hb-v7m"/>
                     <constraint firstAttribute="trailing" secondItem="hyI-J8-AT7" secondAttribute="trailing" constant="5" id="Rdu-hU-wVG"/>
+=======
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="5PB-Ge-pNh" secondAttribute="bottom" id="4on-Gf-ak4"/>
+                    <constraint firstItem="5PB-Ge-pNh" firstAttribute="width" secondItem="8f5-jG-qVU" secondAttribute="width" id="IZ9-Hb-v7m"/>
+                    <constraint firstAttribute="trailing" secondItem="5PB-Ge-pNh" secondAttribute="trailing" constant="10" id="TVn-zm-GJI"/>
+>>>>>>> .merge_file_Qtj5n0
                     <constraint firstItem="5PB-Ge-pNh" firstAttribute="leading" secondItem="8f5-jG-qVU" secondAttribute="trailing" constant="5" id="XPd-pa-F1O"/>
                     <constraint firstItem="5PB-Ge-pNh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ces-Ia-cEA"/>
                     <constraint firstItem="8f5-jG-qVU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="h2d-g0-51F"/>
                     <constraint firstItem="8f5-jG-qVU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jCz-Al-8eQ"/>
                     <constraint firstAttribute="bottom" secondItem="8f5-jG-qVU" secondAttribute="bottom" id="mpL-hX-oxW"/>
+<<<<<<< .merge_file_DEEORi
                     <constraint firstItem="hyI-J8-AT7" firstAttribute="leading" secondItem="5PB-Ge-pNh" secondAttribute="trailing" constant="5" id="oxe-zQ-GYm"/>
+=======
+>>>>>>> .merge_file_Qtj5n0
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="leftTitle" destination="8f5-jG-qVU" id="JWZ-MC-Eru"/>
                 <outlet property="rightTltle" destination="5PB-Ge-pNh" id="WXZ-re-niS"/>
+<<<<<<< .merge_file_DEEORi
                 <outlet property="shareBtn" destination="hyI-J8-AT7" id="ies-OH-gsp"/>
                 <outlet property="witdhLayout" destination="RAK-f7-Wmp" id="t42-2P-IW1"/>
             </connections>
@@ -64,4 +84,9 @@
     <resources>
         <image name="my_share" width="24" height="24"/>
     </resources>
+=======
+            </connections>
+        </tableViewCell>
+    </objects>
+>>>>>>> .merge_file_Qtj5n0
 </document>

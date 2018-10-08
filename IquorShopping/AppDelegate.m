@@ -14,9 +14,9 @@
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
 
+
 static NSString *const wxID = @"wx86dc5e8dc01486ec";
-//static NSString *const appSecret = @"f21r5t4r4r512a3werq3485940x3da2a";
-static NSString *const appSecret = @"95891de0dfdd1d280592bff4f2a88250";
+static NSString *const appSecret = @"f21r5t4r4r512a3werq3485940x3da2a";
 @interface AppDelegate ()<WXApiDelegate>
 
 @end
@@ -33,6 +33,7 @@ static NSString *const appSecret = @"95891de0dfdd1d280592bff4f2a88250";
         //2.2已经开启网络权限 监听网络状态
         [self addReachabilityManager:application didFinishLaunchingWithOptions:launchOptions];
     }
+
     // 分享
     [self registerShareActivePlatforms];
     
@@ -85,6 +86,7 @@ static NSString *const appSecret = @"95891de0dfdd1d280592bff4f2a88250";
         }
     };
 }
+
 
 
 /**
