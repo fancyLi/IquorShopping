@@ -9,7 +9,8 @@
 #ifndef HttpConstant_h
 #define HttpConstant_h
 
-#define HostUrl                     @"http://www.zuixiaoyaojiuye.com/"
+//#define HostUrl                     @"http://www.zuixiaoyaojiuye.com/"
+#define HostUrl                     @"http://chengchuan.ahaiba.com.cn/"
 #define BaseURL                 [NSString stringWithFormat:@"%@index.php/",HostUrl]
 
 
@@ -198,4 +199,16 @@
 #define user_userLowerLevel                    @"user/userLowerLevel"
 //关于我们
 #define user_aboutUs                            @"user/aboutUs"
+
+//爱心
+#define lover_url                               @"index/loveList"
+
+//福利列表
+#define merchant_url                               @"index/welfareShopList"
+
+//商家详情
+#define merchant_info_url                               @"index/welfareShopInfo"
+//商家商品
+#define merchant_goods_url                               @"index/welfareShopGoodsList"
+
 #endif /* HttpConstant_h */

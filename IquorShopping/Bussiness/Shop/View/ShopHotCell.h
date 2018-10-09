@@ -11,6 +11,7 @@
 
 typedef void (^OperatorHotCellBlock)(GoodsInfoModel *model);
 typedef void (^OperatorHotLookBlock)(void);
+
 @interface ShopHotCell : UITableViewCell
 @property (nonatomic, copy) OperatorHotCellBlock operatorHotCellBlock;
 @property (nonatomic, copy) OperatorHotLookBlock operatorHotLookBlock;

@@ -290,6 +290,19 @@
 		3C63BCB0215C693800908F26 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C63BCA6215C693800908F26 /* MOBFoundation.framework */; };
 		3C63BCB2215C698000908F26 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C63BCB1215C698000908F26 /* libsqlite3.tbd */; };
 		3C63BCB5215C6B6400908F26 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C63BCB4215C6B6400908F26 /* ShareViewController.m */; };
+		3CFF3F69216C45FB006135A4 /* ShopLoveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF3F67216C45FB006135A4 /* ShopLoveCell.m */; };
+		3CFF3F6A216C45FB006135A4 /* ShopLoveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF3F68216C45FB006135A4 /* ShopLoveCell.xib */; };
+		3CFF3F6E216C4ACF006135A4 /* ShopLoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF3F6C216C4ACF006135A4 /* ShopLoverCell.m */; };
+		3CFF3F6F216C4ACF006135A4 /* ShopLoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF3F6D216C4ACF006135A4 /* ShopLoverCell.xib */; };
+		3CFF3F73216C5950006135A4 /* LoveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF3F71216C5950006135A4 /* LoveViewController.m */; };
+		3CFF3F74216C5950006135A4 /* LoveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF3F72216C5950006135A4 /* LoveViewController.xib */; };
+		3CFF3F78216C8300006135A4 /* MerchantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF3F76216C8300006135A4 /* MerchantViewController.m */; };
+		3CFF3F79216C8300006135A4 /* MerchantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF3F77216C8300006135A4 /* MerchantViewController.xib */; };
+		3CFF3F7D216C83AA006135A4 /* MerchantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF3F7B216C83AA006135A4 /* MerchantCell.m */; };
+		3CFF3F7E216C83AA006135A4 /* MerchantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF3F7C216C83AA006135A4 /* MerchantCell.xib */; };
+		3CFF3F81216C86FC006135A4 /* MerchantModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF3F80216C86FC006135A4 /* MerchantModel.m */; };
+		3CFF3F85216C9090006135A4 /* MechantInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF3F83216C9090006135A4 /* MechantInfoViewController.m */; };
+		3CFF3F86216C9090006135A4 /* MechantInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF3F84216C9090006135A4 /* MechantInfoViewController.xib */; };
 		55F36C60CFEB8D8FE0A0EA7E /* libPods-IquorShoppingUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F45D40AB9D001EA5225FCD25 /* libPods-IquorShoppingUITests.a */; };
 		FD6F4D6565F63018B62D589D /* libPods-IquorShoppingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 292E4C7C26E5AC99EAB3C6A5 /* libPods-IquorShoppingTests.a */; };
 /* End PBXBuildFile section */
@@ -800,6 +813,26 @@
 		3C63BCB1215C698000908F26 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		3C63BCB3215C6B6400908F26 /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		3C63BCB4215C6B6400908F26 /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		3CFF3F66216C45FB006135A4 /* ShopLoveCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopLoveCell.h; sourceTree = "<group>"; };
+		3CFF3F67216C45FB006135A4 /* ShopLoveCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopLoveCell.m; sourceTree = "<group>"; };
+		3CFF3F68216C45FB006135A4 /* ShopLoveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopLoveCell.xib; sourceTree = "<group>"; };
+		3CFF3F6B216C4ACF006135A4 /* ShopLoverCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopLoverCell.h; sourceTree = "<group>"; };
+		3CFF3F6C216C4ACF006135A4 /* ShopLoverCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopLoverCell.m; sourceTree = "<group>"; };
+		3CFF3F6D216C4ACF006135A4 /* ShopLoverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopLoverCell.xib; sourceTree = "<group>"; };
+		3CFF3F70216C5950006135A4 /* LoveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoveViewController.h; sourceTree = "<group>"; };
+		3CFF3F71216C5950006135A4 /* LoveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoveViewController.m; sourceTree = "<group>"; };
+		3CFF3F72216C5950006135A4 /* LoveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoveViewController.xib; sourceTree = "<group>"; };
+		3CFF3F75216C8300006135A4 /* MerchantViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MerchantViewController.h; sourceTree = "<group>"; };
+		3CFF3F76216C8300006135A4 /* MerchantViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantViewController.m; sourceTree = "<group>"; };
+		3CFF3F77216C8300006135A4 /* MerchantViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MerchantViewController.xib; sourceTree = "<group>"; };
+		3CFF3F7A216C83AA006135A4 /* MerchantCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MerchantCell.h; sourceTree = "<group>"; };
+		3CFF3F7B216C83AA006135A4 /* MerchantCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantCell.m; sourceTree = "<group>"; };
+		3CFF3F7C216C83AA006135A4 /* MerchantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MerchantCell.xib; sourceTree = "<group>"; };
+		3CFF3F7F216C86FC006135A4 /* MerchantModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MerchantModel.h; sourceTree = "<group>"; };
+		3CFF3F80216C86FC006135A4 /* MerchantModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantModel.m; sourceTree = "<group>"; };
+		3CFF3F82216C9090006135A4 /* MechantInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MechantInfoViewController.h; sourceTree = "<group>"; };
+		3CFF3F83216C9090006135A4 /* MechantInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MechantInfoViewController.m; sourceTree = "<group>"; };
+		3CFF3F84216C9090006135A4 /* MechantInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MechantInfoViewController.xib; sourceTree = "<group>"; };
 		47C72D46BF504677539BAE07 /* Pods-IquorShoppingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IquorShoppingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IquorShoppingUITests/Pods-IquorShoppingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7AB5B1FCD64E19A02F91A7E0 /* Pods-IquorShoppingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IquorShoppingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IquorShoppingUITests/Pods-IquorShoppingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AAE3AC935DD5D2270A399438 /* Pods-IquorShopping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IquorShopping.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IquorShopping/Pods-IquorShopping.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1133,6 +1166,15 @@
 				08B866C220E8A31200F73677 /* ShopDiscountViewController.m */,
 				087A44D7210217FA0031C499 /* NoticeViewController.h */,
 				087A44D8210217FA0031C499 /* NoticeViewController.m */,
+				3CFF3F70216C5950006135A4 /* LoveViewController.h */,
+				3CFF3F71216C5950006135A4 /* LoveViewController.m */,
+				3CFF3F72216C5950006135A4 /* LoveViewController.xib */,
+				3CFF3F75216C8300006135A4 /* MerchantViewController.h */,
+				3CFF3F76216C8300006135A4 /* MerchantViewController.m */,
+				3CFF3F77216C8300006135A4 /* MerchantViewController.xib */,
+				3CFF3F82216C9090006135A4 /* MechantInfoViewController.h */,
+				3CFF3F83216C9090006135A4 /* MechantInfoViewController.m */,
+				3CFF3F84216C9090006135A4 /* MechantInfoViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1146,6 +1188,8 @@
 				084ADA342108A72B00CFA964 /* IquorDataManager.m */,
 				084ADA362108A91500CFA964 /* IquorRequestModel.h */,
 				084ADA372108A91500CFA964 /* IquorRequestModel.m */,
+				3CFF3F7F216C86FC006135A4 /* MerchantModel.h */,
+				3CFF3F80216C86FC006135A4 /* MerchantModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1165,6 +1209,12 @@
 				08676F4120B6FBB000F870B9 /* ShopNewCell.h */,
 				08676F4220B6FBB000F870B9 /* ShopNewCell.m */,
 				08676F4320B6FBB000F870B9 /* ShopNewCell.xib */,
+				3CFF3F66216C45FB006135A4 /* ShopLoveCell.h */,
+				3CFF3F67216C45FB006135A4 /* ShopLoveCell.m */,
+				3CFF3F68216C45FB006135A4 /* ShopLoveCell.xib */,
+				3CFF3F6B216C4ACF006135A4 /* ShopLoverCell.h */,
+				3CFF3F6C216C4ACF006135A4 /* ShopLoverCell.m */,
+				3CFF3F6D216C4ACF006135A4 /* ShopLoverCell.xib */,
 				08B866A720E131FB00F73677 /* ShopTableHeaderView.h */,
 				08B866A820E131FB00F73677 /* ShopTableHeaderView.m */,
 				08B866AA20E1331E00F73677 /* BannerCell.h */,
@@ -1173,6 +1223,9 @@
 				087A44AE20FF9CC30031C499 /* NavSearchView.h */,
 				087A44AF20FF9CC30031C499 /* NavSearchView.m */,
 				087A44B120FF9CCB0031C499 /* NavSearchView.xib */,
+				3CFF3F7A216C83AA006135A4 /* MerchantCell.h */,
+				3CFF3F7B216C83AA006135A4 /* MerchantCell.m */,
+				3CFF3F7C216C83AA006135A4 /* MerchantCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1872,6 +1925,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CFF3F79216C8300006135A4 /* MerchantViewController.xib in Resources */,
 				0806499320C6AA60003B155F /* AddressViewController.xib in Resources */,
 				0898C38220AF15E700664482 /* NavDetailBar.xib in Resources */,
 				0848C20520FE3CE100A9963E /* EveGoodsTableCell.xib in Resources */,
@@ -1879,6 +1933,7 @@
 				0848C1F820FE192800A9963E /* VIPLevelViewController.xib in Resources */,
 				0898C31720ADB57800664482 /* StartViewController.xib in Resources */,
 				0848C1CD20FCD6B600A9963E /* endOrderViewController.xib in Resources */,
+				3CFF3F6A216C45FB006135A4 /* ShopLoveCell.xib in Resources */,
 				08FBE78820AC73F800B507DB /* EvaSucViewController.xib in Resources */,
 				0847F1CD20AB286700BEF0F6 /* CollectedCell.xib in Resources */,
 				08B8672C20EBA08C00F73677 /* MePageCollectionViewCell.xib in Resources */,
@@ -1911,7 +1966,9 @@
 				087A44D12101FAA40031C499 /* OrderFooterView.xib in Resources */,
 				08676F3B20B6F83B00F870B9 /* ShopVideoCell.xib in Resources */,
 				08676F4520B6FBB000F870B9 /* ShopNewCell.xib in Resources */,
+				3CFF3F7E216C83AA006135A4 /* MerchantCell.xib in Resources */,
 				08676F3620B6F63300F870B9 /* ShopConfigCell.xib in Resources */,
+				3CFF3F86216C9090006135A4 /* MechantInfoViewController.xib in Resources */,
 				0880529820A354700018AE6E /* ChangePasswordViewController.xib in Resources */,
 				088052A120A354950018AE6E /* NikeNameViewController.xib in Resources */,
 				0847F1AF20AB070700BEF0F6 /* IndentDetailViewController.xib in Resources */,
@@ -1941,10 +1998,12 @@
 				087A44B220FF9CCB0031C499 /* NavSearchView.xib in Resources */,
 				086AF7D620F38E4B002A0385 /* MeCommenCell.xib in Resources */,
 				08E4643420A2E7B900E405DB /* Main.storyboard in Resources */,
+				3CFF3F6F216C4ACF006135A4 /* ShopLoverCell.xib in Resources */,
 				087A44D6210206250031C499 /* OrderHeaderView.xib in Resources */,
 				088052BF20A9BF420018AE6E /* MeHeaderTableView.xib in Resources */,
 				0848C18320F8CA3900A9963E /* BankNewViewController.xib in Resources */,
 				08676F2E20B6E65300F870B9 /* MeInfoViewController.xib in Resources */,
+				3CFF3F74216C5950006135A4 /* LoveViewController.xib in Resources */,
 				080649C020C9259C003B155F /* MsgViewController.xib in Resources */,
 				08B866AE20E1331E00F73677 /* BannerCell.xib in Resources */,
 				0847F1C820AB1D6100BEF0F6 /* FooterTableView.xib in Resources */,
@@ -2094,6 +2153,7 @@
 				083CAE122102EC1000859126 /* UIButton+IquorArea.m in Sources */,
 				0848C19320F8E2A900A9963E /* BankUserCell.m in Sources */,
 				0898C38820AF1D1A00664482 /* DetailTableHeader.m in Sources */,
+				3CFF3F81216C86FC006135A4 /* MerchantModel.m in Sources */,
 				0848C1EB20FE16A400A9963E /* UserVIP.m in Sources */,
 				08B8671C20EB71AF00F73677 /* WMMenuItem.m in Sources */,
 				0848C1C820FCBFCB00A9963E /* OrderDisViewController.m in Sources */,
@@ -2104,6 +2164,7 @@
 				0898C3CF20B3010C00664482 /* CartTextCell.m in Sources */,
 				0848C19A20FB8A7200A9963E /* PayKindViewController.m in Sources */,
 				080649B320C8D7DA003B155F /* ImageViewController.m in Sources */,
+				3CFF3F69216C45FB006135A4 /* ShopLoveCell.m in Sources */,
 				084ADA352108A72B00CFA964 /* IquorDataManager.m in Sources */,
 				086AF79320F08D79002A0385 /* AddGoodsViewController.m in Sources */,
 				080649A120C7F418003B155F /* AreaChoseViewController.m in Sources */,
@@ -2111,6 +2172,7 @@
 				088052E820A9E1560018AE6E /* View+MASAdditions.m in Sources */,
 				0847F1CC20AB286700BEF0F6 /* CollectedCell.m in Sources */,
 				08B8672B20EBA08C00F73677 /* MePageCollectionViewCell.m in Sources */,
+				3CFF3F6E216C4ACF006135A4 /* ShopLoverCell.m in Sources */,
 				080E99A520D9347000AF09FF /* GoodsInfoModel.m in Sources */,
 				080E99AE20DA95C500AF09FF /* UITableView+Util.m in Sources */,
 				086AF7B220F0B7B0002A0385 /* TAAnimatedDotView.m in Sources */,
@@ -2180,6 +2242,7 @@
 				080E99B120DA95EB00AF09FF /* UICollectionView+Util.m in Sources */,
 				0898C3CA20B3005100664482 /* UploadCartViewController.m in Sources */,
 				080649C620CE0CAB003B155F /* DiscountModel.m in Sources */,
+				3CFF3F78216C8300006135A4 /* MerchantViewController.m in Sources */,
 				0898C3C020B2EEEC00664482 /* ShopCartCell.m in Sources */,
 				08B8671D20EB71AF00F73677 /* WMScrollView.m in Sources */,
 				086AF78F20F08B08002A0385 /* IquorButton.m in Sources */,
@@ -2194,6 +2257,7 @@
 				086AF7B020F0B7B0002A0385 /* TADotView.m in Sources */,
 				0847F1C220AB0C4400BEF0F6 /* IndentBottomCell.m in Sources */,
 				0880525C20A2ED330018AE6E /* MeViewController.m in Sources */,
+				3CFF3F85216C9090006135A4 /* MechantInfoViewController.m in Sources */,
 				0848C20420FE3CE100A9963E /* EveGoodsTableCell.m in Sources */,
 				0847F1E220AB34AE00BEF0F6 /* DiscountViewController.m in Sources */,
 				0847F19C20AAFFB900BEF0F6 /* IndentViewController.m in Sources */,
@@ -2225,6 +2289,7 @@
 				088052E620A9E1560018AE6E /* MASLayoutConstraint.m in Sources */,
 				0880529920A354700018AE6E /* ChangePasswordViewController.m in Sources */,
 				088052C220A9C49C0018AE6E /* MeSectionTableView.m in Sources */,
+				3CFF3F7D216C83AA006135A4 /* MerchantCell.m in Sources */,
 				08B8671E20EB71AF00F73677 /* WMMenuView.m in Sources */,
 				0848C1CC20FCD6B600A9963E /* endOrderViewController.m in Sources */,
 				0847F1AE20AB070700BEF0F6 /* IndentDetailViewController.m in Sources */,
@@ -2239,6 +2304,7 @@
 				0847F1AA20AB048B00BEF0F6 /* IndentListViewController.m in Sources */,
 				3C63BCB5215C6B6400908F26 /* ShareViewController.m in Sources */,
 				0806499C20C6ABE9003B155F /* AddressInfoCell.m in Sources */,
+				3CFF3F73216C5950006135A4 /* LoveViewController.m in Sources */,
 				0898C38E20AF226F00664482 /* AssessCell.m in Sources */,
 				0898C3C520B2F42500664482 /* ShopCartViewController.m in Sources */,
 				0848C1FC20FE38D000A9963E /* EveGoodsViewController.m in Sources */,

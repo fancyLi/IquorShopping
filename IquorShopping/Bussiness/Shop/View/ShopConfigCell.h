@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "ClassInfoModel.h"
-typedef void (^ConfigBlock)(ClassInfoModel *model);
+
+@class GoodsArea;
+
 @interface ShopConfigCell : UITableViewCell
 
-@property (nonatomic, copy) ConfigBlock configBlock;
-- (void)configCatInfo:(NSArray <ClassInfoModel *>*)cats;
+@property (nonatomic, strong) NSArray <GoodsArea *> *areas;
+@property (nonatomic, copy) void(^selectPrefecture)(GoodsArea *prefecture);
+
 @end

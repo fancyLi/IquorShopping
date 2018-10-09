@@ -51,7 +51,7 @@
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ClassCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ClassCell class]) forIndexPath:indexPath];
-    [cell setClassInfo:self.classes[indexPath.item]];
+    cell.classInfo = self.classes[indexPath.item];
     return cell;
 }
 

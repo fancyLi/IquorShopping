@@ -7,7 +7,8 @@
 //
 
 #import "ClassCell.h"
-
+#import "HomePageModel.h"
+#import "ClassInfoModel.h"
 @implementation ClassCell
 
 - (void)awakeFromNib {
@@ -20,12 +21,24 @@
    
 }
 
-- (void)setClassInfo:(ClassInfoModel *)model {
-    if (model.isOrgin) {
-        self.icon.image = [UIImage imageNamed:model.cat_image];
+- (void)setPrefecture:(GoodsArea *)prefecture {
+    _prefecture = prefecture;
+    if (_prefecture.isOrgin) {
+        self.icon.image = [UIImage imageNamed:_prefecture.area_image];
     }else {
-        [self.icon sd_setImageWithURL:[NSURL URLWithString:model.cat_image] placeholderImage:[UIImage imageNamed:@"icon_01"]];
+        [self.icon sd_setImageWithURL:[NSURL URLWithString:_prefecture.area_image] placeholderImage:[UIImage imageNamed:@"icon_01"]];
     }
-        self.name.text = model.cat_name;
+    self.name.text = _prefecture.area_name;
 }
+
+- (void)setClassInfo:(ClassInfoModel *)classInfo {
+    _classInfo = classInfo;
+    if (_classInfo.isOrgin) {
+        self.icon.image = [UIImage imageNamed:_classInfo.cat_image];
+    }else {
+        [self.icon sd_setImageWithURL:[NSURL URLWithString:_classInfo.cat_image] placeholderImage:[UIImage imageNamed:@"icon_01"]];
+    }
+    self.name.text = _classInfo.cat_name;
+}
+
 @end

@@ -20,6 +20,9 @@
 #import "HomePageModel.h"
 #import "NavSearchView.h"
 #import "NoticeViewController.h"
+#import "ShopLoveCell.h"
+#import "LoveViewController.h"
+#import "MerchantViewController.h"
 
 @interface ShopViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *shopTableView;
@@ -122,22 +125,31 @@
         
     }];
 }
-- (void)enterVC:(ClassInfoModel *)model {
-    if (model.cat_id.intValue == 1 || model.cat_id.intValue == 2) {
-        SiginViewController *vc = [[SiginViewController alloc]init];
-        vc.type = model.cat_id;
-        vc.title = model.cat_name;
+- (void)enterVC:(GoodsArea *)prefecture {
+    if (prefecture.area_id.intValue ==0 ) {
+        MerchantViewController *vc = [[MerchantViewController alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
-    }else if (model.cat_id.intValue == 3) {
+    }
+    else if (prefecture.area_id.intValue == 1 || prefecture.area_id.intValue == 2)
+    {
+        SiginViewController *vc = [[SiginViewController alloc]init];
+        vc.type = prefecture.area_id;
+        vc.title = prefecture.area_name;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (prefecture.area_id.intValue == 3)
+    {
         ShopDiscountViewController *vc = [[ShopDiscountViewController alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
-    }else {
+    }
+    else
+    {
         self.tabBarController.selectedIndex = 2;
     }
 }
 #pragma mark UITableViewDataSource & UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 5;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
@@ -150,40 +162,72 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0)
+    {
         return 240;
-    }else if (indexPath.section == 1) {
+    }
+    else if (indexPath.section == 1)
+    {
+        return 418;
+    }
+    else if (indexPath.section == 2)
+    {
         return 270;
-    }else if (indexPath.section == 2) {
+    }
+    else if (indexPath.section == 3)
+    {
         return 300;
-    }else {
+    }
+    else
+    {
         ShopNewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopNewCell class])];
        return  [cell getCellHeight:self.homePageModel.goods_new];
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     @weakify(self);
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0)
+    {
         ShopConfigCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopConfigCell class])];
-        [cell configCatInfo:self.homePageModel.goods_cat_list];
-        cell.configBlock = ^(ClassInfoModel *model) {
+        cell.areas = self.homePageModel.goods_area_list;
+        
+        cell.selectPrefecture = ^(GoodsArea *prefecture) {
             @strongify(self);
-            if (model.isOrgin) {
-                [self enterVC:model];
+   
+            if (prefecture.isOrgin) {
+                [self enterVC:prefecture];
             }else {
                 SiginViewController *siginVC = [[SiginViewController alloc]init];
-                siginVC.cat_id = model.cat_id;
-                siginVC.title = model.cat_name;
+                siginVC.cat_id = prefecture.area_id;
+                siginVC.title = prefecture.area_name;
                 siginVC.type = @"3";
                 [self.navigationController pushViewController:siginVC animated:YES];
             }
+            
+        };
+       
+        return cell;
+    }
+    else if (indexPath.section == 1)
+    {
+        ShopLoveCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopLoveCell class])];
+        cell.homePage = self.homePageModel;
+        @weakify(self);
+        cell.moreDonate = ^{
+            @strongify(self);
+            LoveViewController *vc = [[LoveViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
         };
         return cell;
-    }else if (indexPath.section == 1) {
+    }
+    else if (indexPath.section == 2)
+    {
         ShopVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopVideoCell class])];
         cell.video_img = self.homePageModel.video.video_img;
         return cell;
-    }else if (indexPath.section == 2) {
+    }
+    else if (indexPath.section == 3)
+    {
         ShopHotCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopHotCell class])];
         [cell configHotInfo:self.homePageModel.hot_goods];
         @weakify(self);
@@ -201,7 +245,9 @@
             [self.navigationController pushViewController:vc animated:YES];
         };
         return cell;
-    }else {
+    }
+    else
+    {
         ShopNewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopNewCell class])];
         [cell configNewInfo:self.homePageModel.goods_new];
         @weakify(self);
@@ -267,7 +313,7 @@
         [_shopTableView registerNib:[UINib nibWithNibName:@"ShopVideoCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopVideoCell class])];
         [_shopTableView registerNib:[UINib nibWithNibName:@"ShopHotCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopHotCell class])];
         [_shopTableView registerNib:[UINib nibWithNibName:@"ShopNewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopNewCell class])];
-        
+        [_shopTableView registerNib:[UINib nibWithNibName:@"ShopLoveCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopLoveCell class])];
     }
     return _shopTableView;
 }

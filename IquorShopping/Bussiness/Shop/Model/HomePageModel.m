@@ -9,6 +9,7 @@
 #import "HomePageModel.h"
 #import "ClassInfoModel.h"
 #import "GoodsInfoModel.h"
+
 @implementation Banner
 + (NSDictionary *)modelCustomPropertyMapper {
     return @{@"banner_id"  : @"id"};
@@ -19,6 +20,14 @@
 
 @end
 
+@implementation Lover
+
+@end
+
+
+@implementation GoodsArea
+
+@end
 
 
 @implementation HomePageModel
@@ -34,7 +43,10 @@
              @"goods_cat_list" : [ClassInfoModel class],
              @"hot_goods": [GoodsInfoModel class],
              @"goods_new": [GoodsInfoModel class],
-             @"video":[Video class]
+             @"video":[Video class],
+             @"love_list": [Lover class],
+             @"love_banner":[Banner class],
+             @"goods_area_list":[GoodsArea class]
              };
 }
 @end
