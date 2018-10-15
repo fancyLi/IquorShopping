@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *donateTotal;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIStackView *stackView;
 
 @property (nonatomic, strong) NSMutableArray *arrs;
 @property (nonatomic, assign) NSInteger page;
@@ -64,13 +65,16 @@
             if (arrs.count) {
                 [self.arrs addObjectsFromArray:arrs];
             }else {
-                [Dialog popTextAnimation:self.page==1?@"暂无数据":@"没有下一页了"];
+                [Dialog popTextAnimation:self.page==1?responseObject[@"message"]:@"没有下一页了"];
             }
-            [self.tableView setTableBgViewWithCount:self.arrs.count img:@"icon_none_02" msg:@"暂无数据"];
+            [self.tableView setTableBgViewWithCount:self.arrs.count img:@"icon_none_02" msg:responseObject[@"message"]];
             [self.tableView reloadData];
         }else {
             [Dialog popTextAnimation:responseObject[@"message"]];
         }
+        
+        self.stackView.hidden =self.arrs.count ? NO : YES;
+       
     } fail:^{
         
     }];

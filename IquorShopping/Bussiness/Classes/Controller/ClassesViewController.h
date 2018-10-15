@@ -8,6 +8,10 @@
 
 #import "IquorViewController.h"
 
+@class GoodsArea;
+
 @interface ClassesViewController : IquorViewController
+
+@property (nonatomic, strong) GoodsArea *goodsArea;
 
 @end

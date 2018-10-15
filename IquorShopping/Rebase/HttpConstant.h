@@ -145,6 +145,9 @@
 //产品分类
 #define shop_goodsCatList                       @"shop/goodsCatList"
 
+//专区列表
+#define shop_areaList                       @"shop/goodsAreaList"
+
 //产品列表
 #define shop_goodsList                          @"shop/goodsList"
 

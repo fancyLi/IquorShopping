@@ -89,17 +89,19 @@
     
     IndentBottomCell *cell = [self.detailTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
     cell.goodsPrice.text = [NSString stringWithFormat:@"￥%.2f",num];
-    CGFloat endPrice = 0 ;
-    CGFloat disPrice = 0;
-    if (![UIUtils isNullOrEmpty:self.order.discount]) {
-         endPrice = num*(self.order.discount.floatValue/10);
-         disPrice = num*(1-self.order.discount.floatValue/10);
-    }
+//    CGFloat endPrice = 0 ;
+//    CGFloat disPrice = 0;
+    
+//    if (![UIUtils isNullOrEmpty:self.order.discount]) {
+//         endPrice = num*(self.order.discount.floatValue/10);
+//         disPrice = num*(1-self.order.discount.floatValue/10);
+//    }
     
     //折扣
-    self.discount_money = [NSString stringWithFormat:@"%.2f", endPrice];
-    cell.vipPrice.text = [NSString stringWithFormat:@"-￥%.2f", disPrice];
-    
+//    self.discount_money = [NSString stringWithFormat:@"%.2f", endPrice];
+//    cell.vipPrice.text = [NSString stringWithFormat:@"-￥%.2f", disPrice];
+    self.discount_money = self.order.discount_total;
+    cell.vipPrice.text = [NSString stringWithFormat:@"-￥%.2f", self.order.discount_total.floatValue];
     CGFloat cou = 0.00;
     if (self.order.coupon.count) {
         Coupon *coupon = self.order.coupon.firstObject;
@@ -109,10 +111,8 @@
     }else {
         self.ucid = @"";
     }
-    if (endPrice) {
-        
-    }
-    CGFloat order_total = num-disPrice-cou;
+
+    CGFloat order_total = num-cou - self.order.discount_total.floatValue;
     self.order_total = [NSString stringWithFormat:@"%.2f", order_total];
     self.yzf.text = [NSString stringWithFormat:@"应支付：￥%.2f", order_total];
 }
@@ -234,7 +234,7 @@
         return cell;
     }else if (indexPath.section == 1) {
         MeInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MeInfoTableViewCell class])];
-        
+        cell.shareBtn.hidden = YES;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         if (indexPath.row == 0) {
             cell.leftTitle.text = @"支付方式";

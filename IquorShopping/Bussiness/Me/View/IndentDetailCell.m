@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *des;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *nums;
+@property (weak, nonatomic) IBOutlet UILabel *discount;
 
 @end
 
@@ -27,6 +28,9 @@
     _order = order;
     [self.icon sd_setImageWithURL:[NSURL URLWithString:_order.goods_image]];
     self.name.text = _order.goods_name;
+    if (_order.is_discount) {
+         self.discount.text = [NSString stringWithFormat:@"折扣金额 ￥%@", _order.discount_money];
+    }
 //    self.des.text = [NSString stringWithFormat:@"规格%@", _order.attribute_value];
     self.price.text = [NSString stringWithFormat:@"￥%@", _order.goods_price];
     self.nums.text = [NSString stringWithFormat:@"x%@", _order.goods_num];

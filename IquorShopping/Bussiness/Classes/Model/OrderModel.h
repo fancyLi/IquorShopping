@@ -11,13 +11,19 @@
 
 
 @interface OrderGoods : NSObject
-@property (nonatomic, copy) NSString *cart_id;
+//@property (nonatomic, copy) NSString *cart_id;
 @property (nonatomic, copy) NSString *goods_num;
 @property (nonatomic, copy) NSString *goods_id;
 @property (nonatomic, copy) NSString *goods_name;
 @property (nonatomic, copy) NSString *goods_image;
 @property (nonatomic, copy) NSString *goods_price;
 @property (nonatomic, copy) NSString *attribute_value;
+
+@property (nonatomic, copy) NSString *area_id;
+@property (nonatomic, copy) NSString *discount;
+@property (nonatomic, copy) NSString *discount_money;
+@property (nonatomic, assign) BOOL is_discount;
+
 @end
 
 @interface Coupon : NSObject
@@ -41,6 +47,7 @@
 @property (nonatomic, strong) NSArray<OrderGoods*> *goods_list;
 @property (nonatomic, strong) NSArray<Coupon*> *coupon;
 @property (nonatomic, strong) OrderAdress *addr;
-@property (nonatomic, strong) NSString *discount;
-@property (nonatomic, strong) NSString *is_discount;
+//@property (nonatomic, strong) NSString *discount;
+//@property (nonatomic, strong) NSString *is_discount;
+@property (nonatomic, strong) NSString *discount_total;
 @end

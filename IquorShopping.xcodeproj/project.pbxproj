@@ -278,6 +278,7 @@
 		08FBE79120AC778400B507DB /* BrokerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FBE78F20AC778400B507DB /* BrokerCell.m */; };
 		08FBE79220AC778400B507DB /* BrokerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08FBE79020AC778400B507DB /* BrokerCell.xib */; };
 		1A099031B18DA7D1580389EE /* libPods-IquorShopping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B24F8520DB163081C6C3D09 /* libPods-IquorShopping.a */; };
+		3C2DB2432172E69E00D53F4C /* ShopAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2DB2422172E69E00D53F4C /* ShopAreaViewController.m */; };
 		3C63BCA7215C693800908F26 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3C63BC98215C693800908F26 /* README.txt */; };
 		3C63BCA8215C693800908F26 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C63BC9A215C693800908F26 /* libWeChatSDK.a */; };
 		3C63BCA9215C693800908F26 /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C63BC9C215C693800908F26 /* ShareSDKConnector.framework */; };
@@ -797,6 +798,8 @@
 		226CF5847751A43E39E91E00 /* Pods-IquorShoppingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IquorShoppingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IquorShoppingTests/Pods-IquorShoppingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		23C1CD0625CD58003E04992E /* Pods-IquorShoppingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IquorShoppingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IquorShoppingTests/Pods-IquorShoppingTests.release.xcconfig"; sourceTree = "<group>"; };
 		292E4C7C26E5AC99EAB3C6A5 /* libPods-IquorShoppingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IquorShoppingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C2DB2412172E69E00D53F4C /* ShopAreaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopAreaViewController.h; sourceTree = "<group>"; };
+		3C2DB2422172E69E00D53F4C /* ShopAreaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopAreaViewController.m; sourceTree = "<group>"; };
 		3C63BC96215C693800908F26 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		3C63BC97215C693800908F26 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		3C63BC98215C693800908F26 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
@@ -1175,6 +1178,8 @@
 				3CFF3F82216C9090006135A4 /* MechantInfoViewController.h */,
 				3CFF3F83216C9090006135A4 /* MechantInfoViewController.m */,
 				3CFF3F84216C9090006135A4 /* MechantInfoViewController.xib */,
+				3C2DB2412172E69E00D53F4C /* ShopAreaViewController.h */,
+				3C2DB2422172E69E00D53F4C /* ShopAreaViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2216,6 +2221,7 @@
 				087A44DC2102272A0031C499 /* TeamerModel.m in Sources */,
 				086AF7BE20F0C465002A0385 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				0880527F20A349D00018AE6E /* ResetPasswordViewController.m in Sources */,
+				3C2DB2432172E69E00D53F4C /* ShopAreaViewController.m in Sources */,
 				0880524C20A2EB730018AE6E /* UIUtils.m in Sources */,
 				087A44D9210217FA0031C499 /* NoticeViewController.m in Sources */,
 				08FBE78C20AC75F400B507DB /* BrokerViewController.m in Sources */,

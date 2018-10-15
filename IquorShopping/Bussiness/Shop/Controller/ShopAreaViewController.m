@@ -1,46 +1,45 @@
 //
-//  ClassesViewController.m
+//  ShopAreaViewController.m
 //  IquorShopping
 //
-//  Created by nanli5 on 2018/5/9.
+//  Created by nanli on 2018/10/14.
 //  Copyright © 2018年 Hefei elevation network technology co. LTD. All rights reserved.
 //
 
+#import "ShopAreaViewController.h"
 #import "ClassesViewController.h"
-#import "SiginViewController.h"
-#import "NavSearchBar.h"
-#import "ClassCell.h"
-#import "ClassInfoModel.h"
 #import "HomePageModel.h"
+#import "ClassCell.h"
 
-@interface ClassesViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ShopAreaViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+
 @property (nonatomic, strong) UICollectionView *classView;
-@property (nonatomic, strong) NavSearchBar *navSearchBar;
-@property (nonatomic, strong) NSArray *classes;
+
+@property (nonatomic, strong) NSArray <GoodsArea *> *areas;
+
 @end
 
-@implementation ClassesViewController
+@implementation ShopAreaViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = self.goodsArea.area_name;
-    
+    self.title = @"专区";
     [self.view addSubview:self.classView];
     [self.classView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.bottom.mas_equalTo(0);
     }];
-    self.navigationItem.titleView = self.navSearchBar;
     [self requestClssInfo];
+    
+    // Do any additional setup after loading the view.
 }
 
 - (void)requestClssInfo {
     WeakObj(self);
-    
-    [AFNetworkTool postJSONWithUrl:shop_goodsCatList parameters:@{@"area_id":self.goodsArea.area_id} success:^(id responseObject) {
+    [AFNetworkTool postJSONWithUrl:shop_areaList parameters:nil success:^(id responseObject) {
         NSInteger code = [responseObject[@"code"] integerValue];
         
         if (code == 200) {
-            selfWeak.classes = [NSArray yy_modelArrayWithClass:[ClassInfoModel class] json:responseObject[@"content"][@"list"]];
+            selfWeak.areas = [NSArray yy_modelArrayWithClass:[GoodsArea class] json:responseObject[@"content"][@"list"]];
             [selfWeak.classView reloadData];
             
         }else {
@@ -52,23 +51,21 @@
 }
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-   return self.classes.count;
+    return self.areas.count;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ClassCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ClassCell class]) forIndexPath:indexPath];
-    cell.classInfo = self.classes[indexPath.item];
+    cell.prefecture = self.areas[indexPath.item];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    ClassInfoModel *infoModel = self.classes[indexPath.item];
-    SiginViewController *siginVC = [[SiginViewController alloc]init];
-    siginVC.cat_id = infoModel.cat_id;
-    siginVC.title = infoModel.cat_name;
-    siginVC.type = @"3";
-    siginVC.title = infoModel.cat_name;
-    [self.navigationController pushViewController:siginVC animated:YES];
+    ClassesViewController *vc = [[ClassesViewController alloc] init];
+    vc.goodsArea = self.areas[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -92,11 +89,19 @@
     return _classView;
 }
 
-- (NavSearchBar *)navSearchBar {
-    if (!_navSearchBar) {
-        _navSearchBar = [[NSBundle mainBundle] loadNibNamed:@"NavSearchBar" owner:self options:nil].firstObject;
-    }
-    return _navSearchBar;
+
+
+
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
+*/
 
 @end

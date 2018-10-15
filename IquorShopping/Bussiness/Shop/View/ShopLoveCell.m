@@ -16,6 +16,8 @@
 
 #import <YYCategories/UIControl+YYAdd.h>
 
+#import <YYCategories/UITableView+YYAdd.h>
+
 @interface ShopLoveCell () <UITableViewDataSource, SDCycleScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet SDCycleScrollView *sycleScrollView;
@@ -45,10 +47,38 @@
         [arr addObject:banner.banner];
     }
     self.sycleScrollView.imageURLStringsGroup = arr;
+    
+
+    if (@available(iOS 10.0, *)) {
+        __block int curIndex = 0;
+        [NSTimer scheduledTimerWithTimeInterval:2.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            NSInteger count = self.homePage.love_list.count;
+            curIndex ++;
+            if (curIndex==count) {
+                curIndex = 0;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView scrollToRow:curIndex inSection:0 atScrollPosition:UITableViewScrollPositionTop animated:NO];
+                    
+                });
+            }else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView scrollToRow:curIndex inSection:0 atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+                    
+                });
+            }
+           
+            
+        }];
+    } else {
+
+    }
+   
+    
 }
 - (void)configUI {
     self.sycleScrollView.autoScrollTimeInterval = 4;
     self.tableView.dataSource = self;
+    self.tableView.showsVerticalScrollIndicator = NO;
     [self.tableView registerNib:[UINib nibWithNibName:@"ShopLoverCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopLoverCell class])];
     self.tableView.rowHeight = 60;
     

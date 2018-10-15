@@ -10,7 +10,7 @@
 #import "IquorNavigationViewController.h"
 #import "ShopViewController.h"
 #import "JoinsViewController.h"
-#import "ClassesViewController.h"
+#import "ShopAreaViewController.h"
 #import "ShopCartViewController.h"
 #import "MeViewController.h"
 
@@ -40,9 +40,9 @@
     catagoryNav.tabBarItem.image               = [UIImage imageNamed:@"icon_nav_02"];
     [catagoryNav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor c_cc0Color]} forState:UIControlStateSelected];
     
-    ClassesViewController *promotion       = [[ClassesViewController alloc] init];
+    ShopAreaViewController *promotion       = [[ShopAreaViewController alloc] init];
     IquorNavigationViewController *promotionNav       = [[IquorNavigationViewController alloc] initWithRootViewController:promotion];
-    promotionNav.tabBarItem.title              = @"分类";
+    promotionNav.tabBarItem.title              = @"专区";
     promotionNav.tabBarItem.selectedImage      = [[UIImage imageNamed:@"icon_nav_003"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     promotionNav.tabBarItem.image              = [UIImage imageNamed:@"icon_nav_03"];
     [promotionNav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor c_cc0Color]} forState:UIControlStateSelected];

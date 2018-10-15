@@ -23,6 +23,8 @@
 #import "ShopLoveCell.h"
 #import "LoveViewController.h"
 #import "MerchantViewController.h"
+#import "ClassesViewController.h"
+
 
 @interface ShopViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *shopTableView;
@@ -197,11 +199,14 @@
             if (prefecture.isOrgin) {
                 [self enterVC:prefecture];
             }else {
-                SiginViewController *siginVC = [[SiginViewController alloc]init];
-                siginVC.cat_id = prefecture.area_id;
-                siginVC.title = prefecture.area_name;
-                siginVC.type = @"3";
-                [self.navigationController pushViewController:siginVC animated:YES];
+                ClassesViewController *vc = [[ClassesViewController alloc] init];
+                vc.goodsArea = prefecture;
+                
+//                SiginViewController *siginVC = [[SiginViewController alloc]init];
+//                siginVC.cat_id = prefecture.area_id;
+//                siginVC.title = prefecture.area_name;
+//                siginVC.type = @"3";
+                [self.navigationController pushViewController:vc animated:YES];
             }
             
         };
@@ -211,6 +216,7 @@
     else if (indexPath.section == 1)
     {
         ShopLoveCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopLoveCell class])];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.homePage = self.homePageModel;
         @weakify(self);
         cell.moreDonate = ^{
@@ -273,7 +279,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         
-    }else if (indexPath.section == 1) {
+    }else if (indexPath.section == 2) {
          [self startPlayer];
     }
 }
