@@ -50,3 +50,29 @@
              };
 }
 @end
+
+@implementation HomePageModel (Config)
+
+- (CGFloat)loveHeight {
+    CGFloat h = 0.0;
+    if (self.love_banner.count) {
+        h += 100;
+    }
+    if (self.love_list.count && self.love_list.count>=3) {
+        h += 60*5;
+    }else if (self.love_list.count && self.love_list.count < 3) {
+        h += 60*(self.love_list.count+2);
+    }
+    return h;
+}
+
+@end
+
+
+@implementation LoverContent
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"list" : [Lover class]
+             };
+}
+@end

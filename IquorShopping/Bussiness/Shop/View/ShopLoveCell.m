@@ -28,6 +28,12 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (weak, nonatomic) IBOutlet UIStackView *stackView;
+@property (weak, nonatomic) IBOutlet UIStackView *stackView2;
+/**  */
+@property (nonatomic, strong) CADisplayLink *displayLink;
+/**  */
+@property (nonatomic, assign) CGFloat offy;
 @end
 
 @implementation ShopLoveCell
@@ -39,7 +45,8 @@
 
 - (void)setHomePage:(HomePageModel *)homePage {
     _homePage = homePage;
-    self.donateTotal.text = _homePage.total_giving;
+    CGFloat total = _homePage.total_giving.floatValue;
+    self.donateTotal.text = [NSString stringWithFormat:@"%.2f",  total];
     [self.tableView reloadData];
     
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:_homePage.love_banner.count];
@@ -49,32 +56,35 @@
     self.sycleScrollView.imageURLStringsGroup = arr;
     
 
-    if (@available(iOS 10.0, *)) {
-        __block int curIndex = 0;
-        [NSTimer scheduledTimerWithTimeInterval:2.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
-            NSInteger count = self.homePage.love_list.count;
-            curIndex ++;
-            if (curIndex==count) {
-                curIndex = 0;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.tableView scrollToRow:curIndex inSection:0 atScrollPosition:UITableViewScrollPositionTop animated:NO];
-                    
-                });
-            }else {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.tableView scrollToRow:curIndex inSection:0 atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-                    
-                });
-            }
-           
-            
-        }];
-    } else {
-
+    if (!_homePage.love_list.count) {
+        self.stackView.hidden = YES;
+        self.stackView2.hidden = YES;
+        return;
     }
+
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(scroOffy) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
    
     
 }
+
+- (void)scroOffy {
+    if (self.offy>self.tableView.contentSize.height-60*3) {
+        self.offy = 0;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.tableView setContentOffset:CGPointMake(0, self.offy) animated:NO];
+        });
+    }else {
+        self.offy += 1;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView setContentOffset:CGPointMake(0, self.offy) animated:YES];
+        });
+    }
+    
+}
+
 - (void)configUI {
     self.sycleScrollView.autoScrollTimeInterval = 4;
     self.tableView.dataSource = self;

@@ -9,8 +9,8 @@
 #ifndef HttpConstant_h
 #define HttpConstant_h
 
-//#define HostUrl                     @"http://www.zuixiaoyaojiuye.com/"
-#define HostUrl                     @"http://chengchuan.ahaiba.com.cn/"
+#define HostUrl                     @"http://www.zuixiaoyaojiuye.com/"
+//#define HostUrl                     @"http://chengchuan.ahaiba.com.cn/"
 #define BaseURL                 [NSString stringWithFormat:@"%@index.php/",HostUrl]
 
 

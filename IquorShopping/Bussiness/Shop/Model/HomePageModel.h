@@ -68,6 +68,21 @@
 @property (nonatomic, copy) NSString *isOpen;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *content;
+
 @end
 
 
+//config
+@interface HomePageModel (Config)
+/**  */
+@property (nonatomic, assign, readonly) CGFloat loveHeight;
+
+@end
+
+
+@interface LoverContent :NSObject
+/**  */
+@property (nonatomic, assign) double love_total;
+/**  */
+@property (nonatomic, strong) NSArray<Lover *> *list;
+@end

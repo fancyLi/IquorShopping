@@ -13,7 +13,7 @@
 #import "GoodsInfoModel.h"
 #import "GoodsInfoViewController.h"
 
-@interface MechantInfoViewController ()
+@interface MechantInfoViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet SDCycleScrollView *cycleScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *merchantAvatar;
@@ -47,6 +47,7 @@
     CGFloat wh =(kMainScreenWidth-1)/2;
     flowLayout.itemSize = CGSizeMake(wh, wh);
     self.collectionView.collectionViewLayout = flowLayout;
+    [self.collectionView registerNib:[UINib nibWithNibName:@"SiginCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([SiginCell class])];
     @weakify(self);
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         @strongify(self);

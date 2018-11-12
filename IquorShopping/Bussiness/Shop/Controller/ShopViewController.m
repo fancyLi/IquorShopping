@@ -170,7 +170,8 @@
     }
     else if (indexPath.section == 1)
     {
-        return 418;
+        return self.homePageModel.loveHeight;
+//        return 418;
     }
     else if (indexPath.section == 2)
     {

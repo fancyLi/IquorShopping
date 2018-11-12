@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSMutableArray *arrs;
 @property (nonatomic, assign) NSInteger page;
 
+
 @end
 
 @implementation LoveViewController
@@ -61,7 +62,10 @@
         NSInteger code = [responseObject[@"code"] integerValue];
         
         if (code == 200) {
-            NSArray *arrs = [NSArray yy_modelArrayWithClass:[Lover class] json:responseObject[@"content"][@"list"]];
+            LoverContent *loverC = [LoverContent yy_modelWithDictionary:responseObject[@"content"]];
+            NSArray *arrs = loverC.list;
+            
+            self.donateTotal.text = [NSString stringWithFormat:@"%.2f",loverC.love_total];
             if (arrs.count) {
                 [self.arrs addObjectsFromArray:arrs];
             }else {
